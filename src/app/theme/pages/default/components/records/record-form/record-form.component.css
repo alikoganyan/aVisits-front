@@ -1,0 +1,5 @@
+:host(app-record-form) {
+    overflow: hidden;
+    margin-bottom: 60px;
+    flex: 1;
+}

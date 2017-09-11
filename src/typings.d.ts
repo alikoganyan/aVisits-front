@@ -12,4 +12,5 @@ interface JQuery {
     validate(options: any): JQuery;
     valid(): JQuery;
     resetForm(): JQuery;
+    markdown(): JQuery;
 }
