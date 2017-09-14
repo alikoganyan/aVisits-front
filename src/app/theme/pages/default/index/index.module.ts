@@ -5,6 +5,9 @@ import { IndexComponent } from './index.component';
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 
+/* Schedule */
+import { DxSchedulerModule, DxTemplateModule  } from 'devextreme-angular';
+
 const routes: Routes = [
     {
         "path": "",
@@ -19,7 +22,10 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), LayoutModule
+        CommonModule, RouterModule.forChild(routes),
+        LayoutModule,
+        DxSchedulerModule,
+        DxTemplateModule
     ], exports: [
         RouterModule
     ], declarations: [

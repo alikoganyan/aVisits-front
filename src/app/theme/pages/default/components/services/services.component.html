@@ -1,11 +1,241 @@
-<!-- BEGIN: Subheader -->
 <div class="m-subheader">
     <div class="d-flex align-items-center">
         <div class="mr-auto">
             <h3 class="m-subheader__title m-subheader__title--separator">
                 Услуги
             </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a class="m-nav__link">
+						<span class="m-nav__link-text">
+							Услуги
+						</span>
+                    </a>
+                </li>
+            </ul>
         </div>
+
     </div>
 </div>
 <!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="parentDiv">
+            <!--begin::Portlet-->
+            <div class="m-portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <!-- Search here -->
+                        <div class="m-portlet__head-title">
+                            <div class="m-input-icon m-input-icon--left searchDiv">
+                                <input class="form-control m-input m-input--solid" id="m_form_search"
+                                       placeholder="Search..." type="text">
+                                <span class="m-input-icon__icon m-input-icon__icon--left">
+										<span>
+											<i class="la la-search"></i>
+										</span>
+									</span>
+                            </div>
+                            <!-- Model end -->
+                        </div>
+                        <!-- Search end -->
+                        <!-- Modal here -->
+                        <button class="btn btn-primary modalButton " data-target="#m_modal_5" data-toggle="modal" type="button">
+                            Добавить
+                        </button>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <!--begin::Section-->
+                    <div class="m-section">
+
+                        <div class="m-section__sub">Default</div>
+                        <div class="m-section__content">
+                            <p-accordion>
+                                <!-- First -->
+                                <p-accordionTab header="Парикмахерские услуги">
+                                    <div class="m-section__content">
+                                        <p-accordion>
+                                            <!-- Second -->
+                                            <p-accordionTab header="Стрижка">
+                                                <div class="m-section__content">
+                                                    <p-accordion (onClose)="onTabClose($event)"
+                                                                 (onOpen)="onTabOpen($event)">
+                                                        <!-- Third -->
+                                                        <div class="m-checkbox-list">
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 1
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 2
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 3
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                    </p-accordion>
+                                                </div>
+                                            </p-accordionTab>
+                                            <!-- Strijka -->
+                                            <p-accordionTab header="Окрашивание волос">
+                                                <div class="m-section__content">
+                                                    <p-accordion (onClose)="onTabClose($event)"
+                                                                 (onOpen)="onTabOpen($event)">
+
+                                                        <div class="m-checkbox-list">
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 1
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 2
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 3
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+
+                                                    </p-accordion>
+                                                </div>
+                                            </p-accordionTab>
+                                            <!-- Strijka -->
+                                            <p-accordionTab header="Стрижка горячим утюгом">
+                                                <div class="m-section__content">
+                                                    <p-accordion (onClose)="onTabClose($event)"
+                                                                 (onOpen)="onTabOpen($event)">
+                                                        <div class="m-checkbox-list">
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 1
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 2
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="m-checkbox">
+                                                                <input type="checkbox">
+                                                                Option 3
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                    </p-accordion>
+                                                </div>
+                                            </p-accordionTab>
+                                            <!-- Ukladka -->
+                                            <p-accordionTab header="Укладка">
+                                                <div class="m-checkbox-list">
+                                                    <label class="m-checkbox">
+                                                        <input type="checkbox">
+                                                        Option 1
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="m-checkbox">
+                                                        <input type="checkbox">
+                                                        Option 2
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="m-checkbox">
+                                                        <input type="checkbox">
+                                                        Option 3
+                                                        <span></span>
+                                                    </label>
+                                                </div>
+                                            </p-accordionTab>
+                                        </p-accordion>
+                                    </div>
+                                </p-accordionTab>
+                                <p-accordionTab header="Косметология">
+                                    Sed vitae dolor purus. Nulla laoreet enim quis orci molestie aliquam. Donec eleifend
+                                    nibh id luctus
+                                    imperdiet.
+                                    Donec tellus justo, imperdiet quis turpis in, interdum rhoncus lorem. Proin ac sem
+                                    augue. Praesent
+                                    condimentum
+                                    varius arcu nec dapibus. Suspendisse quis egestas justo, eget semper lectus. Nulla
+                                    facilisi.
+                                </p-accordionTab>
+                                <p-accordionTab header="Ногтевой сервис">
+                                    Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
+                                    risus at neque. Suspendisse
+                                    vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta sem,
+                                    non luctus leo imperdiet
+                                    rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
+                                    Phasellus consequat lectus ac
+                                    metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit commodo
+                                    eget. Phasellus porta
+                                    massa
+                                    scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
+                                    consequat justo. Nullam
+                                    placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam semper
+                                    mollis hendrerit. Etiam
+                                    sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat quam,
+                                    vel sollicitudin mauris.
+                                </p-accordionTab>
+                            </p-accordion>
+                        </div>
+                    </div>
+                    <!--end::Section-->
+                </div>
+            </div>
+            <!--end::Portlet-->
+
+            <!--begin::Modal-->
+            <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                Добавить услугу
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">
+							&times;
+						</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="form-control-label">
+                                        Добавить услугу:
+                                    </label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end::Modal-->
+        </div>
+    </div>
+</div>

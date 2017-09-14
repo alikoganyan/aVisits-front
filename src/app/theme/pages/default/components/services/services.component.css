@@ -1,0 +1,35 @@
+:host(app-services) {
+    overflow: hidden;
+    margin-bottom: 60px;
+    flex: 1;
+}
+
+.avisits-box {
+    overflow: auto;
+    padding: 5px 0;
+    cursor: pointer;
+    color: #5867dd;
+}
+
+.parentDiv {
+    position: relative;
+    max-width: 500px;
+}
+
+.avisits-box:hover {
+    background-color: #F6F6F6;
+}
+
+.avisits-box label {
+    margin-bottom: 0;
+}
+
+.searchDiv {
+    margin-top: 15px;
+}
+
+.modalButton {
+    position: absolute;
+    top: 14px;
+    right: 31px;
+}
