@@ -1,12 +1,20 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { ScriptLoaderService } from "../_services/script-loader.service";
-import { AuthenticationService } from "./_services/authentication.service";
-import { AlertService } from "./_services/alert.service";
-import { UserService } from "./_services/user.service";
-import { AlertComponent } from "./_directives/alert.component";
-import { LoginCustom } from "./_helpers/login-custom";
-import { Helpers } from "../helpers";
+import {
+    Component,
+    ComponentFactoryResolver,
+    OnInit,
+    ViewChild,
+    ViewContainerRef,
+    ViewEncapsulation
+} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ScriptLoaderService} from "../_services/script-loader.service";
+import {AuthenticationService} from "./_services/authentication.service";
+import {AlertService} from "./_services/alert.service";
+import {UserService} from "./_services/user.service";
+import {AlertComponent} from "./_directives/alert.component";
+import {LoginCustom} from "./_helpers/login-custom";
+import {Helpers} from "../helpers";
+
 
 @Component({
     selector: ".m-grid.m-grid--hor.m-grid--root.m-page",
@@ -19,17 +27,19 @@ export class AuthComponent implements OnInit {
     loading = false;
     returnUrl: string;
 
-    @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
-    @ViewChild('alertSignup', { read: ViewContainerRef }) alertSignup: ViewContainerRef;
-    @ViewChild('alertForgotPass', { read: ViewContainerRef }) alertForgotPass: ViewContainerRef;
+    @ViewChild('alertSignin', {read: ViewContainerRef}) alertSignin: ViewContainerRef;
+    @ViewChild('alertSignup', {read: ViewContainerRef}) alertSignup: ViewContainerRef;
+    @ViewChild('alertForgotPass', {read: ViewContainerRef}) alertForgotPass: ViewContainerRef;
+
+
 
     constructor(private _router: Router,
-        private _script: ScriptLoaderService,
-        private _userService: UserService,
-        private _route: ActivatedRoute,
-        private _authService: AuthenticationService,
-        private _alertService: AlertService,
-        private cfr: ComponentFactoryResolver) {
+                private _script: ScriptLoaderService,
+                private _userService: UserService,
+                private _route: ActivatedRoute,
+                private _authService: AuthenticationService,
+                private _alertService: AlertService,
+                private cfr: ComponentFactoryResolver) {
     }
 
     ngOnInit() {
@@ -47,52 +57,56 @@ export class AuthComponent implements OnInit {
 
     signin() {
         this.loading = true;
+        console.log(this.model);
         this._authService.login(this.model.email, this.model.password)
             .subscribe(
-            data => {
-                this._router.navigate([this.returnUrl]);
-            },
-            error => {
-                this.showAlert('alertSignin');
-                this._alertService.error(error);
-                this.loading = false;
-            });
+                data => {
+                    this._router.navigate([this.returnUrl]);
+                    console.log(data);
+                },
+                error => {
+                    this.showAlert('alertSignin');
+                    this._alertService.error(error);
+                    this.loading = false;
+                });
     }
 
     signup() {
+        console.log(this.model);
         this.loading = true;
         this._userService.create(this.model)
             .subscribe(
-            data => {
-                this.showAlert('alertSignin');
-                this._alertService.success('Thank you. To complete your registration please check your email.', true);
-                this.loading = false;
-                LoginCustom.displaySignInForm();
-                this.model = {};
-            },
-            error => {
-                this.showAlert('alertSignup');
-                this._alertService.error(error);
-                this.loading = false;
-            });
+                data => {
+                    this.showAlert('alertSignin');
+                    this._alertService.success('Thank you. To complete your registration please check your email.', true);
+                    this.loading = false;
+                    LoginCustom.displaySignInForm();
+                    this.model = {};
+                    console.log(data);
+                },
+                error => {
+                    this.showAlert('alertSignup');
+                    this._alertService.error(error);
+                    this.loading = false;
+                });
     }
 
     forgotPass() {
         this.loading = true;
         this._userService.forgotPassword(this.model.email)
             .subscribe(
-            data => {
-                this.showAlert('alertSignin');
-                this._alertService.success('Cool! Password recovery instruction has been sent to your email.', true);
-                this.loading = false;
-                LoginCustom.displaySignInForm();
-                this.model = {};
-            },
-            error => {
-                this.showAlert('alertForgotPass');
-                this._alertService.error(error);
-                this.loading = false;
-            });
+                data => {
+                    this.showAlert('alertSignin');
+                    this._alertService.success('Cool! Password recovery instruction has been sent to your email.', true);
+                    this.loading = false;
+                    LoginCustom.displaySignInForm();
+                    this.model = {};
+                },
+                error => {
+                    this.showAlert('alertForgotPass');
+                    this._alertService.error(error);
+                    this.loading = false;
+                });
     }
 
     showAlert(target) {

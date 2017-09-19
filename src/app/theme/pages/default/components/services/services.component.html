@@ -65,14 +65,14 @@
                                     <div class="m-section__content">
                                         <p-accordion>
                                             <!-- Second -->
-                                            <p-accordionTab header="Стрижка">
+                                            <p-accordionTab header="Стрижка" (click)="getService(s)" #s>
                                                 <div class="m-section__content">
                                                     <p-accordion (onClose)="onTabClose($event)"
                                                                  (onOpen)="onTabOpen($event)">
                                                         <!-- Third -->
-                                                        <div class="m-checkbox-list">
+                                                        <!--<div class="m-checkbox-list">
                                                             <label class="m-checkbox">
-                                                                <input type="checkbox">
+                                                                <input type="checkbox" (click)="GetName(serviceName.value)" #serviceName>
                                                                 Option 1
                                                                 <span></span>
                                                             </label>
@@ -86,7 +86,12 @@
                                                                 Option 3
                                                                 <span></span>
                                                             </label>
-                                                        </div>
+                                                        </div>-->
+                                                        <ul>
+                                                            <li #i (click)="getText(i.textContent)">Option 1</li>
+                                                            <li>Option </li>
+                                                            <li>Option 3</li>
+                                                        </ul>
                                                     </p-accordion>
                                                 </div>
                                             </p-accordionTab>

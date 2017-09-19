@@ -11,8 +11,19 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        return this._userService.verify().map(
+        console.log('im tak');
+        console.log(currentUser);
+        if (currentUser !== null) {
+            // logged in so return true
+            return true;
+        } else {
+            this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+            return false;
+        }
+
+       /* return this._userService.verify().map(
             data => {
+
                 if (data !== null) {
                     // logged in so return true
                     return true;
@@ -25,6 +36,6 @@ export class AuthGuard implements CanActivate {
                 // error when verify so redirect to login page with the return url
                 this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
                 return false;
-            });
+            });*/
     }
 }

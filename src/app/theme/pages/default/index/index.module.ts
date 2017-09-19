@@ -33,7 +33,4 @@ const routes: Routes = [
     ]
 })
 export class IndexModule {
-
-
-
 }

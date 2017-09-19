@@ -11,10 +11,11 @@ import { ThemeRoutingModule } from "./theme/theme-routing.module";
 import { AuthModule } from "./auth/auth.module";
 import { GlobalErrorHandler } from "./_services/error-handler.service";
 
+
 @NgModule({
     declarations: [
         ThemeComponent,
-        AppComponent
+        AppComponent,
     ],
     imports: [
         LayoutModule,

@@ -14,6 +14,7 @@
 .parentDiv {
     position: relative;
     max-width: 500px;
+    margin: auto;
 }
 
 .avisits-box:hover {

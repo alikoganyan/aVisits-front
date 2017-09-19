@@ -54,6 +54,10 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/components\/services\/services.module#ServicesModule"
             },
             {
+                "path": "components\/service",
+                "loadChildren": ".\/pages\/default\/components\/services\/service\/service.module#ServiceModule"
+            },
+            {
                 "path": "components\/products",
                 "loadChildren": ".\/pages\/default\/components\/products\/products.module#ProductsModule"
             },
