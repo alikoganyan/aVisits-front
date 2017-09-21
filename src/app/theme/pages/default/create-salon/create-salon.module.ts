@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { IndexComponent } from './index.component';
+import { CreateSalonComponent } from "./create-salon.component";
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
-
-/* Schedule */
-import { DxSchedulerModule, DxTemplateModule } from 'devextreme-angular';
+import { FormsModule } from "@angular/forms";
 
 const routes: Routes = [
     {
@@ -15,7 +13,7 @@ const routes: Routes = [
         "children": [
             {
                 "path": "",
-                "component": IndexComponent
+                "component": CreateSalonComponent
             }
         ]
     }
@@ -24,13 +22,12 @@ const routes: Routes = [
     imports: [
         CommonModule, RouterModule.forChild(routes),
         LayoutModule,
-        DxSchedulerModule,
-        DxTemplateModule
+        FormsModule
     ], exports: [
         RouterModule
     ], declarations: [
-        IndexComponent
+        CreateSalonComponent
     ]
 })
-export class IndexModule {
+export class CreateSalonModule {
 }

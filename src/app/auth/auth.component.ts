@@ -27,10 +27,10 @@ export class AuthComponent implements OnInit {
     loading = false;
     returnUrl: string;
 
+
     @ViewChild('alertSignin', {read: ViewContainerRef}) alertSignin: ViewContainerRef;
     @ViewChild('alertSignup', {read: ViewContainerRef}) alertSignup: ViewContainerRef;
     @ViewChild('alertForgotPass', {read: ViewContainerRef}) alertForgotPass: ViewContainerRef;
-
 
 
     constructor(private _router: Router,
@@ -45,8 +45,8 @@ export class AuthComponent implements OnInit {
     ngOnInit() {
         this.model.remember = true;
         // get return url from route parameters or default to '/'
-        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
-        this._router.navigate([this.returnUrl]);
+        // this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+        // this._router.navigate([this.returnUrl]);
 
         this._script.load('body', 'assets/vendors/base/vendors.bundle.js', 'assets/demo/default/base/scripts.bundle.js')
             .then(() => {
@@ -57,12 +57,17 @@ export class AuthComponent implements OnInit {
 
     signin() {
         this.loading = true;
-        console.log(this.model);
         this._authService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
+
+                    if (data.redirect_to_create_salon == 1) {
+                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create_salon';
+                    } else if (data.redirect_to_create_salon == 0) {
+                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    }
                     this._router.navigate([this.returnUrl]);
-                    console.log(data);
+                    console.log(this.returnUrl);
                 },
                 error => {
                     this.showAlert('alertSignin');
@@ -72,7 +77,6 @@ export class AuthComponent implements OnInit {
     }
 
     signup() {
-        console.log(this.model);
         this.loading = true;
         this._userService.create(this.model)
             .subscribe(
@@ -82,7 +86,6 @@ export class AuthComponent implements OnInit {
                     this.loading = false;
                     LoginCustom.displaySignInForm();
                     this.model = {};
-                    console.log(data);
                 },
                 error => {
                     this.showAlert('alertSignup');

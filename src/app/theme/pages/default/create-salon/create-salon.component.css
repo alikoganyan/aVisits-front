@@ -1,0 +1,37 @@
+:host(app-create-salon) {
+    overflow: hidden;
+    margin-bottom: 60px;
+    flex: 1;
+}
+
+.divCenter {
+    margin: auto;
+}
+
+.button_center {
+    text-align: center;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.gotCities {
+    background-color: white;
+}
+
+.gotCities ul {
+    margin: 10px 0;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.gotCities ul li {
+    margin: 2px 5px;
+    padding: 3px 4px;
+    cursor: pointer;
+}
+
+.gotCities ul li:hover {
+    background-color: #F9F9F9;
+}

@@ -1,0 +1,106 @@
+<div class="m-content">
+    <!--begin::Portlet-->
+
+    <div class="col-md-6 divCenter">
+        <div class="m-portlet m-portlet--tab">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon m--hide">
+							<i class="la la-gear"></i>
+						</span>
+                        <h3 class="m-portlet__head-text">
+                            Заполните основные данные
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <form class="m-form m-form--fit m-form--label-align-right" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="m-portlet__body">
+                    <!-- Salon name -->
+                    <div class="form-group m-form__group">
+                        <label for="exampleInputEmail1">
+                            Название компании
+                        </label>
+                        <input
+                                aria-describedby="emailHelp"
+                                class="form-control m-input m-input--air"
+                                id="exampleInputEmail1"
+                                placeholder="Название"
+                                type="text"
+                                ngModel
+                                name="salonName"
+                                required>
+                    </div>
+                    <!-- Country -->
+                    <div class="form-group m-form__group">
+                        <label for="exampleSelect1">
+                            Страна
+                        </label>
+                        <select
+                                class="form-control m-input m-input--air"
+                                id="exampleSelect1"
+                                #selectCity
+                                (change)="getCountryId(selectCity.value)"
+                                ngModel
+                                name="countryName"
+                                required>
+                            <option value="">- Выбирайте страну -</option>
+                            <option *ngFor="let country of countries" [value]="country.id">
+                                {{country.title}}
+                            </option>
+                        </select>
+                    </div>
+                    <!-- City -->
+                    <div class="form-group m-form__group">
+                        <label for="exampleInputEmail1">
+                            Город
+                        </label>
+                        <input
+                                aria-describedby="emailHelp"
+                                class="form-control m-input m-input--air"
+                                placeholder="Город" type="text"
+                                #textCity
+                                (keyup)="getCities(textCity.value)"
+                                [value]="selectedCity"
+                                ngModel
+                                name="cityName"
+                                required>
+                        <div class="gotCities">
+                            <ul>
+                                <li *ngFor="let city of cities" (click)="citySelected(city.title)">{{city.title}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Address -->
+                    <div class="form-group m-form__group">
+                        <label for="exampleInputEmail1">
+                            Адрес
+                        </label>
+                        <input
+                                aria-describedby="emailHelp"
+                                class="form-control m-input m-input--air"
+                                placeholder="Адрес"
+                                type="text"
+                                ngModel
+                                name="addressName"
+                                required>
+                    </div>
+                </div>
+                <div class="m-portlet__foot m-portlet__foot--fit button_center">
+                    <div class="m-form__actions">
+                        <button
+                                class="btn btn-accent"
+                                type="submit"
+                                [disabled]="!f.valid">
+                            Приступить к работе
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
