@@ -11,7 +11,6 @@ declare let mLayout: any;
 })
 export class HeaderNavComponent implements OnInit, AfterViewInit {
     currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    user: User;
     constructor() {
 
     }

@@ -5,6 +5,7 @@ import { CreateSalonComponent } from "./create-salon.component";
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 import { FormsModule } from "@angular/forms";
+import { CreateSalonService } from "../../../_services/create-salon.service";
 
 const routes: Routes = [
     {
@@ -18,6 +19,7 @@ const routes: Routes = [
         ]
     }
 ];
+
 @NgModule({
     imports: [
         CommonModule, RouterModule.forChild(routes),
@@ -27,7 +29,7 @@ const routes: Routes = [
         RouterModule
     ], declarations: [
         CreateSalonComponent
-    ]
+    ], providers: [CreateSalonService]
 })
 export class CreateSalonModule {
 }

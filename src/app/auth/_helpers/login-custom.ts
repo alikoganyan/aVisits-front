@@ -80,7 +80,7 @@ export class LoginCustom {
             let form = $(this).closest('form');
             form.validate({
                 rules: {
-                    fullname: {
+                    name: {
                         required: true
                     },
                     email: {
@@ -90,7 +90,7 @@ export class LoginCustom {
                     password: {
                         required: true
                     },
-                    rpassword: {
+                    password_confirmation: {
                         required: true
                     },
                     agree: {

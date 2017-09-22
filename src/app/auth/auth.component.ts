@@ -14,11 +14,12 @@ import {UserService} from "./_services/user.service";
 import {AlertComponent} from "./_directives/alert.component";
 import {LoginCustom} from "./_helpers/login-custom";
 import {Helpers} from "../helpers";
+import {GetCityService} from "../_services/get-city.service";
 
 
 @Component({
     selector: ".m-grid.m-grid--hor.m-grid--root.m-page",
-    templateUrl: './templates/login-2.component.html',
+    templateUrl: './templates/login-1.component.html',
     encapsulation: ViewEncapsulation.None
 })
 
@@ -39,7 +40,8 @@ export class AuthComponent implements OnInit {
                 private _route: ActivatedRoute,
                 private _authService: AuthenticationService,
                 private _alertService: AlertService,
-                private cfr: ComponentFactoryResolver) {
+                private cfr: ComponentFactoryResolver,
+                private _getCityService: GetCityService) {
     }
 
     ngOnInit() {
@@ -60,18 +62,17 @@ export class AuthComponent implements OnInit {
         this._authService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
-
+                    this._getCityService.chain.next(data);
                     if (data.redirect_to_create_salon == 1) {
                         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create_salon';
                     } else if (data.redirect_to_create_salon == 0) {
                         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
                     }
                     this._router.navigate([this.returnUrl]);
-                    console.log(this.returnUrl);
                 },
                 error => {
                     this.showAlert('alertSignin');
-                    this._alertService.error(error);
+                    this._alertService.error('Пользователь не найден');
                     this.loading = false;
                 });
     }
@@ -89,7 +90,7 @@ export class AuthComponent implements OnInit {
                 },
                 error => {
                     this.showAlert('alertSignup');
-                    this._alertService.error(error);
+                    this._alertService.error('Форма заполнена не неправильно');
                     this.loading = false;
                 });
     }

@@ -17,11 +17,14 @@ input.ng-invalid.ng-touched {
 }
 
 .gotCities {
-    background-color: white;
+    background: #fff;
+    -webkit-box-shadow: 0 0 15px 1px rgba(113,106,202,.2);
+    -moz-box-shadow: 0 0 15px 1px rgba(113,106,202,.2);
+    box-shadow: 0 0 15px 1px rgba(113,106,202,.2);
+    border-radius: 4px;
 }
 
 .gotCities ul {
-    margin: 10px 0;
     list-style-type: none;
     padding-left: 0;
 }

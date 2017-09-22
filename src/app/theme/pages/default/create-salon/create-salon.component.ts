@@ -1,6 +1,8 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
 import {GetCityService} from "../../../../_services/get-city.service";
+import {CreateSalonService} from "../../../_services/create-salon.service";
 
 
 @Component({
@@ -10,13 +12,18 @@ import {GetCityService} from "../../../../_services/get-city.service";
 })
 
 export class CreateSalonComponent implements OnInit, AfterViewInit {
+    @ViewChild('textCity') textCity: ElementRef;
     countries = [];
     countryId: number;
+    selectedCountry: string = '';
     cities = [];
-    selectedCountry: string;
     selectedCity: string = '';
+    false_address = '';
 
-    constructor(private getCityService: GetCityService) {
+    constructor(private getCityService: GetCityService,
+                private createSalonService: CreateSalonService,
+                private router: Router,
+                private route: ActivatedRoute) {
     }
 
     getCountries() {
@@ -28,10 +35,13 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
             )
     }
 
-    getCountryId(id: number, country: string) {
+    getCountry(id: number, event: Event) {
         this.selectedCity = '';
-        this.selectedCountry = country;
         this.countryId = id;
+        let selectElementText = event.target['options']
+            [event.target['options'].selectedIndex].text;
+        this.selectedCountry = selectElementText;
+
     }
 
     getCities(text: string) {
@@ -54,20 +64,43 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
 
 
     onSubmit(form: NgForm) {
-        console.log(form.value.salonName);
-        console.log(this.selectedCity);
-        console.log(form.value.addressName);
-        this.getCityService.getStreet(this.selectedCity, form.value.addressName)
+
+        this.getCityService.getStreet(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName)
             .subscribe(
                 (street) => {
-                    console.log(street);
-                }
-            )
+                    if (street.status == 'ZERO_RESULTS') {
+                        this.false_address = 'Адрес не найден';
+                        form.reset({
+                        });
+                    }
+                    else if (street.status == 'OK') {
+                        this.createSalonService.createSalon(
+                            form.value.title,
+                            this.selectedCountry,
+                            this.textCity.nativeElement.value,
+                            form.value.addressName,
+                            street.results[0].geometry.location.lat,
+                            street.results[0].geometry.location.lng,
+                        ).subscribe(
+                            (response) => {
+                                console.log(response);
+                                if (response.success == 'Created successfully') {
+                                    this.router.navigate(['/'], {relativeTo: this.route})
+                                }
+                            },
+                            error => console.log(error)
+                        )
+                    }
+                },
+                error => console.log(error)
+            );
+
     }
 
     ngOnInit() {
         this.getCountries();
     }
+
 
     ngAfterViewInit() {
     }

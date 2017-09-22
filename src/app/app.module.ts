@@ -16,6 +16,7 @@ import { GlobalErrorHandler } from "./_services/error-handler.service";
 /* Service */
 import { GetCityService } from "./_services/get-city.service";
 
+
 @NgModule({
     declarations: [
         ThemeComponent,

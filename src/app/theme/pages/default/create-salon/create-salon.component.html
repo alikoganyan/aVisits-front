@@ -20,53 +20,52 @@
                 <div class="m-portlet__body">
                     <!-- Salon name -->
                     <div class="form-group m-form__group">
-                        <label for="exampleInputEmail1">
+                        <label>
                             Название компании
                         </label>
                         <input
-                                aria-describedby="emailHelp"
                                 class="form-control m-input m-input--air"
-                                id="exampleInputEmail1"
                                 placeholder="Название"
                                 type="text"
                                 ngModel
-                                name="salonName"
+                                name="title"
                                 required>
                     </div>
                     <!-- Country -->
                     <div class="form-group m-form__group">
-                        <label for="exampleSelect1">
+                        <label>
                             Страна
                         </label>
                         <select
                                 class="form-control m-input m-input--air"
-                                id="exampleSelect1"
                                 #selectCity
-                                (change)="getCountryId(selectCity.value)"
+                                (change)="getCountry(selectCity.value, $event)"
                                 ngModel
                                 name="countryName"
                                 required>
                             <option value="">- Выбирайте страну -</option>
-                            <option *ngFor="let country of countries" [value]="country.id">
+                            <option *ngFor="let country of countries" [value]="country.id" #op>
                                 {{country.title}}
                             </option>
                         </select>
                     </div>
                     <!-- City -->
                     <div class="form-group m-form__group">
-                        <label for="exampleInputEmail1">
+                        <label>
                             Город
                         </label>
                         <input
-                                aria-describedby="emailHelp"
+                                id="getCityFocus"
                                 class="form-control m-input m-input--air"
-                                placeholder="Город" type="text"
+                                placeholder="Город"
+                                type="text"
                                 #textCity
                                 (keyup)="getCities(textCity.value)"
                                 [value]="selectedCity"
                                 ngModel
                                 name="cityName"
-                                required>
+                                required
+                        >
                         <div class="gotCities">
                             <ul>
                                 <li *ngFor="let city of cities" (click)="citySelected(city.title)">{{city.title}}</li>
@@ -75,7 +74,7 @@
                     </div>
                     <!-- Address -->
                     <div class="form-group m-form__group">
-                        <label for="exampleInputEmail1">
+                        <label>
                             Адрес
                         </label>
                         <input
