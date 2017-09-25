@@ -9,9 +9,11 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
+       /* body = JSON.stringify(body);
+        console.log(body);*/
         return this.http.post(
             'http://192.168.0.116:8095/api/user/signin',
-            { email: email, password: password },
+            {email: email, password: password},
             { headers: new Headers({ 'Content-Type': 'application/json' }) }
         )
             .map((response: Response) => {

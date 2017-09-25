@@ -1,0 +1,44 @@
+:host(app-employee) {
+    overflow: hidden;
+    margin-bottom: 60px;
+    flex: 1;
+}
+
+.margin_auto {
+    margin: auto;
+}
+
+.custom_datePickerName {
+    margin-right: 10px;
+}
+
+.custom_form_styles input {
+    width: auto;
+    margin-bottom: 10px;
+    display: inline;
+}
+
+.button_float_right {
+    float: right;
+}
+
+.employee_fired_div {
+    margin-left: 0;
+}
+
+.custom_m-radio-list label {
+  display: inline;
+    margin-right: 10px;
+}
+
+.custom_div_width {
+    width: 100%;
+}
+
+.custom_dash {
+    margin: 0 5px 0 5px;
+}
+
+.custom_margin {
+    margin-left: 0;
+}

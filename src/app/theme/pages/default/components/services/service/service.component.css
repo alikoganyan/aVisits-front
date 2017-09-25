@@ -3,3 +3,32 @@
     margin-bottom: 60px;
     flex: 1;
 }
+
+.margin_auto {
+    margin: auto;
+}
+
+.vertical-align {
+    vertical-align: middle;
+}
+
+.button_float_right {
+    float: right;
+}
+
+.prices_custom_form input {
+    width: 100px;
+    display: inline;
+}
+
+.prices_custom_form .custom_dash {
+    margin: 0 5px 0 5px;
+}
+
+.prices_custom_form .price_name {
+    margin-right: 15px;
+}
+
+.custom_datePickerName {
+    margin-right: 42px;
+}

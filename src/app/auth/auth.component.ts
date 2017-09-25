@@ -58,8 +58,22 @@ export class AuthComponent implements OnInit {
     }
 
     signin() {
+        /*function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+        var body = {};
+            if (validateEmail(this.model.emailOrPhone)) {
+
+                body['email'] = this.model.emailOrPhone;
+               console.log(this.model.emailOrPhone + " is email");
+            } else {
+                body['phone'] = this.model.emailOrPhone;
+                console.log(this.model.emailOrPhone + " is phone number");
+            }*/
+
         this.loading = true;
-        this._authService.login(this.model.email, this.model.password)
+        this._authService.login(this.model.emailOrPhone, this.model.password)
             .subscribe(
                 data => {
                     this._getCityService.chain.next(data);
@@ -71,6 +85,7 @@ export class AuthComponent implements OnInit {
                     this._router.navigate([this.returnUrl]);
                 },
                 error => {
+                    console.log(error);
                     this.showAlert('alertSignin');
                     this._alertService.error('Пользователь не найден');
                     this.loading = false;

@@ -9,17 +9,19 @@
                             <img src="./assets/app/media/img//logos/logo-2.png">
                         </a>
                     </div>
+
+                    <!-- LOGIN START-->
                     <div class="m-login__signin">
                         <div class="m-login__head">
                             <h3 class="m-login__title">
-                                Sign In To Admin
+                                Вход
                             </h3>
                         </div>
                         <form (ngSubmit)="f.form.valid && signin()" #f="ngForm" class="m-login__form m-form" action="">
                             <ng-template #alertSignin></ng-template>
                             <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Email" name="email"
-                                       [(ngModel)]="model.email" #email="ngModel" autocomplete="off">
+                                <input class="form-control m-input" type="text" placeholder="Ввод номера телефона или email" name="emailOrPhone"
+                                       [(ngModel)]="model.emailOrPhone" #email="ngModel" autocomplete="off">
                             </div>
                             <div class="form-group m-form__group">
                                 <input class="form-control m-input m-login__form-input--last" type="password"
@@ -31,13 +33,13 @@
                                     <label class="m-checkbox m-checkbox--focus">
                                         <input type="checkbox" name="remember" [(ngModel)]="model.remember"
                                                #remember="ngModel">
-                                        Remember me
+                                        Запомнить
                                         <span></span>
                                     </label>
                                 </div>
                                 <div class="col m--align-right">
                                     <a href="javascript:;" id="m_login_forget_password" class="m-link">
-                                        Forget Password ?
+                                        Забыли адрес эл. почты?
                                     </a>
                                 </div>
                             </div>
@@ -46,11 +48,14 @@
                                         [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
                                         id="m_login_signin_submit"
                                         class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                    Sign In
+                                    Далее
                                 </button>
                             </div>
                         </form>
                     </div>
+                    <!-- END LOGIN -->
+
+                    <!-- REGISTER START -->
                     <div class="m-login__signup">
                         <div class="m-login__head">
                             <h3 class="m-login__title">
@@ -111,6 +116,52 @@
                             </div>
                         </form>
                     </div>
+                    <!-- END REGISTER -->
+
+                    <!-- NEXT TO EMPLOYEE START -->
+                    <div class="m-next-employee">
+                        <div class="m-login__head">
+                            <h3 class="m-login__title">
+                                Выберите Сотрудника
+                            </h3>
+                        </div>
+                        <div class="select_employee">
+                            <ul>
+                                <li class="from_employee_to_password">test1@gmail.com</li>
+                                <li class="from_employee_to_password">test1@gmai2.com</li>
+                                <li class="from_employee_to_password">test1@gmai3.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- NEXT TO EMPLOYEE END -->
+
+                    <!-- NEXT TO PASSWORD START -->
+                    <div class="m-next-password">
+                        <div class="m-login__head">
+                            <h3 class="m-login__title">
+                                Введите пароль
+                            </h3>
+                        </div>
+                        <form (ngSubmit)="f.form.valid" #f="ngForm" class="m-login__form m-form" action="">
+                            <ng-template #alertSignup></ng-template>
+                            <div class="form-group m-form__group">
+                                <input class="form-control m-input" type="password" placeholder="Пароль"
+                                       name="password" [(ngModel)]="model.password" #password="ngModel">
+                            </div>
+
+                            <div class="m-login__form-action">
+                                <button [disabled]="loading"
+                                        [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
+                                        id=""
+                                        class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+                                    Sign Up
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- NEXT TO PASSWORD END -->
+
+                    <!-- FORGET PASSWORD -->
                     <div class="m-login__forget-password">
                         <div class="m-login__head">
                             <h3 class="m-login__title">
@@ -141,6 +192,7 @@
                             </div>
                         </form>
                     </div>
+                    <!-- END FORGOT PASSWORD -->
                 </div>
             </div>
             <div class="m-stack__item m-stack__item--center">

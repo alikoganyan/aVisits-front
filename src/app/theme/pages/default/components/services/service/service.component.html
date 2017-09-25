@@ -38,40 +38,487 @@
 </div>
 <!-- END: Subheader -->
 
-<div class="m-content">
-    <div class="m-portlet">
 
-    </div>
-</div>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">WebSiteName</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+
+    <div class="m-content">
+        <div class="row">
+            <div class="col-lg-10 margin_auto">
+                <!--begin::Portlet-->
+                <div class="m-portlet">
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <h3 class="m-portlet__head-text">
+                                    Basic Tabs
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="m-portlet__body">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#m_tabs_1_1">
+                                    Данные
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#m_tabs_1_2">
+                                    Цены
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#m_tabs_1_3">
+                                    Сотрудники
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#m_tabs_1_4">
+                                    Товары
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#m_tabs_1_5">
+                                    Салоны
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="m_tabs_1_1" role="tabpanel">
+                                <!--begin::Form-->
+                                <form class="m-form m-form--fit m-form--label-align-right">
+                                    <div class="m-portlet__body">
+
+                                        <div class="form-group m-form__group">
+                                            <label>
+                                                Название
+                                            </label>
+                                            <input type="email" class="form-control m-input"
+                                                   aria-describedby="emailHelp" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group m-form__group">
+                                            <label for="exampleSelect1">
+                                                Группа
+                                            </label>
+                                            <select class="form-control m-input" id="exampleSelect1">
+                                                <option>
+                                                    1
+                                                </option>
+                                                <option>
+                                                    2
+                                                </option>
+                                                <option>
+                                                    3
+                                                </option>
+                                                <option>
+                                                    4
+                                                </option>
+                                                <option>
+                                                    5
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group m-form__group">
+												<span class="m-switch m-switch--icon vertical-align">
+													<label>
+														<input checked="checked" name="" type="checkbox">
+														<span></span>
+													</label>
+												</span>
+                                            <label>Доступна для онлайн записи</label>
+                                        </div>
+                                        <div class="form-group m-form__group">
+												<span class="m-switch m-switch--icon vertical-align">
+													<label>
+														<input checked="checked" name="" type="checkbox">
+														<span></span>
+													</label>
+												</span>
+                                            <label>Услуга только для онлайн записи</label>
+                                        </div>
+                                        <div class="form-group m-form__group">
+                                            <label>
+                                                Продолжительность (минут)
+                                            </label>
+                                            <input type="email" class="form-control m-input"
+                                                   aria-describedby="emailHelp" placeholder="60">
+                                        </div>
+                                    </div>
+                                    <div class="m-portlet__foot m-portlet__foot--fit">
+                                        <div class="m-form__actions">
+                                            <button type="reset" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                            <button type="reset" class="btn btn-secondary button_float_right">
+                                                Переместить в карзину
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!--end::Form-->
+                            </div>
+                            <div class="tab-pane" id="m_tabs_1_2" role="tabpanel">
+                                <h5>Установка новых цен</h5>
+                                <form class="m-form m-form--fit m-form--label-align-right">
+                                    <div class="m-portlet__body">
+
+                                        <div class="form-group m-form__group prices_custom_form">
+                                            <span class="price_name">
+                                                Название уровня цен 1
+                                            </span>
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="От"
+                                            >
+                                            <span class="custom_dash">-</span>
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="До"
+                                            >
+                                        </div>
+
+                                        <div class="form-group m-form__group prices_custom_form">
+                                            <span class="price_name">
+                                                Название уровня цен 2
+                                            </span>
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="От"
+                                            >
+                                            <span class="custom_dash">-</span>
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="До"
+                                            >
+                                        </div>
+
+                                        <div class="form-group m-form__group prices_custom_form">
+                                            <span class="price_name">
+                                                Название уровня цен 3
+                                            </span>
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="От"
+                                            >
+                                            <span class="custom_dash">-</span>
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="До"
+                                            >
+                                        </div>
+
+                                        <div class="form-group m-form__group row">
+                                            <label class="col-form-label custom_datePickerName">
+                                                Устанавит цены с
+                                            </label>
+                                            <div class="">
+                                                <div class='input-group date' id='m_datepicker_3'>
+                                                    <input type='text' class="form-control m-input" readonly
+                                                           value="05/20/2017"/>
+                                                    <span class="input-group-addon">
+								                        <i class="la la-calendar"></i>
+							                        </span>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-success" style="margin-left: 10px">Установить новые цены</button>
+                                        </div>
+
+                                        <div class="form-group m-form__group col-md-8">
+                                            <div class="m-section__content">
+                                                <p-accordion>
+                                                    <p-accordionTab header="Действующие цены, с 01.01.2017"
+                                                                    [selected]="false">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                        eiusmod tempor incididunt ut labore et
+                                                        dolore
+                                                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                        ullamco laboris nisi ut aliquip ex ea
+                                                        commodo
+                                                        consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                                        velit esse cillum dolore eu fugiat nulla
+                                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                                        in culpa qui officia deserunt mollit anim id
+                                                        est
+                                                        laborum.
+                                                    </p-accordionTab>
+                                                    <p-accordionTab header="Действующие цены, с 01.06.2017">
+                                                        Sed vitae dolor purus. Nulla laoreet enim quis orci molestie
+                                                        aliquam. Donec eleifend nibh id luctus
+                                                        imperdiet.
+                                                        Donec tellus justo, imperdiet quis turpis in, interdum rhoncus
+                                                        lorem. Proin ac sem augue. Praesent
+                                                        condimentum
+                                                        varius arcu nec dapibus. Suspendisse quis egestas justo, eget
+                                                        semper lectus. Nulla facilisi.
+                                                    </p-accordionTab>
+                                                    <p-accordionTab header="Действующие цены, с 01.12.2017">
+                                                        Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui,
+                                                        eu commodo orci risus at neque. Suspendisse
+                                                        vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec
+                                                        luctus porta sem, non luctus leo imperdiet
+                                                        rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur
+                                                        efficitur nisi. Phasellus consequat lectus ac
+                                                        metus pharetra pellentesque. Duis blandit sapien urna, eu
+                                                        imperdiet velit commodo eget. Phasellus porta
+                                                        massa
+                                                        scelerisque, commodo orci et, feugiat urna. Nulla volutpat
+                                                        hendrerit tortor, nec consequat justo. Nullam
+                                                        placerat hendrerit massa sed varius. Aenean molestie dapibus
+                                                        interdum. Etiam semper mollis hendrerit. Etiam
+                                                        sodales fermentum sem, porttitor venenatis arcu semper in. Proin
+                                                        non volutpat quam, vel sollicitudin mauris.
+                                                    </p-accordionTab>
+                                                </p-accordion>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="m-portlet__foot m-portlet__foot--fit">
+                                        <div class="m-form__actions">
+                                            <button type="reset" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                            <button type="reset" class="btn btn-secondary button_float_right">
+                                                Переместить в карзину
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="tab-pane" id="m_tabs_1_3" role="tabpanel">
+                                <div _ngcontent-c2="" class="m-checkbox-list">
+                                    <label _ngcontent-c2="" class="m-checkbox">
+                                        <input _ngcontent-c2="" type="checkbox">
+                                        Пётр Семено
+                                        <span _ngcontent-c2=""></span>
+                                    </label>
+                                    <label _ngcontent-c2="" class="m-checkbox">
+                                        <input _ngcontent-c2="" type="checkbox">
+                                        Пётр Семено
+                                        <span _ngcontent-c2=""></span>
+                                    </label>
+                                    <label _ngcontent-c2="" class="m-checkbox">
+                                        <input _ngcontent-c2="" type="checkbox">
+                                        Пётр Семено
+                                        <span _ngcontent-c2=""></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="m_tabs_1_4" role="tabpanel">
+
+
+
+                                <div class="m-portlet m-portlet--mobile">
+                                    <div class="m-portlet__head">
+                                        <div class="m-portlet__head-caption">
+                                            <div class="m-portlet__head-title">
+                                                <h3 class="m-portlet__head-text">
+                                                    AJAX Datatable
+                                                    <small>
+                                                        data loaded from remote data source
+                                                    </small>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="m-portlet__head-tools">
+                                            <ul class="m-portlet__nav">
+                                                <li class="m-portlet__nav-item">
+                                                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                                                        <a href="#" class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
+                                                            <i class="la la-plus m--hide"></i>
+                                                            <i class="la la-ellipsis-h m--font-brand"></i>
+                                                        </a>
+                                                        <div class="m-dropdown__wrapper">
+                                                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                                            <div class="m-dropdown__inner">
+                                                                <div class="m-dropdown__body">
+                                                                    <div class="m-dropdown__content">
+                                                                        <ul class="m-nav">
+                                                                            <li class="m-nav__section m-nav__section--first">
+													<span class="m-nav__section-text">
+														Quick Actions
+													</span>
+                                                                            </li>
+                                                                            <li class="m-nav__item">
+                                                                                <a href="" class="m-nav__link">
+                                                                                    <i class="m-nav__link-icon flaticon-share"></i>
+                                                                                    <span class="m-nav__link-text">
+															Create Post
+														</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="m-nav__item">
+                                                                                <a href="" class="m-nav__link">
+                                                                                    <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                                                    <span class="m-nav__link-text">
+															Send Messages
+														</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="m-nav__item">
+                                                                                <a href="" class="m-nav__link">
+                                                                                    <i class="m-nav__link-icon flaticon-multimedia-2"></i>
+                                                                                    <span class="m-nav__link-text">
+															Upload File
+														</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="m-nav__section">
+													<span class="m-nav__section-text">
+														Useful Links
+													</span>
+                                                                            </li>
+                                                                            <li class="m-nav__item">
+                                                                                <a href="" class="m-nav__link">
+                                                                                    <i class="m-nav__link-icon flaticon-info"></i>
+                                                                                    <span class="m-nav__link-text">
+															FAQ
+														</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="m-nav__item">
+                                                                                <a href="" class="m-nav__link">
+                                                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                                                    <span class="m-nav__link-text">
+															Support
+														</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
+                                                                            <li class="m-nav__item m--hide">
+                                                                                <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                                                    Submit
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="m-portlet__body">
+                                        <!--begin: Search Form -->
+                                        <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                                            <div class="row align-items-center">
+                                                <div class="col-xl-8 order-2 order-xl-1">
+                                                    <div class="form-group m-form__group row align-items-center">
+                                                        <div class="col-md-4">
+                                                            <div class="m-form__group m-form__group--inline">
+                                                                <div class="m-form__label">
+                                                                    <label>
+                                                                        Status:
+                                                                    </label>
+                                                                </div>
+                                                                <div class="m-form__control">
+                                                                    <select class="form-control m-bootstrap-select" id="m_form_status">
+                                                                        <option value="">
+                                                                            All
+                                                                        </option>
+                                                                        <option value="1">
+                                                                            Pending
+                                                                        </option>
+                                                                        <option value="2">
+                                                                            Delivered
+                                                                        </option>
+                                                                        <option value="3">
+                                                                            Canceled
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-md-none m--margin-bottom-10"></div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="m-form__group m-form__group--inline">
+                                                                <div class="m-form__label">
+                                                                    <label class="m-label m-label--single">
+                                                                        Type:
+                                                                    </label>
+                                                                </div>
+                                                                <div class="m-form__control">
+                                                                    <select class="form-control m-bootstrap-select" id="m_form_type">
+                                                                        <option value="">
+                                                                            All
+                                                                        </option>
+                                                                        <option value="1">
+                                                                            Online
+                                                                        </option>
+                                                                        <option value="2">
+                                                                            Retail
+                                                                        </option>
+                                                                        <option value="3">
+                                                                            Direct
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-md-none m--margin-bottom-10"></div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="m-input-icon m-input-icon--left">
+                                                                <input type="text" class="form-control m-input" placeholder="Search..." id="m_form_search">
+                                                                <span class="m-input-icon__icon m-input-icon__icon--left">
+										<span>
+											<i class="la la-search"></i>
+										</span>
+									</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                                                    <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+							<span>
+								<i class="la la-cart-plus"></i>
+								<span>
+									New Order
+								</span>
+							</span>
+                                                    </a>
+                                                    <div class="m-separator m-separator--dashed d-xl-none"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end: Search Form -->
+                                        <!--begin: Datatable -->
+                                        <div class="m_datatable" id="ajax_data"></div>
+                                        <!--end: Datatable -->
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="tab-pane" id="m_tabs_1_5" role="tabpanel">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                It has survived not only five centuries, but also the leap into electronic
+                                typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of
+                                the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                                dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Portlet-->
+            </div>
         </div>
     </div>
-</nav>
+
+
+
