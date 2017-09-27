@@ -27,11 +27,14 @@ export class AuthComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
-
+    userChains: any;
+    selectedUserChain: any;
+    userEmail: string;
 
     @ViewChild('alertSignin', {read: ViewContainerRef}) alertSignin: ViewContainerRef;
     @ViewChild('alertSignup', {read: ViewContainerRef}) alertSignup: ViewContainerRef;
     @ViewChild('alertForgotPass', {read: ViewContainerRef}) alertForgotPass: ViewContainerRef;
+    @ViewChild('alertEnter', {read: ViewContainerRef}) alertEnter: ViewContainerRef;
 
 
     constructor(private _router: Router,
@@ -47,8 +50,8 @@ export class AuthComponent implements OnInit {
     ngOnInit() {
         this.model.remember = true;
         // get return url from route parameters or default to '/'
-        // this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
-        // this._router.navigate([this.returnUrl]);
+       /* this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+        this._router.navigate([this.returnUrl]);*/
 
         this._script.load('body', 'assets/vendors/base/vendors.bundle.js', 'assets/demo/default/base/scripts.bundle.js')
             .then(() => {
@@ -58,31 +61,28 @@ export class AuthComponent implements OnInit {
     }
 
     signin() {
-        /*function validateEmail(email) {
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        function validateEmail(email) {
+            let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         }
-        var body = {};
-            if (validateEmail(this.model.emailOrPhone)) {
 
-                body['email'] = this.model.emailOrPhone;
-               console.log(this.model.emailOrPhone + " is email");
-            } else {
-                body['phone'] = this.model.emailOrPhone;
-                console.log(this.model.emailOrPhone + " is phone number");
-            }*/
+        let body = {};
+        validateEmail(this.model.emailOrPhone) ? body['email'] = this.model.emailOrPhone : body['phone'] = this.model.emailOrPhone;
 
         this.loading = true;
-        this._authService.login(this.model.emailOrPhone, this.model.password)
+        this._authService.login(body)
             .subscribe(
                 data => {
-                    this._getCityService.chain.next(data);
-                    if (data.redirect_to_create_salon == 1) {
-                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create_salon';
-                    } else if (data.redirect_to_create_salon == 0) {
-                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    if(data.status == 'OK') {
+                        this.userChains = data.data.user.chains;
+                        this.userEmail = data.data.user.email;
+                        console.log(this.userEmail);
+                        LoginCustom.displayEmployeeNext();
+                    } else {
+                        this.showAlert('alertSignin');
+                        this._alertService.error('Пользователь не найден');
+                        this.loading = false;
                     }
-                    this._router.navigate([this.returnUrl]);
                 },
                 error => {
                     console.log(error);
@@ -91,6 +91,39 @@ export class AuthComponent implements OnInit {
                     this.loading = false;
                 });
     }
+
+    selectUserChain(userChain) {
+        this.loading = false;
+        this.selectedUserChain = userChain;
+        LoginCustom.displayPasswordFormNext();
+    }
+
+    enter() {
+        this.loading = true;
+        this._authService.enter(this.userEmail, this.model.password, this.selectedUserChain.id)
+            .subscribe(
+                (data) => {
+                    console.log(data);
+                    this._getCityService.chain.next(data);
+                    /*if (data.redirect_to_create_salon == 1) {
+                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create_salon';
+                    } else if (data.redirect_to_create_salon == 0) {
+                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    }
+                    data.redirect_to_create_salon == 1 ? this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create_salon' : this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    this._router.navigate([this.returnUrl]);*/
+                    data.redirect_to_create_salon == 1 ? this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create_salon' : this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    this._router.navigate([this.returnUrl]);
+                },
+                error => {
+                    console.log(error);
+                    this.showAlert('alertEnter');
+                    this._alertService.error('Неправильный пароль');
+                    this.loading = false;
+                }
+            );
+    }
+
 
     signup() {
         this.loading = true;
@@ -118,7 +151,6 @@ export class AuthComponent implements OnInit {
                     this.showAlert('alertSignin');
                     this._alertService.success('Cool! Password recovery instruction has been sent to your email.', true);
                     this.loading = false;
-                    LoginCustom.displaySignInForm();
                     this.model = {};
                 },
                 error => {

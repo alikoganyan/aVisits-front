@@ -43,6 +43,24 @@ export class LoginCustom {
         (<any>login.find('.m-login__signin')).animateClass('flipInX animated');
     }
 
+
+    /* employee next */
+    static displayEmployeeNext() {
+        let login = $('#m_login');
+        login.removeClass('m-login--signin');
+        login.removeClass('m-login--signup');
+        login.removeClass('m-login--forget-password');
+        login.removeClass('m-next-password');
+        try {
+            $('form').data('validator').resetForm();
+        } catch (e) {
+        }
+
+        login.addClass('m-next-employee');
+        (<any>login.find('.m-next-employee')).animateClass('flipInX animated');
+    }
+
+
     static displayForgetPasswordForm() {
         let login = $('#m_login');
         login.removeClass('m-login--signin');
@@ -54,17 +72,7 @@ export class LoginCustom {
         (<any>login.find('.m-login__forget-password')).animateClass('flipInX animated');
     }
 
-    /* employee next */
-    static displayEmployeeNext() {
-        let login = $('#m_login');
-        login.removeClass('m-login--signin');
-        login.removeClass('m-login--signup');
-        login.removeClass('m-login--forget-password');
-        login.removeClass('m-next-password');
 
-        login.addClass('m-next-employee');
-        (<any>login.find('.m-next-employee')).animateClass('flipInX animated');
-    }
 
     /* password next */
     static displayPasswordFormNext() {
@@ -102,7 +110,7 @@ export class LoginCustom {
 
 
         /* next employee or password next */
-       /* $('#m_login_signin_submit').click(function (e) {
+        /*$('#m_login_signin_submit').click(function (e) {
             e.preventDefault();
            let employers = 0;
            if(employers > 0) {
@@ -113,7 +121,7 @@ export class LoginCustom {
         });*/
 
         /* password next */
-      /*  $('.from_employee_to_password').click(function (e) {
+       /* $('.from_employee_to_password').click(function (e) {
             e.preventDefault();
                 LoginCustom.displayPasswordFormNext();
         });*/

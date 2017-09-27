@@ -8,8 +8,8 @@
     margin: auto;
 }
 
-.custom_datePickerName {
-    margin-right: 10px;
+.custom_datepicker_style {
+    margin-bottom: 10px;
 }
 
 .custom_form_styles input {
@@ -33,6 +33,7 @@
 
 .custom_div_width {
     width: 100%;
+    margin-left: 60px;
 }
 
 .custom_dash {
@@ -41,4 +42,20 @@
 
 .custom_margin {
     margin-left: 0;
+}
+
+.custom_datePickerName {
+    margin-left: 15px;
+}
+
+
+
+.custom_label_position {
+    position: absolute;
+    top: 10px;
+}
+
+.work_interval_groups {
+    margin-bottom: 20px;
+    position: relative;
 }

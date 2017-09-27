@@ -21,7 +21,14 @@ var BootstrapDatepicker = function () {
             clearBtn: !0,
             todayHighlight: !0,
             templates: {leftArrow: '<i class="la la-angle-left"></i>', rightArrow: '<i class="la la-angle-right"></i>'}
-        }), $("#m_datepicker_4, #m_datepicker_4_validate").datepicker({
+        }),$("#m_datepicker_3_1, #m_datepicker_3_1_validate").datepicker({
+            todayBtn: "linked",
+            clearBtn: !0,
+            todayHighlight: !0,
+            templates: {leftArrow: '<i class="la la-angle-left"></i>', rightArrow: '<i class="la la-angle-right"></i>'}
+        }),
+
+            $("#m_datepicker_4, #m_datepicker_4_validate").datepicker({
             todayBtn: "linked",
             clearBtn: !0,
             todayHighlight: !0,

@@ -3128,7 +3128,7 @@ select.bs-select-hidden, select.selectpicker {
 
 /* custom changed default width: 100% */
 .bootstrap-select.form-control:not([class*=col-]) {
-    width: auto;
+    width: 100%;
 }
 
 

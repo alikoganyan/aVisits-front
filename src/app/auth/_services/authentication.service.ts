@@ -5,34 +5,40 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class AuthenticationService {
 
+    private headers = new Headers({'Content-Type': 'application/json'});
+
     constructor(private http: Http) {
     }
 
-    login(email: string, password: string) {
-       /* body = JSON.stringify(body);
-        console.log(body);*/
+    login(body: any) {
         return this.http.post(
-            'http://192.168.0.116:8095/api/user/signin',
-            {email: email, password: password},
-            { headers: new Headers({ 'Content-Type': 'application/json' }) }
+            'http://192.168.0.107:8095/api/user/signin',
+            JSON.stringify(body),
+            { headers: this.headers}
         )
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
-                if (user.user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
                 return user;
-                /*const token = response.json().token;
-                /!* Parse token *!/
-                const base64Url = token.split('.')[1];
-                const base64 = base64Url.replace('-', '+').replace('_', '/');
-                return {token: token, decoded: JSON.parse(window.atob(base64))};*/
             });
     }
 
-
+    enter(email: string, password: string, chainId: number) {
+          return this.http.post(
+                'http://192.168.0.107:8095/api/'+ chainId +'/user/login',
+                {email: email, password: password},
+                {headers: this.headers}
+                )
+              .map((response: Response) => {
+                  // login successful if there's a jwt token in the response
+                  let user = response.json();
+                  if (user.user && user.token) {
+                      // store user details and jwt token in local storage to keep user logged in between page refreshes
+                      localStorage.setItem('currentUser', JSON.stringify(user));
+                  }
+                  return user;
+              });
+    }
 
     logout() {
         // remove user from local storage to log user out

@@ -30359,6 +30359,12 @@ select.m-bootstrap-select {
     border-radius: 1.3rem !important
 }
 
+/* custom style */
+.custom_div_width > .m-bootstrap-select--pill  {
+    width: auto !important;
+}
+
+
 .m-bootstrap-select.bootstrap-select.btn-group.m-bootstrap-select--square > .dropdown-toggle {
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;

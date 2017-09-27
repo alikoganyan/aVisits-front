@@ -20,19 +20,30 @@
                         <form (ngSubmit)="f.form.valid && signin()" #f="ngForm" class="m-login__form m-form" action="">
                             <ng-template #alertSignin></ng-template>
                             <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Ввод номера телефона или email" name="emailOrPhone"
-                                       [(ngModel)]="model.emailOrPhone" #email="ngModel" autocomplete="off">
+                                <input
+                                        class="form-control m-input"
+                                        type="text"
+                                        placeholder="Ввод номера телефона или email"
+                                        name="emailOrPhone"
+                                        [(ngModel)]="model.emailOrPhone"
+                                        #email="ngModel"
+                                        autocomplete="off"
+                                >
                             </div>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input m-login__form-input--last" type="password"
-                                       placeholder="Password" name="password" [(ngModel)]="model.password"
-                                       #password="ngModel">
-                            </div>
+                            <!-- <div class="form-group m-form__group">
+                                 <input class="form-control m-input m-login__form-input--last" type="password"
+                                        placeholder="Password" name="password" [(ngModel)]="model.password"
+                                        #password="ngModel">
+                             </div>-->
                             <div class="row m-login__form-sub">
                                 <div class="col m--align-left">
                                     <label class="m-checkbox m-checkbox--focus">
-                                        <input type="checkbox" name="remember" [(ngModel)]="model.remember"
-                                               #remember="ngModel">
+                                        <input
+                                                type="checkbox"
+                                                name="remember"
+                                                [(ngModel)]="model.remember"
+                                                #remember="ngModel"
+                                        >
                                         Запомнить
                                         <span></span>
                                     </label>
@@ -72,7 +83,8 @@
                                        [(ngModel)]="model.name" #fullname="ngModel">
                             </div>
                             <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Сотовый телефон" name="phone"
+                                <input class="form-control m-input" type="text" placeholder="Сотовый телефон"
+                                       name="phone"
                                        [(ngModel)]="model.phone" #phone="ngModel">
                             </div>
                             <div class="form-group m-form__group">
@@ -85,7 +97,8 @@
                             </div>
                             <div class="form-group m-form__group">
                                 <input class="form-control m-input m-login__form-input--last" type="password"
-                                       placeholder="Confirm Password" name="password_confirmation" [(ngModel)]="model.password_confirmation"
+                                       placeholder="Confirm Password" name="password_confirmation"
+                                       [(ngModel)]="model.password_confirmation"
                                        #rpassword="ngModel">
                             </div>
                             <div class="row form-group m-form__group m-login__form-sub">
@@ -127,9 +140,12 @@
                         </div>
                         <div class="select_employee">
                             <ul>
-                                <li class="from_employee_to_password">test1@gmail.com</li>
-                                <li class="from_employee_to_password">test1@gmai2.com</li>
-                                <li class="from_employee_to_password">test1@gmai3.com</li>
+                                <li
+                                        *ngFor="let userChain of userChains"
+                                        (click)="selectUserChain(userChain)"
+                                        class="from_employee_to_password"
+                                >{{userChain.title}} - {{userChain.description}}
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -142,8 +158,8 @@
                                 Введите пароль
                             </h3>
                         </div>
-                        <form (ngSubmit)="f.form.valid" #f="ngForm" class="m-login__form m-form" action="">
-                            <ng-template #alertSignup></ng-template>
+                        <form (ngSubmit)="f.form.valid && enter()" #f="ngForm" class="m-login__form m-form" action="">
+                            <ng-template #alertEnter></ng-template>
                             <div class="form-group m-form__group">
                                 <input class="form-control m-input" type="password" placeholder="Пароль"
                                        name="password" [(ngModel)]="model.password" #password="ngModel">
@@ -152,7 +168,6 @@
                             <div class="m-login__form-action">
                                 <button [disabled]="loading"
                                         [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
-                                        id=""
                                         class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
                                     Sign Up
                                 </button>
@@ -215,7 +230,9 @@
                 Бесплатно навсегда!
             </h3>
             <p class="m-login__msg">
-                    Система постоянно развивается и дорабатывается. Онлайн запись и все необходимые функции всегда будут бесплатными для тех кто успеет зарегистрироваться и будет пользоваться системой до выхода системы из бета-версии.
+                Система постоянно развивается и дорабатывается. Онлайн запись и все необходимые функции всегда будут
+                бесплатными для тех кто успеет зарегистрироваться и будет пользоваться системой до выхода системы из
+                бета-версии.
             </p>
         </div>
     </div>
