@@ -13,6 +13,8 @@ import { AlertService } from "./_services/alert.service";
 import { AuthenticationService } from "./_services/authentication.service";
 import { UserService } from "./_services/user.service";
 import { fakeBackendProvider } from "./_helpers/index";
+import { CreateSalonComponent } from './create-salon/create-salon.component';
+import {CreateSalonService} from "../theme/_services/create-salon.service";
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { fakeBackendProvider } from "./_helpers/index";
         AuthComponent,
         AlertComponent,
         LogoutComponent,
+        CreateSalonComponent,
     ],
     imports: [
         CommonModule,
@@ -36,6 +39,7 @@ import { fakeBackendProvider } from "./_helpers/index";
         fakeBackendProvider,
         MockBackend,
         BaseRequestOptions,
+        CreateSalonService
     ],
     entryComponents: [AlertComponent]
 })

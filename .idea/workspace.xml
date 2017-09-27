@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981da0b4-2062-4f8c-8b21-996cac5ab325" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts" afterPath="$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts" afterPath="$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/_services/user.service.ts" afterPath="$PROJECT_DIR$/src/app/auth/_services/user.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" afterPath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.css" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/demo/default/base/style.bundle.css" afterPath="$PROJECT_DIR$/src/assets/demo/default/base/style.bundle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/vendors/base/vendors.bundle.css" afterPath="$PROJECT_DIR$/src/assets/vendors/base/vendors.bundle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/auth.module.ts" afterPath="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" afterPath="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/theme.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/theme.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -27,129 +25,50 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="aVisits-front-Angular4" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="auth.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
+      <file leaf-file-name="create-salon.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="120" column="68" lean-forward="true" selection-start-line="120" selection-start-column="68" selection-end-line="120" selection-end-column="68" />
+            <state relative-caret-position="114">
+              <caret line="77" column="52" lean-forward="true" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
               <folding>
-                <element signature="e#0#148#0" expanded="true" />
-                <element signature="n#!!block;n#ngOnInit#0;n#AuthComponent#0" expanded="false" />
-                <element signature="e#4132#4743#0" expanded="false" />
+                <element signature="e#0#86#0" expanded="true" />
+                <element signature="n#!!block;n#getCountries#0;n#CreateSalonComponent#0" expanded="false" />
+                <element signature="n#!!block;n#getCountry#0;n#CreateSalonComponent#0" expanded="false" />
+                <element signature="n#!!block;n#getCities#0;n#CreateSalonComponent#0" expanded="false" />
+                <element signature="n#!!block;n#citySelected#0;n#CreateSalonComponent#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alert.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/_directives/alert.component.ts">
+      <file leaf-file-name="create-salon.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="110">
+              <caret line="105" column="29" lean-forward="true" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="n#label#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#select#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="e#3959#4762#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login-1.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
+      <file leaf-file-name="create-salon.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="147" column="37" lean-forward="true" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+            <state relative-caret-position="384">
+              <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
               <folding>
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="e#1825#2187#0" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.guard.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/_guards/auth.guard.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="authentication.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employee.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="error-handler.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/_services/error-handler.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alert.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/_services/alert.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/_services/user.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login-custom.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
-              <folding>
-                <element signature="n#!!block;n#displaySignUpForm#0;n#LoginCustom#0" expanded="false" />
-                <element signature="n#!!block;n#displaySignInForm#0;n#LoginCustom#0" expanded="false" />
-                <element signature="n#!!block;n#handleSignUpFormSubmit#0;n#LoginCustom#0" expanded="false" />
-                <element signature="n#!!block;n#handleForgetPasswordFormSubmit#0;n#LoginCustom#0" expanded="false" />
+                <element signature="e#0#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,7 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btn-secondary</find>
       <find>Pill style</find>
       <find>Рабочих дней</find>
       <find>30</find>
@@ -189,6 +107,7 @@
       <find>alertForgotPass</find>
       <find>alertSignup</find>
       <find>alertSignin</find>
+      <find>createSalonService</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,10 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/index/index.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/index/index.module.ts" />
-        <option value="$PROJECT_DIR$/node_modules/primeng/components/accordion/accordion.js" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.css" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/layouts/aside-nav/aside-nav.component.html" />
@@ -214,17 +129,7 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.service.ts" />
         <option value="$PROJECT_DIR$/src/app/city.service.ts" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/typeahead.js" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.css" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.html" />
-        <option value="$PROJECT_DIR$/src/app/_services/get-city.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.ts" />
         <option value="$PROJECT_DIR$/src/app/_services/error-handler.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/templates/login-2.component.html" />
@@ -242,12 +147,26 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/auth/_services/user.service.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/_directives/alert.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/_directives/alert.component.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
+        <option value="$PROJECT_DIR$/src/app/auth/_services/user.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/auth.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.css" />
+        <option value="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.css" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/_services/get-city.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/theme.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html" />
+        <option value="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" />
       </list>
     </option>
   </component>
@@ -305,23 +224,22 @@
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
               <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
               <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
               <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -339,11 +257,11 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/demo/default/base/style.bundle.css&#10;css&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/demo/default/base/style.bundle.css&#10;vendors&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/vendors/base/vendors.bundle.css&#10;bun&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/demo/default/base/style.bundle.css&#10;vendor.bund&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/vendors/base/vendors.bundle.js&#10;script.b&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/demo/demo4/base/scripts.bundle.js&#10;style&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/demo/default/base/style.bundle.css&#10;sty&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/demo/default/base/style.bundle.css&#10;headerNav&#9;null&#9;null&#10;au&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/app/auth/_guards/auth.guard.ts&#10;ExceptionHandler&#9;null&#9;null&#10;/api&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/src/assets/demo/default/custom/components/datatables/api&#10;accordio&#9;FILE&#9;file://C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/node_modules/primeng/components/accordion/accordion.d.ts" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\PC5\Desktop\Avisits all here\aVisits-front-Angular4\src\app\_services" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\PC5\Desktop\metronic_v5.0.1\metronic_v5.0.1\theme\dist\angular\default\src\app\theme\pages\default\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC5\Desktop\Avisits all here\aVisits-front-Angular4\src\app\_services" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -389,27 +307,27 @@
       <workItem from="1506174631438" duration="21232000" />
       <workItem from="1506341166955" duration="9941000" />
       <workItem from="1506406281224" duration="13210000" />
-      <workItem from="1506421506225" duration="21578000" />
+      <workItem from="1506421506225" duration="36959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280293000" />
+    <option name="totallyTimeSpent" value="295674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1376488" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19419643" sideWeight="0.49342105" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5029762" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23684211" sideWeight="0.49702382" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28453946" sideWeight="0.49702382" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1688988" sideWeight="0.5065789" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -432,150 +350,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/layouts/layout.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/default.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/logout/logout.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/theme.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/theme-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth-routing.routing.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="32" column="2" lean-forward="false" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="942" column="32" lean-forward="true" selection-start-line="942" selection-start-column="32" selection-end-line="942" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/base/scripts.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15059">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/demo2/base/scripts.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15103">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/demo3/base/scripts.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15059">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/demo4/base/scripts.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="0" column="81068" lean-forward="true" selection-start-line="0" selection-start-column="81068" selection-end-line="0" selection-end-column="81068" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/vendors/base/vendors.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-815">
-          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
@@ -616,6 +396,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="35" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#63#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -630,13 +413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
           <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -724,6 +500,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="3128" column="0" lean-forward="false" selection-start-line="3128" selection-start-column="0" selection-end-line="3128" selection-end-column="40" />
+          <folding>
+            <element signature="e#25406#25581#2" expanded="false" />
+            <element signature="e#26371#26534#2" expanded="false" />
+            <element signature="e#130250#130829#2" expanded="false" />
+            <element signature="e#131706#132289#2" expanded="false" />
+            <element signature="e#132904#133487#2" expanded="false" />
+            <element signature="e#159185#159440#1" expanded="false" />
+            <element signature="e#159775#160030#1" expanded="false" />
+            <element signature="e#246603#247350#2" expanded="false" />
+            <element signature="e#247421#248208#2" expanded="false" />
+            <element signature="e#248281#248768#2" expanded="false" />
+            <element signature="e#248841#249556#2" expanded="false" />
+            <element signature="e#254441#254544#2" expanded="false" />
+            <element signature="e#256224#256323#2" expanded="false" />
+            <element signature="e#258638#258895#2" expanded="false" />
+            <element signature="e#259711#259890#1" expanded="false" />
+            <element signature="e#262946#263203#2" expanded="false" />
+            <element signature="e#263396#263559#2" expanded="false" />
+            <element signature="e#265858#266021#2" expanded="false" />
+            <element signature="e#268714#268971#2" expanded="false" />
+            <element signature="e#269176#269339#2" expanded="false" />
+            <element signature="e#271776#271939#2" expanded="false" />
+            <element signature="e#274604#274861#2" expanded="false" />
+            <element signature="e#275066#275229#2" expanded="false" />
+            <element signature="e#277655#277818#2" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -753,22 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/_models/user.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/_services/get-city.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -811,27 +597,7 @@
         <state relative-caret-position="638">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/_guards/auth.guard.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -844,26 +610,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_directives/alert.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="66">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/auth/_services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/_directives/alert.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        <state relative-caret-position="484">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -873,7 +631,7 @@
         <state relative-caret-position="154">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -890,19 +648,264 @@
             <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/logout/logout.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="24" lean-forward="true" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_guards/auth.guard.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#825#1510#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#86#0" expanded="false" />
+            <element signature="e#553#3350#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/create-salon/create-salon.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/_services/get-city.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/auth-routing.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_directives/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" lean-forward="true" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_helpers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_models/user.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/theme-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#63#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/helpers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_services/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/theme.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="47" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="105" column="29" lean-forward="true" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+          <folding>
+            <element signature="n#label#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#select#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#3959#4762#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/_services/script-loader.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="120" column="68" lean-forward="true" selection-start-line="120" selection-start-column="68" selection-end-line="120" selection-end-column="68" />
+        <state relative-caret-position="-1914">
+          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding>
             <element signature="e#0#148#0" expanded="true" />
             <element signature="n#!!block;n#ngOnInit#0;n#AuthComponent#0" expanded="false" />
             <element signature="e#4132#4743#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="77" column="52" lean-forward="true" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#86#0" expanded="true" />
+            <element signature="n#!!block;n#getCountries#0;n#CreateSalonComponent#0" expanded="false" />
+            <element signature="n#!!block;n#getCountry#0;n#CreateSalonComponent#0" expanded="false" />
+            <element signature="n#!!block;n#getCities#0;n#CreateSalonComponent#0" expanded="false" />
+            <element signature="n#!!block;n#citySelected#0;n#CreateSalonComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>

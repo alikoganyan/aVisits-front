@@ -12,7 +12,6 @@ declare let mUtil: any;
 })
 export class ThemeComponent implements OnInit {
 
-
     constructor(private _script: ScriptLoaderService, private _router: Router) {
 
     }

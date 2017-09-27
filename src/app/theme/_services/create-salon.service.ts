@@ -17,10 +17,9 @@ export class CreateSalonService {
                 latitude,
                 longitude): Observable<any> {
 
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         return this.http.post(
-            'http://192.168.0.116:8095/api/' + currentUser.chain.id + '/salon/?token=' + currentUser.token,
+            'http://192.168.0.107:8095/api/' + currentUser.chain.id + '/salon/?token=' + currentUser.token,
             {
                 title: title,
                 country: country,
@@ -32,6 +31,7 @@ export class CreateSalonService {
             {headers: this.headers})
             .map(
                 (response: Response) => {
+                    console.log(response.json());
                     return response.json()
                 }
             )

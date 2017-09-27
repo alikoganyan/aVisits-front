@@ -1,18 +1,17 @@
 import {Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {GetCityService} from "../../../../_services/get-city.service";
-import {CreateSalonService} from "../../../_services/create-salon.service";
-
+import {Router, ActivatedRoute} from "@angular/router";
+import {GetCityService} from "../../_services/get-city.service";
+import {CreateSalonService} from "../../theme/_services/create-salon.service";
+import {ScriptLoaderService} from "../../_services/script-loader.service";
 
 @Component({
     selector: 'app-create-salon',
     templateUrl: './create-salon.component.html',
     styleUrls: ['./create-salon.component.css']
 })
-
 export class CreateSalonComponent implements OnInit, AfterViewInit {
-    /*@ViewChild('textCity') textCity: ElementRef;
+    @ViewChild('textCity') textCity: ElementRef;
     countries = [];
     countryId: number;
     selectedCountry: string = '';
@@ -20,10 +19,11 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     selectedCity: string = '';
     false_address = '';
 
-    constructor(private getCityService: GetCityService,
+    constructor(private router: Router,
+                private route: ActivatedRoute,
+                private getCityService: GetCityService,
                 private createSalonService: CreateSalonService,
-                private router: Router,
-                private route: ActivatedRoute) {
+                private _script: ScriptLoaderService) {
     }
 
     getCountries() {
@@ -41,7 +41,6 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
         let selectElementText = event.target['options']
             [event.target['options'].selectedIndex].text;
         this.selectedCountry = selectElementText;
-
     }
 
     getCities(text: string) {
@@ -64,16 +63,18 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
 
 
     onSubmit(form: NgForm) {
-
+        // console.log(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName);
         this.getCityService.getStreet(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName)
             .subscribe(
                 (street) => {
+                    console.log(street);
                     if (street.status == 'ZERO_RESULTS') {
                         this.false_address = 'Адрес не найден';
-                        form.reset({
-                        });
+                        form.reset({});
                     }
                     else if (street.status == 'OK') {
+                        console.log(street.status);
+                        // console.log(form.value.title, this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName, street.results[0].geometry.location.lat, street.results[0].geometry.location.lng);
                         this.createSalonService.createSalon(
                             form.value.title,
                             this.selectedCountry,
@@ -96,14 +97,15 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
             );
 
     }
-*/
+
     ngOnInit() {
-        // this.getCountries();
+        this.getCountries();
     }
 
 
     ngAfterViewInit() {
+        /*this._script.load('app-create-salon',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');*/
     }
 
 }
-

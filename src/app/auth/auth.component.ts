@@ -118,7 +118,7 @@ export class AuthComponent implements OnInit {
                 error => {
                     console.log(error);
                     this.showAlert('alertEnter');
-                    this._alertService.error('Неправильный пароль');
+                    this._alertService.error('Неправильный пароль ');
                     this.loading = false;
                 }
             );
