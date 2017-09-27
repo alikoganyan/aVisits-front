@@ -8,12 +8,22 @@ declare let Dropzone: any;
     styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit, AfterViewInit {
-    showFieldEmployee = false;
+    showFiredEmployee = false;
     radioButtonChackDays = 'byShifts';
-    workDaysIntervals = [];
+    showWeekdays: boolean[] = [false, false, false, false, false, false, false];
+
+
+
+
 
     constructor(private _script: ScriptLoaderService) {
     }
+
+    onChane() {
+        this._script.load('app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
+    }
+
 
     ngOnInit() {
     }
@@ -23,18 +33,17 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     }
 
     onShowFieldEmployee(event) {
-        event.target.checked ? this.showFieldEmployee = true : this.showFieldEmployee = false;
-        console.log(this.showFieldEmployee);
+        event.target.checked ? this.showFiredEmployee = true : this.showFiredEmployee = false;
+        this._script.load('app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
     }
 
     onChangeDays(choice: string) {
         this.radioButtonChackDays = choice;
-        this.ngAfterViewInit();
-    }
-
-    onShowWorkInterval(a, b) {
-        console.log(a);
-        console.log(b);
+        this._script.load('app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
+        this._script.load('app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin.js');
     }
 
     ngAfterViewInit() {

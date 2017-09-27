@@ -18,12 +18,21 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     cities = [];
     selectedCity: string = '';
     false_address = '';
+    show = false;
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
                 private getCityService: GetCityService,
                 private createSalonService: CreateSalonService,
                 private _script: ScriptLoaderService) {
+    }
+
+    onBlur() {
+        this.show = false;
+    }
+
+    onFocus() {
+        this.show = true;
     }
 
     getCountries() {
@@ -106,6 +115,8 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         /*this._script.load('app-create-salon',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');*/
+        this._script.load('.m-grid__item.m-grid__item--fluid.m-wrapper',
+            'assets/demo/default/custom/components/forms/widgets/typeahead.js');
     }
 
 }

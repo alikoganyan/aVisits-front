@@ -201,27 +201,6 @@
                                                 </select>
                                             </div>
 
-                                            <!--<div class="form-group m-form__group row employee_fired_div">
-                                                <label class="m-checkbox custom_datePickerName">
-                                                    <input  type="checkbox" (change)="onShowFieldEmployee($event)">
-                                                    Сотрудник уволен
-                                                    <span ></span>
-                                                </label>
-                                                <div  class="">
-                                                    <div  class="input-group date" id="m_datepicker_3_1" *ngIf="showFieldEmployee">
-                                                        <input
-                                                                class="form-control m-input"
-                                                                readonly=""
-                                                               type="text"
-                                                                value="05/20/2017"
-                                                        >
-                                                        <span  class="input-group-addon">
-								                        <i class="la la-calendar"></i>
-							                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>-->
-
                                             <div class="form-group m-form__group">
                                                 <div class="m-checkbox-list">
 
@@ -230,8 +209,8 @@
                                                         Сотрудник уволен
                                                         <span ></span>
                                                     </label>
-                                                    <div  class="custom_datepicker_style">
-                                                        <div  class="input-group date" id="m_datepicker_3_1" *ngIf="showFieldEmployee">
+                                                    <div class="custom_datepicker_style" *ngIf="showFiredEmployee">
+                                                        <div  class="input-group date" id="m_datepicker_3_1">
                                                             <input
                                                                     class="form-control m-input"
                                                                     readonly=""
@@ -323,6 +302,7 @@
                                     </div>
 
                                     <div *ngIf="radioButtonChackDays == 'byShifts'">
+
                                         <div class="form-group m-form__group row">
                                             <label class="col-form-label col-lg-2 col-sm-2">
                                                 Рабочих дней
@@ -370,18 +350,23 @@
                                                 <input id="m_touchspin_6" type="text" class="form-control bootstrap-touchspin-vertical-btn" value="" name="demo1" placeholder="2">
                                             </div>
                                         </div>
+
                                     </div>
 
 
                                     <div class="form-group m-form__group" *ngIf="radioButtonChackDays == 'byWeekDays'">
 
                                         <div class="work_interval_groups">
-                                            <label class="m-checkbox custom_label_position">
-                                                <input type="checkbox">
+                                            <label class="m-checkbox custom_label_position" >
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekdays[0]"
+                                                        (change)="onChane(); showWeekdays[0] = !showWeekdays[0]"
+                                                >
                                                 Пн
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width">
+                                            <div class="custom_div_width" *ngIf="showWeekdays[0]">
                                                 <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker" title="Начало">
                                                     <option>
                                                         12:00
@@ -412,11 +397,15 @@
 
                                         <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
-                                                <input type="checkbox">
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekdays[1]"
+                                                        (change)="onChane(); showWeekdays[1] = !showWeekdays[1]"
+                                                >
                                                 Вт
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width">
+                                            <div class="custom_div_width" *ngIf="showWeekdays[1]">
                                                 <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker" title="Начало">
                                                     <option>
                                                         12:00
@@ -447,11 +436,15 @@
 
                                         <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
-                                                <input type="checkbox">
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekdays[3]"
+                                                        (change)="onChane(); showWeekdays[3] = !showWeekdays[3]"
+                                                >
                                                 Ср
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width">
+                                            <div class="custom_div_width" *ngIf="showWeekdays[3]">
                                                 <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker" title="Начало">
                                                     <option>
                                                         12:00
@@ -476,17 +469,21 @@
                                                     </option>
                                                 </select>
                                                 <div class="m--space-10"></div>
-                                                <button class="btn btn-success" type="button" (click)="onAddWorkTime()">Добавить рабочий интервал </button>
+                                                <button class="btn btn-success" type="button">Добавить рабочий интервал </button>
                                             </div>
                                         </div>
 
                                         <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
-                                                <input type="checkbox">
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekdays[4]"
+                                                        (change)="onChane(); showWeekdays[4] = !showWeekdays[4]"
+                                                >
                                                 Чт
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width">
+                                            <div class="custom_div_width" *ngIf="showWeekdays[4]">
                                                 <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker" title="Начало">
                                                     <option>
                                                         12:00
@@ -517,11 +514,15 @@
 
                                         <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
-                                                <input type="checkbox">
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekdays[5]"
+                                                        (change)="onChane(); showWeekdays[5] = !showWeekdays[5]"
+                                                >
                                                 Пт
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width">
+                                            <div class="custom_div_width" *ngIf="showWeekdays[5]">
                                                 <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker" title="Начало">
                                                     <option>
                                                         12:00
@@ -552,11 +553,15 @@
 
                                         <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
-                                                <input type="checkbox">
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekdays[6]"
+                                                        (change)="onChane(); showWeekdays[6] = !showWeekdays[6]"
+                                                >
                                                 Сб
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width">
+                                            <div class="custom_div_width" *ngIf="showWeekdays[6]">
                                                 <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker" title="Начало">
                                                     <option>
                                                         12:00
@@ -587,11 +592,15 @@
 
                                         <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
-                                                <input type="checkbox">
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekdays[7]"
+                                                        (change)="onChane(); showWeekdays[7] = !showWeekdays[7]"
+                                                >
                                                 Вс
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width">
+                                            <div class="custom_div_width" *ngIf="showWeekdays[7]">
                                                 <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker" title="Начало">
                                                     <option>
                                                         12:00
@@ -619,6 +628,45 @@
                                                 <button class="btn btn-success" type="button" (click)="onAddWorkTime()">Добавить рабочий интервал </button>
                                             </div>
                                         </div>
+
+                                       <!-- <div class="work_interval_groups" *ngFor="let showWeekday of showWeekdays">
+                                            <label class="m-checkbox custom_label_position">
+                                                <input
+                                                        type="checkbox"
+                                                        [checked]="showWeekday"
+                                                        (change)="onChane(); showWeekday = !showWeekday"
+                                                >
+                                                Вс
+                                                <span></span>
+                                            </label>
+                                            <div class="custom_div_width" *ngIf="showWeekday">
+                                                <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker" title="Начало">
+                                                    <option>
+                                                        12:00
+                                                    </option>
+                                                    <option>
+                                                        13:00
+                                                    </option>
+                                                    <option>
+                                                        14:00
+                                                    </option>
+                                                </select>
+                                                <span class="custom_dash">-</span>
+                                                <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker" title="Конец">
+                                                    <option>
+                                                        12:30
+                                                    </option>
+                                                    <option>
+                                                        13:30
+                                                    </option>
+                                                    <option>
+                                                        14:30
+                                                    </option>
+                                                </select>
+                                                <div class="m&#45;&#45;space-10"></div>
+                                                <button class="btn btn-success" type="button" (click)="onAddWorkTime()">Добавить рабочий интервал </button>
+                                            </div>
+                                        </div>-->
 
                                     </div>
 

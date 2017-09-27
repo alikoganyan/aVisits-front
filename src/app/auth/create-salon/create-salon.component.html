@@ -66,8 +66,10 @@
                                 ngModel
                                 name="cityName"
                                 required
+                                (blur)="onBlur()"
+                                (focus)="onFocus()"
                         >
-                        <div class="gotCities">
+                        <div class="gotCities" *ngIf="show">
                             <ul>
                                 <li *ngFor="let city of cities" (click)="citySelected(city.title)">{{city.title}}</li>
                             </ul>
