@@ -45,10 +45,8 @@
 }
 
 .custom_datePickerName {
-    margin-left: 15px;
+    margin-right: 15px;
 }
-
-
 
 .custom_label_position {
     position: absolute;
@@ -59,4 +57,12 @@
     margin-bottom: 20px;
     padding: 10px;
     position: relative;
+}
+
+.child_div_width {
+    margin-bottom: 10px;
+}
+
+.fa.fa-close {
+    cursor: pointer;
 }

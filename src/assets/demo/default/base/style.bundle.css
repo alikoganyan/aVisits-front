@@ -30360,7 +30360,7 @@ select.m-bootstrap-select {
 }
 
 /* custom style */
-.custom_div_width > .m-bootstrap-select--pill  {
+.custom_div_width > .child_div_width > .m-bootstrap-select--pill  {
     width: auto !important;
 }
 

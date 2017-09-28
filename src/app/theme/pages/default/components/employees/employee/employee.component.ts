@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
+import { Message } from "primeng/primeng";
 
 declare let Dropzone: any;
 @Component({
@@ -10,8 +11,58 @@ declare let Dropzone: any;
 export class EmployeeComponent implements OnInit, AfterViewInit {
     showFiredEmployee = false;
     radioButtonChackDays = 'byShifts';
-    showWeekdays: boolean[] = [false, false, false, false, false, false, false];
-
+    showWeekdays: any = [
+        {
+            show: false,
+            weekDay: 'Пн',
+            addWeekdayInterval: [
+                {start: 'Начало', end: 'Конец'}
+            ]
+        },
+        {
+            show: false,
+            weekDay: 'Вт',
+            addWeekdayInterval: [
+                {start: 'Начало', end: 'Конец'}
+            ]
+        },
+        {
+            show: false,
+            weekDay: 'Ср',
+            addWeekdayInterval: [
+                {start: 'Начало', end: 'Конец'}
+            ]
+        },
+        {
+            show: false,
+            weekDay: 'Чт',
+            addWeekdayInterval: [
+                {start: 'Начало', end: 'Конец'}
+            ]
+        },
+        {
+            show: false,
+            weekDay: 'Пт',
+            addWeekdayInterval: [
+                {start: 'Начало', end: 'Конец'}
+            ]
+        },
+        {
+            show: false,
+            weekDay: 'Сб',
+            addWeekdayInterval: [
+                {start: 'Начало', end: 'Конец'}
+            ]
+        },
+        {
+            show: false,
+            weekDay: 'Вс',
+            addWeekdayInterval: [
+                {start: 'Начало', end: 'Конец'}
+            ]
+        }
+    ];
+    addWorkIntervalByShifts: {start: string, end: string}[] = [];
 
 
 
@@ -19,17 +70,32 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     constructor(private _script: ScriptLoaderService) {
     }
 
-    onChane() {
+    addWeekdayInterval(showWeekday) {
+        showWeekday.addWeekdayInterval.push({start: 'Начало', end: 'Конец'});
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
     }
 
-
-    ngOnInit() {
+    onAddWorkTime() {
+        this.addWorkIntervalByShifts.push(
+            {start: 'Начало', end: 'Конец'}
+        );
+        this._script.load('app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
     }
 
-    onAddWorkTime() {
+    onRemoveWorkTime(id: number) {
+        this.addWorkIntervalByShifts.splice(id, 1);
+    }
 
+    onChange(showWeekday) {
+        showWeekday.show = !showWeekday.show;
+        console.log();
+        this._script.load('app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
+    }
+
+    ngOnInit() {
     }
 
     onShowFieldEmployee(event) {
@@ -57,6 +123,12 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             'assets/demo/default/custom/components/forms/widgets/dropzone.js');
         Dropzone._autoDiscoverFunction();
     }
+
+    onSubmit() {
+
+    }
+
+
 
 
 }
