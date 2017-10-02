@@ -17,6 +17,7 @@
             </div>
 
             <form class="m-form m-form--fit m-form--label-align-right" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <ng-template #alertSalon></ng-template>
                 <div class="m-portlet__body">
                     <!-- Salon name -->
                     <div class="form-group m-form__group">
@@ -45,7 +46,7 @@
                                 name="countryName"
                                 required>
                             <option value="">- Выбирайте страну -</option>
-                            <option *ngFor="let country of countries" [value]="country.id" #op>
+                            <option *ngFor="let country of countries" [value]="country.id">
                                 {{country.title}}
                             </option>
                         </select>

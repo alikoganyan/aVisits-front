@@ -32,3 +32,7 @@
 .custom_datePickerName {
     margin-right: 42px;
 }
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}

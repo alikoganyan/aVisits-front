@@ -87,35 +87,40 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="m_tabs_1_1" role="tabpanel">
                                 <!--begin::Form-->
-                                <form class="m-form m-form--fit m-form--label-align-right">
+                                <form
+                                        class="m-form m-form--fit m-form--label-align-right"
+                                        (ngSubmit)="onSubmit(f)"
+                                        #f="ngForm"
+                                >
+                                    <ng-template #salonCreated></ng-template>
                                     <div class="m-portlet__body">
 
                                         <div class="form-group m-form__group">
                                             <label>
                                                 Название
                                             </label>
-                                            <input type="email" class="form-control m-input"
-                                                   aria-describedby="emailHelp" placeholder="Enter email">
+                                            <input
+                                                    class="form-control m-input"
+                                                    placeholder="Название"
+                                                    ngModel
+                                                    name="title"
+                                                    required
+                                            >
                                         </div>
                                         <div class="form-group m-form__group">
                                             <label for="exampleSelect1">
                                                 Группа
                                             </label>
-                                            <select class="form-control m-input" id="exampleSelect1">
-                                                <option>
-                                                    1
-                                                </option>
-                                                <option>
-                                                    2
-                                                </option>
-                                                <option>
-                                                    3
-                                                </option>
-                                                <option>
-                                                    4
-                                                </option>
-                                                <option>
-                                                    5
+                                            <select
+                                                    class="form-control m-input"
+                                                    id="exampleSelect1"
+                                                    ngModel
+                                                    name="group"
+                                                    required
+                                            >
+                                                <option value="">- Выбирайте группу -</option>
+                                                <option *ngFor="let group of groups" [value]="group.id">
+                                                    {{group.title}}
                                                 </option>
                                             </select>
                                         </div>
@@ -123,7 +128,11 @@
                                         <div class="form-group m-form__group">
 												<span class="m-switch m-switch--icon vertical-align">
 													<label>
-														<input checked="checked" name="" type="checkbox">
+														<input
+                                                               type="checkbox"
+                                                               ngModel
+                                                               name="available_for_online_recording"
+                                                        >
 														<span></span>
 													</label>
 												</span>
@@ -132,7 +141,11 @@
                                         <div class="form-group m-form__group">
 												<span class="m-switch m-switch--icon vertical-align">
 													<label>
-														<input checked="checked" name="" type="checkbox">
+														<input
+                                                                name="onlyForOnline"
+                                                                type="checkbox"
+                                                                ngModel
+                                                        >
 														<span></span>
 													</label>
 												</span>
@@ -142,13 +155,23 @@
                                             <label>
                                                 Продолжительность (минут)
                                             </label>
-                                            <input type="email" class="form-control m-input"
-                                                   aria-describedby="emailHelp" placeholder="60">
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="60"
+                                                    ngModel
+                                                    name="duration"
+                                                    required
+                                            >
                                         </div>
                                     </div>
                                     <div class="m-portlet__foot m-portlet__foot--fit">
                                         <div class="m-form__actions">
-                                            <button type="reset" class="btn btn-primary">
+                                            <button
+                                                    type="submit"
+                                                    class="btn btn-primary"
+                                                    [disabled]="!f.valid"
+                                            >
                                                 Сохранить
                                             </button>
                                             <button type="reset" class="btn btn-secondary button_float_right">
@@ -314,6 +337,7 @@
                                     </label>
                                 </div>
                             </div>
+
                             <div class="tab-pane" id="m_tabs_1_4" role="tabpanel">
 
 
@@ -503,6 +527,7 @@
 
 
                             </div>
+
                             <div class="tab-pane" id="m_tabs_1_5" role="tabpanel">
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                 Ipsum has been the industry's standard dummy text ever since the 1500s, when an

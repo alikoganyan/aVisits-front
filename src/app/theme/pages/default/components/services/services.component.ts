@@ -10,7 +10,6 @@ export class ServicesComponent implements OnInit {
 
     msgs: Message[];
     index: number = 0;
-    public save;
     public items;
 
     constructor() {
@@ -19,7 +18,7 @@ export class ServicesComponent implements OnInit {
     ngOnInit() {
     }
 
-    getService(s) {
+    getService() {
     }
 
     getText(name) {

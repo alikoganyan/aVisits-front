@@ -14,10 +14,6 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/index\/index.module#IndexModule"
             },
             {
-                "path": "create_salon",
-                "loadChildren": ".\/pages\/default\/create-salon\/create-salon.module#CreateSalonModule"
-            },
-            {
                 "path": "components\/records\/record-view-table",
                 "loadChildren": ".\/pages\/default\/components\/records\/record-view-table\/record-view-table.module#RecordViewTableModule"
             },

@@ -66,3 +66,15 @@
 .fa.fa-close {
     cursor: pointer;
 }
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.add_category_div select:nth-child(2)  {
+        margin-bottom: 3px;
+}
+
+.add_category_div button  {
+    margin-top: 3px;
+}

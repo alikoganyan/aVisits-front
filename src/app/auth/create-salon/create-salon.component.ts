@@ -1,9 +1,14 @@
-import {Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
+import {
+    Component, OnInit, AfterViewInit, ViewChild, ElementRef, ComponentFactoryResolver,
+    ViewContainerRef
+} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Router, ActivatedRoute} from "@angular/router";
 import {GetCityService} from "../../_services/get-city.service";
 import {CreateSalonService} from "../../theme/_services/create-salon.service";
 import {ScriptLoaderService} from "../../_services/script-loader.service";
+import {AlertService} from "../_services/alert.service";
+import {AlertComponent} from "../_directives/alert.component";
 
 @Component({
     selector: 'app-create-salon',
@@ -12,6 +17,7 @@ import {ScriptLoaderService} from "../../_services/script-loader.service";
 })
 export class CreateSalonComponent implements OnInit, AfterViewInit {
     @ViewChild('textCity') textCity: ElementRef;
+    @ViewChild('alertSalon', {read: ViewContainerRef}) alertSalon: ViewContainerRef;
     countries = [];
     countryId: number;
     selectedCountry: string = '';
@@ -24,7 +30,9 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
                 private route: ActivatedRoute,
                 private getCityService: GetCityService,
                 private createSalonService: CreateSalonService,
-                private _script: ScriptLoaderService) {
+                private _script: ScriptLoaderService,
+                private _alertService: AlertService,
+                private cfr: ComponentFactoryResolver) {
     }
 
     onBlur() {
@@ -76,13 +84,12 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
         this.getCityService.getStreet(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName)
             .subscribe(
                 (street) => {
-                    console.log(street);
                     if (street.status == 'ZERO_RESULTS') {
                         this.false_address = 'Адрес не найден';
-                        form.reset({});
+                        this.showAlert('alertSalon');
+                        this._alertService.error('Адрес не найден');
                     }
                     else if (street.status == 'OK') {
-                        console.log(street.status);
                         // console.log(form.value.title, this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName, street.results[0].geometry.location.lat, street.results[0].geometry.location.lng);
                         this.createSalonService.createSalon(
                             form.value.title,
@@ -94,17 +101,20 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
                         ).subscribe(
                             (response) => {
                                 console.log(response);
-                                if (response.success == 'Created successfully') {
+                              if (response.success == 'Created successfully') {
                                     this.router.navigate(['/'], {relativeTo: this.route})
                                 }
                             },
-                            error => console.log(error)
+                            error => {
+                                console.log(error);
+                                this.showAlert('alertSalon');
+                                this._alertService.error('Went wrong');
+                            }
                         )
                     }
                 },
                 error => console.log(error)
             );
-
     }
 
     ngOnInit() {
@@ -119,4 +129,10 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
             'assets/demo/default/custom/components/forms/widgets/typeahead.js');
     }
 
+    showAlert(target) {
+        this[target].clear();
+        let factory = this.cfr.resolveComponentFactory(AlertComponent);
+        let ref = this[target].createComponent(factory);
+        ref.changeDetectorRef.detectChanges();
+    }
 }

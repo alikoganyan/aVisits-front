@@ -1,14 +1,19 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
 import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
-import { Message } from "primeng/primeng";
+import {EmployeeService} from "../../../../../_services/employee.service";
+
 
 declare let Dropzone: any;
+
 @Component({
     selector: 'app-employee',
     templateUrl: './employee.component.html',
     styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit, AfterViewInit {
+    currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    action: string = "http://api.avisits.com/api/" + this.currentUser.chain.id + "/employee-photo-upload?token=" + this.currentUser.token;
     showFiredEmployee = false;
     radioButtonChackDays = 'byShifts';
     showWeekdays: any = [
@@ -62,12 +67,15 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             ]
         }
     ];
-    addWorkIntervalByShifts: {start: string, end: string}[] = [];
+    addWorkIntervalByShifts: { start: string, end: string }[] = [];
 
+    @ViewChild('startWorkTime') startWorkTime: ElementRef;
+    @ViewChild('dismissedTime') dismissedTime: ElementRef;
 
+    positions = [];
 
-
-    constructor(private _script: ScriptLoaderService) {
+    constructor(private _script: ScriptLoaderService,
+                private employeeService: EmployeeService) {
     }
 
     addWeekdayInterval(showWeekday) {
@@ -88,6 +96,10 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
         this.addWorkIntervalByShifts.splice(id, 1);
     }
 
+    onRemoveWorkTimes(showWeekday, id: number) {
+        showWeekday.addWeekdayInterval.splice(id, 1);
+    }
+
     onChange(showWeekday) {
         showWeekday.show = !showWeekday.show;
         console.log();
@@ -96,9 +108,20 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
+        this.getPositions();
+        console.log(this.action);
     }
 
-    onShowFieldEmployee(event) {
+    getPositions() {
+        this.employeeService.getPositions()
+            .subscribe(
+                (response) => {
+                    this.positions = response.data;
+                }
+            )
+    }
+
+    onShowFiredEmployee(event) {
         event.target.checked ? this.showFiredEmployee = true : this.showFiredEmployee = false;
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
@@ -124,8 +147,10 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
         Dropzone._autoDiscoverFunction();
     }
 
-    onSubmit() {
-
+    onSubmit(form: NgForm) {
+        console.log(form.value);
+        console.log(this.startWorkTime.nativeElement.defaultValue);
+        console.log(this.dismissedTime.nativeElement.defaultValue);
     }
 
 

@@ -6,7 +6,7 @@ import {AuthGuard} from "./auth/_guards/auth.guard";
 
 const routes: Routes = [
     {path: 'login', loadChildren: './auth/auth.module#AuthModule'},
-    {path: 'salon-create', canActivate: [AuthGuard], component: CreateSalonComponent},
+    {path: 'create-salon', canActivate: [AuthGuard], component: CreateSalonComponent},
     {path: 'logout', component: LogoutComponent},
     {path: '', redirectTo: 'index', pathMatch: 'full'},
 ];
