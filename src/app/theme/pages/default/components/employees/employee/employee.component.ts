@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {NgForm} from "@angular/forms";
 import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
 import {EmployeeService} from "../../../../../_services/employee.service";
+import {CreateEmployeePositionService} from "../../../../../_services/create-employee-position.service";
 
 
 declare let Dropzone: any;
@@ -74,8 +75,19 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
     positions = [];
 
+    switchServices = [
+        {},
+        {},
+        {}
+    ];
+
     constructor(private _script: ScriptLoaderService,
-                private employeeService: EmployeeService) {
+                private employeeService: EmployeeService,
+                private createEmployeePositionService: CreateEmployeePositionService) {
+    }
+
+    deleteServiceSwitch(id: number) {
+        this.switchServices.splice(id, 1);
     }
 
     addWeekdayInterval(showWeekday) {
@@ -113,7 +125,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     }
 
     getPositions() {
-        this.employeeService.getPositions()
+        this.createEmployeePositionService.getPositions()
             .subscribe(
                 (response) => {
                     this.positions = response.data;

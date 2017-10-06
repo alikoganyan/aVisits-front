@@ -11,6 +11,14 @@ declare let mLayout: any;
 })
 export class HeaderNavComponent implements OnInit, AfterViewInit {
     currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    salons = [
+        {title: "Name Salon"},
+        {title: "Name Salon"},
+        {title: "Name Salon"},
+        {title: "Name Salon"}
+    ];
+
     constructor() {
 
     }

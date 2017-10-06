@@ -1,6 +1,6 @@
 import {Http, Headers, Response} from "@angular/http";
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs/Observable";
+
 
 @Injectable()
 export class EmployeeService {
@@ -10,7 +10,7 @@ export class EmployeeService {
 
     constructor(private http: Http) {}
 
-    getPositions() {
+   /* getPositions() {
        return this.http.get(
            'http://api.avisits.com/api/' + this.currentUser.chain.id + '/service?token=' + this.currentUser.token
        )
@@ -20,7 +20,7 @@ export class EmployeeService {
                    return data;
                }
            )
-    }
+    }*/
 
 
 }

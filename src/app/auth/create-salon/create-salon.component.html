@@ -56,25 +56,38 @@
                         <label>
                             Город
                         </label>
+                        <!--<input
+                                [value]="selectedCity"
+                                id="getCityFocus"
+                                class="form-control m-input m-input&#45;&#45;air"
+                                placeholder="Город"
+                                type="text"
+                                #textCity
+                                (keyup)="getCities(textCity.value)"
+                                name="cityName"
+                                (blur)="onBlur()"
+                                (focus)="onFocus()"
+                        >
+                        <div class="gotCities">
+                            <ul>
+                                <li *ngFor="let city of cities" (click)="citySelected(city)">{{city.title}}</li>
+                            </ul>
+                        </div>-->
+
                         <input
+                                [value]="selectedCity"
                                 id="getCityFocus"
                                 class="form-control m-input m-input--air"
                                 placeholder="Город"
                                 type="text"
                                 #textCity
                                 (keyup)="getCities(textCity.value)"
-                                [value]="selectedCity"
-                                ngModel
                                 name="cityName"
-                                required
-                                (blur)="onBlur()"
-                                (focus)="onFocus()"
+                                input list="cityName"
                         >
-                        <div class="gotCities" *ngIf="show">
-                            <ul>
-                                <li *ngFor="let city of cities" (click)="citySelected(city.title)">{{city.title}}</li>
-                            </ul>
-                        </div>
+                        <datalist id="cityName">
+                            <option *ngFor="let city of cities" [value]="city.title">
+                        </datalist>
                     </div>
                     <!-- Address -->
                     <div class="form-group m-form__group">
@@ -123,4 +136,5 @@
     </div>
 
 </div>
+
 

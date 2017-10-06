@@ -15,6 +15,8 @@ import { AuthModule } from "./auth/auth.module";
 import { GlobalErrorHandler } from "./_services/error-handler.service";
 /* Service */
 import { GetCityService } from "./_services/get-city.service";
+import {CreateEmployeePositionService} from "./theme/_services/create-employee-position.service";
+
 
 
 @NgModule({
@@ -31,7 +33,12 @@ import { GetCityService } from "./_services/get-city.service";
         AuthModule,
         JsonpModule
     ],
-    providers: [ScriptLoaderService, { provide: ErrorHandler, useClass: GlobalErrorHandler }, GetCityService],
+    providers: [
+        ScriptLoaderService,
+        { provide: ErrorHandler, useClass: GlobalErrorHandler },
+        GetCityService,
+        CreateEmployeePositionService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

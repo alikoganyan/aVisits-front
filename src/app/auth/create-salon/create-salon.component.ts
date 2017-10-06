@@ -22,9 +22,10 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     countryId: number;
     selectedCountry: string = '';
     cities = [];
-    selectedCity: string = '';
+    selectedCity = '';
     false_address = '';
     show = false;
+
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
@@ -73,14 +74,15 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
             )
     }
 
-    citySelected(selectedCity: string) {
-        this.selectedCity = selectedCity;
+    citySelected(selectedCity: {id: number, title: string, region: string}) {
+        this.selectedCity = selectedCity.title;
+        // console.log(selectedCity.title);
+        console.log(this.selectedCity);
         this.cities = [];
     }
 
-
     onSubmit(form: NgForm) {
-        // console.log(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName);
+        console.log(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName);
         this.getCityService.getStreet(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName)
             .subscribe(
                 (street) => {
@@ -101,7 +103,7 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
                         ).subscribe(
                             (response) => {
                                 console.log(response);
-                              if (response.success == 'Created successfully') {
+                                if (response.success == 'Created successfully') {
                                     this.router.navigate(['/'], {relativeTo: this.route})
                                 }
                             },
@@ -120,6 +122,7 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.getCountries();
     }
+
 
 
     ngAfterViewInit() {

@@ -884,7 +884,7 @@
                             <div class="m-section__content">
                                 <p-accordion>
                                     <!-- First -->
-                                    <p-accordionTab header="Категории услуг 1">
+                                    <p-accordionTab header="Категории услуг 1" *ngFor="let switchService of switchServices; let i = index">
                                         <!--start::Form-->
                                         <div class="m-portlet__body">
                                             <!--begin::Section-->
@@ -1006,6 +1006,7 @@
                                             </div>
                                             <!--end::Section-->
                                         </div>
+                                        <button type="button" (click)="deleteServiceSwitch(i)" class="btn btn-primary">Удалить</button>
                                         <!--end::Form-->
                                     </p-accordionTab>
                                     <p-accordionTab header="Категории услуг 2">
