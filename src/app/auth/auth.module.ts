@@ -16,6 +16,7 @@ import { fakeBackendProvider } from "./_helpers/index";
 import { CreateSalonComponent } from './create-salon/create-salon.component';
 import {CreateSalonService} from "../theme/_services/create-salon.service";
 
+import { CreateSalonGuardService } from "./_guards/create-salon-guard.service";
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import {CreateSalonService} from "../theme/_services/create-salon.service";
     ],
     providers: [
         AuthGuard,
+        CreateSalonGuardService,
         AlertService,
         AuthenticationService,
         UserService,

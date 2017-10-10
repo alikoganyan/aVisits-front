@@ -22,5 +22,25 @@ export class EmployeeService {
            )
     }*/
 
+   addEmployee(first_name: string, last_name: string, father_name: string, email: string, phone: string, position_id: number) {
+      return this.http.post(
+           'http://api.avisits.com/api/' + this.currentUser.chain.id + '/employee?token=' + this.currentUser.token,
+           {
+               first_name: first_name,
+               last_name: last_name,
+               father_name: father_name,
+               email: email,
+               phone: phone,
+               position_id: position_id
+           },
+           {headers: this.headers}
+       )
+           .map(
+               (response: Response) => {
+                   let data = response.json();
+                   return data;
+               }
+           )
+   }
 
 }

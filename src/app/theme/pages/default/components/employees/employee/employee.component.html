@@ -74,6 +74,7 @@
                                     (ngSubmit)="onSubmit(f)"
                                     #f="ngForm"
                             >
+                                <ng-template #alertEmployee></ng-template>
                                 <div class="m-portlet__body">
 
                                     <div class="form-group m-form__group custom_form_styles">
@@ -209,8 +210,6 @@
                                                         _ngcontent-c0=""
                                                         class="form-control m-input"
                                                         id="exampleSelect2"
-                                                        ngModel
-                                                        name="accessProfile"
                                                 >
                                                     <option _ngcontent-c0="">
                                                         1
@@ -419,7 +418,7 @@
                                                 </div>
                                                 <div class="m--space-10"></div>
                                                 <button class="btn btn-success" type="button"
-                                                        (click)="onAddWorkTime(i)">
+                                                        (click)="onAddWorkTime()">
                                                     Добавить рабочий интервал
                                                 </button>
                                             </div>

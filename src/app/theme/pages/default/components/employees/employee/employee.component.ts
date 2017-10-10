@@ -1,8 +1,13 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {
+    AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild,
+    ViewContainerRef
+} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
 import {EmployeeService} from "../../../../../_services/employee.service";
 import {CreateEmployeePositionService} from "../../../../../_services/create-employee-position.service";
+import {AlertComponent} from "../../../../../../auth/_directives/alert.component";
+import {AlertService} from "../../../../../../auth/_services/alert.service";
 
 
 declare let Dropzone: any;
@@ -72,6 +77,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
     @ViewChild('startWorkTime') startWorkTime: ElementRef;
     @ViewChild('dismissedTime') dismissedTime: ElementRef;
+    @ViewChild('alertEmployee', {read: ViewContainerRef}) alertEnter: ViewContainerRef;
 
     positions = [];
 
@@ -83,7 +89,9 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
     constructor(private _script: ScriptLoaderService,
                 private employeeService: EmployeeService,
-                private createEmployeePositionService: CreateEmployeePositionService) {
+                private createEmployeePositionService: CreateEmployeePositionService,
+                private cfr: ComponentFactoryResolver,
+                private _alertService: AlertService) {
     }
 
     deleteServiceSwitch(id: number) {
@@ -121,7 +129,6 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.getPositions();
-        console.log(this.action);
     }
 
     getPositions() {
@@ -160,12 +167,43 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     }
 
     onSubmit(form: NgForm) {
-        console.log(form.value);
-        console.log(this.startWorkTime.nativeElement.defaultValue);
-        console.log(this.dismissedTime.nativeElement.defaultValue);
+        // console.log(form.value);
+        // console.log(this.startWorkTime.nativeElement.defaultValue);
+        // console.log(this.dismissedTime.nativeElement.defaultValue);
+        this.employeeService.addEmployee(
+            form.value.name,
+            form.value.surname,
+            form.value.fatherName,
+            form.value.email,
+            form.value.phone,
+            form.value.position)
+            .subscribe(
+                (data) => {
+                    console.log(data);
+                    // form.reset();
+                    /*console.log(data.ValidationError.email[0]);
+                    if (data.ValidationError.email[0] == "The email has already been taken.") {
+                        this.showAlert('alertEmployee');
+                        this._alertService.error('Данный майл уже используется');
+                    }*/
+
+                    if (data.status == "OK") {
+                        console.log(data.status);
+                        form.reset();
+                        this.showAlert('alertEmployee');
+                        this._alertService.success('Вы успешно создали сотрудника.');
+                    }
+
+                }
+            )
     }
 
 
-
+    showAlert(target) {
+        this[target].clear();
+        let factory = this.cfr.resolveComponentFactory(AlertComponent);
+        let ref = this[target].createComponent(factory);
+        ref.changeDetectorRef.detectChanges();
+    }
 
 }

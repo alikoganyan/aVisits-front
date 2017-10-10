@@ -16,6 +16,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(currentUser.redirect_to_create_salon == 1);
     }
 
 

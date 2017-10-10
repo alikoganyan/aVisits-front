@@ -61,23 +61,22 @@ export class AuthComponent implements OnInit {
             let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         }
-
         let body = {};
         validateEmail(this.model.emailOrPhone) ? body['email'] = this.model.emailOrPhone : body['phone'] = this.model.emailOrPhone;
 
         this.loading = true;
         this._authService.login(body)
             .subscribe(
-                data => {
-                    if(data.status == 'OK') {
-                        this.userChains = data.data.user.chains;
-                        this.userEmail = data.data.user.email;
-                        console.log(this.userEmail);
-                        LoginCustom.displayEmployeeNext();
+                response => {
+                    this.loading = false;
+                    if (response.status == 'OK') {
+                        this.selectedUserChain = response.data.user.chains[0];
+                        this.userChains = response.data.user.chains;
+                        this.userEmail = response.data.user.email;
+                        response.data.user.chains.length > 1 ? LoginCustom.displayEmployeeNext() : LoginCustom.displayPasswordFormNext();
                     } else {
                         this.showAlert('alertSignin');
                         this._alertService.error('Пользователь не найден');
-                        this.loading = false;
                     }
                 },
                 error => {
@@ -89,19 +88,22 @@ export class AuthComponent implements OnInit {
     }
 
     selectUserChain(userChain) {
-        this.loading = false;
         this.selectedUserChain = userChain;
         LoginCustom.displayPasswordFormNext();
     }
 
     enter() {
         this.loading = true;
+        console.log(this.selectedUserChain);
         this._authService.enter(this.userEmail, this.model.password, this.selectedUserChain.id)
             .subscribe(
                 (data) => {
-                    console.log(data);
                     this._getCityService.chain.next(data);
-                    data.redirect_to_create_salon == 1 ? this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create-salon' : this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    if (data.redirect_to_create_salon == 1) {
+                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create-salon';
+                    } else {
+                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    }
                     this._router.navigate([this.returnUrl]);
                 },
                 error => {
@@ -113,7 +115,6 @@ export class AuthComponent implements OnInit {
             );
     }
 
-
     signup() {
         this.loading = true;
         this._userService.create(this.model)
@@ -122,8 +123,13 @@ export class AuthComponent implements OnInit {
                     this.showAlert('alertSignin');
                     this._alertService.success('Спасибо. Чтобы завершить регистрацию, проверьте свою электронную почту.', true);
                     this.loading = false;
-                    LoginCustom.displaySignInForm();
+                    // LoginCustom.displaySignInForm();
                     this.model = {};
+                    console.log(data.status);
+                    console.log(data);
+                    if (data.status == "OK") {
+                        this._router.navigate([this._route.snapshot.queryParams['returnUrl'] || '/create-salon']);
+                    }
                 },
                 error => {
                     this.showAlert('alertSignup');

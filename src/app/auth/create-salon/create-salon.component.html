@@ -56,10 +56,10 @@
                         <label>
                             Город
                         </label>
-                        <!--<input
+                        <input
                                 [value]="selectedCity"
                                 id="getCityFocus"
-                                class="form-control m-input m-input&#45;&#45;air"
+                                class="form-control m-input m-input--air"
                                 placeholder="Город"
                                 type="text"
                                 #textCity
@@ -72,12 +72,12 @@
                             <ul>
                                 <li *ngFor="let city of cities" (click)="citySelected(city)">{{city.title}}</li>
                             </ul>
-                        </div>-->
+                        </div>
 
-                        <input
+                       <!-- <input
                                 [value]="selectedCity"
                                 id="getCityFocus"
-                                class="form-control m-input m-input--air"
+                                class="form-control m-input m-input&#45;&#45;air"
                                 placeholder="Город"
                                 type="text"
                                 #textCity
@@ -87,7 +87,7 @@
                         >
                         <datalist id="cityName">
                             <option *ngFor="let city of cities" [value]="city.title">
-                        </datalist>
+                        </datalist>-->
                     </div>
                     <!-- Address -->
                     <div class="form-group m-form__group">

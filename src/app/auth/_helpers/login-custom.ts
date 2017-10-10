@@ -43,7 +43,6 @@ export class LoginCustom {
         (<any>login.find('.m-login__signin')).animateClass('flipInX animated');
     }
 
-
     /* employee next */
     static displayEmployeeNext() {
         let login = $('#m_login');
@@ -60,7 +59,6 @@ export class LoginCustom {
         (<any>login.find('.m-next-employee')).animateClass('flipInX animated');
     }
 
-
     static displayForgetPasswordForm() {
         let login = $('#m_login');
         login.removeClass('m-login--signin');
@@ -71,8 +69,6 @@ export class LoginCustom {
         login.addClass('m-login--forget-password');
         (<any>login.find('.m-login__forget-password')).animateClass('flipInX animated');
     }
-
-
 
     /* password next */
     static displayPasswordFormNext() {
@@ -85,7 +81,6 @@ export class LoginCustom {
         login.addClass('m-next-password');
         (<any>login.find('.m-next-password')).animateClass('flipInX animated');
     }
-
 
     static handleFormSwitch() {
         $('#m_login_forget_password').click(function (e) {
@@ -107,25 +102,6 @@ export class LoginCustom {
             e.preventDefault();
             LoginCustom.displaySignInForm();
         });
-
-
-        /* next employee or password next */
-        /*$('#m_login_signin_submit').click(function (e) {
-            e.preventDefault();
-           let employers = 0;
-           if(employers > 0) {
-               LoginCustom.displayPasswordFormNext();
-           } else {
-               LoginCustom.displayEmployeeNext();
-           }
-        });*/
-
-        /* password next */
-       /* $('.from_employee_to_password').click(function (e) {
-            e.preventDefault();
-                LoginCustom.displayPasswordFormNext();
-        });*/
-
 
     }
 
@@ -179,12 +155,29 @@ export class LoginCustom {
         });
     }
 
-
+    static handleEnterFormSubmit() {
+        $('#m_enter_form_button').click(function (e) {
+            let btn = $(this);
+            let form = $(this).closest('form');
+            form.validate({
+                rules: {
+                    password: {
+                        required: true
+                    }
+                }
+            });
+            if (!form.valid()) {
+                e.preventDefault();
+                return;
+            }
+        });
+    }
 
     static init() {
         LoginCustom.handleFormSwitch();
         LoginCustom.handleSignInFormSubmit();
         LoginCustom.handleSignUpFormSubmit();
         LoginCustom.handleForgetPasswordFormSubmit();
+        LoginCustom.handleEnterFormSubmit();
     }
 }

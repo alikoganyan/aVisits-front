@@ -1,7 +1,6 @@
-import {ComponentFactoryResolver, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http, Headers, Response} from "@angular/http";
-import {Observable} from "rxjs/Observable";
-import {AlertComponent} from "../../auth/_directives/alert.component";
+
 
 
 @Injectable()
@@ -15,6 +14,16 @@ export class CreateServicesService {
     private headers = new Headers({'Content-Type': 'application/json'});
 
 
+    getServiceCategories() {
+        return this.http.get('http://api.avisits.com/api/' + this.currentUser.chain.id + '/service_category?token=' + this.currentUser.token)
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                }
+            )
+    }
+
     getGroups() {
         return this.http.get('http://api.avisits.com/api/' + this.currentUser.chain.id + '/service_groups?token=' + this.currentUser.token)
             .map(
@@ -24,6 +33,7 @@ export class CreateServicesService {
                 }
             )
     }
+
 
     createService(title: string,
                   id: number,

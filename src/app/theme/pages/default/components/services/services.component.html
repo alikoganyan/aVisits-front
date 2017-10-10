@@ -65,10 +65,9 @@
                                     <div class="m-section__content">
                                         <p-accordion>
                                             <!-- Second -->
-                                            <p-accordionTab header="Стрижка" (click)="getService(s)" #s>
+                                            <p-accordionTab header="Стрижка">
                                                 <div class="m-section__content">
-                                                    <p-accordion (onClose)="onTabClose($event)"
-                                                                 (onOpen)="onTabOpen($event)">
+                                                    <p-accordion>
                                                         <!-- Third -->
                                                         <!--<div class="m-checkbox-list">
                                                             <label class="m-checkbox">
@@ -88,7 +87,7 @@
                                                             </label>
                                                         </div>-->
                                                         <ul>
-                                                            <li #i (click)="getText(i.textContent)">Option 1</li>
+                                                            <li>Option 1</li>
                                                             <li>Option </li>
                                                             <li>Option 3</li>
                                                         </ul>
@@ -98,8 +97,7 @@
                                             <!-- Strijka -->
                                             <p-accordionTab header="Окрашивание волос">
                                                 <div class="m-section__content">
-                                                    <p-accordion (onClose)="onTabClose($event)"
-                                                                 (onOpen)="onTabOpen($event)">
+                                                    <p-accordion>
 
                                                         <div class="m-checkbox-list">
                                                             <label class="m-checkbox">
@@ -126,8 +124,7 @@
                                             <!-- Strijka -->
                                             <p-accordionTab header="Стрижка горячим утюгом">
                                                 <div class="m-section__content">
-                                                    <p-accordion (onClose)="onTabClose($event)"
-                                                                 (onOpen)="onTabOpen($event)">
+                                                    <p-accordion>
                                                         <div class="m-checkbox-list">
                                                             <label class="m-checkbox">
                                                                 <input type="checkbox">
@@ -198,6 +195,25 @@
                                     sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat quam,
                                     vel sollicitudin mauris.
                                 </p-accordionTab>
+                                <div>
+                                    <p-accordionTab header="Ногтевой сервис">
+                                        Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
+                                        risus at neque. Suspendisse
+                                        vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta sem,
+                                        non luctus leo imperdiet
+                                        rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
+                                        Phasellus consequat lectus ac
+                                        metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit commodo
+                                        eget. Phasellus porta
+                                        massa
+                                        scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
+                                        consequat justo. Nullam
+                                        placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam semper
+                                        mollis hendrerit. Etiam
+                                        sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat quam,
+                                        vel sollicitudin mauris.
+                                    </p-accordionTab>
+                                </div>
                             </p-accordion>
                         </div>
                     </div>

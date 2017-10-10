@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Message } from "primeng/primeng";
+import {Component, OnInit} from '@angular/core';
+import {CreateServicesService} from "../../../../_services/create-services.service";
+import {Message} from "primeng/primeng";
 
 @Component({
     selector: 'app-services',
@@ -8,30 +9,35 @@ import { Message } from "primeng/primeng";
 })
 export class ServicesComponent implements OnInit {
 
-    msgs: Message[];
-    index: number = 0;
-    public items;
+    // msgs: Message[];
 
-    constructor() {
+    serviceCategories = [{title: "AAA"}, {title: "BBB"}, {title: "CCC"}];
+
+    constructor(private createServicesService: CreateServicesService) {
     }
 
     ngOnInit() {
+        this.getServiceCategories();
     }
 
-    getService() {
+    getServiceCategories() {
+        this.createServicesService.getServiceCategories()
+            .subscribe(
+                (response) => {
+                    this.serviceCategories = response;
+                }
+            )
     }
 
-    getText(name) {
-        console.log(name);
-    }
+      /*  onTabClose(event) {
+            this.msgs = [];
+            this.msgs.push({ severity: 'info', summary: 'Tab Closed', detail: 'Index: ' + event.index });
+            console.log(this.msgs);
+        }
 
-    onTabClose(event) {
-        this.msgs = [];
-        this.msgs.push({ severity: 'info', summary: 'Tab Closed', detail: 'Index: ' + event.index });
-    }
-
-    onTabOpen(event) {
-        this.msgs = [];
-        this.msgs.push({ severity: 'info', summary: 'Tab Expanded', detail: 'Index: ' + event.index });
-    }
+        onTabOpen(event) {
+            this.msgs = [];
+            this.msgs.push({ severity: 'info', summary: 'Tab Expanded', detail: 'Index: ' + event.index });
+            console.log(this.msgs);
+        }*/
 }

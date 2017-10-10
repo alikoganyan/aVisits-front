@@ -36,128 +36,6 @@
     </div>
 </div>
 <!-- END: Subheader -->
-<!--<div class="m-content">
-    <div class="row">
-        <div class="col-md-8 margin_auto">
-            &lt;!&ndash;begin::Portlet&ndash;&gt;
-            <div class="m-portlet m-portlet&#45;&#45;tab">
-                <div class="m-portlet__head">
-                    <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title custom_div_width">
-							<span class="m-portlet__head-icon m&#45;&#45;hide">
-								<i class="la la-gear"></i>
-							</span>
-                            <h3 class="m-portlet__head-text">
-                                Создайте должность
-                            </h3>
-                            &lt;!&ndash; Modal button here &ndash;&gt;
-                            <button class="btn btn-primary modalButton " data-target="#m_modal_5" data-toggle="modal" type="button">
-                                Добавить
-                            </button>
-                            &lt;!&ndash; End Modal button &ndash;&gt;
-                        </div>
-
-                    </div>
-                </div>
-                &lt;!&ndash;begin::Form&ndash;&gt;
-                <form class="m-form m-form&#45;&#45;fit m-form&#45;&#45;label-align-right">
-                    <div class="m-portlet__body">
-                        <div class="form-group m-form__group m&#45;&#45;margin-top-10">
-                            <div class="alert m-alert m-alert&#45;&#45;default" role="alert">
-                                Созданная должность будет использоваться при создании сотрудника.
-                            </div>
-                        </div>
-                        <div class="form-group m-form__group">
-                            <label>
-                                Название должности
-                            </label>
-                            <input type="text" class="form-control m-input"  placeholder="Страши парикмахер ">
-                        </div>
-                        <div class="form-group m-form__group">
-                            <label for="exampleTextarea">
-                                Описание должности
-                            </label>
-                            <textarea
-                                    class="form-control m-input"
-                                    id="exampleTextarea"
-                                    rows="3"
-                                    placeholder="Занимаеца парикмахерстов, наблюдает за другими парикмахерами."
-                            ></textarea>
-                        </div>
-                    </div>
-                    <div class="m-portlet__foot m-portlet__foot&#45;&#45;fit">
-                        <div class="m-form__actions">
-                            <button type="button" class="btn btn-primary">
-                                Создать
-                            </button>
-                            <button type="button" class="btn btn-secondary">
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                &lt;!&ndash;end::Form&ndash;&gt;
-            </div>
-            &lt;!&ndash;end::Portlet&ndash;&gt;
-        </div>
-        &lt;!&ndash;begin::Modal&ndash;&gt;
-        <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            Создайте должность
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">
-							&times;
-						</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        &lt;!&ndash;begin::Form&ndash;&gt;
-                        <form class="m-form m-form&#45;&#45;fit m-form&#45;&#45;label-align-right">
-                            <div class="m-portlet__body">
-                                <div class="form-group m-form__group m&#45;&#45;margin-top-10">
-                                    <div class="alert m-alert m-alert&#45;&#45;default" role="alert">
-                                        Созданная должность будет использоваться при создании сотрудника.
-                                    </div>
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Название должности
-                                    </label>
-                                    <input type="text" class="form-control m-input"  placeholder="Страши парикмахер ">
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label for="exampleTextarea">
-                                        Описание должности
-                                    </label>
-                                    <textarea
-                                            class="form-control m-input"
-                                            rows="3"
-                                            placeholder="Занимаеца парикмахерстов, наблюдает за другими парикмахерами."
-                                    ></textarea>
-                                </div>
-                            </div>
-                        </form>
-                        &lt;!&ndash;end::Form&ndash;&gt;
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            Close
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            Save
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        &lt;!&ndash;end::Modal&ndash;&gt;
-    </div>
-</div>-->
-
 <div class="m-content">
     <div class="m-portlet m-portlet--mobile">
         <div class="m-portlet__head">
@@ -189,7 +67,7 @@
                         </div>
                     </div>
                     <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                        <button class="btn btn-primary modalButton " data-target="#m_modal_5" data-toggle="modal"
+                        <button class="btn btn-primary modalButton add_position_button" data-target="#m_modal_5" data-toggle="modal"
                                 type="button">
                             Добавить
                         </button>
@@ -218,14 +96,9 @@
 						</span>
                     </button>
                 </div>
-                <form
-                        class="m-form m-form--fit m-form--label-align-right"
-                        (ngSubmit)="onSubmit(f)"
-                        #f="ngForm"
-                >
+                <form class="m-form m-form--fit m-form--label-align-right">
                     <div class="modal-body">
                         <!--begin::Form-->
-
                         <div class="m-portlet__body">
                             <div class="form-group m-form__group m--margin-top-10">
                                 <div class="alert m-alert m-alert--default" role="alert">
@@ -236,12 +109,12 @@
                                 <label>
                                     Название должности
                                 </label>
-                                <input type="hidden" name="id" ngModel >
+                                <input type="hidden" name="id">
                                 <input
                                         type="text"
                                         class="form-control m-input"
                                         placeholder="Старший парикмахер"
-                                        ngModel
+                                        id="position_name"
                                         name="title"
                                         required
                                 >
@@ -252,15 +125,13 @@
                                 </label>
                                 <textarea
                                         class="form-control m-input"
+                                        id="position_description"
                                         rows="3"
                                         placeholder="Занимается парикмахерство, наблюдает за другими парикмахерами."
-                                        ngModel
                                         name="description"
                                 ></textarea>
                             </div>
                         </div>
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -269,7 +140,7 @@
                         <button type="button" class="btn btn-secondary button_edit_send">
                             Edit
                         </button>
-                        <button type="submit" class="btn btn-primary button_add_send" [disabled]="!f.valid">
+                        <button class="btn btn-primary button_add_send" id="position_add" type="button">
                             Save
                         </button>
                     </div>

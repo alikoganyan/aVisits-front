@@ -60,15 +60,54 @@ var DatatableRemoteAjaxDemo = function () {
                     }]
             }),
             e = t.getDataSourceQuery();
-        $(document).on('click', '.position_edit', function () {
-            $("#m_modal_5 form input[name=id]").val($(this).data('id'));
-            $("#m_modal_5 form input[name=title]").val($(this).data('title'));
-            $("#m_modal_5 form textarea[name=description]").val($(this).data('description'));
 
+        /* MODAL BUTTON HERE */
+        $(document).on('click', '.add_position_button', function () {
+            $("#m_modal_5 form input[name=id]").val('');
+            $("#m_modal_5 form input[name=title]").val('');
+            $("#m_modal_5 form textarea[name=description]").val('');
+
+            $("#position_add").css('display', 'inline');
+            $(".button_edit_send").css('display', 'none');
         }),
+            /* ADD HERE */
+            $(document).on('click', '#position_add', function () {
+                var name = $('#position_name').val();
+                var description = $('#position_description').val();
+
+                var url = "http://api.avisits.com/api/" + currentUser.chain.id + "/position?token=" + currentUser.token;
+
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: {
+                        title: name,
+                        description: description
+                    },
+                    success: function (result) {
+                        if (result.status == "OK") {
+                            $('#m_modal_5').modal('hide');
+                        }
+                        t.load();
+                    }
+                });
+
+            }),
+
             /* EDIT HERE */
+            $(document).on('click', '.position_edit', function () {
+                $(".button_edit_send").css('display', 'inline');
+                $("#position_add").css('display', 'none');
+
+                $("#m_modal_5 form input[name=id]").val($(this).data('id'));
+                $("#m_modal_5 form input[name=title]").val($(this).data('title'));
+                $("#m_modal_5 form textarea[name=description]").val($(this).data('description'));
+
+            }),
+
             $(document).on('click', '.button_edit_send', function () {
-                var id =  $("#m_modal_5 form input[name=id]").val();
+                var id = $("#m_modal_5 form input[name=id]").val();
                 var title = $("#m_modal_5 form input[name=title]").val();
                 var description = $("#m_modal_5 form textarea[name=description]").val();
                 var url = "http://api.avisits.com/api/" + currentUser.chain.id + "/position/" + id + "?token=" + currentUser.token;
@@ -79,16 +118,15 @@ var DatatableRemoteAjaxDemo = function () {
                         title: title,
                         description: description
                     },
-                    success: function(result) {
-                        console.log(result);
-                        if ( result.status == "OK" ) {
+                    success: function (result) {
+                        if (result.status == "OK") {
                             $('#m_modal_5').modal('hide');
                         }
                         t.load();
                     }
                 });
-
             });
+
         /* DELETE HERE */
         $(document).on('click', '.position_delete', function (e) {
             var id = $(this).data('id');
@@ -96,12 +134,12 @@ var DatatableRemoteAjaxDemo = function () {
             $.ajax({
                 url: url,
                 type: 'DELETE',
-                success: function(result) {
-                   console.log(result);
+                success: function (result) {
                     t.load();
                 }
             });
         }),
+
             $("#m_form_search").on("keyup", function (e) {
                 var a = t.getDataSourceQuery();
                 a.generalSearch = $(this).val().toLowerCase(), t.setDataSourceQuery(a), t.load()
@@ -125,5 +163,6 @@ var DatatableRemoteAjaxDemo = function () {
 }();
 $(function () {
     DatatableRemoteAjaxDemo.init()
-})
+});
+
 

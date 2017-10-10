@@ -23,7 +23,6 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     selectedCountry: string = '';
     cities = [];
     selectedCity = '';
-    false_address = '';
     show = false;
 
 
@@ -77,7 +76,7 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     citySelected(selectedCity: {id: number, title: string, region: string}) {
         this.selectedCity = selectedCity.title;
         // console.log(selectedCity.title);
-        console.log(this.selectedCity);
+        // console.log(this.selectedCity);
         this.cities = [];
     }
 
@@ -87,12 +86,11 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
             .subscribe(
                 (street) => {
                     if (street.status == 'ZERO_RESULTS') {
-                        this.false_address = 'Адрес не найден';
                         this.showAlert('alertSalon');
                         this._alertService.error('Адрес не найден');
                     }
                     else if (street.status == 'OK') {
-                        // console.log(form.value.title, this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName, street.results[0].geometry.location.lat, street.results[0].geometry.location.lng);
+                        console.log(form.value.title, this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName, street.results[0].geometry.location.lat, street.results[0].geometry.location.lng);
                         this.createSalonService.createSalon(
                             form.value.title,
                             this.selectedCountry,
@@ -104,6 +102,13 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
                             (response) => {
                                 console.log(response);
                                 if (response.success == 'Created successfully') {
+
+                                   /* let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                                    currentUser.redirect_to_create_salon = 0;
+                                    localStorage.setItem('currentUser', JSON.stringify(currentUser));*/
+
+                                    let currentSalon =  localStorage.setItem('currentSalon', JSON.stringify(response.data));
+
                                     this.router.navigate(['/'], {relativeTo: this.route})
                                 }
                             },

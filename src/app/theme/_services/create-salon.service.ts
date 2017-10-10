@@ -7,7 +7,7 @@ import {Observable} from "rxjs/Observable";
 export class CreateSalonService {
     constructor(private http: Http) {
     }
-
+    private currentUser = JSON.parse(localStorage.getItem('currentUser'));
     private headers = new Headers({'Content-Type': 'application/json'});
 
     createSalon(title,
@@ -16,9 +16,9 @@ export class CreateSalonService {
                 address,
                 latitude,
                 longitude): Observable<any> {
-        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
         return this.http.post(
-            'http://api.avisits.com/api/' + currentUser.chain.id + '/salon?token=' + currentUser.token,
+            'http://api.avisits.com/api/' + this.currentUser.chain.id + '/salon?token=' + this.currentUser.token,
             {
                 title: title,
                 country: country,
