@@ -16,7 +16,7 @@ export class CreateSalonGuardService implements CanActivate {
             return true;
         }
         else {
-            this.router.navigate(['/create-salon'], { queryParams: { returnUrl: state.url } });
+            this.router.navigate(['/create-new-salon'], { queryParams: { returnUrl: state.url } });
             return false;
         }
     }

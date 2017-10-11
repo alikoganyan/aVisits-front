@@ -100,7 +100,7 @@ export class AuthComponent implements OnInit {
                 (data) => {
                     this._getCityService.chain.next(data);
                     if (data.redirect_to_create_salon == 1) {
-                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create-salon';
+                        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/create-new-salon';
                     } else {
                         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
                     }
@@ -128,7 +128,7 @@ export class AuthComponent implements OnInit {
                     console.log(data.status);
                     console.log(data);
                     if (data.status == "OK") {
-                        this._router.navigate([this._route.snapshot.queryParams['returnUrl'] || '/create-salon']);
+                        this._router.navigate([this._route.snapshot.queryParams['returnUrl'] || '/create-new-salon']);
                     }
                 },
                 error => {

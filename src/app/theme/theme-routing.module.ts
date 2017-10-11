@@ -15,6 +15,14 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/index\/index.module#IndexModule"
             },
             {
+                "path": "components\/salons\/all-salons",
+                "loadChildren": ".\/pages\/default\/components\/salons\/all-salons\/all-salons.module#AllSalonsModule"
+            },
+            {
+                "path": "components\/salons\/create-new-salon",
+                "loadChildren": ".\/pages\/default\/components\/salons\/create-new-salon\/create-new-salon.module#CreateNewSalonModule"
+            },
+            {
                 "path": "components\/records\/record-view-table",
                 "loadChildren": ".\/pages\/default\/components\/records\/record-view-table\/record-view-table.module#RecordViewTableModule"
             },

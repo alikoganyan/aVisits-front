@@ -31,6 +31,53 @@
                 </h4>
                 <i class="m-menu__section-icon flaticon-more-v3"></i>
             </li>
+            <!-- Salons -->
+            <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
+                <a href="#" class="m-menu__link m-menu__toggle">
+                    <i class="m-menu__link-icon flaticon-layers"></i>
+                    <span class="m-menu__link-text">
+						Салоны
+					</span>
+                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                </a>
+                <div class="m-menu__submenu">
+                    <span class="m-menu__arrow"></span>
+                    <ul class="m-menu__subnav">
+                        <li class="m-menu__item  m-menu__item--parent" routerLinkActive="m-menu__item--active"
+                            routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                            <a href="#" class="m-menu__link">
+								<span class="m-menu__link-text">
+									Салоны
+								</span>
+                            </a>
+                        </li>
+
+                        <li class="m-menu__item" routerLinkActive="m-menu__item--active"
+                            routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                            <a routerLink="/components/salons/all-salons" class="m-menu__link">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                    <span></span>
+                                </i>
+                                <span class="m-menu__link-text">
+									Все салоны
+								</span>
+                            </a>
+                        </li>
+                        <li class="m-menu__item" routerLinkActive="m-menu__item--active"
+                            routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                            <a routerLink="/components/salons/create-new-salon" class="m-menu__link">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                    <span></span>
+                                </i>
+                                <span class="m-menu__link-text">
+									Создать салон
+								</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
             <!-- Records -->
             <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
                 <a href="#" class="m-menu__link m-menu__toggle">

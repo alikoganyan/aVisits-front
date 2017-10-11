@@ -12,7 +12,7 @@ export class AuthenticationService {
 
     login(body: any) {
         return this.http.post(
-            'http://api.avisits.com/api/user/signin',
+            'http://192.168.0.117:8095/api/user/signin',
             JSON.stringify(body),
             { headers: this.headers}
         )
@@ -25,7 +25,7 @@ export class AuthenticationService {
 
     enter(email: string, password: string, chainId: number) {
           return this.http.post(
-                'http://api.avisits.com/api/'+ chainId +'/user/login',
+                'http://192.168.0.117:8095/api/'+ chainId +'/user/login',
                 {email: email, password: password},
                 {headers: this.headers}
                 )

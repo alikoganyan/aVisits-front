@@ -1,0 +1,259 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Создать салон
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Салоны
+						</span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							 Создать салон
+						</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
+                 data-dropdown-toggle="hover" aria-expanded="true">
+                <a href="#"
+                   class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+										<span class="m-nav__section-text">
+											Quick Actions
+										</span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <span class="m-nav__link-text">
+												Activity
+											</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+												Messages
+											</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+												FAQ
+											</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+												Support
+											</span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                            Submit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-md-10 margin-auto">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--tab">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+							<span class="m-portlet__head-icon m--hide">
+								<i class="la la-gear"></i>
+							</span>
+                            <h3 class="m-portlet__head-text">
+                                Создайте новый салон.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <!--begin::Form-->
+                <form class="m-form m-form--fit m-form--label-align-right">
+                    <div class="m-portlet__body">
+                        <!-- Salon name -->
+                        <div class="form-group m-form__group">
+                            <label for="title-salon">
+                                Название салона
+                            </label>
+                            <input
+                                    type="text"
+                                    class="form-control m-input"
+                                    id="title-salon"
+                                    placeholder="Ромашка"
+                                    name="title"
+                            >
+                        </div>
+                        <!-- Country -->
+                        <div class="form-group m-form__group">
+                            <label for="country-salon">
+                                Страна
+                            </label>
+                            <select
+                                    class="form-control m-input"
+                                    id="country-salon"
+                                    name="country"
+                            >
+                                <option>
+                                    1
+                                </option>
+                                <option>
+                                    2
+                                </option>
+                                <option>
+                                    3
+                                </option>
+                                <option>
+                                    4
+                                </option>
+                                <option>
+                                    5
+                                </option>
+                            </select>
+                        </div>
+                        <!-- City -->
+                        <div class="form-group m-form__group">
+                            <label for="city-salon">
+                                Город
+                            </label>
+                            <input
+                                    type="text"
+                                    class="form-control m-input"
+                                    id="city-salon"
+                                    placeholder="Название города"
+                                    name="city"
+                            >
+                        </div>
+                        <!-- Address -->
+                        <div class="form-group m-form__group">
+                            <label for="city-salon">
+                                Адрес
+                            </label>
+                            <input
+                                    type="text"
+                                    class="form-control m-input"
+                                    id="address-salon"
+                                    placeholder="Название адреса"
+                                    name="address"
+                            >
+                        </div>
+                        <!-- Google map -->
+                        <!-- Operating mode -->
+                        <!-- LOOP -->
+                        <div class="form-group m-form__group">
+
+                            <div class="work_interval_groups" *ngFor="let showWeekday of showWeekdays">
+                                <label class="m-checkbox custom_label_position">
+                                    <input
+                                            type="checkbox"
+                                            [checked]="showWeekday.show"
+                                            (change)="onChange(showWeekday);"
+                                    >
+                                    {{showWeekday.weekDay}}
+                                    <span></span>
+                                </label>
+                                <div class="custom_div_width" *ngIf="showWeekday.show">
+                                    <div class="child_div_width">
+                                        <select
+                                                class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                title="Начало"
+                                        >
+                                            <option>
+                                                12:00
+                                            </option>
+                                            <option>
+                                                13:00
+                                            </option>
+                                            <option>
+                                                14:00
+                                            </option>
+                                        </select>
+                                        <span class="custom_dash">-</span>
+                                        <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                title="Конец">
+                                            <option>
+                                                12:30
+                                            </option>
+                                            <option>
+                                                13:30
+                                            </option>
+                                            <option>
+                                                14:30
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="m--space-10"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions">
+                            <button type="reset" class="btn btn-primary">
+                                Submit
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>
+

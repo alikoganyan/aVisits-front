@@ -131,7 +131,7 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
 
 
     ngAfterViewInit() {
-        /*this._script.load('app-create-salon',
+        /*this._script.load('app-create-new-salon',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');*/
         this._script.load('.m-grid__item.m-grid__item--fluid.m-wrapper',
             'assets/demo/default/custom/components/forms/widgets/typeahead.js');

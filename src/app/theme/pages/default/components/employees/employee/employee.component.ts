@@ -122,7 +122,6 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
     onChange(showWeekday) {
         showWeekday.show = !showWeekday.show;
-        console.log();
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
     }

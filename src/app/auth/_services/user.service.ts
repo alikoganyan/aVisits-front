@@ -26,7 +26,7 @@ export class UserService {
 
     create(user: User) {
         return this.http.post(
-            'http://api.avisits.com/api/user/signup',
+            'http://192.168.0.117:8095/api/user/signup',
             user,
             { headers: new Headers({ 'Content-Type': 'application/json' }) })
             .map(
