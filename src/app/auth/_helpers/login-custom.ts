@@ -1,7 +1,7 @@
 export class LoginCustom {
 
     static handleSignInFormSubmit() {
-        $('#m_login_signin_submit').click(function (e) {
+        $('#m_login_signin_submit').click(function(e) {
             let form = $(this).closest('form');
             form.validate({
                 rules: {
@@ -83,22 +83,22 @@ export class LoginCustom {
     }
 
     static handleFormSwitch() {
-        $('#m_login_forget_password').click(function (e) {
+        $('#m_login_forget_password').click(function(e) {
             e.preventDefault();
             LoginCustom.displayForgetPasswordForm();
         });
 
-        $('#m_login_forget_password_cancel').click(function (e) {
+        $('#m_login_forget_password_cancel').click(function(e) {
             e.preventDefault();
             LoginCustom.displaySignInForm();
         });
 
-        $('#m_login_signup').click(function (e) {
+        $('#m_login_signup').click(function(e) {
             e.preventDefault();
             LoginCustom.displaySignUpForm();
         });
 
-        $('#m_login_signup_cancel').click(function (e) {
+        $('#m_login_signup_cancel').click(function(e) {
             e.preventDefault();
             LoginCustom.displaySignInForm();
         });
@@ -106,7 +106,7 @@ export class LoginCustom {
     }
 
     static handleSignUpFormSubmit() {
-        $('#m_login_signup_submit').click(function (e) {
+        $('#m_login_signup_submit').click(function(e) {
             let btn = $(this);
             let form = $(this).closest('form');
             form.validate({
@@ -137,7 +137,7 @@ export class LoginCustom {
     }
 
     static handleForgetPasswordFormSubmit() {
-        $('#m_login_forget_password_submit').click(function (e) {
+        $('#m_login_forget_password_submit').click(function(e) {
             let btn = $(this);
             let form = $(this).closest('form');
             form.validate({
@@ -156,7 +156,7 @@ export class LoginCustom {
     }
 
     static handleEnterFormSubmit() {
-        $('#m_enter_form_button').click(function (e) {
+        $('#m_enter_form_button').click(function(e) {
             let btn = $(this);
             let form = $(this).closest('form');
             form.validate({

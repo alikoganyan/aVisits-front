@@ -2,12 +2,12 @@ import {
     AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild,
     ViewContainerRef
 } from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
-import {EmployeeService} from "../../../../../_services/employee.service";
-import {CreateEmployeePositionService} from "../../../../../_services/create-employee-position.service";
-import {AlertComponent} from "../../../../../../auth/_directives/alert.component";
-import {AlertService} from "../../../../../../auth/_services/alert.service";
+import { NgForm } from "@angular/forms";
+import { ScriptLoaderService } from "../../../../../../_services/script-loader.service";
+import { EmployeeService } from "../../../../../_services/employee.service";
+import { CreateEmployeePositionService } from "../../../../../_services/create-employee-position.service";
+import { AlertComponent } from "../../../../../../auth/_directives/alert.component";
+import { AlertService } from "../../../../../../auth/_services/alert.service";
 
 
 declare let Dropzone: any;
@@ -27,49 +27,49 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             show: false,
             weekDay: 'Пн',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Вт',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Ср',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Чт',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Пт',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Сб',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Вс',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         }
     ];
@@ -77,7 +77,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
     @ViewChild('startWorkTime') startWorkTime: ElementRef;
     @ViewChild('dismissedTime') dismissedTime: ElementRef;
-    @ViewChild('alertEmployee', {read: ViewContainerRef}) alertEnter: ViewContainerRef;
+    @ViewChild('alertEmployee', { read: ViewContainerRef }) alertEnter: ViewContainerRef;
 
     positions = [];
 
@@ -88,10 +88,10 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     ];
 
     constructor(private _script: ScriptLoaderService,
-                private employeeService: EmployeeService,
-                private createEmployeePositionService: CreateEmployeePositionService,
-                private cfr: ComponentFactoryResolver,
-                private _alertService: AlertService) {
+        private employeeService: EmployeeService,
+        private createEmployeePositionService: CreateEmployeePositionService,
+        private cfr: ComponentFactoryResolver,
+        private _alertService: AlertService) {
     }
 
     deleteServiceSwitch(id: number) {
@@ -99,14 +99,14 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     }
 
     addWeekdayInterval(showWeekday) {
-        showWeekday.addWeekdayInterval.push({start: 'Начало', end: 'Конец'});
+        showWeekday.addWeekdayInterval.push({ start: 'Начало', end: 'Конец' });
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
     }
 
     onAddWorkTime() {
         this.addWorkIntervalByShifts.push(
-            {start: 'Начало', end: 'Конец'}
+            { start: 'Начало', end: 'Конец' }
         );
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
@@ -133,9 +133,9 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     getPositions() {
         this.createEmployeePositionService.getPositions()
             .subscribe(
-                (response) => {
-                    this.positions = response.data;
-                }
+            (response) => {
+                this.positions = response.data;
+            }
             )
     }
 
@@ -177,23 +177,23 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             form.value.phone,
             form.value.position)
             .subscribe(
-                (data) => {
-                    console.log(data);
-                    // form.reset();
-                    /*console.log(data.ValidationError.email[0]);
-                    if (data.ValidationError.email[0] == "The email has already been taken.") {
-                        this.showAlert('alertEmployee');
-                        this._alertService.error('Данный майл уже используется');
-                    }*/
+            (data) => {
+                console.log(data);
+                // form.reset();
+                /*console.log(data.ValidationError.email[0]);
+                if (data.ValidationError.email[0] == "The email has already been taken.") {
+                    this.showAlert('alertEmployee');
+                    this._alertService.error('Данный майл уже используется');
+                }*/
 
-                    if (data.status == "OK") {
-                        console.log(data.status);
-                        form.reset();
-                        this.showAlert('alertEmployee');
-                        this._alertService.success('Вы успешно создали сотрудника.');
-                    }
-
+                if (data.status == "OK") {
+                    console.log(data.status);
+                    form.reset();
+                    this.showAlert('alertEmployee');
+                    this._alertService.success('Вы успешно создали сотрудника.');
                 }
+
+            }
             )
     }
 

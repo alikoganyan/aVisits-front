@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from "@angular/router";
-import {UserService} from "../_services/user.service";
-import {Observable} from 'rxjs/Rx';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
+import { UserService } from "../_services/user.service";
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class CreateSalonGuardService implements CanActivate {
 
-    constructor(private router: Router) {}
+    constructor(private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
         let currentSalon = JSON.parse(localStorage.getItem('currentSalon'));

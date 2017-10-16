@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 
 /* JsonP */
-import {JsonpModule} from "@angular/http";
+import { JsonpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { ScriptLoaderService } from "./_services/script-loader.service";
@@ -15,7 +15,7 @@ import { AuthModule } from "./auth/auth.module";
 import { GlobalErrorHandler } from "./_services/error-handler.service";
 /* Service */
 import { GetCityService } from "./_services/get-city.service";
-import {CreateEmployeePositionService} from "./theme/_services/create-employee-position.service";
+import { CreateEmployeePositionService } from "./theme/_services/create-employee-position.service";
 
 
 

@@ -1,1 +1,26 @@
-var BootstrapTimepicker=function(){var e=function(){$("#m_timepicker_1, #m_timepicker_1_modal").timepicker(),$("#m_timepicker_2, #m_timepicker_2_modal").timepicker({minuteStep:1,showSeconds:!0,showMeridian:!1,snapToStep:!0}),$("#m_timepicker_3, #m_timepicker_3_modal").timepicker({defaultTime:"11:45:20 AM",minuteStep:1,showSeconds:!0,showMeridian:!0}),$("#m_timepicker_4, #m_timepicker_4_modal").timepicker({defaultTime:"10:30:20 AM",minuteStep:1,showSeconds:!0,showMeridian:!0}),$("#m_timepicker_1_validate, #m_timepicker_2_validate, #m_timepicker_3_validate").timepicker({minuteStep:1,showSeconds:!0,showMeridian:!1,snapToStep:!0})};return{init:function(){e()}}}();jQuery(document).ready(function(){BootstrapTimepicker.init()});
+var BootstrapTimepicker = function () {
+    var e = function () {
+for (var i = 0; i <=6; ++i) {
+    $("#m_timepicker_start_" + i).timepicker({
+        defaultTime: "10:00",
+        minuteStep: 15,
+        disableFocus: !0,
+        showMeridian: !1,
+    }),
+        $("#m_timepicker_end_" + i).timepicker({
+            defaultTime: "19:00",
+            minuteStep: 15,
+            disableFocus: !0,
+            showMeridian: !1,
+        })
+}
+    };
+    return {
+        init: function () {
+            e();
+        }
+    }
+}();
+jQuery(document).ready(function () {
+    BootstrapTimepicker.init()
+});

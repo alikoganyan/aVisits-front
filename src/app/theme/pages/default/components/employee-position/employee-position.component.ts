@@ -1,7 +1,7 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {ScriptLoaderService} from "../../../../../_services/script-loader.service";
-import {CreateEmployeePositionService} from "../../../../_services/create-employee-position.service";
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
+import { ScriptLoaderService } from "../../../../../_services/script-loader.service";
+import { CreateEmployeePositionService } from "../../../../_services/create-employee-position.service";
 
 @Component({
     selector: 'app-employee-position',

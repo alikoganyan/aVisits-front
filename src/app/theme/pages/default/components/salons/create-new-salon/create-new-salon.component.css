@@ -23,3 +23,11 @@
     width: 100%;
     margin-left: 60px;
 }
+
+.float-right {
+    float: right;
+}
+
+.position_shedule {
+    margin-left: 40px;
+}

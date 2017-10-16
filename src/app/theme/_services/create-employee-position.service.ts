@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Http, Headers, Response} from "@angular/http";
+import { Injectable } from '@angular/core';
+import { Http, Headers, Response } from "@angular/http";
 
 
 @Injectable()
 export class CreateEmployeePositionService {
-    private headers = new Headers({'Content-Type': 'application/json'});
+    private headers = new Headers({ 'Content-Type': 'application/json' });
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     constructor(private http: Http) {
@@ -16,10 +16,10 @@ export class CreateEmployeePositionService {
             {}
         )
             .map(
-                (response: Response) => {
-                    let data = response.json();
-                    return data;
-                }
+            (response: Response) => {
+                let data = response.json();
+                return data;
+            }
             )
     }
 

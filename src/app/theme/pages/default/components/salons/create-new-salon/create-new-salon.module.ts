@@ -5,6 +5,7 @@ import { CreateNewSalonComponent } from "./create-new-salon.component";
 import { LayoutModule } from "../../../../../layouts/layout.module";
 import { DefaultComponent } from "../../../default.component";
 
+
 const routes: Routes = [
     {
         "path": "",
@@ -19,7 +20,9 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), LayoutModule
+        CommonModule,
+        RouterModule.forChild(routes),
+        LayoutModule,
     ], exports: [
         RouterModule
     ], declarations: [

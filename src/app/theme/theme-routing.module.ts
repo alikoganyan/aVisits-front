@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ThemeComponent } from './theme.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from "../auth/_guards/auth.guard";
-import {CreateSalonGuardService} from "../auth/_guards/create-salon-guard.service";
+import { CreateSalonGuardService } from "../auth/_guards/create-salon-guard.service";
 
 const routes: Routes = [
     {

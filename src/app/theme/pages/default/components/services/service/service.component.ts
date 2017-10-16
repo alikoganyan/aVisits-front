@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
-import {NgForm} from "@angular/forms";
-import {CreateServicesService} from "../../../../../_services/create-services.service";
-import {AlertComponent} from "../../../../../../auth/_directives/alert.component";
-import {AlertService} from "../../../../../../auth/_services/alert.service";
+import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { ScriptLoaderService } from "../../../../../../_services/script-loader.service";
+import { NgForm } from "@angular/forms";
+import { CreateServicesService } from "../../../../../_services/create-services.service";
+import { AlertComponent } from "../../../../../../auth/_directives/alert.component";
+import { AlertService } from "../../../../../../auth/_services/alert.service";
 
 
 
@@ -17,12 +17,12 @@ export class ServiceComponent implements OnInit, AfterViewInit {
     groups = [];
     loading = false;
 
-    @ViewChild('salonCreated', {read: ViewContainerRef}) salonCreated: ViewContainerRef;
+    @ViewChild('salonCreated', { read: ViewContainerRef }) salonCreated: ViewContainerRef;
 
     constructor(private _script: ScriptLoaderService,
-                private createServicesService: CreateServicesService,
-                private cfr: ComponentFactoryResolver,
-                private _alertService: AlertService) { }
+        private createServicesService: CreateServicesService,
+        private cfr: ComponentFactoryResolver,
+        private _alertService: AlertService) { }
 
     ngOnInit() {
         this.getGroups();
@@ -31,9 +31,9 @@ export class ServiceComponent implements OnInit, AfterViewInit {
     getGroups() {
         this.createServicesService.getGroups()
             .subscribe(
-                (data) => {
-                    this.groups = data.data.groups;
-                }
+            (data) => {
+                this.groups = data.data.groups;
+            }
             )
     }
 

@@ -6,7 +6,7 @@ import { ServiceComponent } from "./service.component";
 import { LayoutModule } from "../../../../../layouts/layout.module";
 import { DefaultComponent } from "../../../default.component";
 import { AccordionModule } from "primeng/primeng";
-import {CreateServicesService} from "../../../../../_services/create-services.service";
+import { CreateServicesService } from "../../../../../_services/create-services.service";
 
 
 

@@ -87,7 +87,7 @@
                                     <li class="m-nav__separator m-nav__separator--fit"></li>
                                     <li class="m-nav__item">
                                         <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                            Submit
+                                            Создать
                                         </a>
                                     </li>
                                 </ul>
@@ -119,6 +119,7 @@
                 </div>
                 <!--begin::Form-->
                 <form class="m-form m-form--fit m-form--label-align-right">
+                    <ng-template #timePicker></ng-template>
                     <div class="m-portlet__body">
                         <!-- Salon name -->
                         <div class="form-group m-form__group">
@@ -131,10 +132,11 @@
                                     id="title-salon"
                                     placeholder="Ромашка"
                                     name="title"
+                                    required
                             >
                         </div>
                         <!-- Country -->
-                        <div class="form-group m-form__group">
+                        <!--<div class="form-group m-form__group">
                             <label for="country-salon">
                                 Страна
                             </label>
@@ -159,9 +161,9 @@
                                     5
                                 </option>
                             </select>
-                        </div>
+                        </div>-->
                         <!-- City -->
-                        <div class="form-group m-form__group">
+                        <!--<div class="form-group m-form__group">
                             <label for="city-salon">
                                 Город
                             </label>
@@ -172,9 +174,9 @@
                                     placeholder="Название города"
                                     name="city"
                             >
-                        </div>
+                        </div>-->
                         <!-- Address -->
-                        <div class="form-group m-form__group">
+                        <!--<div class="form-group m-form__group">
                             <label for="city-salon">
                                 Адрес
                             </label>
@@ -185,15 +187,43 @@
                                     placeholder="Название адреса"
                                     name="address"
                             >
-                        </div>
+                        </div>-->
                         <!-- Google map -->
+                        <!-- End Google map -->
+                        <div class="m-portlet m-portlet--tab">
+                            <div class="m-portlet__body">
+                                <div class="input-group">
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="m_gmap_8_address"
+                                            placeholder="address..."
+                                            required
+                                    >
+                                    <input type="hidden" id="hidden_marker_latitude" #latitude>
+                                    <input type="hidden" id="hidden_marker_longitude" #longitude>
+                                    <input type="hidden" id="hidden_googleMap_street_number" #street_number>
+                                    <input type="hidden" id="hidden_googleMap_street" #street>
+                                    <input type="hidden" id="hidden_googleMap_city" #city>
+                                    <input type="hidden" id="hidden_googleMap_country" #country>
+                                    <span class="input-group-btn">
+								            <button class="btn btn-primary" id="m_gmap_8_btn">
+									            <i class="fa fa-search"></i>
+								            </button>
+							        </span>
+                                </div>
+                                <div id="m_gmap_8" style="height:300px;"></div>
+                            </div>
+                        </div>
                         <!-- Operating mode -->
                         <!-- LOOP -->
+                        <!-- Start work days -->
+                        <h4 class="position_shedule">График работы салона</h4>
                         <div class="form-group m-form__group">
-
-                            <div class="work_interval_groups" *ngFor="let showWeekday of showWeekdays">
+                            <div class="work_interval_groups" *ngFor="let showWeekday of showWeekdays; let i = index">
                                 <label class="m-checkbox custom_label_position">
                                     <input
+                                            required
                                             type="checkbox"
                                             [checked]="showWeekday.show"
                                             (change)="onChange(showWeekday);"
@@ -202,49 +232,38 @@
                                     <span></span>
                                 </label>
                                 <div class="custom_div_width" *ngIf="showWeekday.show">
-                                    <div class="child_div_width">
-                                        <select
-                                                class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
-                                                title="Начало"
-                                        >
-                                            <option>
-                                                12:00
-                                            </option>
-                                            <option>
-                                                13:00
-                                            </option>
-                                            <option>
-                                                14:00
-                                            </option>
-                                        </select>
-                                        <span class="custom_dash">-</span>
-                                        <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
-                                                title="Конец">
-                                            <option>
-                                                12:30
-                                            </option>
-                                            <option>
-                                                13:30
-                                            </option>
-                                            <option>
-                                                14:30
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div class="m--space-10"></div>
+                                    <input
+                                            required
+                                            type='text'
+                                            class="form-control"
+                                            readonly
+                                            placeholder="Начало"
+                                            style="width: 100px; display: inline"
+                                            [id]="'m_timepicker_start_' + i"
+                                            #start
+                                    >
+                                    -
+                                    <input
+                                            required
+                                            type='text'
+                                            class="form-control m_timepicker_2"
+                                            readonly
+                                            placeholder="Конец"
+                                            style="width: 100px; display: inline"
+                                            [id]="'m_timepicker_end_' + i"
+                                            #end
+                                    >
                                 </div>
                             </div>
                         </div>
-
-
-
+                        <!-- End work days -->
                     </div>
                     <div class="m-portlet__foot m-portlet__foot--fit">
                         <div class="m-form__actions">
-                            <button type="reset" class="btn btn-primary">
-                                Submit
+                            <button type="submit" class="btn btn-primary" (click)="onClick($event); false">
+                                Создать
                             </button>
-                            <button type="reset" class="btn btn-secondary">
+                            <button type="button" class="btn btn-secondary float-right">
                                 Cancel
                             </button>
                         </div>
