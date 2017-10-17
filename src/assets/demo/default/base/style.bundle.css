@@ -2381,7 +2381,7 @@ tbody.collapse.show {
     z-index: 1000;
     display: none;
     float: left;
-    min-width: 10rem;
+    min-width: 100px;  /* default 10rem; */
     padding: .5rem 0;
     margin: .125rem 0 0;
     font-size: 1rem;
@@ -29973,7 +29973,7 @@ td > .m-checkbox.m-checkbox--single, th > .m-checkbox.m-checkbox--single {
 }
 
 .bootstrap-timepicker-widget {
-    width: 175px
+    width: 0;   /* default 175 */
 }
 
 .bootstrap-timepicker-widget .bootstrap-timepicker-hour, .bootstrap-timepicker-widget .bootstrap-timepicker-meridian, .bootstrap-timepicker-widget .bootstrap-timepicker-minute, .bootstrap-timepicker-widget .bootstrap-timepicker-second {

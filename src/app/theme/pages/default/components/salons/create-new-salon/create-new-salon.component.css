@@ -31,3 +31,15 @@
 .position_shedule {
     margin-left: 40px;
 }
+
+#start_day {
+    margin-left: 22px;
+}
+
+#end_day {
+    margin-left: 70px;
+}
+
+.bootstrap-timepicker-widget {
+    width: 0;
+}

@@ -17,7 +17,7 @@ var GoogleMapsDemo = function () {
             geocoder.geocode({'address': address}, function (results, status) {
                 if (status == 'OK') {
                     map.setCenter(results[0].geometry.location);
-                    map.setZoom(16);
+                    map.setZoom(17);
                     var myLatlng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
                     marker.setPosition(myLatlng);
                     $('#hidden_marker_latitude').val(results[0].geometry.location.lat());
