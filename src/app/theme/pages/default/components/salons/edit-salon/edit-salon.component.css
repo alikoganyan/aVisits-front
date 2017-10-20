@@ -1,0 +1,26 @@
+:host(app-edit-salon) {
+    overflow: hidden;
+    margin-bottom: 60px;
+    flex: 1;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.back-to-allSalons {
+    margin-top: 18px;
+}
+
+.title-div-width {
+    width: 100%;
+}
+
+.title-div-width h3 {
+    width: 100%;
+    text-align: center;
+}
+
+.position_shedule {
+    margin-left: 40px;
+}

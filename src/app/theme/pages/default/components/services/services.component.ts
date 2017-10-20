@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CreateServicesService } from "../../../../_services/create-services.service";
-import { Message } from "primeng/primeng";
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {CreateServicesService} from "../../../../_services/create-services.service";
+import {CustomFormValidate} from "./helpers/custom-form-validate";
+import {ScriptLoaderService} from "../../../../../_services/script-loader.service";
+
 
 @Component({
     selector: 'app-services',
@@ -9,35 +11,85 @@ import { Message } from "primeng/primeng";
 })
 export class ServicesComponent implements OnInit {
 
-    // msgs: Message[];
+    serviceSwitch = 'categoryService';
+    categoryServiceName = '';
+    serviceCategories: any;
+    groups = [];
+    aaabbb = [{}, {}, {}, {}];
+    @ViewChild('modalStatus') hideModal: ElementRef;
+    @ViewChild('selectCategory') cat: ElementRef;
 
-    serviceCategories = [{ title: "AAA" }, { title: "BBB" }, { title: "CCC" }];
 
-    constructor(private createServicesService: CreateServicesService) {
+    constructor(private createServicesService: CreateServicesService,
+                private _script: ScriptLoaderService) {
+    }
+
+    serviceSwitcher(serviceSwitch: string) {
+        this.serviceSwitch = serviceSwitch;
     }
 
     ngOnInit() {
-        this.getServiceCategories();
+        // this.getServiceCategories();
+        this.getServiceGroups();
+        this.getAllServiceGroupsCategories();
+        // CustomFormValidate.init();
     }
 
-    getServiceCategories() {
-        this.createServicesService.getServiceCategories()
+
+    getAllServiceGroupsCategories() {
+        this.createServicesService.getAllServiceGroupsCategories()
             .subscribe(
-            (response) => {
-                this.serviceCategories = response;
-            }
+                (response) => {
+                    this.serviceCategories = response.data.categories;
+                    // console.log(response);
+                    console.log(response.data.categories);
+                    console.log(response.data.categories[0].groups[0].title);
+                }
             )
     }
 
-    /*  onTabClose(event) {
-          this.msgs = [];
-          this.msgs.push({ severity: 'info', summary: 'Tab Closed', detail: 'Index: ' + event.index });
-          console.log(this.msgs);
-      }
+    /*getServiceCategories() {
+        this.createServicesService.getServiceCategories()
+            .subscribe(
+                (response) => {
+                    this.serviceCategories = response.data;
+                    console.log(response.data)
+                }
+            )
+    }*/
 
-      onTabOpen(event) {
-          this.msgs = [];
-          this.msgs.push({ severity: 'info', summary: 'Tab Expanded', detail: 'Index: ' + event.index });
-          console.log(this.msgs);
-      }*/
+    getServiceGroups() {
+        this.createServicesService.getGroups()
+            .subscribe(
+                (response) => {
+                    this.groups = response.data.groups;
+                }
+            )
+    }
+
+    signupFormCategoryService() {
+        this.createServicesService.createCategoryService(this.categoryServiceName)
+            .subscribe(
+                (response) => {
+                    this.serviceCategories.push(response.data);
+                    this.hideModal.nativeElement.attributes[2].nodeValue = '';
+                }
+            );
+        // console.log(this.hideModal.nativeElement.attributes[2].nodeValue);
+    }
+
+    signupFormGroupService(groupServicename: string, id: number) {
+        this.createServicesService.createServiceGroups(groupServicename, id)
+            .subscribe(
+                (response) => {
+                    let index = this.cat.nativeElement.selectedOptions[0].id;
+                    console.log(response.data, index);
+                    this.serviceCategories[index].groups.push(response.data)
+                }
+            )
+        // console.log(this.cat.nativeElement[2].dataset.index);
+        // console.log(index.nativeElement.dataset.index);
+    }
+
 }
+

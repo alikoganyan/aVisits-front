@@ -1,26 +1,15 @@
-import { Http, Headers, Response } from "@angular/http";
-import { Injectable } from "@angular/core";
+import {Http, Headers, Response} from "@angular/http";
+import {Injectable} from "@angular/core";
 
 
 @Injectable()
 export class EmployeeService {
 
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    private headers = new Headers({ 'Content-Type': 'application/json' });
+    private headers = new Headers({'Content-Type': 'application/json'});
 
-    constructor(private http: Http) { }
-
-    /* getPositions() {
-        return this.http.get(
-            'http://api.avisits.com/api/' + this.currentUser.chain.id + '/service?token=' + this.currentUser.token
-        )
-            .map(
-                (response: Response) => {
-                    let data = response.json();
-                    return data;
-                }
-            )
-     }*/
+    constructor(private http: Http) {
+    }
 
     addEmployee(first_name: string, last_name: string, father_name: string, email: string, phone: string, position_id: number) {
         return this.http.post(
@@ -33,14 +22,62 @@ export class EmployeeService {
                 phone: phone,
                 position_id: position_id
             },
-            { headers: this.headers }
+            {headers: this.headers}
         )
             .map(
-            (response: Response) => {
-                let data = response.json();
-                return data;
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                })
+    }
+
+    getEmployees() {
+        return this.http.get('http://api.avisits.com/api/' + this.currentUser.chain.id + '/employee?token=' + this.currentUser.token)
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                })
+    }
+
+    getEmployee(id: number) {
+        return this.http.get('http://api.avisits.com/api/' + this.currentUser.chain.id + '/employee/' + id + '?token=' + this.currentUser.token)
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                })
+    }
+
+    editEmployee(form, id: number) {
+        return this.http.put(
+            'http://api.avisits.com/api/' + this.currentUser.chain.id + '/employee/' + id + '?token=' + this.currentUser.token,
+            {
+                first_name: form.name,
+                last_name: form.surname,
+                father_name: form.fatherName,
+                email: form.email
+            },
+            {
+                headers: this.headers
             }
-            )
+        )
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                })
+    }
+
+    deleteEmployee(id: number) {
+        return this.http.delete(
+            'http://api.avisits.com/api/' + this.currentUser.chain.id + '/employee/' + id + '?token=' + this.currentUser.token
+        )
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                })
     }
 
 }

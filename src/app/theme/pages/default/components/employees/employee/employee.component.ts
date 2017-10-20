@@ -1,14 +1,9 @@
-import {
-    AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild,
-    ViewContainerRef
-} from '@angular/core';
-import { NgForm } from "@angular/forms";
-import { ScriptLoaderService } from "../../../../../../_services/script-loader.service";
-import { EmployeeService } from "../../../../../_services/employee.service";
-import { CreateEmployeePositionService } from "../../../../../_services/create-employee-position.service";
-import { AlertComponent } from "../../../../../../auth/_directives/alert.component";
-import { AlertService } from "../../../../../../auth/_services/alert.service";
-
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
+import {EmployeeService} from "../../../../../_services/employee.service";
+import {CreateEmployeePositionService} from "../../../../../_services/create-employee-position.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 declare let Dropzone: any;
 
@@ -20,64 +15,64 @@ declare let Dropzone: any;
 export class EmployeeComponent implements OnInit, AfterViewInit {
     currentUser = JSON.parse(localStorage.getItem('currentUser'));
     action: string = "http://api.avisits.com/api/" + this.currentUser.chain.id + "/employee-photo-upload?token=" + this.currentUser.token;
-    showFiredEmployee = false;
+    // showFiredEmployee = false;
     radioButtonChackDays = 'byShifts';
     showWeekdays: any = [
         {
             show: false,
             weekDay: 'Пн',
             addWeekdayInterval: [
-                { start: 'Начало', end: 'Конец' }
+                {start: 'Начало', end: 'Конец'}
             ]
         },
         {
             show: false,
             weekDay: 'Вт',
             addWeekdayInterval: [
-                { start: 'Начало', end: 'Конец' }
+                {start: 'Начало', end: 'Конец'}
             ]
         },
         {
             show: false,
             weekDay: 'Ср',
             addWeekdayInterval: [
-                { start: 'Начало', end: 'Конец' }
+                {start: 'Начало', end: 'Конец'}
             ]
         },
         {
             show: false,
             weekDay: 'Чт',
             addWeekdayInterval: [
-                { start: 'Начало', end: 'Конец' }
+                {start: 'Начало', end: 'Конец'}
             ]
         },
         {
             show: false,
             weekDay: 'Пт',
             addWeekdayInterval: [
-                { start: 'Начало', end: 'Конец' }
+                {start: 'Начало', end: 'Конец'}
             ]
         },
         {
             show: false,
             weekDay: 'Сб',
             addWeekdayInterval: [
-                { start: 'Начало', end: 'Конец' }
+                {start: 'Начало', end: 'Конец'}
             ]
         },
         {
             show: false,
             weekDay: 'Вс',
             addWeekdayInterval: [
-                { start: 'Начало', end: 'Конец' }
+                {start: 'Начало', end: 'Конец'}
             ]
         }
     ];
     addWorkIntervalByShifts: { start: string, end: string }[] = [];
 
     @ViewChild('startWorkTime') startWorkTime: ElementRef;
-    @ViewChild('dismissedTime') dismissedTime: ElementRef;
-    @ViewChild('alertEmployee', { read: ViewContainerRef }) alertEnter: ViewContainerRef;
+    // @ViewChild('dismissedTime') dismissedTime: ElementRef;
+    @ViewChild('alertEmployee', {read: ViewContainerRef}) alertEnter: ViewContainerRef;
 
     positions = [];
 
@@ -88,10 +83,10 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     ];
 
     constructor(private _script: ScriptLoaderService,
-        private employeeService: EmployeeService,
-        private createEmployeePositionService: CreateEmployeePositionService,
-        private cfr: ComponentFactoryResolver,
-        private _alertService: AlertService) {
+                private employeeService: EmployeeService,
+                private createEmployeePositionService: CreateEmployeePositionService,
+                private router: Router,
+                private route: ActivatedRoute) {
     }
 
     deleteServiceSwitch(id: number) {
@@ -99,14 +94,14 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     }
 
     addWeekdayInterval(showWeekday) {
-        showWeekday.addWeekdayInterval.push({ start: 'Начало', end: 'Конец' });
+        showWeekday.addWeekdayInterval.push({start: 'Начало', end: 'Конец'});
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
     }
 
     onAddWorkTime() {
         this.addWorkIntervalByShifts.push(
-            { start: 'Начало', end: 'Конец' }
+            {start: 'Начало', end: 'Конец'}
         );
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
@@ -133,35 +128,35 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     getPositions() {
         this.createEmployeePositionService.getPositions()
             .subscribe(
-            (response) => {
-                this.positions = response.data;
-            }
+                (response) => {
+                    this.positions = response.data;
+                }
             )
     }
 
-    onShowFiredEmployee(event) {
+    /*onShowFiredEmployee(event) {
         event.target.checked ? this.showFiredEmployee = true : this.showFiredEmployee = false;
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
-    }
+    }*/
 
     onChangeDays(choice: string) {
         this.radioButtonChackDays = choice;
-        this._script.load('app-employee',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
-        this._script.load('app-employee',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin.js');
+        this._script.load(
+            'app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin.js'
+        );
     }
 
     ngAfterViewInit() {
-        this._script.load('app-employee',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
-        this._script.load('app-employee',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin.js');
-        this._script.load('app-employee',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
-        this._script.load('app-employee',
-            'assets/demo/default/custom/components/forms/widgets/dropzone.js');
+        this._script.load(
+            'app-employee',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin.js',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js',
+            'assets/demo/default/custom/components/forms/widgets/dropzone.js'
+        );
         Dropzone._autoDiscoverFunction();
     }
 
@@ -177,32 +172,21 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             form.value.phone,
             form.value.position)
             .subscribe(
-            (data) => {
-                console.log(data);
-                // form.reset();
-                /*console.log(data.ValidationError.email[0]);
-                if (data.ValidationError.email[0] == "The email has already been taken.") {
-                    this.showAlert('alertEmployee');
-                    this._alertService.error('Данный майл уже используется');
-                }*/
+                (data) => {
+                    // form.reset();
+                    /*console.log(data.ValidationError.email[0]);
+                    if (data.ValidationError.email[0] == "The email has already been taken.") {
+                        this.showAlert('alertEmployee');
+                        this._alertService.error('Данный майл уже используется');
+                    }*/
 
-                if (data.status == "OK") {
-                    console.log(data.status);
-                    form.reset();
-                    this.showAlert('alertEmployee');
-                    this._alertService.success('Вы успешно создали сотрудника.');
+                    if (data.status == "OK") {
+                        console.log(data.status);
+                        this.router.navigate(['/components/employees/employees-main'], {relativeTo: this.route})
+                    }
+
                 }
-
-            }
             )
-    }
-
-
-    showAlert(target) {
-        this[target].clear();
-        let factory = this.cfr.resolveComponentFactory(AlertComponent);
-        let ref = this[target].createComponent(factory);
-        ref.changeDetectorRef.detectChanges();
     }
 
 }

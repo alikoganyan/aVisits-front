@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {CreateSalonService} from "../../../../../_services/create-salon.service";
 
 @Component({
     selector: 'app-all-salons',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllSalonsComponent implements OnInit {
 
-    constructor() { }
+    salons = [];
+    selectedSalon: any;
+
+    constructor(private router: Router,
+                private route: ActivatedRoute,
+                private createSalonService: CreateSalonService) {
+    }
 
     ngOnInit() {
+        this.getSalons();
+    }
+
+    redirectToCreateSalon() {
+        this.router.navigate(['/components/salons/create-new-salon'], {relativeTo: this.route})
+    }
+
+    goToEditSalon(salon) {
+        this.router.navigate(['/components/salons/edit-salon/' + salon.id], {relativeTo: this.route})
+        // this.router.navigate(['/components/salons/create-new-salon'], {relativeTo: this.route})
+    }
+
+    getSalons() {
+        this.createSalonService.getSalons()
+            .subscribe(
+                (response) => {
+                    this.salons = response.data;
+                    console.log(response.data)
+                }
+            )
     }
 
 }

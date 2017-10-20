@@ -65,35 +65,37 @@ var GoogleMapsDemo = function () {
                         $('#hidden_googleMap_country').val('');
 
                         map.setCenter(results[0].geometry.location);
-                        map.setZoom(16);
+                        map.setZoom(17);
                         var myLatlng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
                         marker.setPosition(myLatlng);
                         $('#hidden_marker_latitude').val(results[0].geometry.location.lat());
                         $('#hidden_marker_longitude').val(results[0].geometry.location.lng());
+                        var street_number = '', street = '', city = '', country = '';
                         for (var i in results[0].address_components) {
                             // console.log(results[0].address_components[i]);
                             if (results[0].address_components[i].types[0] == 'street_number') {
-                                var street_number = results[0].address_components[i].long_name;
+                                street_number = results[0].address_components[i].long_name;
 
                                 $('#hidden_googleMap_street_number').val(street_number);
                                 // console.log(street_number);
                             }
                             else if (results[0].address_components[i].types[0] == 'route') {
-                                var street = results[0].address_components[i].long_name;
+                                street = results[0].address_components[i].long_name;
                                 $('#hidden_googleMap_street').val(street);
                                 // console.log(street);
                             }
                             else if (results[0].address_components[i].types[0] == 'locality') {
-                                var city = results[0].address_components[i].long_name;
+                                city = results[0].address_components[i].long_name;
                                 $('#hidden_googleMap_city').val(city);
                                 // console.log(city);
                             }
                             else if (results[0].address_components[i].types[0] == 'country') {
-                                var country = results[0].address_components[i].long_name;
+                                country = results[0].address_components[i].long_name;
                                 $('#hidden_googleMap_country').val(country);
                                 // console.log(country);
                             }
                         }
+                        $('#m_gmap_8_address').val(street_number + ' ' + street + ' ' + city + ' ' + country)
                     }
                     else {
                         alert('Geocode was not successful for the following reason: ' + status);

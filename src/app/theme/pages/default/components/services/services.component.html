@@ -28,7 +28,7 @@
 <!-- END: Subheader -->
 <div class="m-content">
     <div class="row">
-        <div class="parentDiv">
+        <div class="col-md-6 margin-auto">
             <!--begin::Portlet-->
             <div class="m-portlet">
                 <div class="m-portlet__head">
@@ -48,7 +48,8 @@
                         </div>
                         <!-- Search end -->
                         <!-- Modal here -->
-                        <button class="btn btn-primary modalButton " data-target="#m_modal_5" data-toggle="modal" type="button">
+                        <button class="btn btn-primary modalButton" data-target="#m_modal_5" data-toggle="modal"
+                                type="button">
                             Добавить
                         </button>
                     </div>
@@ -59,161 +60,197 @@
 
                         <div class="m-section__sub">Default</div>
                         <div class="m-section__content">
+                            <!-- <p-accordion>
+                                 &lt;!&ndash; First &ndash;&gt;
+                                 <p-accordionTab header="Парикмахерские услуги">
+                                     <div class="m-section__content">
+                                         <p-accordion>
+                                             &lt;!&ndash; Second &ndash;&gt;
+                                             <p-accordionTab header="Стрижка">
+                                                 <div class="m-section__content">
+                                                     <p-accordion>
+                                                         &lt;!&ndash; Third &ndash;&gt;
+                                                         &lt;!&ndash;<div class="m-checkbox-list">
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox" (click)="GetName(serviceName.value)" #serviceName>
+                                                                 Option 1
+                                                                 <span></span>
+                                                             </label>
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 2
+                                                                 <span></span>
+                                                             </label>
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 3
+                                                                 <span></span>
+                                                             </label>
+                                                         </div>&ndash;&gt;
+                                                         <ul>
+                                                             <li>Option 1</li>
+                                                             <li>Option </li>
+                                                             <li>Option 3</li>
+                                                         </ul>
+                                                     </p-accordion>
+                                                 </div>
+                                             </p-accordionTab>
+                                             &lt;!&ndash; Strijka &ndash;&gt;
+                                             <p-accordionTab header="Окрашивание волос">
+                                                 <div class="m-section__content">
+                                                     <p-accordion>
+
+                                                         <div class="m-checkbox-list">
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 1
+                                                                 <span></span>
+                                                                 <a href="#" class="m-portlet__nav-link btn m-btn m-btn&#45;&#45;hover-accent m-btn&#45;&#45;icon m-btn&#45;&#45;icon-only m-btn&#45;&#45;pill custom_edit_class" title="Edit details"><i class="la la-edit"></i></a>
+                                                             </label>
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 2
+                                                                 <span></span>
+                                                             </label>
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 3
+                                                                 <span></span>
+                                                             </label>
+                                                         </div>
+
+                                                     </p-accordion>
+                                                 </div>
+                                             </p-accordionTab>
+                                             &lt;!&ndash; Strijka &ndash;&gt;
+                                             <p-accordionTab header="Стрижка горячим утюгом">
+                                                 <div class="m-section__content">
+                                                     <p-accordion>
+                                                         <div class="m-checkbox-list">
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 1
+                                                                 <span></span>
+                                                             </label>
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 2
+                                                                 <span></span>
+                                                             </label>
+                                                             <label class="m-checkbox">
+                                                                 <input type="checkbox">
+                                                                 Option 3
+                                                                 <span></span>
+                                                             </label>
+                                                         </div>
+                                                     </p-accordion>
+                                                 </div>
+                                             </p-accordionTab>
+                                             &lt;!&ndash; Ukladka &ndash;&gt;
+                                             <p-accordionTab header="Укладка">
+                                                 <div class="m-checkbox-list">
+                                                     <label class="m-checkbox">
+                                                         <input type="checkbox">
+                                                         Option 1
+                                                         <span></span>
+                                                     </label>
+                                                     <label class="m-checkbox">
+                                                         <input type="checkbox">
+                                                         Option 2
+                                                         <span></span>
+                                                     </label>
+                                                     <label class="m-checkbox">
+                                                         <input type="checkbox">
+                                                         Option 3
+                                                         <span></span>
+                                                     </label>
+                                                 </div>
+                                             </p-accordionTab>
+                                         </p-accordion>
+                                     </div>
+                                 </p-accordionTab>
+                                 <p-accordionTab header="Косметология">
+                                     Sed vitae dolor purus. Nulla laoreet enim quis orci molestie aliquam. Donec eleifend
+                                     nibh id luctus
+                                     imperdiet.
+                                     Donec tellus justo, imperdiet quis turpis in, interdum rhoncus lorem. Proin ac sem
+                                     augue. Praesent
+                                     condimentum
+                                     varius arcu nec dapibus. Suspendisse quis egestas justo, eget semper lectus. Nulla
+                                     facilisi.
+                                 </p-accordionTab>
+                                 <p-accordionTab header="Ногтевой сервис">
+                                     Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
+                                     risus at neque. Suspendisse
+                                     vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta sem,
+                                     non luctus leo imperdiet
+                                     rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
+                                     Phasellus consequat lectus ac
+                                     metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit commodo
+                                     eget. Phasellus porta
+                                     massa
+                                     scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
+                                     consequat justo. Nullam
+                                     placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam semper
+                                     mollis hendrerit. Etiam
+                                     sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat quam,
+                                     vel sollicitudin mauris.
+                                 </p-accordionTab>
+                                 <div>
+                                     <p-accordionTab header="Ногтевой сервис">
+                                         Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
+                                         risus at neque. Suspendisse
+                                         vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta sem,
+                                         non luctus leo imperdiet
+                                         rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
+                                         Phasellus consequat lectus ac
+                                         metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit commodo
+                                         eget. Phasellus porta
+                                         massa
+                                         scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
+                                         consequat justo. Nullam
+                                         placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam semper
+                                         mollis hendrerit. Etiam
+                                         sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat quam,
+                                         vel sollicitudin mauris.
+                                     </p-accordionTab>
+                                 </div>
+                             </p-accordion>-->
                             <p-accordion>
-                                <!-- First -->
-                                <p-accordionTab header="Парикмахерские услуги">
-                                    <div class="m-section__content">
-                                        <p-accordion>
-                                            <!-- Second -->
-                                            <p-accordionTab header="Стрижка">
-                                                <div class="m-section__content">
-                                                    <p-accordion>
-                                                        <!-- Third -->
-                                                        <!--<div class="m-checkbox-list">
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox" (click)="GetName(serviceName.value)" #serviceName>
-                                                                Option 1
-                                                                <span></span>
-                                                            </label>
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 2
-                                                                <span></span>
-                                                            </label>
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 3
-                                                                <span></span>
-                                                            </label>
-                                                        </div>-->
-                                                        <ul>
-                                                            <li>Option 1</li>
-                                                            <li>Option </li>
-                                                            <li>Option 3</li>
-                                                        </ul>
-                                                    </p-accordion>
-                                                </div>
-                                            </p-accordionTab>
-                                            <!-- Strijka -->
-                                            <p-accordionTab header="Окрашивание волос">
-                                                <div class="m-section__content">
-                                                    <p-accordion>
-
-                                                        <div class="m-checkbox-list">
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 1
-                                                                <span></span>
-                                                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill custom_edit_class" title="Edit details"><i class="la la-edit"></i></a>
-                                                            </label>
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 2
-                                                                <span></span>
-                                                            </label>
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 3
-                                                                <span></span>
-                                                            </label>
-                                                        </div>
-
-                                                    </p-accordion>
-                                                </div>
-                                            </p-accordionTab>
-                                            <!-- Strijka -->
-                                            <p-accordionTab header="Стрижка горячим утюгом">
-                                                <div class="m-section__content">
-                                                    <p-accordion>
-                                                        <div class="m-checkbox-list">
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 1
-                                                                <span></span>
-                                                            </label>
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 2
-                                                                <span></span>
-                                                            </label>
-                                                            <label class="m-checkbox">
-                                                                <input type="checkbox">
-                                                                Option 3
-                                                                <span></span>
-                                                            </label>
-                                                        </div>
-                                                    </p-accordion>
-                                                </div>
-                                            </p-accordionTab>
-                                            <!-- Ukladka -->
-                                            <p-accordionTab header="Укладка">
-                                                <div class="m-checkbox-list">
-                                                    <label class="m-checkbox">
-                                                        <input type="checkbox">
-                                                        Option 1
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="m-checkbox">
-                                                        <input type="checkbox">
-                                                        Option 2
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="m-checkbox">
-                                                        <input type="checkbox">
-                                                        Option 3
-                                                        <span></span>
-                                                    </label>
-                                                </div>
-                                            </p-accordionTab>
-                                        </p-accordion>
-                                    </div>
+                                <p-accordionTab
+                                        header="{{serviceCategory.title}}"
+                                        [selected]="false"
+                                        *ngFor="let serviceCategory of serviceCategories"
+                                >
+                                    <p-accordion>
+                                        <p-accordionTab
+                                                header="{{group.title}}"
+                                                [selected]="false"
+                                                *ngFor="let group of serviceCategory.groups"
+                                        >
+                                            <div *ngFor="let service of group.services">{{service.title}}</div>
+                                        </p-accordionTab>
+                                    </p-accordion>
                                 </p-accordionTab>
-                                <p-accordionTab header="Косметология">
-                                    Sed vitae dolor purus. Nulla laoreet enim quis orci molestie aliquam. Donec eleifend
-                                    nibh id luctus
-                                    imperdiet.
-                                    Donec tellus justo, imperdiet quis turpis in, interdum rhoncus lorem. Proin ac sem
-                                    augue. Praesent
-                                    condimentum
-                                    varius arcu nec dapibus. Suspendisse quis egestas justo, eget semper lectus. Nulla
-                                    facilisi.
+                                <p-accordionTab header="Действующие цены, с 01.06.2017">
+                                    <p-accordion>
+                                        <p-accordionTab header="Действующие цены, с 01.01.2017"
+                                                        [selected]="false">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod tempor incididunt ut labore et
+                                            dolore
+                                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                            ullamco laboris nisi ut aliquip ex ea
+                                            commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                            velit esse cillum dolore eu fugiat nulla
+                                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                            in culpa qui officia deserunt mollit anim id
+                                            est
+                                            laborum.
+                                        </p-accordionTab>
+                                    </p-accordion>
                                 </p-accordionTab>
-                                <p-accordionTab header="Ногтевой сервис">
-                                    Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
-                                    risus at neque. Suspendisse
-                                    vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta sem,
-                                    non luctus leo imperdiet
-                                    rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
-                                    Phasellus consequat lectus ac
-                                    metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit commodo
-                                    eget. Phasellus porta
-                                    massa
-                                    scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
-                                    consequat justo. Nullam
-                                    placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam semper
-                                    mollis hendrerit. Etiam
-                                    sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat quam,
-                                    vel sollicitudin mauris.
-                                </p-accordionTab>
-                                <div>
-                                    <p-accordionTab header="Ногтевой сервис">
-                                        Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
-                                        risus at neque. Suspendisse
-                                        vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta sem,
-                                        non luctus leo imperdiet
-                                        rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
-                                        Phasellus consequat lectus ac
-                                        metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit commodo
-                                        eget. Phasellus porta
-                                        massa
-                                        scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
-                                        consequat justo. Nullam
-                                        placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam semper
-                                        mollis hendrerit. Etiam
-                                        sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat quam,
-                                        vel sollicitudin mauris.
-                                    </p-accordionTab>
-                                </div>
                             </p-accordion>
                         </div>
                     </div>
@@ -223,7 +260,8 @@
             <!--end::Portlet-->
 
             <!--begin::Modal-->
-            <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -237,23 +275,90 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="form-control-label">
-                                        Добавить услугу:
+                            <div class="form-group m-form__group custom_form_styles">
+                                <div class="m-radio-list custom_m-radio-list">
+                                    <label class="m-radio first-service-radioButton">
+                                        <input checked="" name="payment_methid_1" type="radio"
+                                               (change)="serviceSwitcher('categoryService')">
+                                        Категория услуг
+                                        <span></span>
                                     </label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <label class="m-radio second-service-radioButton">
+                                        <input name="payment_methid_1" type="radio"
+                                               (change)="serviceSwitcher('groupService')">
+                                        Группа услуг
+                                        <span></span>
+                                    </label>
                                 </div>
-                            </form>
+                            </div>
+                            <!-- service category -->
+                            <div *ngIf="serviceSwitch == 'categoryService'">
+                                <form (ngSubmit)="f.form.valid && signupFormCategoryService()" #f="ngForm">
+                                    <div class="form-group">
+                                        <label for="categoryServiceName" class="form-control-label">
+                                            Добавить категорию услуг:
+                                        </label>
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="categoryServiceName"
+                                                name="name"
+                                                [(ngModel)]="categoryServiceName"
+                                                required
+                                        >
+                                    </div>
+                                    <button class="btn btn-primary" id="formServiceService-button" data-dismiss=""
+                                            #modalStatus>
+                                        Добавить
+                                    </button>
+                                    <button class="btn btn-secondary" data-dismiss="modal" type="button">
+                                        Выход
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- group service -->
+                            <div *ngIf="serviceSwitch == 'groupService'">
+                                <form (ngSubmit)="f.form.valid && signupFormGroupService(groupServicename.value, selectCategory.value)"
+                                      #f="ngForm">
+                                    <div class="form-group">
+                                        <label for="categoryServiceName" class="form-control-label">
+                                            Добавить группу услуг:
+                                        </label>
+                                        <div class="form-group m-form__group">
+                                            <select class="form-control m-input" id="exampleSelect1" #selectCategory>
+                                                <option disabled selected>
+                                                    Выберите категорию услуги
+                                                </option>
+                                                <option *ngFor="let serviceCategory of serviceCategories; let i = index"
+                                                        [value]="serviceCategory.id" [id]="i">
+                                                    {{serviceCategory.title}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="groupServiceName"
+                                                #groupServicename
+                                        >
+                                    </div>
+                                    <button class="btn btn-primary" id="formGroupService-button">
+                                        Добавить
+                                    </button>
+                                    <button class="btn btn-secondary" data-dismiss="modal" type="button">
+                                        Выход
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="modal-footer">
+                        <!--<div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                 Close
                             </button>
                             <button type="button" class="btn btn-primary">
-                                Save
+                                Добавить
                             </button>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ import { AuthenticationService } from "./_services/authentication.service";
 import { UserService } from "./_services/user.service";
 import { fakeBackendProvider } from "./_helpers/index";
 import { CreateSalonComponent } from './create-salon/create-salon.component';
-import { CreateSalonService } from "../theme/_services/create-salon.service";
+
 
 import { CreateSalonGuardService } from "./_guards/create-salon-guard.service";
 
@@ -41,7 +41,6 @@ import { CreateSalonGuardService } from "./_guards/create-salon-guard.service";
         fakeBackendProvider,
         MockBackend,
         BaseRequestOptions,
-        CreateSalonService
     ],
     entryComponents: [AlertComponent]
 })

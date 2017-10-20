@@ -30,13 +30,16 @@
 <div class="m-content">
     <div class="row">
         <div class="col-md-10 margin_auto">
-
             <div class="m-portlet">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title">
+                        <div class="m-portlet__head-title title-div-width">
+                            <button class="btn btn-primary back-to-allEmployees" type="button"
+                                    (click)="backToAllEmployees()">
+                                <i class="fa fa-chevron-left"></i> Назад
+                            </button>
                             <h3 class="m-portlet__head-text">
-                                Basic Tabs
+                                Обновлерные сотрудника
                             </h3>
                         </div>
                     </div>
@@ -81,7 +84,7 @@
                                                 type="text"
                                                 class="form-control m-input"
                                                 placeholder="Фамилия"
-                                                ngModel
+                                                [(ngModel)]="employee.last_name"
                                                 name="surname"
                                                 required
                                         >
@@ -89,7 +92,7 @@
                                                 type="text"
                                                 class="form-control m-input"
                                                 placeholder="Имя"
-                                                ngModel
+                                                [(ngModel)]="employee.first_name"
                                                 name="name"
                                                 required
                                         >
@@ -97,7 +100,7 @@
                                                 type="text"
                                                 class="form-control m-input"
                                                 placeholder="Отчество"
-                                                ngModel
+                                                [(ngModel)]="employee.father_name"
                                                 name="fatherName"
                                                 required
                                         >
@@ -114,7 +117,7 @@
                                                 <select
                                                         class="form-control m-input"
                                                         id="exampleSelect1"
-                                                        ngModel
+                                                        [(ngModel)]="employee.position_id"
                                                         name="position"
                                                         required
                                                 >
@@ -146,7 +149,7 @@
                                                         type="text"
                                                         class="form-control m-input"
                                                         placeholder=""
-                                                        ngModel
+                                                        [(ngModel)]="employee.phone"
                                                         name="phone"
                                                         required
                                                 >
@@ -160,7 +163,7 @@
                                                         type="text"
                                                         class="form-control m-input"
                                                         placeholder=""
-                                                        ngModel
+                                                        [(ngModel)]="employee.email"
                                                         name="email"
                                                         required
                                                         email
@@ -235,20 +238,19 @@
                                                         Сотрудник уволен
                                                         <span></span>
                                                     </label>
-                                                   <!-- <div class="custom_datepicker_style" *ngIf="showFiredEmployee">
+                                                    <div class="custom_datepicker_style" *ngIf="showFiredEmployee">
                                                         <div class="input-group date" id="m_datepicker_3_1">
                                                             <input
                                                                     class="form-control m-input"
                                                                     readonly=""
                                                                     type="text"
                                                                     value="05/20/2017"
-                                                                    #dismissedTime
                                                             >
                                                             <span class="input-group-addon">
 								                        <i class="la la-calendar"></i>
 							                        </span>
                                                         </div>
-                                                    </div>-->
+                                                    </div>
 
                                                     <label class="m-checkbox">
                                                         <input
@@ -301,11 +303,10 @@
                                         <button
                                                 type="submit"
                                                 class="btn btn-primary"
-                                                [disabled]="!f.valid"
                                         >
                                             Сохранить
                                         </button>
-                                        <button type="reset" class="btn btn-secondary button_float_right">
+                                        <button type="reset" class="btn btn-secondary button_float_right" (click)="onDeleteEmployee(employee.id)">
                                             Переместить в карзину
                                         </button>
                                     </div>
@@ -323,27 +324,24 @@
                                     <div class="form-group m-form__group custom_form_styles">
                                         <div class="m-radio-list custom_m-radio-list">
                                             <label class="m-radio">
-                                                <input type="radio" name="payment_methid_1" checked
-                                                       (change)="onChangeDays('byShifts')">
+                                                <input type="radio" name="payment_methid_1" checked>
                                                 По сменам
                                                 <span></span>
                                             </label>
                                             <label class="m-radio">
-                                                <input type="radio" name="payment_methid_1"
-                                                       (change)="onChangeDays('byWeekDays')">
+                                                <input type="radio" name="payment_methid_1">
                                                 По дням недели
                                                 <span></span>
                                             </label>
                                             <label class="m-radio">
-                                                <input type="radio" name="payment_methid_1"
-                                                       (change)="onChangeDays('inManual')">
+                                                <input type="radio" name="payment_methid_1">
                                                 Вручную
                                                 <span></span>
                                             </label>
                                         </div>
                                     </div>
 
-                                    <div *ngIf="radioButtonChackDays == 'byShifts'">
+                                    <div>
 
                                         <div class="form-group m-form__group row">
                                             <label class="col-form-label col-lg-2 col-sm-2">
@@ -386,8 +384,7 @@
                                                         </option>
                                                     </select>
                                                 </div>
-                                                <div class="child_div_width"
-                                                     *ngFor="let addWorkInterval of addWorkIntervalByShifts; let i = index">
+                                                <div class="child_div_width">
                                                     <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
                                                             title="Начало">
                                                         <option>
@@ -413,11 +410,10 @@
                                                             14:30
                                                         </option>
                                                     </select>
-                                                    <i class="fa fa-close" (click)="onRemoveWorkTime(i)"></i>
+                                                    <i class="fa fa-close"></i>
                                                 </div>
                                                 <div class="m--space-10"></div>
-                                                <button class="btn btn-success" type="button"
-                                                        (click)="onAddWorkTime()">
+                                                <button class="btn btn-success" type="button">
                                                     Добавить рабочий интервал
                                                 </button>
                                             </div>
@@ -437,7 +433,7 @@
                                     </div>
 
 
-                                    <div class="form-group m-form__group" *ngIf="radioButtonChackDays == 'byWeekDays'">
+                                    <div class="form-group m-form__group">
 
                                         <!--<div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
@@ -745,19 +741,15 @@
                                         </div>-->
 
                                         <!-- LOOP -->
-                                        <div class="work_interval_groups" *ngFor="let showWeekday of showWeekdays">
+                                        <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
                                                 <input
                                                         type="checkbox"
-                                                        [checked]="showWeekday.show"
-                                                        (change)="onChange(showWeekday);"
                                                 >
-                                                {{showWeekday.weekDay}}
                                                 <span></span>
                                             </label>
-                                            <div class="custom_div_width" *ngIf="showWeekday.show">
-                                                <div class="child_div_width"
-                                                     *ngFor="let addWeekdayInterval of showWeekday.addWeekdayInterval; let i = index">
+                                            <div class="custom_div_width">
+                                                <div class="child_div_width">
                                                     <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
                                                             title="Начало">
                                                         <option>
@@ -784,9 +776,6 @@
                                                         </option>
                                                     </select>
                                                     <i
-                                                            *ngIf="showWeekday.addWeekdayInterval.length > 1"
-                                                            class="fa fa-close"
-                                                            (click)="onRemoveWorkTimes(showWeekday, i)"
                                                     ></i>
                                                 </div>
                                                 <!--   <div class="child_div_width"
@@ -820,8 +809,7 @@
                                                    </div>-->
 
                                                 <div class="m--space-10"></div>
-                                                <button class="btn btn-success" type="button"
-                                                        (click)="addWeekdayInterval(showWeekday)">
+                                                <button class="btn btn-success" type="button">
                                                     Добавить рабочий интервал
                                                 </button>
                                             </div>
@@ -882,8 +870,7 @@
                             <div class="m-section__content">
                                 <p-accordion>
                                     <!-- First -->
-                                    <p-accordionTab header="Категории услуг 1"
-                                                    *ngFor="let switchService of switchServices; let i = index">
+                                    <p-accordionTab header="Категории услуг 1">
                                         <!--start::Form-->
                                         <div class="m-portlet__body">
                                             <!--begin::Section-->
@@ -1005,7 +992,7 @@
                                             </div>
                                             <!--end::Section-->
                                         </div>
-                                        <button type="button" (click)="deleteServiceSwitch(i)" class="btn btn-primary">
+                                        <button type="button" class="btn btn-primary">
                                             Удалить
                                         </button>
                                         <!--end::Form-->

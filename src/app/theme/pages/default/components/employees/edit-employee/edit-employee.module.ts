@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateNewSalonComponent } from "./create-new-salon.component";
+import { EditEmployeeComponent} from "./edit-employee.component";
 import { LayoutModule } from "../../../../../layouts/layout.module";
 import { DefaultComponent } from "../../../default.component";
-
+import { FormsModule } from "@angular/forms";
+import { AccordionModule } from "primeng/primeng";
 const routes: Routes = [
     {
         "path": "",
@@ -12,7 +13,7 @@ const routes: Routes = [
         "children": [
             {
                 "path": "",
-                "component": CreateNewSalonComponent
+                "component": EditEmployeeComponent
             }
         ]
     }
@@ -21,12 +22,14 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        LayoutModule
+        AccordionModule,
+        LayoutModule,
+        FormsModule
     ], exports: [
         RouterModule
     ], declarations: [
-        CreateNewSalonComponent
+        EditEmployeeComponent
     ]
 })
-export class CreateNewSalonModule {
+export class EditEmployeeModule {
 }

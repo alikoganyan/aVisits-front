@@ -23,6 +23,10 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/components\/salons\/create-new-salon\/create-new-salon.module#CreateNewSalonModule"
             },
             {
+                "path": "components\/salons\/edit-salon\/:id",
+                "loadChildren": ".\/pages\/default\/components\/salons\/edit-salon\/edit-salon.module#EditSalonModule"
+            },
+            {
                 "path": "components\/records\/record-view-table",
                 "loadChildren": ".\/pages\/default\/components\/records\/record-view-table\/record-view-table.module#RecordViewTableModule"
             },
@@ -53,6 +57,10 @@ const routes: Routes = [
             {
                 "path": "components\/employees\/employee",
                 "loadChildren": ".\/pages\/default\/components\/employees\/employee\/employee.module#EmployeeModule"
+            },
+            {
+                "path": "components\/employees\/edit-employee\/:id",
+                "loadChildren": ".\/pages\/default\/components\/employees\/edit-employee\/edit-employee.module#EditEmployeeModule"
             },
             {
                 "path": "components\/customers",

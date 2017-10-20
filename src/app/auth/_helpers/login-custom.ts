@@ -114,6 +114,9 @@ export class LoginCustom {
                     name: {
                         required: true
                     },
+                    phone: {
+                      required: true
+                    },
                     email: {
                         required: true,
                         email: true

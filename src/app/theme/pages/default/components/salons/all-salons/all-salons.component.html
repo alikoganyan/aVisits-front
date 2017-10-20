@@ -114,9 +114,12 @@
                             </h3>
                         </div>
                     </div>
-                    <button class="btn btn-brand add-salon-batton" type="button">
+                    <button class="btn btn-brand add-salon-batton" type="button" (click)="redirectToCreateSalon()">
                         Добавить салон
                     </button>
+                   <!-- <button class="btn btn-brand add-salon-batton" type="button" (click)="goToEditSalon()">
+                       Edit
+                    </button>-->
                     <div class="m-portlet__head-tools">
                         <ul class="nav nav-pills nav-pills--brand m-nav-pills--align-right m-nav-pills--btn-pill m-nav-pills--btn-sm" role="tablist">
                             <li class="nav-item m-tabs__item">
@@ -143,7 +146,7 @@
                         <div class="tab-pane active" id="m_widget5_tab1_content" aria-expanded="true">
                             <!--begin::m-widget5-->
                             <div class="m-widget5">
-                                <div class="m-widget5__item">
+                              <!--  <div class="m-widget5__item">
                                     <div class="m-widget5__pic">
                                         <img class="m-widget7__img" src="./assets/app/media/img//products/product6.jpg" alt="">
                                     </div>
@@ -167,27 +170,27 @@
                                             <span class="m-widget5__info-label">
 												Released:
 											</span>
-                                            <span class="m-widget5__info-date m--font-info">
+                                            <span class="m-widget5__info-date m&#45;&#45;font-info">
 												23.08.17
 											</span>
                                         </div>
                                     </div>
                                     <div class="m-widget5__stats1">
-                                        <button class="m-btn btn btn-primary edit-salon-button" type="button" title="Изменить">
+                                        <button class="m-btn btn btn-primary edit-salon-button" type="button" title="Изменить" (click)="goToEditSalon()">
                                             <i class="la la-edit"></i>
                                         </button>
                                     </div>
-                                </div>
-                                <div class="m-widget5__item">
+                                </div>-->
+                                <div class="m-widget5__item" *ngFor="let salon of salons">
                                     <div class="m-widget5__pic">
                                         <img class="m-widget7__img" src="./assets/app/media/img//products/product10.jpg" alt="">
                                     </div>
                                     <div class="m-widget5__content">
                                         <h4 class="m-widget5__title">
-                                            Branding Mockup
+                                            {{salon.title}}
                                         </h4>
                                         <span class="m-widget5__desc">
-											Make Metronic Great  Again.Lorem Ipsum Amet
+											Адрес: {{salon.address}} {{salon.city}} {{salon.country}}
 										</span>
                                         <div class="m-widget5__info">
 											<span class="m-widget5__author">
@@ -204,13 +207,14 @@
 											</span>
                                         </div>
                                     </div>
+                                   <!-- <a [routerLink]="['/components/salons/edit-salon/', salon.id]" >Edit</a>-->
                                     <div class="m-widget5__stats1">
-                                        <button class="m-btn btn btn-primary edit-salon-button" type="button" title="Изменить">
+                                        <button class="m-btn btn btn-primary edit-salon-button" type="button" title="Изменить" (click)="goToEditSalon(salon)">
                                             <i class="la la-edit"></i>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="m-widget5__item add_border_salon">
+                             <!--   <div class="m-widget5__item add_border_salon">
                                     <div class="m-widget5__pic">
                                         <img class="m-widget7__img" src="./assets/app/media/img//products/product11.jpg" alt="">
                                     </div>
@@ -225,13 +229,13 @@
 											<span class="m-widget5__author">
 												Author:
 											</span>
-                                            <span class="m-widget5__info-author m--font-info">
+                                            <span class="m-widget5__info-author m&#45;&#45;font-info">
 												Fly themes
 											</span>
                                             <span class="m-widget5__info-label">
 												Released:
 											</span>
-                                            <span class="m-widget5__info-date m--font-info">
+                                            <span class="m-widget5__info-date m&#45;&#45;font-info">
 												23.08.17
 											</span>
                                         </div>
@@ -241,7 +245,7 @@
                                             <i class="la la-edit"></i>
                                         </button>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <!--end::m-widget5-->
                         </div>

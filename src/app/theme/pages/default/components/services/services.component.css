@@ -4,6 +4,10 @@
     flex: 1;
 }
 
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
 .avisits-box {
     overflow: auto;
     padding: 5px 0;
@@ -36,4 +40,17 @@
 }
 .custom_edit_class {
     float: right;
+}
+
+.first-service-radioButton {
+    display: inline;
+}
+
+.second-service-radioButton {
+    display: inline;
+    margin-left: 10px;
+}
+
+.margin-auto {
+    margin: auto;
 }
