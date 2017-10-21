@@ -2,42 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981da0b4-2062-4f8c-8b21-996cac5ab325" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.module.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.module.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/helpers/custom-form-validate.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/edit-salon-google-map.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts" afterPath="$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/_services/user.service.ts" afterPath="$PROJECT_DIR$/src/app/auth/_services/user.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/auth.module.ts" afterPath="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" afterPath="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts" afterPath="$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/_services/employee.service.ts" afterPath="$PROJECT_DIR$/src/app/theme/_services/employee.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.css" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/layouts/aside-nav/aside-nav.component.html" afterPath="$PROJECT_DIR$/src/app/theme/layouts/aside-nav/aside-nav.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.css" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.css" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/create-new-salon-google-map.js" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/create-new-salon-google-map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/edit-salon-google-map.js" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/edit-salon-google-map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/google-maps.js" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/google-maps.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -55,81 +37,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create-services.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts">
+      <file leaf-file-name="edit-employee.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#getServiceCategories#0;n#CreateServicesService#0" expanded="false" />
-                <element signature="n#!!block;n#getGroups#0;n#CreateServicesService#0" expanded="false" />
-                <element signature="n#!!block;n#createCategoryService#0;n#CreateServicesService#0" expanded="false" />
-                <element signature="n#!!block;n#createServiceGroups#0;n#CreateServicesService#0" expanded="false" />
-                <element signature="n#!!block;n#createService#0;n#CreateServicesService#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#71#0" expanded="true" />
-                <element signature="e#1617#1904#0" expanded="false" />
-                <element signature="n#!!block;n#signupFormCategoryService#0;n#ServicesComponent#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="40" />
-              <folding>
-                <element signature="n#div#0;n#!!top" expanded="false" />
-                <element signature="e#2473#14507#0" expanded="false" />
-                <element signature="n#p-accordionTab#0;n#p-accordion#0;n#p-accordionTab#1;n#p-accordion#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="e#23007#23399#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login-1.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2540">
-              <caret line="127" column="41" lean-forward="true" selection-start-line="127" selection-start-column="41" selection-end-line="127" selection-end-column="41" />
+            <state relative-caret-position="120">
+              <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
+      <file leaf-file-name="edit-employee.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="45" />
+            <state relative-caret-position="260">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
-                <element signature="e#0#148#0" expanded="true" />
+                <element signature="e#0#74#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom-form-validate.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/helpers/custom-form-validate.ts">
+      <file leaf-file-name="edit-employee.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+            <state relative-caret-position="-2699">
+              <caret line="166" column="68" lean-forward="true" selection-start-line="166" selection-start-column="68" selection-end-line="166" selection-end-column="68" />
               <folding>
-                <element signature="n#!!block;n#handleFormGroupService#0;n#CustomFormValidate#0" expanded="false" />
+                <element signature="n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="e#18933#54959#0" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="e#55192#56010#0" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -139,22 +85,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bootstrap-timepicker-widget</find>
-      <find>.dropdown-menu</find>
-      <find>dropdown-menu</find>
-      <find>bootstrap-timepicker-widget table td</find>
-      <find>.bootstrap-timepicker-widget table td a</find>
-      <find>Best Sellers</find>
-      <find>onSubmit</find>
-      <find>Добавить салон</find>
       <find>Назад</find>
       <find>Изменить</find>
       <find>hid</find>
       <find>onClick</find>
       <find>ngFor</find>
       <find>empl</find>
-      <find>back-to-allSalons</find>
-      <find>title-div-width</find>
       <find>back-to-allEmployees</find>
       <find>Сотрудник уволен</find>
       <find>showFiredEmployee</find>
@@ -169,6 +105,16 @@
       <find>groupServicename</find>
       <find>signupFormGroupService</find>
       <find>i</find>
+      <find>groups</find>
+      <find>m_gmap_8</find>
+      <find>m_gmap_8_address</find>
+      <find>m_gmap_8_btn</find>
+      <find>title-div-width</find>
+      <find>back-to-allSalons</find>
+      <find>address</find>
+      <find>hidden_marker_latitude</find>
+      <find>end_day</find>
+      <find>timePicker</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,18 +123,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/google-maps.js" />
-        <option value="$PROJECT_DIR$/src/assets/vendors/base/vendors.bundle.js" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.css" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker.js" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.css" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/base/style.bundle.css" />
         <option value="$PROJECT_DIR$/src/assets/vendors/base/vendors.bundle.css" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.css" />
         <option value="$PROJECT_DIR$/src/app/theme/_services/create-employee-position.service.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts" />
-        <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/edit-salon-google-map.js" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css" />
         <option value="$PROJECT_DIR$/src/app/auth/_services/user.service.ts" />
         <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/app/theme/helpers/form-valitade-custom.ts" />
@@ -198,36 +139,41 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/_services/employee.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/create-new-salon-google-map.js" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.html" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/helpers/curtom-form-validate.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/helpers/custom-form-validate.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.css" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/google-maps.js" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.css" />
+        <option value="$PROJECT_DIR$/src/app/theme/layouts/aside-nav/aside-nav.component.html" />
+        <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/edit-salon-google-map.js" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts" />
       </list>
     </option>
   </component>
@@ -249,7 +195,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-3" />
     <option name="width" value="1386" />
     <option name="height" value="788" />
@@ -289,6 +235,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,15 +260,7 @@
               <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
@@ -328,6 +268,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="theme" type="462c0819:PsiDirectoryNode" />
+              <item name="_services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
@@ -365,7 +306,7 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="default" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="employees" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
@@ -376,8 +317,8 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="default" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+              <item name="employees" type="462c0819:PsiDirectoryNode" />
+              <item name="edit-employee" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
@@ -434,13 +375,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/OpenServer/domains/aVisits-API-Laravel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/node_modules/primeng/primeng.js&#10;C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/node_modules/primeng/resources/themes/bootstrap/theme.css&#10;C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/node_modules/primeng/components/accordion/accordion.js&#10;C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/node_modules/@types/jquery/index.d.ts&#10;C:/Users/PC5/Desktop/Avisits all hrer/aVisits-front-Angular4/node_modules/primeng/components/accordion/accordion.js&#10;C:/Users/PC5/Desktop/Avisits all here/aVisits-front-Angular4/node_modules/primeng/components/accordion/accordion.d.ts&#10;C:/Users/PC5/Desktop/Avisits all hrer/aVisits-front-Angular4/node_modules/@angular/router/src/events.d.ts" />
@@ -528,11 +467,12 @@
       <workItem from="1508394624479" duration="20175000" />
       <workItem from="1508420770423" duration="11486000" />
       <workItem from="1508480187934" duration="34946000" />
+      <workItem from="1508567783897" duration="22571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="684284000" />
+    <option name="totallyTimeSpent" value="706855000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -544,20 +484,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21875" sideWeight="0.47975707" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16964285" sideWeight="0.4722222" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5029762" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21875" sideWeight="0.49702382" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21875" sideWeight="0.5202429" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1118421" sideWeight="0.49702382" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21875" sideWeight="0.5277778" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -589,48 +529,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/auth/_services/user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/primeng/components/calendar/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3120">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/primeng/components/accordion/accordion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="81" column="4" lean-forward="false" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/primeng/primeng.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/primeng/components/accordion/accordion.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="17" column="56" lean-forward="true" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -642,13 +540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
           <caret line="80" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -699,53 +590,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#74#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="124" column="83" lean-forward="false" selection-start-line="124" selection-start-column="81" selection-end-line="124" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/create-new-salon-google-map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="67" column="38" lean-forward="false" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="272" column="29" lean-forward="true" selection-start-line="272" selection-start-column="29" selection-end-line="272" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="76" column="63" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#154#0" expanded="false" />
-            <element signature="e#794#1311#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employees-main/employees-main.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="14" column="46" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="14" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -779,17 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="62" lean-forward="false" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -797,7 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="30" column="19" lean-forward="true" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,15 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="21" lean-forward="true" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/employee.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -821,11 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="43" column="23" lean-forward="true" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#58#0" expanded="false" />
-            <element signature="e#385#429#0" expanded="false" />
-            <element signature="e#754#816#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,106 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="116" column="52" lean-forward="true" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="e#6439#7527#0" expanded="false" />
-            <element signature="e#7590#8138#0" expanded="false" />
-            <element signature="e#8204#8758#0" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="e#10667#13059#0" expanded="false" />
-            <marker date="1508432140997" expanded="false" signature="11777:12316" ph="..." />
-            <marker date="1508432140997" expanded="false" signature="12121:12150" ph="..." />
-            <marker date="1508432140997" expanded="false" signature="12399:12948" ph="..." />
-            <marker date="1508432140997" expanded="false" signature="12757:12786" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#createSalon#0;n#CreateSalonService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="208" column="42" lean-forward="true" selection-start-line="208" selection-start-column="42" selection-end-line="208" selection-end-column="42" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="e#7206#9052#0" expanded="false" />
-            <element signature="e#10994#12729#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/theme-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="62" lean-forward="true" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -948,22 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-37">
           <caret line="117" column="36" lean-forward="false" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!block;n#handleSignInFormSubmit#0;n#LoginCustom#0" expanded="false" />
-            <element signature="n#!!block;n#displaySignUpForm#0;n#LoginCustom#0" expanded="false" />
-            <element signature="n#!!block;n#displaySignInForm#0;n#LoginCustom#0" expanded="false" />
-            <element signature="n#!!block;n#displayEmployeeNext#0;n#LoginCustom#0" expanded="false" />
-            <element signature="n#!!block;n#displayForgetPasswordForm#0;n#LoginCustom#0" expanded="false" />
-            <element signature="n#!!block;n#displayPasswordFormNext#0;n#LoginCustom#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -980,7 +684,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/helpers/custom-form-validate.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
           <folding>
             <element signature="n#!!block;n#handleFormGroupService#0;n#CustomFormValidate#0" expanded="false" />
           </folding>
@@ -989,38 +693,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="45" />
+        <state relative-caret-position="480">
+          <caret line="40" column="45" lean-forward="false" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="45" />
           <folding>
-            <element signature="e#0#148#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#getServiceCategories#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#getGroups#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#createCategoryService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#createServiceGroups#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#createService#0;n#CreateServicesService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="40" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="e#2473#14507#0" expanded="false" />
-            <element signature="n#p-accordionTab#0;n#p-accordion#0;n#p-accordionTab#1;n#p-accordion#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="e#23007#23399#0" expanded="false" />
+            <element signature="e#0#148#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1036,19 +712,304 @@
     <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2540">
-          <caret line="127" column="41" lean-forward="true" selection-start-line="127" selection-start-column="41" selection-end-line="127" selection-end-column="41" />
+          <caret line="127" column="41" lean-forward="false" selection-start-line="127" selection-start-column="41" selection-end-line="127" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="85" column="52" lean-forward="true" selection-start-line="85" selection-start-column="52" selection-end-line="85" selection-end-column="52" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="n#p-accordionTab#0;n#p-accordion#0;n#p-accordionTab#1;n#p-accordion#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#12622#13014#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="220">
+          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding>
-            <element signature="e#0#71#0" expanded="true" />
-            <element signature="e#1617#1904#0" expanded="false" />
-            <element signature="n#!!block;n#signupFormCategoryService#0;n#ServicesComponent#0" expanded="false" />
+            <element signature="e#0#71#0" expanded="false" />
+            <element signature="e#1689#1976#0" expanded="false" />
+            <element signature="e#1982#2203#0" expanded="false" />
+            <element signature="n#!!block;n#onDeleteService#0;n#ServicesComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#getServiceCategories#0;n#CreateServicesService#0" expanded="false" />
+            <element signature="n#!!block;n#getGroups#0;n#CreateServicesService#0" expanded="false" />
+            <element signature="n#!!block;n#createCategoryService#0;n#CreateServicesService#0" expanded="false" />
+            <element signature="n#!!block;n#createServiceGroups#0;n#CreateServicesService#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0;n#CreateServicesService#0" expanded="false" />
+            <element signature="n#!!block;n#editService#0;n#CreateServicesService#0" expanded="false" />
+            <element signature="n#!!block;n#deleteService#0;n#CreateServicesService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/aria.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="427" column="18" lean-forward="false" selection-start-line="427" selection-start-column="18" selection-end-line="427" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/google-maps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding>
+            <marker date="1508577057473" expanded="true" signature="1085:1095" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/theme-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/layouts/aside-nav/aside-nav.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="49" column="42" lean-forward="true" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+          <folding>
+            <element signature="e#2451#3708#0" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#5;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#6;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/create-new-salon-google-map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding>
+            <element signature="e#1237#2658#0" expanded="false" />
+            <element signature="e#3166#5903#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/edit-salon-google-map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="72" lean-forward="false" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+            <element signature="n#!!block;n#createSalon#0;n#CreateSalonService#0" expanded="false" />
+            <element signature="n#!!block;n#createNewSalon#0;n#CreateSalonService#0" expanded="false" />
+            <element signature="n#!!block;n#getSalons#0;n#CreateSalonService#0" expanded="false" />
+            <element signature="n#!!block;n#getEachSalonForEdit#0;n#CreateSalonService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="208" column="42" lean-forward="true" selection-start-line="208" selection-start-column="42" selection-end-line="208" selection-end-column="42" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="e#7206#9052#0" expanded="false" />
+            <element signature="e#10994#12729#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#redirectToCreateSalon#0;n#AllSalonsComponent#0" expanded="false" />
+            <element signature="n#!!block;n#getSalons#0;n#AllSalonsComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="89" column="87" lean-forward="false" selection-start-line="89" selection-start-column="87" selection-end-line="89" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#154#0" expanded="true" />
+            <element signature="e#791#1308#0" expanded="false" />
+            <element signature="e#5224#5543#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="203" column="37" lean-forward="true" selection-start-line="203" selection-start-column="37" selection-end-line="203" selection-end-column="37" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="155" column="5" lean-forward="true" selection-start-line="150" selection-start-column="4" selection-end-line="155" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#154#0" expanded="true" />
+            <element signature="e#794#1311#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="273" column="107" lean-forward="false" selection-start-line="273" selection-start-column="88" selection-end-line="273" selection-end-column="107" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="e#8266#8820#0" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/employee.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2699">
+          <caret line="166" column="68" lean-forward="true" selection-start-line="166" selection-start-column="68" selection-end-line="166" selection-end-column="68" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#18933#54959#0" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#55192#56010#0" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
           </folding>
         </state>
       </provider>

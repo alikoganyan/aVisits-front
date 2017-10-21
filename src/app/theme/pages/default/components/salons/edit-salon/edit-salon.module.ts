@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import {FormsModule} from "@angular/forms";
 import { EditSalonComponent } from "./edit-salon.component";
 import { LayoutModule } from "../../../../../layouts/layout.module";
 import { DefaultComponent } from "../../../default.component";
-
 
 const routes: Routes = [
     {
@@ -23,6 +23,7 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         LayoutModule,
+        FormsModule
     ], exports: [
         RouterModule
     ], declarations: [

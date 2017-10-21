@@ -68,7 +68,7 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <!-- SECTION TABS FIRST -->
+                        <!-- 1 TABS FIRST -->
                         <div class="tab-pane active" id="m_tabs_1_1" role="tabpanel">
                             <!--begin::Form-->
                             <form
@@ -170,22 +170,21 @@
                                                 >
                                             </div>
                                             <!-- Employment date -->
-                                            <div _ngcontent-c0="" class="form-group m-form__group row">
-                                                <label _ngcontent-c0="" class="col-form-label custom_datePickerName">
+                                            <div class="form-group m-form__group row">
+                                                <label  class="col-form-label custom_datePickerName">
                                                     Дата приема на работу
                                                 </label>
-                                                <div _ngcontent-c0="" class="">
-                                                    <div _ngcontent-c0="" class="input-group date" id="m_datepicker_3">
+                                                <div  class="">
+                                                    <div  class="input-group date" id="m_datepicker_3">
                                                         <input
-                                                                _ngcontent-c0=""
                                                                 class="form-control m-input"
                                                                 readonly=""
                                                                 type="text"
                                                                 value="05/20/2017"
                                                                 #startWorkTime
                                                         >
-                                                        <span _ngcontent-c0="" class="input-group-addon">
-								                        <i _ngcontent-c0="" class="la la-calendar"></i>
+                                                        <span  class="input-group-addon">
+								                        <i class="la la-calendar"></i>
 							                        </span>
                                                     </div>
                                                 </div>
@@ -205,27 +204,26 @@
                                             </div>
                                             <!-- Access profile -->
                                             <div class="form-group m-form__group">
-                                                <label _ngcontent-c0="" for="exampleSelect2">
+                                                <label for="exampleSelect2">
                                                     Профиль доступа
                                                 </label>
                                                 <select
-                                                        _ngcontent-c0=""
                                                         class="form-control m-input"
                                                         id="exampleSelect2"
                                                 >
-                                                    <option _ngcontent-c0="">
+                                                    <option>
                                                         1
                                                     </option>
-                                                    <option _ngcontent-c0="">
+                                                    <option>
                                                         2
                                                     </option>
-                                                    <option _ngcontent-c0="">
+                                                    <option>
                                                         3
                                                     </option>
-                                                    <option _ngcontent-c0="">
+                                                    <option>
                                                         4
                                                     </option>
-                                                    <option _ngcontent-c0="">
+                                                    <option>
                                                         5
                                                     </option>
                                                 </select>
@@ -314,11 +312,12 @@
                             </form>
                             <!--end::Form-->
                         </div>
+                        <!-- 2 TABS SECOND -->
                         <div class="tab-pane" id="m_tabs_1_2" role="tabpanel">
 
                             <h5>Действующи шаблон:</h5>
                             <!--begin::Form-->
-                            <form class="m-form m-form--fit m-form--label-align-right">
+                            <!--<form class="m-form m-form&#45;&#45;fit m-form&#45;&#45;label-align-right">
                                 <div class="m-portlet__body">
 
                                     <div class="form-group m-form__group custom_form_styles">
@@ -358,7 +357,7 @@
                                             <div class="custom_div_width">
 
                                                 <div class="child_div_width">
-                                                    <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                    <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker"
                                                             title="Начало">
                                                         <option>
                                                             12:00
@@ -371,7 +370,7 @@
                                                         </option>
                                                     </select>
                                                     <span class="custom_dash">-</span>
-                                                    <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                    <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker"
                                                             title="Конец">
                                                         <option>
                                                             12:30
@@ -385,7 +384,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="child_div_width">
-                                                    <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                    <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker"
                                                             title="Начало">
                                                         <option>
                                                             12:00
@@ -398,7 +397,7 @@
                                                         </option>
                                                     </select>
                                                     <span class="custom_dash">-</span>
-                                                    <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                    <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker"
                                                             title="Конец">
                                                         <option>
                                                             12:30
@@ -412,7 +411,7 @@
                                                     </select>
                                                     <i class="fa fa-close"></i>
                                                 </div>
-                                                <div class="m--space-10"></div>
+                                                <div class="m&#45;&#45;space-10"></div>
                                                 <button class="btn btn-success" type="button">
                                                     Добавить рабочий интервал
                                                 </button>
@@ -435,7 +434,7 @@
 
                                     <div class="form-group m-form__group">
 
-                                        <!--<div class="work_interval_groups">
+                                        &lt;!&ndash;<div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
                                                 <input
                                                         type="checkbox"
@@ -738,9 +737,9 @@
                                                     Добавить рабочий интервал
                                                 </button>
                                             </div>
-                                        </div>-->
+                                        </div>&ndash;&gt;
 
-                                        <!-- LOOP -->
+                                        &lt;!&ndash; LOOP &ndash;&gt;
                                         <div class="work_interval_groups">
                                             <label class="m-checkbox custom_label_position">
                                                 <input
@@ -750,7 +749,7 @@
                                             </label>
                                             <div class="custom_div_width">
                                                 <div class="child_div_width">
-                                                    <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                    <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker"
                                                             title="Начало">
                                                         <option>
                                                             12:00
@@ -763,7 +762,7 @@
                                                         </option>
                                                     </select>
                                                     <span class="custom_dash">-</span>
-                                                    <select class="form-control m-bootstrap-select m-bootstrap-select--pill m_selectpicker"
+                                                    <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker"
                                                             title="Конец">
                                                         <option>
                                                             12:30
@@ -778,7 +777,7 @@
                                                     <i
                                                     ></i>
                                                 </div>
-                                                <!--   <div class="child_div_width"
+                                                &lt;!&ndash;   <div class="child_div_width"
                                                         *ngFor="let addWeekdayInterval of showWeekday.addWeekdayInterval">
                                                        <select class="form-control m-bootstrap-select m-bootstrap-select&#45;&#45;pill m_selectpicker"
                                                                title="Начало">
@@ -806,9 +805,9 @@
                                                            </option>
                                                        </select>
                                                        <i class="fa fa-close" (click)="onRemoveWorkTime()"></i>
-                                                   </div>-->
+                                                   </div>&ndash;&gt;
 
-                                                <div class="m--space-10"></div>
+                                                <div class="m&#45;&#45;space-10"></div>
                                                 <button class="btn btn-success" type="button">
                                                     Добавить рабочий интервал
                                                 </button>
@@ -832,7 +831,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="m-portlet__foot m-portlet__foot--fit">
+                                <div class="m-portlet__foot m-portlet__foot&#45;&#45;fit">
                                     <div class="m-form__actions">
                                         <button type="reset" class="btn btn-primary">
                                             Сохранить
@@ -842,10 +841,10 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            </form>-->
                             <!--end::Form-->
                         </div>
-                        <!-- THIRD SECTION NAVBAR -->
+                        <!-- 3 TABS SECOND -->
                         <div class="tab-pane" id="m_tabs_1_3" role="tabpanel">
 
 
@@ -1034,7 +1033,7 @@
                                 </p-accordion>
                                 <br>
                                 <div class="form-group m-form__group add_category_div">
-                                    <label for="exampleSelect1">
+                                    <label>
                                         Добавить категорию
                                     </label>
                                     <select class="form-control m-input">
@@ -1054,6 +1053,7 @@
 
 
                         </div>
+                        <!-- 4 TABS SECOND -->
                         <div class="tab-pane" id="m_tabs_1_4" role="tabpanel">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -1066,8 +1066,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

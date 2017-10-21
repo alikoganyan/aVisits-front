@@ -107,10 +107,10 @@
             <div class="m-portlet m-portlet--tab">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title">
-							<span class="m-portlet__head-icon m--hide">
-								<i class="la la-gear"></i>
-							</span>
+                        <div class="m-portlet__head-title title-div-width">
+                            <button class="btn btn-primary back-to-allSalons" type="button" (click)="goToAllSalons()">
+                                <i class="fa fa-chevron-left"></i> Все салоны
+                            </button>
                             <h3 class="m-portlet__head-text">
                                 Создайте новый салон.
                             </h3>
@@ -190,7 +190,6 @@
                             >
                         </div>-->
                         <!-- Google map -->
-                        <!-- End Google map -->
                         <div class="m-portlet m-portlet--tab">
                             <div class="m-portlet__body">
                                 <div class="input-group">
@@ -217,8 +216,7 @@
                                 <div id="m_gmap_8" style="height:300px;"></div>
                             </div>
                         </div>
-                        <!-- Operating mode -->
-                        <!-- LOOP -->
+                        <!-- End Google map -->
                         <!-- Start work days -->
                         <h4 class="position_shedule">График работы салона</h4>
                         <div class="form-group m-form__group">

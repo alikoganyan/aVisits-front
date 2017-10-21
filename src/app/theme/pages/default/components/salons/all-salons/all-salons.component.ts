@@ -26,8 +26,9 @@ export class AllSalonsComponent implements OnInit {
     }
 
     goToEditSalon(salon) {
+        console.log(salon);
+        // this.createSalonService.getEachSalonForEdit();
         this.router.navigate(['/components/salons/edit-salon/' + salon.id], {relativeTo: this.route})
-        // this.router.navigate(['/components/salons/create-new-salon'], {relativeTo: this.route})
     }
 
     getSalons() {

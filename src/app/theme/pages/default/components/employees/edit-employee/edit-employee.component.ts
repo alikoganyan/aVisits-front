@@ -6,7 +6,6 @@ import {EmployeeService} from "../../../../../_services/employee.service";
 import {CreateEmployeePositionService} from "../../../../../_services/create-employee-position.service";
 import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
 
-
 @Component({
     selector: 'app-edit-employee',
     templateUrl: 'edit-employee.component.html',
@@ -16,7 +15,15 @@ export class EditEmployeeComponent implements OnInit, OnDestroy, AfterViewInit {
 
     userId: number;
     paramsSubscription: Subscription;
-    employee: any;
+    employee = {
+        last_name: '',
+        first_name: '',
+        father_name: '',
+        position_id: 0,
+        phone: null,
+        email: '',
+        id: 0
+};
     positions = [];
     showFiredEmployee = false;
 
@@ -70,7 +77,6 @@ export class EditEmployeeComponent implements OnInit, OnDestroy, AfterViewInit {
                 }
             )
     }
-
 
     onSubmit(form: NgForm) {
         console.log(form.value);

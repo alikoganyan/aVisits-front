@@ -86,6 +86,10 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
     }
 
 
+    goToAllSalons() {
+        this.router.navigate(['/components/salons/all-salons'], {relativeTo: this.route})
+    }
+
     onClick() {
         let error = false;
         console.log(this.startInputs._results[2].nativeElement.value);

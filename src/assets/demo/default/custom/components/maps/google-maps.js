@@ -1,7 +1,8 @@
 var GoogleMapsDemo = function () {
     var t = function () {
             new GMaps({div: "#m_gmap_1", lat: -12.043333, lng: -77.028333})
-        }, n = function () {
+        },
+        n = function () {
             new GMaps({
                 div: "#m_gmap_2", zoom: 16, lat: -12.043333, lng: -77.028333, click: function (t) {
                     alert("click")
@@ -9,7 +10,8 @@ var GoogleMapsDemo = function () {
                     alert("dragend")
                 }
             })
-        }, o = function () {
+        },
+        o = function () {
             var t = new GMaps({div: "#m_gmap_3", lat: -51.38739, lng: -6.187181});
             t.addMarker({
                 lat: -51.38739,
@@ -25,7 +27,8 @@ var GoogleMapsDemo = function () {
                 title: "Marker with InfoWindow",
                 infoWindow: {content: '<span style="color:#000">HTML Content!</span>'}
             }), t.setZoom(5)
-        }, e = function () {
+        },
+        e = function () {
             var t = new GMaps({div: "#m_gmap_4", lat: -12.043333, lng: -77.028333});
             GMaps.geolocate({
                 success: function (n) {
@@ -37,7 +40,8 @@ var GoogleMapsDemo = function () {
                 }, always: function () {
                 }
             })
-        }, a = function () {
+        },
+        a = function () {
             var t = new GMaps({
                 div: "#m_gmap_5", lat: -12.043333, lng: -77.028333, click: function (t) {
                     console.log(t)
@@ -49,7 +53,8 @@ var GoogleMapsDemo = function () {
                 strokeOpacity: .6,
                 strokeWeight: 6
             })
-        }, l = function () {
+        },
+        l = function () {
             var t = [[-12.040397656836609, -77.03373871559225], [-12.040248585302038, -77.03993927003302], [-12.050047116528843, -77.02448169303511], [-12.044804866577001, -77.02154422636042]];
             new GMaps({div: "#m_gmap_6", lat: -12.043333, lng: -77.028333}).drawPolygon({
                 paths: t,

@@ -84,6 +84,30 @@ export class CreateServicesService {
             )
     }
 
+    editService(id) {
+        return this.http.put(
+            'http://api.avisits.com/api/' + this.currentUser.chain.id + '/service'+ id +'?token=' + this.currentUser.token,
+            {},
+            {headers: this.headers}
+        )
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                }
+            )
+    }
+
+    deleteService(id: number) {
+       return this.http.delete( 'http://api.avisits.com/api/' + this.currentUser.chain.id + '/service/'+ id +'?token=' + this.currentUser.token)
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                }
+            )
+    }
+
 
 }
 

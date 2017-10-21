@@ -43,3 +43,15 @@
 .bootstrap-timepicker-widget {
     width: 0;
 }
+
+.title-div-width {
+    width: 100%;
+}
+
+.title-div-width h3 {
+    width: 100%;
+    text-align: center;
+}
+.back-to-allSalons {
+    margin-top: 18px;
+}

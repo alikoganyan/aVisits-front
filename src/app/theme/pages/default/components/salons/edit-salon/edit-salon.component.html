@@ -114,7 +114,6 @@
                             <h3 class="m-portlet__head-text">
                                 Обновить Салон
                             </h3>
-                            <h2>{{salon.title}}</h2>
                         </div>
                     </div>
                 </div>
@@ -135,68 +134,14 @@
                                     required
                             >
                         </div>
-                        <!-- Country -->
-                        <!--<div class="form-group m-form__group">
-                            <label for="country-salon">
-                                Страна
-                            </label>
-                            <select
-                                    class="form-control m-input"
-                                    id="country-salon"
-                                    name="country"
-                            >
-                                <option>
-                                    1
-                                </option>
-                                <option>
-                                    2
-                                </option>
-                                <option>
-                                    3
-                                </option>
-                                <option>
-                                    4
-                                </option>
-                                <option>
-                                    5
-                                </option>
-                            </select>
-                        </div>-->
-                        <!-- City -->
-                        <!--<div class="form-group m-form__group">
-                            <label for="city-salon">
-                                Город
-                            </label>
-                            <input
-                                    type="text"
-                                    class="form-control m-input"
-                                    id="city-salon"
-                                    placeholder="Название города"
-                                    name="city"
-                            >
-                        </div>-->
-                        <!-- Address -->
-                        <!--<div class="form-group m-form__group">
-                            <label for="city-salon">
-                                Адрес
-                            </label>
-                            <input
-                                    type="text"
-                                    class="form-control m-input"
-                                    id="address-salon"
-                                    placeholder="Название адреса"
-                                    name="address"
-                            >
-                        </div>-->
                         <!-- Google map -->
-                        <!-- End Google map -->
                         <div class="m-portlet m-portlet--tab">
                             <div class="m-portlet__body">
                                 <div class="input-group">
                                     <input
                                             type="text"
                                             class="form-control"
-                                            id="m_gmap_8_address"
+                                            id="m_edit-gmap_8_address"
                                             placeholder="address..."
                                             required
                                     >
@@ -207,27 +152,27 @@
                                     <input type="hidden" id="hidden_googleMap_city" #city>
                                     <input type="hidden" id="hidden_googleMap_country" #country>
                                     <span class="input-group-btn">
-								            <button class="btn btn-primary" id="m_gmap_8_btn">
+								            <button class="btn btn-primary" id="m_edit-gmap_8_btn">
 									            <i class="fa fa-search"></i>
 								            </button>
 							        </span>
                                 </div>
-                                <div id="m_gmap_8" style="height:300px;"></div>
+                                <div id="m_edit-gmap_8" style="height:300px;"></div>
                             </div>
                         </div>
-                        <!-- Operating mode -->
-                        <!-- LOOP -->
+                        <!-- End Google map -->
                         <!-- Start work days -->
                         <h4 class="position_shedule">График работы салона</h4>
-                     <!--   <div class="form-group m-form__group">
+                        <div class="form-group m-form__group">
                             <div class="work_interval_groups" *ngFor="let showWeekday of showWeekdays; let i = index">
                                 <label class="m-checkbox custom_label_position">
                                     <input
                                             required
                                             type="checkbox"
                                             [checked]="showWeekday.show"
-                                            (change)="onChange(showWeekday);"
-                                    >
+                                            (change)="onChange(showWeekday)"
+                                            name="chackboxDay"
+                                    />
                                     {{showWeekday.weekDay}}
                                     <span></span>
                                 </label>
@@ -239,7 +184,6 @@
                                     </div>
 
                                     <input
-                                            required
                                             type='text'
                                             class="form-control"
                                             readonly
@@ -249,9 +193,7 @@
                                             #start
                                     >
                                     -
-
                                     <input
-                                            required
                                             type='text'
                                             class="form-control m_timepicker_2"
                                             readonly
@@ -260,16 +202,19 @@
                                             [id]="'m_timepicker_end_' + i"
                                             #end
                                     >
-
-
+                                    <label class="m-checkbox workingStatusCheckbox">
+                                        <input name="chackboxDay" required type="checkbox" #onchangeStatusWeekday (change)="onchangeStatusWorkday($event)">
+                                        Нерабочий день
+                                        <span></span>
+                                    </label>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
                         <!-- End work days -->
                     </div>
                     <div class="m-portlet__foot m-portlet__foot--fit">
                         <div class="m-form__actions">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" (click)="onSubmit()">
                                 Обновить
                             </button>
                             <button type="button" class="btn btn-secondary float-right">
