@@ -79,3 +79,15 @@ input.ng-invalid.ng-touched {
     margin-top: 3px;
 }
 
+.back-to-allSalons {
+    margin-top: 18px;
+}
+
+.title-div-width {
+    width: 100%;
+}
+
+.title-div-width h3 {
+    width: 100%;
+    text-align: center;
+}

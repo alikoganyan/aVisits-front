@@ -16,8 +16,8 @@ import { GlobalErrorHandler } from "./_services/error-handler.service";
 /* Service */
 import { GetCityService } from "./_services/get-city.service";
 import { CreateEmployeePositionService } from "./theme/_services/create-employee-position.service";
-import {CreateSalonService} from "./theme/_services/create-salon.service";
-import {EmployeeService} from "./theme/_services/employee.service";
+import { CreateSalonService } from "./theme/_services/create-salon.service";
+import { EmployeeService } from "./theme/_services/employee.service";
 
 
 

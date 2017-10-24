@@ -69,7 +69,7 @@ var DatatableRemoteAjaxDemo = function () {
 
             $("#position_add").css('display', 'inline');
             $(".button_edit_send").css('display', 'none');
-        }),
+        });
             /* ADD HERE */
             $(document).on('click', '#position_add', function () {
                 var name = $('#position_name').val();
@@ -93,7 +93,7 @@ var DatatableRemoteAjaxDemo = function () {
                     }
                 });
 
-            }),
+            });
 
             /* EDIT HERE */
             $(document).on('click', '.position_edit', function () {
@@ -104,7 +104,7 @@ var DatatableRemoteAjaxDemo = function () {
                 $("#m_modal_5 form input[name=title]").val($(this).data('title'));
                 $("#m_modal_5 form textarea[name=description]").val($(this).data('description'));
 
-            }),
+            });
 
             $(document).on('click', '.button_edit_send', function () {
                 var id = $("#m_modal_5 form input[name=id]").val();

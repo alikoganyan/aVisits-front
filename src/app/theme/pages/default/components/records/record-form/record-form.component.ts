@@ -23,7 +23,7 @@ export class RecordFormComponent implements OnInit, AfterViewInit {
         this._script.load('app-record-form',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
         this._script.load('app-record-form',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker.js');
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker-salon.js');
 
     }
 

@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
-import {NgForm} from "@angular/forms";
-import {CreateServicesService} from "../../../../../_services/create-services.service";
-import {AlertComponent} from "../../../../../../auth/_directives/alert.component";
-import {AlertService} from "../../../../../../auth/_services/alert.service";
+import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { ScriptLoaderService } from "../../../../../../_services/script-loader.service";
+import { NgForm } from "@angular/forms";
+import { CreateServicesService } from "../../../../../_services/create-services.service";
+import { AlertComponent } from "../../../../../../auth/_directives/alert.component";
+import { AlertService } from "../../../../../../auth/_services/alert.service";
 
 
 @Component({
@@ -12,30 +12,46 @@ import {AlertService} from "../../../../../../auth/_services/alert.service";
     styleUrls: ['./service.component.css']
 })
 export class ServiceComponent implements OnInit, AfterViewInit {
-    groups = [];
+    serviceCategories = [];
+    serviceGroups = [];
     loading = false;
 
-    @ViewChild('salonCreated', {read: ViewContainerRef}) salonCreated: ViewContainerRef;
+    @ViewChild('salonCreated', { read: ViewContainerRef }) salonCreated: ViewContainerRef;
 
     constructor(private _script: ScriptLoaderService,
-                private createServicesService: CreateServicesService,
-                private cfr: ComponentFactoryResolver,
-                private _alertService: AlertService) {
+        private createServicesService: CreateServicesService,
+        private cfr: ComponentFactoryResolver,
+        private _alertService: AlertService) {
     }
 
     ngOnInit() {
-        this.getGroups();
+        this.getServiceCategories();
+        // this.getGroups();
     }
 
-    getGroups() {
-        this.createServicesService.getGroups()
+    getServiceCategories() {
+        this.createServicesService.getServiceCategories()
             .subscribe(
                 (data) => {
-                    this.groups = data.data.groups;
-                    console.log(data);
-                }
-            )
+                    this.serviceCategories = data.data.categories;
+                })
     }
+
+    getGroupsService(id: number) {
+        this.createServicesService.getGroupsService(id)
+            .subscribe(
+                (data) => {
+                    this.serviceGroups = data.data.groups;
+                })
+    }
+
+   /* getGroups() {
+        this.createServicesService.getGroups()
+            .subscribe(
+            (data) => {
+                this.groups = data.data.groups;
+            })
+    }*/
 
     onSubmit(form: NgForm) {
         this.loading = true;
@@ -59,14 +75,13 @@ export class ServiceComponent implements OnInit, AfterViewInit {
                 this.showAlert('salonCreated');
                 this._alertService.error('Проблемы с сервером!');
             }
-        );
-
+            );
     }
 
     ngAfterViewInit() {
         this._script.load('app-service',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
-        this._script.load('app-service',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin-service-prices.js',
             'assets/demo/default/custom/components/datatables/base/data-ajax.js');
     }
 

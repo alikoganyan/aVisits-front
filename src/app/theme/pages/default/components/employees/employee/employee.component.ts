@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
-import {EmployeeService} from "../../../../../_services/employee.service";
-import {CreateEmployeePositionService} from "../../../../../_services/create-employee-position.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { NgForm } from "@angular/forms";
+import { ScriptLoaderService } from "../../../../../../_services/script-loader.service";
+import { EmployeeService } from "../../../../../_services/employee.service";
+import { CreateEmployeePositionService } from "../../../../../_services/create-employee-position.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 declare let Dropzone: any;
 
@@ -22,57 +22,58 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             show: false,
             weekDay: 'Пн',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Вт',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Ср',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Чт',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Пт',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Сб',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         },
         {
             show: false,
             weekDay: 'Вс',
             addWeekdayInterval: [
-                {start: 'Начало', end: 'Конец'}
+                { start: 'Начало', end: 'Конец' }
             ]
         }
     ];
+
     addWorkIntervalByShifts: { start: string, end: string }[] = [];
 
     @ViewChild('startWorkTime') startWorkTime: ElementRef;
     // @ViewChild('dismissedTime') dismissedTime: ElementRef;
-    @ViewChild('alertEmployee', {read: ViewContainerRef}) alertEnter: ViewContainerRef;
+    @ViewChild('alertEmployee', { read: ViewContainerRef }) alertEnter: ViewContainerRef;
 
     positions = [];
 
@@ -83,10 +84,14 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     ];
 
     constructor(private _script: ScriptLoaderService,
-                private employeeService: EmployeeService,
-                private createEmployeePositionService: CreateEmployeePositionService,
-                private router: Router,
-                private route: ActivatedRoute) {
+        private employeeService: EmployeeService,
+        private createEmployeePositionService: CreateEmployeePositionService,
+        private router: Router,
+        private route: ActivatedRoute) {
+    }
+
+    redireckToAllEmployees() {
+        this.router.navigate(['/components/employees/employees-main'], { relativeTo: this.route })
     }
 
     deleteServiceSwitch(id: number) {
@@ -94,14 +99,14 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     }
 
     addWeekdayInterval(showWeekday) {
-        showWeekday.addWeekdayInterval.push({start: 'Начало', end: 'Конец'});
+        showWeekday.addWeekdayInterval.push({ start: 'Начало', end: 'Конец' });
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
     }
 
     onAddWorkTime() {
         this.addWorkIntervalByShifts.push(
-            {start: 'Начало', end: 'Конец'}
+            { start: 'Начало', end: 'Конец' }
         );
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
@@ -128,9 +133,9 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     getPositions() {
         this.createEmployeePositionService.getPositions()
             .subscribe(
-                (response) => {
-                    this.positions = response.data;
-                }
+            (response) => {
+                this.positions = response.data;
+            }
             )
     }
 
@@ -138,6 +143,8 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
         event.target.checked ? this.showFiredEmployee = true : this.showFiredEmployee = false;
         this._script.load('app-employee',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
+
+            add // (change)="onShowFiredEmployee($event)"
     }*/
 
     onChangeDays(choice: string) {
@@ -155,7 +162,8 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin.js',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js',
-            'assets/demo/default/custom/components/forms/widgets/dropzone.js'
+            'assets/demo/default/custom/components/forms/widgets/dropzone.js',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker-employee.js'
         );
         Dropzone._autoDiscoverFunction();
     }
@@ -172,20 +180,20 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
             form.value.phone,
             form.value.position)
             .subscribe(
-                (data) => {
-                    // form.reset();
-                    /*console.log(data.ValidationError.email[0]);
-                    if (data.ValidationError.email[0] == "The email has already been taken.") {
-                        this.showAlert('alertEmployee');
-                        this._alertService.error('Данный майл уже используется');
-                    }*/
+            (data) => {
+                // form.reset();
+                /*console.log(data.ValidationError.email[0]);
+                if (data.ValidationError.email[0] == "The email has already been taken.") {
+                    this.showAlert('alertEmployee');
+                    this._alertService.error('Данный майл уже используется');
+                }*/
 
-                    if (data.status == "OK") {
-                        console.log(data.status);
-                        this.router.navigate(['/components/employees/employees-main'], {relativeTo: this.route})
-                    }
-
+                if (data.status == "OK") {
+                    console.log(data.status);
+                    this.router.navigate(['/components/employees/employees-main'], { relativeTo: this.route })
                 }
+
+            }
             )
     }
 

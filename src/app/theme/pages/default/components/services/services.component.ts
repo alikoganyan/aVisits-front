@@ -1,7 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {CreateServicesService} from "../../../../_services/create-services.service";
-import {CustomFormValidate} from "./helpers/custom-form-validate";
-import {ScriptLoaderService} from "../../../../../_services/script-loader.service";
+import {AlertService} from "../../../../../auth/_services/alert.service";
+import {AlertComponent} from "../../../../../auth/_directives/alert.component";
 
 
 @Component({
@@ -16,14 +16,16 @@ export class ServicesComponent implements OnInit {
     serviceCategories: any;
     serviceEditSwitcher = false;
     serviceEditTitle = '';
-    // groups = [];
-    aaabbb = [{}, {}, {}, {}];
-    @ViewChild('modalStatus') hideModal: ElementRef;
     @ViewChild('selectCategory') cat: ElementRef;
-
+    @ViewChild('groupService', {read: ViewContainerRef}) groupService: ViewContainerRef;
+    selectedCategoryServiceTitle = '';
+    selectedGroupServiceTitle = '';
+    showEditInputCategory = false;
+    showEditInputGroup = false;
 
     constructor(private createServicesService: CreateServicesService,
-                private _script: ScriptLoaderService) {
+                private _alertService: AlertService,
+                private cfr: ComponentFactoryResolver) {
     }
 
     serviceSwitcher(serviceSwitch: string) {
@@ -31,12 +33,8 @@ export class ServicesComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.getServiceCategories();
-        // this.getServiceGroups();
         this.getAllServiceGroupsCategories();
-        // CustomFormValidate.init();
     }
-
 
     getAllServiceGroupsCategories() {
         this.createServicesService.getAllServiceGroupsCategories()
@@ -73,25 +71,29 @@ export class ServicesComponent implements OnInit {
         this.createServicesService.createCategoryService(this.categoryServiceName)
             .subscribe(
                 (response) => {
+                    console.log(this.serviceCategories);
                     this.serviceCategories.push(response.data);
-                    this.hideModal.nativeElement.attributes[2].nodeValue = '';
                     this.categoryServiceName = '';
                 }
             );
-        // console.log(this.hideModal.nativeElement.attributes[2].nodeValue);
     }
 
-    signupFormGroupService(groupServicename: string, id: number) {
-        if (typeof id !== "number") {
-            console.log(1)
+    signupFormGroupService(groupServicename: string, id) {
+        let catId = parseInt(id);
+        if (id.length >= 25) {
+            console.log(1);
+            this.showAlert('groupService');
+            this._alertService.error('Добавьте групу услуг!');
         }
         else if (groupServicename == '') {
-            console.log(2);
+            this.showAlert('groupService');
+            this._alertService.error('Название групы абизателен!');
         }
         else {
-            this.createServicesService.createServiceGroups(groupServicename, id)
+            this.createServicesService.createServiceGroups(groupServicename, catId)
                 .subscribe(
                     (response) => {
+                        console.log(response);
                         let index = this.cat.nativeElement.selectedOptions[0].id;
                         // console.log(response.data, index);
                         this.serviceCategories[index].groups.push(response.data)
@@ -103,14 +105,12 @@ export class ServicesComponent implements OnInit {
     }
 
     onEditService(service) {
-            this.serviceEditSwitcher = true;
-            this.serviceEditTitle = service.title;
+        this.serviceEditSwitcher = true;
+        this.serviceEditTitle = service.title;
     }
 
     onSaveEditService(service) {
         this.serviceEditSwitcher = false;
-        console.log(this.serviceEditTitle);
-
     }
 
     onDeleteService(id: number) {
@@ -132,5 +132,111 @@ export class ServicesComponent implements OnInit {
             )
     }
 
+    editServiceCategory(serviceCategory) {
+        this.selectedCategoryServiceTitle = serviceCategory.title;
+        this.showEditInputCategory = true;
+    }
+
+    saveEditServiceCategory(serviceCategory) {
+        serviceCategory.title = this.selectedCategoryServiceTitle;
+        this.createServicesService.editCategoryService(serviceCategory)
+            .subscribe(
+                (response) => {
+                    this.showEditInputCategory = false;
+                }
+            )
+    }
+
+    deleteServiceCategory(serviceCategory) {
+        for (let i in this.serviceCategories) {
+            if (this.serviceCategories[i].id == serviceCategory.id) {
+                if (this.serviceCategories[i].groups.length > 0) {
+                    let result = confirm("В категории услуг есть группы услуг вы уверены что хотите удалить категорию услуг?");
+                    if (result) {
+                        this.createServicesService.deleteCategoryService(serviceCategory.id)
+                            .subscribe(
+                                (response) => {
+                                    console.log(response);
+                                    this.serviceCategories.splice(i, 1);
+                                }
+                            );
+                    }
+                } else {
+                    this.createServicesService.deleteCategoryService(serviceCategory.id)
+                        .subscribe(
+                            (response) => {
+                                console.log(response);
+                                this.serviceCategories.splice(i, 1);
+                            });
+                }
+            }
+        }
+    }
+
+    editGroupCategory(group) {
+        this.showEditInputGroup = true;
+        this.selectedGroupServiceTitle = group.title;
+    }
+
+    saveEditGroupCategory(group) {
+        group.title = this.selectedGroupServiceTitle;
+        this.createServicesService.editGroupService(group)
+            .subscribe(
+                (response) => {
+                    console.log(response);
+                    this.showEditInputGroup = false;
+                }
+            );
+    }
+
+    deleteGroupCategory(group) {
+        for (let serviceCategory of this.serviceCategories) {
+            for (let i in serviceCategory.groups) {
+                if (serviceCategory.groups[i].id == group.id) {
+                    if (serviceCategory.groups[i].services.length > 0) {
+                        let result = confirm("В группе услуг есть услуги вы уверены что хотите удалить групу услуг?");
+                        if (result) {
+                            this.createServicesService.deleteGroupService(group.id)
+                                .subscribe(
+                                    (response) => {
+                                        /*  for (let serviceCategory of this.serviceCategories) {
+                                              for (let i in serviceCategory.groups) {
+                                                  if (serviceCategory.groups[i].id == group.id) {
+
+                                                  }
+                                              }
+                                          }*/
+                                        serviceCategory.groups.splice(i, 1);
+                                    }
+                                );
+                        }
+                    } else {
+                        this.createServicesService.deleteGroupService(group.id)
+                            .subscribe(
+                                (response) => {
+                                    for (let serviceCategory of this.serviceCategories) {
+                                        /*for (let i in serviceCategory.groups) {
+                                            if (serviceCategory.groups[i].id == group.id) {
+
+                                            }
+                                        }*/
+                                        serviceCategory.groups.splice(i, 1);
+                                    }
+                                }
+                            );
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    showAlert(target) {
+        this[target].clear();
+        let factory = this.cfr.resolveComponentFactory(AlertComponent);
+        let ref = this[target].createComponent(factory);
+        ref.changeDetectorRef.detectChanges();
+    }
 }
 

@@ -115,7 +115,7 @@ export class LoginCustom {
                         required: true
                     },
                     phone: {
-                      required: true
+                        required: true
                     },
                     email: {
                         required: true,

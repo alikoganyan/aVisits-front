@@ -198,7 +198,7 @@
                                             type="text"
                                             class="form-control"
                                             id="m_gmap_8_address"
-                                            placeholder="address..."
+                                            placeholder="Адрес..."
                                             name="address"
                                     />
                                     <input type="hidden" id="hidden_marker_latitude" #latitude>
@@ -258,6 +258,11 @@
                                                 [id]="'m_timepicker_end_' + i"
                                                 #end
                                         >
+                                        <label class="m-checkbox workingStatusCheckbox">
+                                            <input name="chackboxDay" required type="checkbox" #onchangeStatusWeekday (change)="onchangeStatusWorkday()">
+                                            Нерабочий день
+                                            <span></span>
+                                        </label>
                                 </div>
                             </div>
                         </div>
@@ -266,13 +271,11 @@
                     <div class="m-portlet__foot m-portlet__foot--fit">
                         <div class="m-form__actions">
                             <button
-                                    type="submit" class="btn btn-primary"
+                                    type="button" class="btn btn-primary"
                                     id="create-new-salon-button"
+                                    (click)="onSubmit()"
                             >
                                 Создать
-                            </button>
-                            <button type="button" class="btn btn-secondary float-right" (click)="onClick()">
-                                Cancel
                             </button>
                         </div>
                     </div>

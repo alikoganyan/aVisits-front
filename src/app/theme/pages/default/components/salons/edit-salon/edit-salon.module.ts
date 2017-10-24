@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import {FormsModule} from "@angular/forms";
 import { EditSalonComponent } from "./edit-salon.component";
 import { LayoutModule } from "../../../../../layouts/layout.module";
 import { DefaultComponent } from "../../../default.component";
@@ -22,8 +21,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        LayoutModule,
-        FormsModule
+        LayoutModule
     ], exports: [
         RouterModule
     ], declarations: [

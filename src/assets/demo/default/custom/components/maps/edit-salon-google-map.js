@@ -1,15 +1,39 @@
+$(document).ready(function () {
+    GoogleMapsDemo.init()
+});
+
 var GoogleMapsDemo = function () {
+    var salon;
+
+    var e = function () {
+        for (var i = 0; i <= 6; i++) {
+
+            $("#m_timepicker_start_" + i).timepicker({
+                defaultTime: salon.data.schedule[i].start,
+                minuteStep: 15,
+                disableFocus: !0,
+                showMeridian: !1
+            });
+            $("#m_timepicker_end_" + i).timepicker({
+                defaultTime: salon.data.schedule[i].end,
+                minuteStep: 15,
+                showMeridian: !1
+            })
+        }
+    };
+
     var r = function () {
+
         var map = new google.maps.Map(document.getElementById('m_edit-gmap_8'), {
-            zoom: 13,
-            center: {lat: 59.327, lng: 18.067}
+            zoom: 17,
+            center: {lat: parseFloat(salon.data.latitude), lng: parseFloat(salon.data.longitude)}
         });
         var geocoder = new google.maps.Geocoder();
         var marker = new google.maps.Marker({
             map: map,
             draggable: true,
             animation: google.maps.Animation.DROP,
-            position: {lat: 59.327, lng: 18.067}
+            position: {lat: parseFloat(salon.data.latitude), lng: parseFloat(salon.data.longitude)}
         });
 
         function codeAddress() {
@@ -47,13 +71,14 @@ var GoogleMapsDemo = function () {
                     }
                 }
                 else {
-                    alert('Geocode was not successful for the following reason: ' + status);
+                    // alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
             marker.addListener('dragend', function (e) {
                 $('#hidden_marker_latitude').val(e.latLng.lat());
                 $('#hidden_marker_longitude').val(e.latLng.lng());
                 address = e.latLng.lat() + ' ' + e.latLng.lng();
+
                 geocoder.geocode({'address': address}, function (results, status) {
                     if (status == 'OK') {
 
@@ -107,13 +132,28 @@ var GoogleMapsDemo = function () {
             t.preventDefault();
             codeAddress();
         });
+        codeAddress();
     };
     return {
         init: function () {
-            r()
+
+
+            var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            var salonId = $('#editingSalon-id').val();
+            var url = "http://api.avisits.com/api/" + currentUser.chain.id + "/salon/" + salonId + "?token=" + currentUser.token;
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function (result) {
+                    /*if (result.status == "OK") {
+                    }
+                   */
+                    salon = result;
+                    r(); e();
+                }
+            });
         }
     }
 }();
-jQuery(document).ready(function () {
-    GoogleMapsDemo.init()
-});
+
+

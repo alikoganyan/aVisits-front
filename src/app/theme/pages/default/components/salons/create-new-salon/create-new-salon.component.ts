@@ -2,11 +2,11 @@ import {
     Component, OnInit, AfterViewInit, ViewChild, ElementRef, ViewChildren,
     ComponentFactoryResolver, ViewContainerRef
 } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
-import {AlertComponent} from "../../../../../../auth/_directives/alert.component";
-import {AlertService} from "../../../../../../auth/_services/alert.service";
-import {CreateSalonService} from "../../../../../_services/create-salon.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ScriptLoaderService } from "../../../../../../_services/script-loader.service";
+import { AlertComponent } from "../../../../../../auth/_directives/alert.component";
+import { AlertService } from "../../../../../../auth/_services/alert.service";
+import { CreateSalonService } from "../../../../../_services/create-salon.service";
 
 @Component({
     selector: 'app-create-salon',
@@ -50,6 +50,7 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
         country: '',
         city: '',
         street: '',
+        street_number: '',
         latitude: '',
         longitude: '',
         schedule: []
@@ -68,42 +69,61 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
 
     @ViewChildren('start') startInputs;
     @ViewChildren('end') endInputs;
-    @ViewChild('timePicker', {read: ViewContainerRef}) timePicker: ViewContainerRef;
+    @ViewChildren('onchangeStatusWeekday') onchangeStatusWeekday;
+    @ViewChild('timePicker', { read: ViewContainerRef }) timePicker: ViewContainerRef;
 
 
     constructor(private _script: ScriptLoaderService,
-                private cfr: ComponentFactoryResolver,
-                private _alertService: AlertService,
-                private createSalonService: CreateSalonService,
-                private router: Router,
-                private route: ActivatedRoute,) {
+        private cfr: ComponentFactoryResolver,
+        private _alertService: AlertService,
+        private createSalonService: CreateSalonService,
+        private router: Router,
+        private route: ActivatedRoute, ) {
     }
 
     onChange(showWeekday: { show: boolean, weekDay: string }) {
         showWeekday.show = !showWeekday.show;
         this._script.load('app-create-salon',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker.js');
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker-salon.js');
     }
 
+    onchangeStatusWorkday() {
+        for (let i in this.startInputs._results) {
+            this.startInputs._results[i].nativeElement.disabled = this.onchangeStatusWeekday._results[i].nativeElement.checked;
+            this.endInputs._results[i].nativeElement.disabled = this.onchangeStatusWeekday._results[i].nativeElement.checked;
+        }
+    }
 
     goToAllSalons() {
-        this.router.navigate(['/components/salons/all-salons'], {relativeTo: this.route})
+        this.router.navigate(['/components/salons/all-salons'], { relativeTo: this.route })
     }
 
-    onClick() {
+    onSubmit() {
         let error = false;
-        console.log(this.startInputs._results[2].nativeElement.value);
+        let workDayCount = 0;
         this.timePickers.schedule = [];
-        console.log(this.startInputs._results);
+        let workingDays = [1, 1, 1, 1, 1, 1, 1];
         for (let i in this.startInputs._results) {
+            workDayCount++;
+            // console.log(this.startInputs._results[i].nativeElement.disabled);
+            // console.log(this.startInputs._results[i].nativeElement.value);
+            // console.log(this.onchangeStatusWeekday._results[i].nativeElement.checked);
+            let working_status = this.onchangeStatusWeekday._results[i].nativeElement.checked;
+            if (working_status == false) {
+                workingDays[i] = 1;
+            }
+            else if (working_status == true) {
+                workingDays[i] = 0;
+            }
+            // console.log(workingDays[i]);
             this.timePickers.schedule.push({
                 num_of_day: i,
                 start: this.startInputs._results[i].nativeElement.value,
                 end: this.endInputs._results[i].nativeElement.value,
-                working_status: 1
+                working_status: workingDays[i]
             });
-            if (this.timePickers.schedule[i].start > this.timePickers.schedule[i].end) {
-                console.log("BREAK");
+            if (Date.parse('01/01/2011 ' + this.timePickers.schedule[i].start) > Date.parse('01/01/2011 ' + this.timePickers.schedule[i].end)) {
+                // console.log("BREAK");
                 error = true;
                 break;
             }
@@ -111,32 +131,39 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
                 error = false;
             }
         }
-        if (error) {
+        if (this.titleNewSalon.nativeElement.value == '' || this.country.nativeElement.value == '' || this.city.nativeElement.value == '') {
+            this.showAlert('timePicker');
+            this._alertService.error('Название салона и адрес обязательные поля!');
+        }
+        else if (error) {
             this.showAlert('timePicker');
             this._alertService.error('Время некорректно задано!');
-        } else {
-            // this.showAlert('timePicker');
-           this.timePickers.title = this.titleNewSalon.nativeElement.value,
-           this.timePickers.country = this.country.nativeElement.value,
-           this.timePickers.city = this.city.nativeElement.value,
-           this.timePickers.address = this.street.nativeElement.value,
-           this.timePickers.latitude = this.latitude.nativeElement.value,
-           this.timePickers.longitude = this.longitude.nativeElement.value
-            console.log(this.timePickers);
+        }
+        else if (workDayCount < 7) {
+            this.showAlert('timePicker');
+            this._alertService.error('Выберите все дневные интервалы!');
+        }
+        else {
+            this.timePickers.title = this.titleNewSalon.nativeElement.value,
+                this.timePickers.country = this.country.nativeElement.value,
+                this.timePickers.city = this.city.nativeElement.value,
+                this.timePickers.address = this.street.nativeElement.value,
+                this.timePickers.street_number = this.street_number.nativeElement.value,
+                this.timePickers.latitude = this.latitude.nativeElement.value,
+                this.timePickers.longitude = this.longitude.nativeElement.value
+            // console.log(this.timePickers);
             this.createSalonService.createNewSalon(this.timePickers)
                 .subscribe(
-                    (response) => {
-                        if (response.success == "Created successfully") {
-                            this.router.navigate(['/components/salons/all-salons'], {relativeTo: this.route})
-                        }
+                (response) => {
+                    if (response.success == "Created successfully") {
+                        this.router.navigate(['/components/salons/all-salons'], { relativeTo: this.route })
                     }
-                )
+                })
         }
 
     }
 
     ngOnInit() {
-
     }
 
     ngAfterViewInit() {
@@ -144,7 +171,7 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
             'app-create-salon',
             'assets/vendors/custom/gmaps/gmaps.js',
             'assets/demo/default/custom/components/maps/create-new-salon-google-map.js',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker.js');
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker-salon.js');
     }
 
 

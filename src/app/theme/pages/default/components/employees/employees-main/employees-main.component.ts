@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {EmployeeService} from "../../../../../_services/employee.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { EmployeeService } from "../../../../../_services/employee.service";
 
 @Component({
     selector: 'app-employees-main',
@@ -12,8 +12,8 @@ export class EmployeesMainComponent implements OnInit {
     employees = [];
 
     constructor(private router: Router,
-                private route: ActivatedRoute,
-                private employeeService: EmployeeService) {
+        private route: ActivatedRoute,
+        private employeeService: EmployeeService) {
     }
 
     ngOnInit() {
@@ -21,7 +21,7 @@ export class EmployeesMainComponent implements OnInit {
     }
 
     redirectToCreateEmployee() {
-        this.router.navigate(['/components/employees/employee'], {relativeTo: this.route})
+        this.router.navigate(['/components/employees/employee'], { relativeTo: this.route })
     }
 
     goToEditEmployee(employee) {
@@ -34,15 +34,15 @@ export class EmployeesMainComponent implements OnInit {
                      }
                  }
              );*/
-        this.router.navigate(['/components/employees/edit-employee/' + employee.id], {relativeTo: this.route})
+        this.router.navigate(['/components/employees/edit-employee/' + employee.id], { relativeTo: this.route })
     }
 
     getEmployees() {
         this.employeeService.getEmployees()
             .subscribe(
-                (response) => {
-                    this.employees = response.data;
-                }
+            (response) => {
+                this.employees = response.data;
+            }
             )
     }
 

@@ -58,7 +58,7 @@
                     <!--begin::Section-->
                     <div class="m-section">
 
-                        <div class="m-section__sub">Default</div>
+                        <div class="m-section__sub">Категории услуг - Групи услуг - Услуги</div>
                         <div class="m-section__content">
                             <p-accordion>
                                 <p-accordionTab
@@ -76,8 +76,8 @@
                                                <li *ngFor="let service of group.services">
                                                    <div *ngIf="!serviceEditSwitcher; else editService">
                                                        {{service.title}}
-                                                       <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Изменить" (click)="onEditService(service)"><i class="la la-edit"></i></a>
-                                                       <a class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Удалить" (click)="onDeleteService(service.id)"><i class="la la-trash"></i></a>
+                                                       <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill editService" title="Изменить" (click)="onEditService(service)"><i class="la la-edit"></i></a>
+                                                       <a class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill deleteService" title="Удалить" (click)="onDeleteService(service.id)"><i class="la la-trash"></i></a>
                                                    </div>
                                                    <ng-template #editService>
                                                        <input type="text" [(ngModel)]="serviceEditTitle">
@@ -85,27 +85,30 @@
                                                    </ng-template>
                                                </li>
                                             </ul>
+
+                                            <div class="edit_delete_serviceDiv">
+                                                <div *ngIf="!showEditInputGroup; else showEditDeleteItemsGroup">
+                                                    <a  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill editService" title="Изменить групу услуг" (click)="editGroupCategory(group)"><i class="la la-edit"></i></a>
+                                                    <a  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill deleteService" title="Удлаят групууслуг"><i class="la la-trash" (click)="deleteGroupCategory(group)"></i></a>
+                                                </div>
+                                                <ng-template class="save_edit_serviceDiv" #showEditDeleteItemsGroup>
+                                                    <input class="form-control m-input serviceInput" id="example-text-input2" type="text" [(ngModel)]='selectedGroupServiceTitle'>
+                                                    <a  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill editService" title="Сохранять изменения" (click)="saveEditGroupCategory(group)"><i class="la la-save"></i></a>
+                                                </ng-template>
+                                            </div>
+
                                         </p-accordionTab>
                                     </p-accordion>
-                                </p-accordionTab>
-                                <p-accordionTab header="Действующие цены, с 01.06.2017">
-                                    <p-accordion>
-                                        <p-accordionTab header="Действующие цены, с 01.01.2017"
-                                                        [selected]="false">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore et
-                                            dolore
-                                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                            ullamco laboris nisi ut aliquip ex ea
-                                            commodo
-                                            consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                            velit esse cillum dolore eu fugiat nulla
-                                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                                            in culpa qui officia deserunt mollit anim id
-                                            est
-                                            laborum.
-                                        </p-accordionTab>
-                                    </p-accordion>
+                                    <div class="edit_delete_serviceDiv">
+                                            <div *ngIf="!showEditInputCategory; else showEditDeleteItemsCategory">
+                                                    <a  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill editService" title="Изменить категорию услуг" (click)="editServiceCategory(serviceCategory)"><i class="la la-edit"></i></a>
+                                                    <a  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill deleteService" title="Удлаят категорию услуг"><i class="la la-trash" (click)="deleteServiceCategory(serviceCategory)"></i></a>
+                                            </div>
+                                        <ng-template class="save_edit_serviceDiv" #showEditDeleteItemsCategory>
+                                                <input class="form-control m-input serviceInput" id="example-text-input" type="text" [(ngModel)]='selectedCategoryServiceTitle'>
+                                                <a  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill editService" title="Сохранять изменения" (click)="saveEditServiceCategory(serviceCategory)"><i class="la la-save"></i></a>
+                                        </ng-template>
+                                    </div>
                                 </p-accordionTab>
                             </p-accordion>
                         </div>
@@ -166,8 +169,6 @@
                                     <button
                                             class="btn btn-primary"
                                             id="formServiceService-button"
-                                            data-dismiss=""
-                                            #modalStatus
                                     >
                                         Добавить
                                     </button>
@@ -184,6 +185,7 @@
                             <div *ngIf="serviceSwitch == 'groupService'">
                                 <form (ngSubmit)="f.form.valid && signupFormGroupService(groupServicename.value, selectCategory.value)"
                                       #f="ngForm">
+                                    <ng-template #groupService></ng-template>
                                     <div class="form-group">
                                         <label for="categoryServiceName" class="form-control-label">
                                             Добавить группу услуг:

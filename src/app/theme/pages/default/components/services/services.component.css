@@ -54,3 +54,21 @@ input.ng-invalid.ng-touched {
 .margin-auto {
     margin: auto;
 }
+
+.edit_delete_serviceDiv {
+    text-align: right;
+    padding: 15px 0 0 0;
+}
+
+.serviceInput {
+    width: auto;
+    display: inline;
+}
+
+.save_edit_serviceDiv {
+    display: inline;
+}
+
+.edit_delete_serviceDiv input {
+    float: left;
+}

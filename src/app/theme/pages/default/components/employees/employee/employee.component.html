@@ -34,9 +34,12 @@
             <div class="m-portlet">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title">
+                        <div class="m-portlet__head-title title-div-width">
+                                <button class="btn btn-primary back-to-allSalons" type="button" (click)="redireckToAllEmployees()">
+                                        <i class="fa fa-chevron-left"></i> Все сотрудники 
+                                    </button>
                             <h3 class="m-portlet__head-text">
-                                Basic Tabs
+                                    Создание нового сотрудника 
                             </h3>
                         </div>
                     </div>
@@ -50,7 +53,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" data-toggle="tab" href="#m_tabs_1_2">
-                                График паботы
+                               Салоны
                             </a>
                         </li>
                         <li class="nav-item">
@@ -60,7 +63,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#m_tabs_1_4">
-                                Салоны
+                                График паботы
                             </a>
                         </li>
                     </ul>
@@ -231,7 +234,7 @@
                                             <div class="form-group m-form__group">
                                                 <div class="m-checkbox-list">
                                                     <label class="m-checkbox">
-                                                        <input type="checkbox" (change)="onShowFiredEmployee($event)">
+                                                        <input type="checkbox">
                                                         Сотрудник уволен
                                                         <span></span>
                                                     </label>
@@ -314,6 +317,220 @@
                             <!--end::Form-->
                         </div>
                         <div class="tab-pane" id="m_tabs_1_2" role="tabpanel">
+
+
+                        </div>
+                        <!-- THIRD SECTION NAVBAR -->
+                        <div class="tab-pane" id="m_tabs_1_3" role="tabpanel">
+
+
+                            <!--   <div class="m-section__content">
+                                   <p-accordion>
+                                       <div class="ui-accordion ui-widget ui-helper-reset">
+
+                                           <p-accordiontab header="Start Adventure" class="ng-tns-c0-0">
+
+                                           </p-accordiontab>
+                                           <p-accordiontab header="Solve A Problem" class="ng-tns-c0-1">
+
+                                           </p-accordiontab>
+                                           <p-accordiontab header="Your Business" class="ng-tns-c0-2">
+
+                                           </p-accordiontab>
+
+                                       </div>
+                                   </p-accordion>
+                               </div>-->
+
+                            <div class="m-section__content">
+                                <p-accordion>
+                                    <!-- First -->
+                                    <p-accordionTab header="Категории услуг 1"
+                                                    *ngFor="let switchService of switchServices; let i = index">
+                                        <!--start::Form-->
+                                        <div class="m-portlet__body">
+                                            <!--begin::Section-->
+                                            <div class="m-section">
+                                                <div class="m-section__content">
+                                                    <p>Выбрано услуг: 10</p>
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>
+                                                                #
+                                                            </th>
+                                                            <th>
+                                                                Услуга
+                                                            </th>
+                                                            <th>
+                                                                Продолжительность
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th colspan="3">Стрижки</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <label class="m-checkbox m-checkbox--primary">
+                                                                    <input type="checkbox">
+                                                                    <span></span>
+                                                                </label>
+                                                            </th>
+                                                            <td>
+                                                                Стрижка женская
+                                                            </td>
+                                                            <td>
+                                                                0:30
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <label class="m-checkbox m-checkbox--primary">
+                                                                    <input type="checkbox">
+                                                                    <span></span>
+                                                                </label>
+                                                            </th>
+                                                            <td>
+                                                                Стрижка морская
+                                                            </td>
+                                                            <td>
+                                                                0:45
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <label class="m-checkbox m-checkbox--primary">
+                                                                    <input type="checkbox">
+                                                                    <span></span>
+                                                                </label>
+                                                            </th>
+                                                            <td>
+                                                                Стрижка бороды
+                                                            </td>
+                                                            <td>
+                                                                0:15
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                        <thead>
+                                                        <tr>
+                                                            <td colspan="3">Окрашивание Волос</td>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <label class="m-checkbox m-checkbox--primary">
+                                                                    <input type="checkbox">
+                                                                    <span></span>
+                                                                </label>
+                                                            </th>
+                                                            <td>
+                                                                Окрашивание волос в один тон
+                                                            </td>
+                                                            <td>
+                                                                2:00
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <label class="m-checkbox m-checkbox--primary">
+                                                                    <input type="checkbox">
+                                                                    <span></span>
+                                                                </label>
+                                                            </th>
+                                                            <td>
+                                                                Стрижка морская
+                                                            </td>
+                                                            <td>
+                                                                0:45
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <label class="m-checkbox m-checkbox--primary">
+                                                                    <input type="checkbox">
+                                                                    <span></span>
+                                                                </label>
+                                                            </th>
+                                                            <td>
+                                                                Стрижка бороды
+                                                            </td>
+                                                            <td>
+                                                                0:15
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!--end::Section-->
+                                        </div>
+                                        <button type="button" (click)="deleteServiceSwitch(i)" class="btn btn-primary">
+                                            Удалить
+                                        </button>
+                                        <!--end::Form-->
+                                    </p-accordionTab>
+                                    <p-accordionTab header="Категории услуг 2">
+                                        Sed vitae dolor purus. Nulla laoreet enim quis orci molestie aliquam. Donec
+                                        eleifend
+                                        nibh id luctus
+                                        imperdiet.
+                                        Donec tellus justo, imperdiet quis turpis in, interdum rhoncus lorem. Proin ac
+                                        sem
+                                        augue. Praesent
+                                        condimentum
+                                        varius arcu nec dapibus. Suspendisse quis egestas justo, eget semper lectus.
+                                        Nulla
+                                        facilisi.
+                                    </p-accordionTab>
+                                    <p-accordionTab header="Категории услуг 3">
+                                        Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
+                                        risus at neque. Suspendisse
+                                        vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta
+                                        sem,
+                                        non luctus leo imperdiet
+                                        rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
+                                        Phasellus consequat lectus ac
+                                        metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit
+                                        commodo
+                                        eget. Phasellus porta
+                                        massa
+                                        scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
+                                        consequat justo. Nullam
+                                        placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam
+                                        semper
+                                        mollis hendrerit. Etiam
+                                        sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat
+                                        quam,
+                                        vel sollicitudin mauris.
+                                    </p-accordionTab>
+                                </p-accordion>
+                                <br>
+                                <div class="form-group m-form__group add_category_div">
+                                    <label for="exampleSelect1">
+                                        Добавить категорию
+                                    </label>
+                                    <select class="form-control m-input">
+                                        <option value="">- Выберите услугу -</option>
+                                    </select>
+                                    <select class="form-control m-input">
+                                        <option value="">- Уровень цен -</option>
+                                    </select>
+
+                                    <button class="btn btn-primary" type="reset">
+                                        Добавить
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane" id="m_tabs_1_4" role="tabpanel">
 
                             <h5>Действующи шаблон:</h5>
                             <!--begin::Form-->
@@ -856,225 +1073,7 @@
                                 </div>
                             </form>
                             <!--end::Form-->
-                        </div>
-                        <!-- THIRD SECTION NAVBAR -->
-                        <div class="tab-pane" id="m_tabs_1_3" role="tabpanel">
 
-
-                            <!--   <div class="m-section__content">
-                                   <p-accordion>
-                                       <div class="ui-accordion ui-widget ui-helper-reset">
-
-                                           <p-accordiontab header="Start Adventure" class="ng-tns-c0-0">
-
-                                           </p-accordiontab>
-                                           <p-accordiontab header="Solve A Problem" class="ng-tns-c0-1">
-
-                                           </p-accordiontab>
-                                           <p-accordiontab header="Your Business" class="ng-tns-c0-2">
-
-                                           </p-accordiontab>
-
-                                       </div>
-                                   </p-accordion>
-                               </div>-->
-
-                            <div class="m-section__content">
-                                <p-accordion>
-                                    <!-- First -->
-                                    <p-accordionTab header="Категории услуг 1"
-                                                    *ngFor="let switchService of switchServices; let i = index">
-                                        <!--start::Form-->
-                                        <div class="m-portlet__body">
-                                            <!--begin::Section-->
-                                            <div class="m-section">
-                                                <div class="m-section__content">
-                                                    <p>Выбрано услуг: 10</p>
-                                                    <table class="table table-bordered table-hover">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>
-                                                                #
-                                                            </th>
-                                                            <th>
-                                                                Услуга
-                                                            </th>
-                                                            <th>
-                                                                Продолжительность
-                                                            </th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th colspan="3">Стрижки</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <label class="m-checkbox m-checkbox--primary">
-                                                                    <input type="checkbox">
-                                                                    <span></span>
-                                                                </label>
-                                                            </th>
-                                                            <td>
-                                                                Стрижка женская
-                                                            </td>
-                                                            <td>
-                                                                0:30
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <label class="m-checkbox m-checkbox--primary">
-                                                                    <input type="checkbox">
-                                                                    <span></span>
-                                                                </label>
-                                                            </th>
-                                                            <td>
-                                                                Стрижка морская
-                                                            </td>
-                                                            <td>
-                                                                0:45
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <label class="m-checkbox m-checkbox--primary">
-                                                                    <input type="checkbox">
-                                                                    <span></span>
-                                                                </label>
-                                                            </th>
-                                                            <td>
-                                                                Стрижка бороды
-                                                            </td>
-                                                            <td>
-                                                                0:15
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                        <thead>
-                                                        <tr>
-                                                            <td colspan="3">Окрашивание Волос</td>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <label class="m-checkbox m-checkbox--primary">
-                                                                    <input type="checkbox">
-                                                                    <span></span>
-                                                                </label>
-                                                            </th>
-                                                            <td>
-                                                                Окрашивание волос в один тон
-                                                            </td>
-                                                            <td>
-                                                                2:00
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <label class="m-checkbox m-checkbox--primary">
-                                                                    <input type="checkbox">
-                                                                    <span></span>
-                                                                </label>
-                                                            </th>
-                                                            <td>
-                                                                Стрижка морская
-                                                            </td>
-                                                            <td>
-                                                                0:45
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <label class="m-checkbox m-checkbox--primary">
-                                                                    <input type="checkbox">
-                                                                    <span></span>
-                                                                </label>
-                                                            </th>
-                                                            <td>
-                                                                Стрижка бороды
-                                                            </td>
-                                                            <td>
-                                                                0:15
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <!--end::Section-->
-                                        </div>
-                                        <button type="button" (click)="deleteServiceSwitch(i)" class="btn btn-primary">
-                                            Удалить
-                                        </button>
-                                        <!--end::Form-->
-                                    </p-accordionTab>
-                                    <p-accordionTab header="Категории услуг 2">
-                                        Sed vitae dolor purus. Nulla laoreet enim quis orci molestie aliquam. Donec
-                                        eleifend
-                                        nibh id luctus
-                                        imperdiet.
-                                        Donec tellus justo, imperdiet quis turpis in, interdum rhoncus lorem. Proin ac
-                                        sem
-                                        augue. Praesent
-                                        condimentum
-                                        varius arcu nec dapibus. Suspendisse quis egestas justo, eget semper lectus.
-                                        Nulla
-                                        facilisi.
-                                    </p-accordionTab>
-                                    <p-accordionTab header="Категории услуг 3">
-                                        Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui, eu commodo orci
-                                        risus at neque. Suspendisse
-                                        vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec luctus porta
-                                        sem,
-                                        non luctus leo imperdiet
-                                        rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur efficitur nisi.
-                                        Phasellus consequat lectus ac
-                                        metus pharetra pellentesque. Duis blandit sapien urna, eu imperdiet velit
-                                        commodo
-                                        eget. Phasellus porta
-                                        massa
-                                        scelerisque, commodo orci et, feugiat urna. Nulla volutpat hendrerit tortor, nec
-                                        consequat justo. Nullam
-                                        placerat hendrerit massa sed varius. Aenean molestie dapibus interdum. Etiam
-                                        semper
-                                        mollis hendrerit. Etiam
-                                        sodales fermentum sem, porttitor venenatis arcu semper in. Proin non volutpat
-                                        quam,
-                                        vel sollicitudin mauris.
-                                    </p-accordionTab>
-                                </p-accordion>
-                                <br>
-                                <div class="form-group m-form__group add_category_div">
-                                    <label for="exampleSelect1">
-                                        Добавить категорию
-                                    </label>
-                                    <select class="form-control m-input">
-                                        <option value="">- Выберите услугу -</option>
-                                    </select>
-                                    <select class="form-control m-input">
-                                        <option value="">- Уровень цен -</option>
-                                    </select>
-
-                                    <button class="btn btn-primary" type="reset">
-                                        Добавить
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="tab-pane" id="m_tabs_1_4" role="tabpanel">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and
                         </div>
                     </div>
                 </div>

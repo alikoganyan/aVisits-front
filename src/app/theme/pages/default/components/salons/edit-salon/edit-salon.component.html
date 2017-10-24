@@ -16,9 +16,9 @@
                 </li>
                 <li class="m-nav__item">
                     <a href="" class="m-nav__link">
-						<span class="m-nav__link-text">
-							Имя салона
-						</span>
+                        <span class="m-nav__link-text">
+                            Имя салона
+                        </span>
                     </a>
                 </li>
                 <li class="m-nav__separator">
@@ -26,18 +26,17 @@
                 </li>
                 <li class="m-nav__item">
                     <a href="" class="m-nav__link">
-						<span class="m-nav__link-text">
-							 Обновить салон
-						</span>
+                        <span class="m-nav__link-text">
+                            Обновить салон
+                        </span>
                     </a>
                 </li>
             </ul>
         </div>
         <div>
-            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-                 data-dropdown-toggle="hover" aria-expanded="true">
-                <a href="#"
-                   class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover"
+                aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
                     <i class="la la-plus m--hide"></i>
                     <i class="la la-ellipsis-h"></i>
                 </a>
@@ -48,40 +47,40 @@
                             <div class="m-dropdown__content">
                                 <ul class="m-nav">
                                     <li class="m-nav__section m-nav__section--first m--hide">
-										<span class="m-nav__section-text">
-											Quick Actions
-										</span>
+                                        <span class="m-nav__section-text">
+                                            Quick Actions
+                                        </span>
                                     </li>
                                     <li class="m-nav__item">
                                         <a href="" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-share"></i>
                                             <span class="m-nav__link-text">
-												Activity
-											</span>
+                                                Activity
+                                            </span>
                                         </a>
                                     </li>
                                     <li class="m-nav__item">
                                         <a href="" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-chat-1"></i>
                                             <span class="m-nav__link-text">
-												Messages
-											</span>
+                                                Messages
+                                            </span>
                                         </a>
                                     </li>
                                     <li class="m-nav__item">
                                         <a href="" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-info"></i>
                                             <span class="m-nav__link-text">
-												FAQ
-											</span>
+                                                FAQ
+                                            </span>
                                         </a>
                                     </li>
                                     <li class="m-nav__item">
                                         <a href="" class="m-nav__link">
                                             <i class="m-nav__link-icon flaticon-lifebuoy"></i>
                                             <span class="m-nav__link-text">
-												Support
-											</span>
+                                                Support
+                                            </span>
                                         </a>
                                     </li>
                                     <li class="m-nav__separator m-nav__separator--fit"></li>
@@ -119,43 +118,32 @@
                 </div>
                 <!--begin::Form-->
                 <form class="m-form m-form--fit m-form--label-align-right">
+                    <ng-template #editSalonTimePicker></ng-template>
                     <div class="m-portlet__body">
                         <!-- Salon name -->
                         <div class="form-group m-form__group">
                             <label for="title-salon">
                                 Название салона
                             </label>
-                            <input
-                                    type="text"
-                                    class="form-control m-input"
-                                    id="title-salon"
-                                    placeholder="Ромашка"
-                                    name="title"
-                                    required
-                            >
+                            <input type="text" class="form-control m-input" id="title-salon" placeholder="Ромашка" name="title" #titleNewSalon>
                         </div>
                         <!-- Google map -->
                         <div class="m-portlet m-portlet--tab">
                             <div class="m-portlet__body">
                                 <div class="input-group">
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            id="m_edit-gmap_8_address"
-                                            placeholder="address..."
-                                            required
-                                    >
+                                    <input type="text" class="form-control" id="m_edit-gmap_8_address" placeholder="Адрес..." #addressEditSalon>
                                     <input type="hidden" id="hidden_marker_latitude" #latitude>
                                     <input type="hidden" id="hidden_marker_longitude" #longitude>
                                     <input type="hidden" id="hidden_googleMap_street_number" #street_number>
                                     <input type="hidden" id="hidden_googleMap_street" #street>
                                     <input type="hidden" id="hidden_googleMap_city" #city>
                                     <input type="hidden" id="hidden_googleMap_country" #country>
+                                    <input type="hidden" id="editingSalon-id" [value]="salonId">
                                     <span class="input-group-btn">
-								            <button class="btn btn-primary" id="m_edit-gmap_8_btn">
-									            <i class="fa fa-search"></i>
-								            </button>
-							        </span>
+                                        <button class="btn btn-primary" id="m_edit-gmap_8_btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
                                 </div>
                                 <div id="m_edit-gmap_8" style="height:300px;"></div>
                             </div>
@@ -166,45 +154,21 @@
                         <div class="form-group m-form__group">
                             <div class="work_interval_groups" *ngFor="let showWeekday of showWeekdays; let i = index">
                                 <label class="m-checkbox custom_label_position">
-                                    <input
-                                            required
-                                            type="checkbox"
-                                            [checked]="showWeekday.show"
-                                            (change)="onChange(showWeekday)"
-                                            name="chackboxDay"
-                                    />
-                                    {{showWeekday.weekDay}}
-                                    <span></span>
+                                     {{showWeekday.weekDay}}
                                 </label>
-                                <div class="custom_div_width" *ngIf="showWeekday.show">
+                                <div class="custom_div_width">
 
                                     <div>
                                         <label id="start_day">Начало</label>
                                         <label id="end_day">Конец</label>
                                     </div>
 
-                                    <input
-                                            type='text'
-                                            class="form-control"
-                                            readonly
-                                            placeholder="Начало"
-                                            style="width: 100px; display: inline"
-                                            [id]="'m_timepicker_start_' + i"
-                                            #start
-                                    >
-                                    -
-                                    <input
-                                            type='text'
-                                            class="form-control m_timepicker_2"
-                                            readonly
-                                            placeholder="Конец"
-                                            style="width: 100px; display: inline"
-                                            [id]="'m_timepicker_end_' + i"
-                                            #end
-                                    >
+                                    <input type='text' class="form-control" readonly placeholder="Начало" style="width: 100px; display: inline" [id]="'m_timepicker_start_' + i"
+                                        #start> -
+                                    <input type='text' class="form-control m_timepicker_2" readonly placeholder="Конец" style="width: 100px; display: inline"
+                                        [id]="'m_timepicker_end_' + i" #end>
                                     <label class="m-checkbox workingStatusCheckbox">
-                                        <input name="chackboxDay" required type="checkbox" #onchangeStatusWeekday (change)="onchangeStatusWorkday($event)">
-                                        Нерабочий день
+                                        <input name="chackboxDay" type="checkbox" #onchangeStatusWeekday (change)="onchangeStatusWorkday()" id="editNotWorkingDay"> Нерабочий день
                                         <span></span>
                                     </label>
                                 </div>
@@ -217,8 +181,8 @@
                             <button type="button" class="btn btn-primary" (click)="onSubmit()">
                                 Обновить
                             </button>
-                            <button type="button" class="btn btn-secondary float-right">
-                                Cancel
+                            <button class="btn btn-danger deleteSalon" type="button" (click)="onDeleteSalon()">
+                                Удалить салон
                             </button>
                         </div>
                     </div>
@@ -229,4 +193,3 @@
         </div>
     </div>
 </div>
-
