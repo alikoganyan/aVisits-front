@@ -1,0 +1,150 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Все сети
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Все сети
+						</span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							 Добавление новой сети
+						</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-md-10 margin-auto">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--tab">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title title-div-width">
+                            <button class="btn btn-primary back-to-allChains" type="button" (click)="goToAllChains()">
+                                <i class="fa fa-chevron-left"></i> Все сети
+                            </button>
+                            <h3 class="m-portlet__head-text">
+                                Создать новый сеть
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <!--begin::Form-->
+                <form class="m-form m-form--fit m-form--label-align-right" (ngSubmit)="onSubmit()" #f="ngForm">
+                    <div class="m-portlet__body">
+                        <!-- TITLE -->
+                        <div class="form-group m-form__group row">
+                            <label class="col-form-label col-lg-3 col-sm-12">
+                                Название
+                            </label>
+                            <div class="col-lg-4 col-md-9 col-sm-12">
+                                <input class="form-control" type="text" name="title" ngModel required>
+                            </div>
+                        </div>
+                        <!-- DESCRIPTION -->
+                        <div class="form-group m-form__group row">
+                            <label class="col-form-label col-lg-3 col-sm-12" for="exampleTextarea">
+                                Описание
+                            </label>
+                            <textarea class="form-control m-input" id="exampleTextarea" rows="3" ngModel name="description"></textarea>
+                        </div>
+                        <!-- Price Levels -->
+                        <div class="m-form__group row">
+                            <label class="col-form-label col-lg-3 col-sm-12">
+                                Уровень цен:
+                            </label>
+                        </div>
+
+                        <div class="m-form__group row">
+                            <label class="col-form-label col-lg-3 col-sm-12">
+                                Уровень 1
+                            </label>
+                            <div class="col-lg-4 col-md-9 col-sm-12">
+                                <input class="form-control" type="text" placeholder="Название" ngModel name="price" required>
+                            </div>
+                        </div>
+
+                        <div
+                                class="m-form__group row"
+                                *ngFor="let priceLevel of chain.levels; let i = index"
+                                ngModelGroup="levels"
+                                #levels="ngModelGroup"
+                        >
+                            <label class="col-form-label col-lg-3 col-sm-12">
+                                Уровень {{i+2}}
+                            </label>
+                            <div class="col-lg-4 col-md-9 col-sm-12 divInputPrcieLevel">
+                                <input class="form-control" type="text" placeholder="Название" [name]="'price' + i" ngModel required [value]="priceLevel">
+                                <i class="fa fa-close deleteChain" (click)="removePriceLevel(i)"></i>
+                            </div>
+                        </div>
+
+
+                        <div class="m-form__group row add-chain-prcie-div">
+                            <div class="add-chain-priceLevel-button">
+                                <button class="btn btn-success" type="button"
+                                        (click)="addPriceLevel()">
+                                    Добавить рабочий интервал
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group m-form__group row">
+                            <label class="col-form-label col-lg-3 col-sm-12">
+                                Телефон
+                            </label>
+                            <div class="col-lg-4 col-md-9 col-sm-12">
+                                <input
+                                        class="form-control"
+                                        id="m_inputmask-create-chain_3"
+                                        type="text"
+                                        #phone_number
+                                >
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions">
+                            <div class="row">
+                                <div class="col-lg-9 ml-lg-auto">
+                                    <button class="btn btn-brand" type="submit" [disabled]="!f.valid">
+                                        Создать
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>

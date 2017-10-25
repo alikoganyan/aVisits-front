@@ -83,9 +83,13 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/components\/products\/products.module#ProductsModule"
             },
             {
-                "path": "components\/payments",
-                "loadChildren": ".\/pages\/default\/components\/payments\/payments.module#PaymentsModule"
+                "path": "components\/chains",
+                "loadChildren": ".\/pages\/default\/components\/chains\/chains.module#ChainsModule"
             },
+           /* {
+                "path": "components\/create-chain",
+                "loadChildren": ".\/pages\/default\/components\/chains\/create-chain\/create-chain.module#CreateChainModule"
+            },*/
             {
                 "path": "components\/salary",
                 "loadChildren": ".\/pages\/default\/components\/salary\/salary.module#SalaryModule"

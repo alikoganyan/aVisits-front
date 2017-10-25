@@ -18,6 +18,7 @@ import { GetCityService } from "./_services/get-city.service";
 import { CreateEmployeePositionService } from "./theme/_services/create-employee-position.service";
 import { CreateSalonService } from "./theme/_services/create-salon.service";
 import { EmployeeService } from "./theme/_services/employee.service";
+import {ChainService} from "./theme/_services/chain-service";
 
 
 
@@ -44,7 +45,8 @@ import { EmployeeService } from "./theme/_services/employee.service";
         GetCityService,
         CreateEmployeePositionService,
         CreateSalonService,
-        EmployeeService
+        EmployeeService,
+        ChainService
     ],
     bootstrap: [AppComponent]
 })

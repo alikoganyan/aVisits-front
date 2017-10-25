@@ -119,6 +119,7 @@ export class EditSalonComponent implements OnInit, AfterViewInit {
         this.timePickers.schedule = [];
         let workingDays = [1, 1, 1, 1, 1, 1, 1];
         for (let i in this.startInputs._results) {
+            // console.log(this.salon.schedule[i].id)
             // console.log(this.startInputs._results[i].nativeElement.disabled);
             // console.log(this.startInputs._results[i].nativeElement.value);
             // console.log(this.onchangeStatusWeekday._results[i].nativeElement.checked);
@@ -131,7 +132,8 @@ export class EditSalonComponent implements OnInit, AfterViewInit {
             }
             // console.log(workingDays[i]);
             this.timePickers.schedule.push({
-                num_of_day: i,
+                id: this.salon.schedule[i].id,
+                num_of_day: parseInt(i) + 1,
                 salon_id: this.salonId,
                 start: this.startInputs._results[i].nativeElement.value,
                 end: this.endInputs._results[i].nativeElement.value,
@@ -166,7 +168,9 @@ export class EditSalonComponent implements OnInit, AfterViewInit {
             this.timePickers.latitude = this.latitude.nativeElement.value;
             this.timePickers.longitude = this.longitude.nativeElement.value;
             this.timePickers.id = this.salonId;
+            // console.log(this.timePickers);
             this.createSalonService.editSalon(this.timePickers).subscribe((response) => {
+                console.log(response)
                 // if (response.success == "Created successfully") {
                 this.router.navigate(['/components/salons/all-salons'], {relativeTo: this.route})
                 // }

@@ -9,22 +9,18 @@ import { ScriptLoaderService } from "../../../../../../_services/script-loader.s
 export class RecordFormComponent implements OnInit, AfterViewInit {
 
     constructor(private _script: ScriptLoaderService) {
-
     }
 
     ngOnInit() {
     }
 
     ngAfterViewInit() {
-        this._script.load('app-record-form',
-            'assets/demo/default/custom/components/forms/widgets/input-mask.js');
-        this._script.load('app-record-form',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js');
-        this._script.load('app-record-form',
-            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js');
-        this._script.load('app-record-form',
+        this._script.load(
+            'app-record-form',
+            'assets/demo/default/custom/components/forms/widgets/input-mask.js',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-select.js',
+            'assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js',
             'assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker-salon.js');
-
     }
 
 }

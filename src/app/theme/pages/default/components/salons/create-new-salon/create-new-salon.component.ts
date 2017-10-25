@@ -103,7 +103,7 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
         let workDayCount = 0;
         this.timePickers.schedule = [];
         let workingDays = [1, 1, 1, 1, 1, 1, 1];
-        for (let i in this.startInputs._results) {
+        for (let i  in this.startInputs._results) {
             workDayCount++;
             // console.log(this.startInputs._results[i].nativeElement.disabled);
             // console.log(this.startInputs._results[i].nativeElement.value);
@@ -117,7 +117,7 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
             }
             // console.log(workingDays[i]);
             this.timePickers.schedule.push({
-                num_of_day: i,
+                num_of_day: parseInt(i) + 1,
                 start: this.startInputs._results[i].nativeElement.value,
                 end: this.endInputs._results[i].nativeElement.value,
                 working_status: workingDays[i]
@@ -144,13 +144,13 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
             this._alertService.error('Выберите все дневные интервалы!');
         }
         else {
-            this.timePickers.title = this.titleNewSalon.nativeElement.value,
-                this.timePickers.country = this.country.nativeElement.value,
-                this.timePickers.city = this.city.nativeElement.value,
-                this.timePickers.address = this.street.nativeElement.value,
-                this.timePickers.street_number = this.street_number.nativeElement.value,
-                this.timePickers.latitude = this.latitude.nativeElement.value,
-                this.timePickers.longitude = this.longitude.nativeElement.value
+            this.timePickers.title = this.titleNewSalon.nativeElement.value;
+                this.timePickers.country = this.country.nativeElement.value;
+                this.timePickers.city = this.city.nativeElement.value;
+                this.timePickers.address = this.street.nativeElement.value;
+                this.timePickers.street_number = this.street_number.nativeElement.value;
+                this.timePickers.latitude = this.latitude.nativeElement.value;
+                this.timePickers.longitude = this.longitude.nativeElement.value;
             // console.log(this.timePickers);
             this.createSalonService.createNewSalon(this.timePickers)
                 .subscribe(

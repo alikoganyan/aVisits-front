@@ -1,0 +1,14 @@
+:host(app-chains) {
+    overflow: hidden;
+    margin-bottom: 60px;
+    flex: 1;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.add-salon-batton {
+    margin-top: 18px;
+    float: right;
+}
