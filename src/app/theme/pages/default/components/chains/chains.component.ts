@@ -17,13 +17,11 @@ export class ChainsComponent implements OnInit {
     }
 
     redirectToCreateChain() {
-
-        this.router.navigate(['/components/chains/create-chain'], {relativeTo: this.route})
+        this.router.navigate(['/components/create-chain'], {relativeTo: this.route});
     }
 
     getSelectedChain(chain) {
-        this.router.navigate(['/components/chains/edit-chain/' + chain.id], {relativeTo: this.route});
-        console.log(chain);
+        this.router.navigate(['/components/edit-chain/' + chain.id], {relativeTo: this.route});
     }
 
     ngOnInit() {
@@ -34,7 +32,6 @@ export class ChainsComponent implements OnInit {
         this.chainService.getChains()
             .subscribe(
                 (response) => {
-                    console.log(response.data);
                     this.chains = response.data;
                 }
             )

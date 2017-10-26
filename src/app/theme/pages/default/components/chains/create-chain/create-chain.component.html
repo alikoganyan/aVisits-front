@@ -48,7 +48,7 @@
                                 <i class="fa fa-chevron-left"></i> Все сети
                             </button>
                             <h3 class="m-portlet__head-text">
-                                Обновить сеть
+                                Создать новый сеть
                             </h3>
                         </div>
                     </div>
@@ -84,13 +84,13 @@
                                 Уровень 1
                             </label>
                             <div class="col-lg-4 col-md-9 col-sm-12">
-                                <input class="form-control" type="text" placeholder="Название" ngModel name="price1" required>
+                                <input class="form-control" type="text" placeholder="Название" ngModel name="price" required>
                             </div>
                         </div>
 
                         <div
                                 class="m-form__group row"
-                                *ngFor="let priceLevel of chain.priceLevels; let i = index"
+                                *ngFor="let priceLevel of chain.levels let i = index"
                                 ngModelGroup="levels"
                                 #levels="ngModelGroup"
                         >

@@ -48,7 +48,7 @@
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-                                Basic Tabs
+                                Создание услуги
                             </h3>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                             <form class="m-form m-form--fit m-form--label-align-right">
                                 <div class="m-portlet__body">
 
-                                    <div class="form-group m-form__group row">
+                                <!--    <div class="form-group m-form__group row">
                                         <label class="col-form-label col-lg-2 col-sm-2">
                                             Рабочих дней
                                         </label>
@@ -213,26 +213,32 @@
                                                    class="form-control bootstrap-touchspin-vertical-btn" value=""
                                                    name="demo1" placeholder="5">
                                         </div>
-                                    </div>
+                                    </div>-->
 
-                                    <div class="form-group m-form__group prices_custom_form">
+                                    <div class="form-group m-form__group prices_custom_form"  *ngFor="let priceName of chainPrices">
                                             <span class="price_name">
-                                                Название уровня цен 1
+                                                {{priceName.level}}
                                             </span>
                                         <input
+                                                (keyup)="logic()"
                                                 type="number"
                                                 class="form-control m-input"
                                                 placeholder="От"
+                                                min="1"
+                                                #start
+
                                         >
                                         <span class="custom_dash">-</span>
                                         <input
                                                 type="number"
                                                 class="form-control m-input"
                                                 placeholder="До"
+                                                min="10"
+                                                #end
                                         >
                                     </div>
 
-                                    <div class="form-group m-form__group prices_custom_form">
+                                   <!-- <div class="form-group m-form__group prices_custom_form">
                                             <span class="price_name">
                                                 Название уровня цен 2
                                             </span>
@@ -248,7 +254,6 @@
                                                 placeholder="До"
                                         >
                                     </div>
-
                                     <div class="form-group m-form__group prices_custom_form">
                                             <span class="price_name">
                                                 Название уровня цен 3
@@ -264,7 +269,7 @@
                                                 class="form-control m-input"
                                                 placeholder="До"
                                         >
-                                    </div>
+                                    </div>-->
 
                                     <div class="form-group m-form__group row">
                                         <label class="col-form-label custom_datePickerName">

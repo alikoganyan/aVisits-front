@@ -38,3 +38,7 @@ input.ng-invalid.ng-touched {
 .add-chain-priceLevel-button {
     margin: auto;
 }
+
+.deleteChainButton {
+    float: right;
+}

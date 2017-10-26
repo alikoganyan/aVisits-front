@@ -86,10 +86,14 @@ const routes: Routes = [
                 "path": "components\/chains",
                 "loadChildren": ".\/pages\/default\/components\/chains\/chains.module#ChainsModule"
             },
-           /* {
+            {
                 "path": "components\/create-chain",
                 "loadChildren": ".\/pages\/default\/components\/chains\/create-chain\/create-chain.module#CreateChainModule"
-            },*/
+            },
+            {
+                "path": "components\/edit-chain\/:id",
+                "loadChildren": ".\/pages\/default\/components\/chains\/edit-chain\/edit-chain.module#EditChainModule"
+            },
             {
                 "path": "components\/salary",
                 "loadChildren": ".\/pages\/default\/components\/salary\/salary.module#SalaryModule"

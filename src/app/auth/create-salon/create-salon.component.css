@@ -38,3 +38,8 @@ input.ng-invalid.ng-touched {
 .gotCities ul li:hover {
     background-color: #F9F9F9;
 }
+
+.cancel-salon-btn {
+    float: right;
+    margin-top: 18px;
+}

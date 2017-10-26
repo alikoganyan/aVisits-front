@@ -2,13 +2,15 @@ import {
     Component, OnInit, AfterViewInit, ViewChild, ElementRef, ComponentFactoryResolver,
     ViewContainerRef
 } from '@angular/core';
-import { NgForm } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { GetCityService } from "../../_services/get-city.service";
-import { CreateSalonService } from "../../theme/_services/create-salon.service";
-import { ScriptLoaderService } from "../../_services/script-loader.service";
-import { AlertService } from "../_services/alert.service";
-import { AlertComponent } from "../_directives/alert.component";
+import {NgForm} from "@angular/forms";
+import {Router, ActivatedRoute} from "@angular/router";
+import {GetCityService} from "../../_services/get-city.service";
+import {CreateSalonService} from "../../theme/_services/create-salon.service";
+import {ScriptLoaderService} from "../../_services/script-loader.service";
+import {AlertService} from "../_services/alert.service";
+import {AlertComponent} from "../_directives/alert.component";
+import {Helpers} from "../../helpers";
+import {AuthenticationService} from "../_services/authentication.service";
 
 @Component({
     selector: 'app-create-salon',
@@ -17,7 +19,7 @@ import { AlertComponent } from "../_directives/alert.component";
 })
 export class CreateSalonComponent implements OnInit, AfterViewInit {
     @ViewChild('textCity') textCity: ElementRef;
-    @ViewChild('alertSalon', { read: ViewContainerRef }) alertSalon: ViewContainerRef;
+    @ViewChild('alertSalon', {read: ViewContainerRef}) alertSalon: ViewContainerRef;
     countries = [];
     countryId: number;
     selectedCountry: string = '';
@@ -27,12 +29,21 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
 
 
     constructor(private router: Router,
-        private route: ActivatedRoute,
-        private getCityService: GetCityService,
-        private createSalonService: CreateSalonService,
-        private _script: ScriptLoaderService,
-        private _alertService: AlertService,
-        private cfr: ComponentFactoryResolver) {
+                private route: ActivatedRoute,
+                private getCityService: GetCityService,
+                private createSalonService: CreateSalonService,
+                private _script: ScriptLoaderService,
+                private _alertService: AlertService,
+                private cfr: ComponentFactoryResolver,
+                private _router: Router,
+                private _authService: AuthenticationService) {
+    }
+
+    cancelToLoginPage() {
+        Helpers.setLoading(true);
+        // reset login status
+        this._authService.logout();
+        this._router.navigate(['/login']);
     }
 
     onBlur() {
@@ -46,9 +57,9 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
     getCountries() {
         this.getCityService.getCountries()
             .subscribe(
-            (countries) => {
-                this.countries = countries.response.items;
-            }
+                (countries) => {
+                    this.countries = countries.response.items;
+                }
             )
     }
 
@@ -56,7 +67,7 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
         this.selectedCity = '';
         this.countryId = id;
         let selectElementText = event.target['options']
-        [event.target['options'].selectedIndex].text;
+            [event.target['options'].selectedIndex].text;
         this.selectedCountry = selectElementText;
     }
 
@@ -67,9 +78,9 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
         }
         this.getCityService.getCities(this.countryId, text)
             .subscribe(
-            (cities) => {
-                this.cities = cities.response.items;
-            }
+                (cities) => {
+                    this.cities = cities.response.items;
+                }
             )
     }
 
@@ -84,50 +95,49 @@ export class CreateSalonComponent implements OnInit, AfterViewInit {
         console.log(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName);
         this.getCityService.getStreet(this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName)
             .subscribe(
-            (street) => {
-                if (street.status == 'ZERO_RESULTS') {
-                    this.showAlert('alertSalon');
-                    this._alertService.error('Адрес не найден');
-                }
-                else if (street.status == 'OK') {
-                    console.log(form.value.title, this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName, street.results[0].geometry.location.lat, street.results[0].geometry.location.lng);
-                    this.createSalonService.createSalon(
-                        form.value.title,
-                        this.selectedCountry,
-                        this.textCity.nativeElement.value,
-                        form.value.addressName,
-                        street.results[0].geometry.location.lat,
-                        street.results[0].geometry.location.lng,
-                    ).subscribe(
-                        (response) => {
-                            console.log(response);
-                            if (response.success == 'Created successfully') {
+                (street) => {
+                    if (street.status == 'ZERO_RESULTS') {
+                        this.showAlert('alertSalon');
+                        this._alertService.error('Адрес не найден');
+                    }
+                    else if (street.status == 'OK') {
+                        console.log(form.value.title, this.selectedCountry, this.textCity.nativeElement.value, form.value.addressName, street.results[0].geometry.location.lat, street.results[0].geometry.location.lng);
+                        this.createSalonService.createSalon(
+                            form.value.title,
+                            this.selectedCountry,
+                            this.textCity.nativeElement.value,
+                            form.value.addressName,
+                            street.results[0].geometry.location.lat,
+                            street.results[0].geometry.location.lng,
+                        ).subscribe(
+                            (response) => {
+                                console.log(response);
+                                if (response.success == 'Created successfully') {
 
-                                /* let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                                 currentUser.redirect_to_create_salon = 0;
-                                 localStorage.setItem('currentUser', JSON.stringify(currentUser));*/
+                                    /* let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                                     currentUser.redirect_to_create_salon = 0;
+                                     localStorage.setItem('currentUser', JSON.stringify(currentUser));*/
 
-                                let currentSalon = localStorage.setItem('currentSalon', JSON.stringify(response.data));
+                                    let currentSalon = localStorage.setItem('currentSalon', JSON.stringify(response.data));
 
-                                this.router.navigate(['/'], { relativeTo: this.route })
+                                    this.router.navigate(['/'], {relativeTo: this.route})
+                                }
+                            },
+                            error => {
+                                console.log(error);
+                                this.showAlert('alertSalon');
+                                this._alertService.error('Went wrong');
                             }
-                        },
-                        error => {
-                            console.log(error);
-                            this.showAlert('alertSalon');
-                            this._alertService.error('Went wrong');
-                        }
                         )
-                }
-            },
-            error => console.log(error)
+                    }
+                },
+                error => console.log(error)
             );
     }
 
     ngOnInit() {
         this.getCountries();
     }
-
 
 
     ngAfterViewInit() {

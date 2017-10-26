@@ -40,4 +40,26 @@ export class ChainService {
             })
     }
 
+    editChain(chain: any) {
+        return this.http.put(
+            'http://api.avisits.com/api/chain/'+ chain.id +'?token=' + this.currentUser.token,
+            JSON.stringify(chain),
+            {headers: this.headers}
+            )
+            .map((response: Response) => {
+                let data = response.json();
+                return data;
+            })
+    }
+
+    deleteChain(id: number) {
+        return this.http.delete(
+            'http://api.avisits.com/api/chain/'+ id +'?token=' + this.currentUser.token,
+        )
+            .map((response: Response) => {
+                let data = response.json();
+                return data;
+            })
+    }
+
 }

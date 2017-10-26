@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
-import { CreateChainComponent } from "./create-chain.component";
+import { EditChainComponent } from "./edit-chain.component";
 import { LayoutModule } from "../../../../../layouts/layout.module";
 import { DefaultComponent } from "../../../default.component";
 
@@ -14,7 +14,7 @@ const routes: Routes = [
         "children": [
             {
                 "path": "",
-                "component": CreateChainComponent
+                "component": EditChainComponent
             },
         ]
     }
@@ -28,8 +28,8 @@ const routes: Routes = [
     ], exports: [
         RouterModule
     ], declarations: [
-        CreateChainComponent
+        EditChainComponent
     ]
 })
-export class CreateChainModule {
+export class EditChainModule {
 }

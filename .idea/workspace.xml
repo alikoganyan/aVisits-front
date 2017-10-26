@@ -2,28 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981da0b4-2062-4f8c-8b21-996cac5ab325" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.module.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask-create-chain.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/payments/payments.component.css" afterPath="$PROJECT_DIR$/src/app/theme/_services/chain-service.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/payments/payments.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/payments/payments.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/payments/payments.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/layouts/aside-nav/aside-nav.component.html" afterPath="$PROJECT_DIR$/src/app/theme/layouts/aside-nav/aside-nav.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/records/record-form/record-form.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/records/record-form/record-form.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/index/index.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/index/index.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.css" afterPath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html" afterPath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.ts" afterPath="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" afterPath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/_services/chain-service.ts" afterPath="$PROJECT_DIR$/src/app/theme/_services/chain-service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" afterPath="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask.js" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -41,118 +36,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chains.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create-chain.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.ts">
+      <file leaf-file-name="service.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="66" column="78" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit-chain.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
-                <element signature="e#0#71#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create-chain.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.html">
+      <file leaf-file-name="service.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="46" column="114" lean-forward="false" selection-start-line="46" selection-start-column="101" selection-end-line="46" selection-end-column="114" />
+            <state relative-caret-position="200">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
-                <element signature="n#div#0;n#!!top" expanded="false" />
+                <element signature="e#0#142#0" expanded="true" />
+                <element signature="n#!!block;n#getServiceCategories#0;n#ServiceComponent#0" expanded="false" />
+                <element signature="n#!!block;n#getGroupsService#0;n#ServiceComponent#0" expanded="false" />
+                <element signature="e#1996#2184#0" expanded="false" />
+                <element signature="n#!!block;n#onSubmit#0;n#ServiceComponent#0" expanded="false" />
+                <element signature="n#!!block;n#ngAfterViewInit#0;n#ServiceComponent#0" expanded="false" />
+                <element signature="n#!!block;n#showAlert#0;n#ServiceComponent#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-chain.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.html">
+      <file leaf-file-name="service.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+            <state relative-caret-position="194">
+              <caret line="222" column="65" lean-forward="false" selection-start-line="222" selection-start-column="65" selection-end-line="222" selection-end-column="65" />
               <folding>
-                <element signature="n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="e#12192#14143#0" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#p-accordionTab#0;n#p-accordion#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#p-accordionTab#1;n#p-accordion#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#p-accordionTab#2;n#p-accordion#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <marker date="1509031466997" expanded="false" signature="10192:10835" ph="..." />
+                <marker date="1509031466997" expanded="false" signature="12253:13149" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create-chain.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit-chain.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chains.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="178" column="152" lean-forward="false" selection-start-line="178" selection-start-column="136" selection-end-line="178" selection-end-column="152" />
-              <folding>
-                <element signature="n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chain-service.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chain-service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/theme/_services/chain-service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
                 <element signature="n#!!block;n#getChains#0;n#ChainService#0" expanded="false" />
                 <element signature="n#!!block;n#createChain#0;n#ChainService#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chains.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#!!block;n#getChain#0;n#ChainService#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -162,27 +105,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>title-div-width</find>
-      <find>back-to-allSalons</find>
-      <find>address</find>
-      <find>hidden_marker_latitude</find>
-      <find>end_day</find>
-      <find>timePicker</find>
-      <find>onShowFiredEmployee</find>
-      <find>hidden_googleMap_street_number</find>
-      <find>street_number</find>
-      <find>conso</find>
-      <find>required</find>
-      <find>salon</find>
-      <find>onchangeStatusWeekday</find>
-      <find>click</find>
-      <find>codeAddress</find>
-      <find>console.log</find>
       <find>titleNewSalon</find>
-      <find>console</find>
       <find>signupFormGroupService</find>
       <find>hideModal</find>
-      <find>Рабочих дней</find>
       <find>addWorkIntervalByShifts</find>
       <find>fa fa-close</find>
       <find>custom_div_width</find>
@@ -192,6 +117,24 @@
       <find>levels</find>
       <find>chain</find>
       <find>rela</find>
+      <find>Don't have an account yet ?</find>
+      <find>Sign Up</find>
+      <find>Enter your details to create your account:</find>
+      <find>Ca</find>
+      <find>Can</find>
+      <find>Cancel</find>
+      <find>req</find>
+      <find>Enter your email to reset your password:</find>
+      <find>email</find>
+      <find>Password</find>
+      <find>Logout</find>
+      <find>creat</find>
+      <find>creat-S</find>
+      <find>create-ch</find>
+      <find>Обновить сеть</find>
+      <find>console.log</find>
+      <find>console</find>
+      <find>Рабочих дней</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,11 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.html" />
-        <option value="$PROJECT_DIR$/src/app/auth/_helpers/login-custom.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/helpers/curtom-form-validate.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/helpers/custom-form-validate.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.css" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/google-maps.js" />
@@ -224,8 +162,6 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.html" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin-create-employee.js" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker-employee.js" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html" />
@@ -236,21 +172,28 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.css" />
         <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask.js" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/records/record-form/record-form.component.ts" />
-        <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask-create-chain.js" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.html" />
-        <option value="$PROJECT_DIR$/src/app/theme/_services/chain-service.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.css" />
+        <option value="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
+        <option value="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.css" />
+        <option value="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html" />
+        <option value="$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/theme-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts" />
+        <option value="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask-create-chain.js" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.html" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/_services/chain-service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html" />
       </list>
     </option>
   </component>
@@ -312,6 +255,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,6 +288,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="theme" type="462c0819:PsiDirectoryNode" />
+              <item name="_services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -373,7 +334,7 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="default" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="chains" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
@@ -384,43 +345,8 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="default" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="chains" type="462c0819:PsiDirectoryNode" />
-              <item name="create-chain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="chains" type="462c0819:PsiDirectoryNode" />
-              <item name="edit-chain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="salons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aVisits-front-Angular4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="salons" type="462c0819:PsiDirectoryNode" />
-              <item name="edit-salon" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aVisits-front-Angular4" type="b2602c69:ProjectViewProjectNode" />
@@ -489,8 +415,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -590,12 +514,13 @@
       <workItem from="1508741209802" duration="7613000" />
       <workItem from="1508752820533" duration="16477000" />
       <workItem from="1508826465469" duration="29014000" />
-      <workItem from="1508912695541" duration="31068000" />
+      <workItem from="1508912695541" duration="31071000" />
+      <workItem from="1508998403600" duration="28001000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="796137000" />
+    <option name="totallyTimeSpent" value="824141000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -611,14 +536,14 @@
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19345239" sideWeight="0.4722222" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20982143" sideWeight="0.4722222" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5029762" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19736843" sideWeight="0.49702382" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19736843" sideWeight="0.49702382" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21875" sideWeight="0.5277778" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -638,7 +563,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -652,156 +577,10 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/auth/_directives/alert.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="64" column="17" lean-forward="false" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/edit-employee/edit-employee.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-580">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="16" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/datatables/base/data-ajax-employee-position.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="74" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/maps/edit-salon-google-map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="97" column="42" lean-forward="false" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="42" />
-          <folding>
-            <element signature="e#138#614#0" expanded="false" />
-            <element signature="e#724#855#0" expanded="false" />
-            <element signature="e#953#1166#0" expanded="false" />
-            <element signature="e#1932#3353#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="79" column="68" lean-forward="true" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="134" column="6" lean-forward="true" selection-start-line="134" selection-start-column="6" selection-end-line="134" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="170" column="74" lean-forward="false" selection-start-line="170" selection-start-column="74" selection-end-line="170" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-services.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="156" column="5" lean-forward="true" selection-start-line="156" selection-start-column="5" selection-end-line="156" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-            <element signature="n#!!block;n#getAllServiceGroupsCategories#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#getServiceCategories#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#getGroups#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#createCategoryService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#editCategoryService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#deleteCategoryService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#createServiceGroups#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#editGroupService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#deleteGroupService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#createService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#editService#0;n#CreateServicesService#0" expanded="false" />
-            <element signature="n#!!block;n#deleteService#0;n#CreateServicesService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/employees/employee/employee.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/employee.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/bootstrap-touchspin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="24" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="83" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="242" column="0" lean-forward="true" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="83" column="99" lean-forward="false" selection-start-line="83" selection-start-column="99" selection-end-line="83" selection-end-column="99" />
-          <folding>
-            <element signature="n#!!block;n#getGroupsService#0;n#ServiceComponent#0" expanded="false" />
-            <element signature="e#1641#1823#0" expanded="false" />
-            <element signature="n#!!block;n#showAlert#0;n#ServiceComponent#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4320">
-          <caret line="216" column="36" lean-forward="false" selection-start-line="216" selection-start-column="36" selection-end-line="216" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -833,23 +612,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/edit-salon/edit-salon.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="170" column="104" lean-forward="false" selection-start-line="170" selection-start-column="83" selection-end-line="170" selection-end-column="104" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -857,9 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" column="46" lean-forward="true" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
-          <folding>
-            <element signature="e#1008#1745#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -875,9 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="115" column="26" lean-forward="false" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="26" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -889,22 +649,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="233" selection-end-column="6" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="29" lean-forward="true" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,9 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#65#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -922,34 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="46" column="69" lean-forward="true" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="69" />
-          <folding>
-            <element signature="n#li#3;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#4;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#5;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#6;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#9443#25788#0" expanded="false" />
-            <element signature="n#li#7;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#27692#29059#0" expanded="false" />
-            <element signature="n#li#8;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#9;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#10;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#12;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#13;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#14;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#15;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#16;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#17;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#18;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#li#19;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask-create-chain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,27 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="606" column="107" lean-forward="false" selection-start-line="606" selection-start-column="84" selection-end-line="606" selection-end-column="107" />
-          <folding>
-            <element signature="n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="e#19248#20066#0" expanded="false" />
-            <element signature="n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#select#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#select#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#select#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#select#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <marker date="1508853891207" expanded="true" signature="1636:1669" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="56" />
-          <folding>
-            <element signature="e#804#1321#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1011,21 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!block;n#createNewSalon#0;n#CreateSalonService#0" expanded="false" />
-            <element signature="n#!!block;n#editSalon#0;n#CreateSalonService#0" expanded="false" />
-            <element signature="n#!!block;n#deleteSalon#0;n#CreateSalonService#0" expanded="false" />
-            <element signature="n#!!block;n#getSalons#0;n#CreateSalonService#0" expanded="false" />
-            <element signature="n#!!block;n#getEachSalonForEdit#0;n#CreateSalonService#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1033,45 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/theme-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="87" column="14" lean-forward="false" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/chain-service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#getChains#0;n#ChainService#0" expanded="false" />
-            <element signature="n#!!block;n#createChain#0;n#ChainService#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1089,43 +731,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="177">
+          <caret line="174" column="40" lean-forward="true" selection-start-line="174" selection-start-column="40" selection-end-line="174" selection-end-column="40" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#12873#12879#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="66" column="78" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="78" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#84#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#140#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="104" lean-forward="false" selection-start-line="16" selection-start-column="87" selection-end-line="16" selection-end-column="104" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/create-salon/create-salon.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="1078" column="66" lean-forward="true" selection-start-line="1078" selection-start-column="66" selection-end-line="1078" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/logout/logout.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="51" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="14" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#69#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/helpers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/all-salons/all-salons.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/theme-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="59" lean-forward="false" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
+        <state relative-caret-position="423">
           <caret line="178" column="152" lean-forward="false" selection-start-line="178" selection-start-column="136" selection-end-line="178" selection-end-column="152" />
           <folding>
             <element signature="n#div#0;n#!!top" expanded="false" />
@@ -1134,10 +871,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/create-salon.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!block;n#createNewSalon#0;n#CreateSalonService#0" expanded="false" />
+            <element signature="n#!!block;n#editSalon#0;n#CreateSalonService#0" expanded="false" />
+            <element signature="n#!!block;n#deleteSalon#0;n#CreateSalonService#0" expanded="false" />
+            <element signature="n#!!block;n#getEachSalonForEdit#0;n#CreateSalonService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/chains.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="46" column="114" lean-forward="false" selection-start-line="46" selection-start-column="101" selection-end-line="46" selection-end-column="114" />
+        <state relative-caret-position="240">
+          <caret line="86" column="102" lean-forward="false" selection-start-line="86" selection-start-column="102" selection-end-line="86" selection-end-column="102" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/input-mask-create-chain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="74" lean-forward="true" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/_services/authentication.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="36" column="78" lean-forward="true" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="97" column="29" lean-forward="true" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="148" column="14" lean-forward="true" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
           <folding>
             <element signature="n#div#0;n#!!top" expanded="false" />
           </folding>
@@ -1146,20 +946,116 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="140">
+          <caret line="71" column="52" lean-forward="false" selection-start-line="71" selection-start-column="52" selection-end-line="71" selection-end-column="52" />
           <folding>
-            <element signature="e#0#71#0" expanded="true" />
+            <element signature="e#0#86#0" expanded="true" />
+            <element signature="n#!!block;n#goToAllChains#0;n#EditChainComponent#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/edit-chain/edit-chain.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/chains/create-chain/create-chain.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+        <state relative-caret-position="1120">
+          <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#86#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/services.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="242" column="0" lean-forward="true" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="194" column="54" lean-forward="false" selection-start-line="194" selection-start-column="48" selection-end-line="194" selection-end-column="54" />
           <folding>
             <element signature="n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="70" column="35" lean-forward="true" selection-start-line="69" selection-start-column="3" selection-end-line="70" selection-end-column="35" />
+          <folding>
+            <element signature="e#804#1321#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/salons/create-new-salon/create-new-salon.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#142#0" expanded="true" />
+            <element signature="n#!!block;n#getServiceCategories#0;n#ServiceComponent#0" expanded="false" />
+            <element signature="n#!!block;n#getGroupsService#0;n#ServiceComponent#0" expanded="false" />
+            <element signature="e#1996#2184#0" expanded="false" />
+            <element signature="n#!!block;n#onSubmit#0;n#ServiceComponent#0" expanded="false" />
+            <element signature="n#!!block;n#ngAfterViewInit#0;n#ServiceComponent#0" expanded="false" />
+            <element signature="n#!!block;n#showAlert#0;n#ServiceComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/services/service/service.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="222" column="65" lean-forward="false" selection-start-line="222" selection-start-column="65" selection-end-line="222" selection-end-column="65" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#12192#14143#0" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#p-accordionTab#0;n#p-accordion#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#p-accordionTab#1;n#p-accordion#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#p-accordionTab#2;n#p-accordion#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <marker date="1509031466997" expanded="false" signature="10192:10835" ph="..." />
+            <marker date="1509031466997" expanded="false" signature="12253:13149" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/_services/chain-service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#getChains#0;n#ChainService#0" expanded="false" />
+            <element signature="n#!!block;n#createChain#0;n#ChainService#0" expanded="false" />
+            <element signature="n#!!block;n#getChain#0;n#ChainService#0" expanded="false" />
           </folding>
         </state>
       </provider>

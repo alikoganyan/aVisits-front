@@ -5,8 +5,6 @@ import { FormsModule } from "@angular/forms";
 import { ChainsComponent } from "./chains.component";
 import { LayoutModule } from "../../../../layouts/layout.module";
 import { DefaultComponent } from "../../default.component";
-import { CreateChainComponent } from './create-chain/create-chain.component';
-import { EditChainComponent } from './edit-chain/edit-chain.component';
 
 const routes: Routes = [
     {
@@ -16,14 +14,6 @@ const routes: Routes = [
             {
                 "path": "",
                 "component": ChainsComponent
-            },
-            {
-                "path": "create-chain",
-                "component": CreateChainComponent
-            },
-            {
-                "path": "edit-chain/:id",
-                "component": EditChainComponent
             }
         ]
     }
@@ -37,9 +27,7 @@ const routes: Routes = [
     ], exports: [
         RouterModule
     ], declarations: [
-        ChainsComponent,
-        CreateChainComponent,
-        EditChainComponent
+        ChainsComponent
     ]
 })
 export class ChainsModule {

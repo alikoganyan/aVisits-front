@@ -48,7 +48,7 @@
                                 <i class="fa fa-chevron-left"></i> Все сети
                             </button>
                             <h3 class="m-portlet__head-text">
-                                Создать новый сеть
+                                Обновить сеть
                             </h3>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                 Название
                             </label>
                             <div class="col-lg-4 col-md-9 col-sm-12">
-                                <input class="form-control" type="text" name="title" ngModel required>
+                                <input class="form-control" type="text" name="title" [ngModel]="chain.title" required>
                             </div>
                         </div>
                         <!-- DESCRIPTION -->
@@ -70,7 +70,7 @@
                             <label class="col-form-label col-lg-3 col-sm-12" for="exampleTextarea">
                                 Описание
                             </label>
-                            <textarea class="form-control m-input" id="exampleTextarea" rows="3" ngModel name="description"></textarea>
+                            <textarea class="form-control m-input" id="exampleTextarea" rows="3" [ngModel]="chain.description" name="description"></textarea>
                         </div>
                         <!-- Price Levels -->
                         <div class="m-form__group row">
@@ -84,7 +84,7 @@
                                 Уровень 1
                             </label>
                             <div class="col-lg-4 col-md-9 col-sm-12">
-                                <input class="form-control" type="text" placeholder="Название" ngModel name="price" required>
+                                <input class="form-control" type="text" placeholder="Название" [ngModel]="chain.price.level" name="price" required>
                             </div>
                         </div>
 
@@ -98,7 +98,7 @@
                                 Уровень {{i+2}}
                             </label>
                             <div class="col-lg-4 col-md-9 col-sm-12 divInputPrcieLevel">
-                                <input class="form-control" type="text" placeholder="Название" [name]="'price' + i" ngModel required [value]="priceLevel">
+                                <input class="form-control" type="text" placeholder="Название" [name]="'price' + i" [ngModel]="chain.levels[i].level" required [value]="priceLevel">
                                 <i class="fa fa-close deleteChain" (click)="removePriceLevel(i)"></i>
                             </div>
                         </div>
@@ -132,13 +132,14 @@
                     </div>
                     <div class="m-portlet__foot m-portlet__foot--fit">
                         <div class="m-form__actions m-form__actions">
-                            <div class="row">
-                                <div class="col-lg-9 ml-lg-auto">
-                                    <button class="btn btn-brand" type="submit" [disabled]="!f.valid">
-                                        Создать
+                                <div class="">
+                                    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+                                        Обновить
+                                    </button>
+                                    <button class="btn btn-danger deleteChainButton" type="button" *ngIf="deleteButtonShow" (click)="deleteChain()">
+                                        Удалить
                                     </button>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </form>
