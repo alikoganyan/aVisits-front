@@ -138,8 +138,7 @@ export class CreateServicesService {
             (response: Response) => {
                 let data = response.json();
                 return data;
-            }
-            )
+            })
     }
 
     editService(id) {
@@ -166,6 +165,19 @@ export class CreateServicesService {
             )
     }
 
+
+    createServicePrices(prices) {
+        return this.http.post(
+            'http://api.avisits.com/api/' + this.currentUser.chain.id + '/service_price?token=' + this.currentUser.token,
+            JSON.stringify(prices),
+            { headers: this.headers }
+        )
+            .map(
+                (response: Response) => {
+                    let data = response.json();
+                    return data;
+                })
+    }
 
 }
 

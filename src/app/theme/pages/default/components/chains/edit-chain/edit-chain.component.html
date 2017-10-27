@@ -70,7 +70,7 @@
                             <label class="col-form-label col-lg-3 col-sm-12" for="exampleTextarea">
                                 Описание
                             </label>
-                            <textarea class="form-control m-input" id="exampleTextarea" rows="3" [ngModel]="chain.description" name="description"></textarea>
+                            <textarea class="form-control m-input col-lg-4 col-md-9 col-sm-12" id="exampleTextarea" rows="3" [ngModel]="chain.description" name="description"></textarea>
                         </div>
                         <!-- Price Levels -->
                         <div class="m-form__group row">
@@ -79,14 +79,14 @@
                             </label>
                         </div>
 
-                        <div class="m-form__group row">
+                        <!--<div class="m-form__group row">
                             <label class="col-form-label col-lg-3 col-sm-12">
                                 Уровень 1
                             </label>
                             <div class="col-lg-4 col-md-9 col-sm-12">
                                 <input class="form-control" type="text" placeholder="Название" [ngModel]="chain.price.level" name="price" required>
                             </div>
-                        </div>
+                        </div>-->
 
                         <div
                                 class="m-form__group row"
@@ -95,7 +95,7 @@
                                 #levels="ngModelGroup"
                         >
                             <label class="col-form-label col-lg-3 col-sm-12">
-                                Уровень {{i+2}}
+                                Уровень {{i+1}}
                             </label>
                             <div class="col-lg-4 col-md-9 col-sm-12 divInputPrcieLevel">
                                 <input class="form-control" type="text" placeholder="Название" [name]="'price' + i" [ngModel]="chain.levels[i].level" required [value]="priceLevel">
@@ -108,7 +108,7 @@
                             <div class="add-chain-priceLevel-button">
                                 <button class="btn btn-success" type="button"
                                         (click)="addPriceLevel()">
-                                    Добавить рабочий интервал
+                                    Добавить уровень цен
                                 </button>
                             </div>
                         </div>

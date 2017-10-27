@@ -40,14 +40,12 @@ export class CreateChainComponent implements OnInit, AfterViewInit {
         this.chain.title = this.signupForm.value.title;
         this.chain.description = this.signupForm.value.description;
         this.chain.phone_number = this.phone_number.nativeElement.value;
-
         for (let i in this.chain.levels) {
             this.chain.levels[i].level = this.signupForm.value.levels['price' + i];
         }
-        this.chain.levels.push({
+        /*this.chain.levels.push({
             level: this.signupForm.value.price
-        });
-
+        });*/
         // console.log(this.signupForm.value);
         // console.log(this.phone_number.nativeElement.value);
         console.log(this.chain);

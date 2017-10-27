@@ -33,6 +33,7 @@ export class ChainsComponent implements OnInit {
             .subscribe(
                 (response) => {
                     this.chains = response.data;
+                    console.log(response.data);
                 }
             )
     }

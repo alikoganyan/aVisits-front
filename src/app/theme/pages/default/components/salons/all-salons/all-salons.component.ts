@@ -34,9 +34,9 @@ export class AllSalonsComponent implements OnInit {
         this.createSalonService.getSalons()
             .subscribe(
             (response) => {
+                console.log(response);
                 this.salons = response.data;
-            }
-            )
+            })
     }
 
 }

@@ -33,70 +33,6 @@
                 </li>
             </ul>
         </div>
-        <div>
-            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-                 data-dropdown-toggle="hover" aria-expanded="true">
-                <a href="#"
-                   class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                    <i class="la la-plus m--hide"></i>
-                    <i class="la la-ellipsis-h"></i>
-                </a>
-                <div class="m-dropdown__wrapper">
-                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                    <div class="m-dropdown__inner">
-                        <div class="m-dropdown__body">
-                            <div class="m-dropdown__content">
-                                <ul class="m-nav">
-                                    <li class="m-nav__section m-nav__section--first m--hide">
-										<span class="m-nav__section-text">
-											Quick Actions
-										</span>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-share"></i>
-                                            <span class="m-nav__link-text">
-												Activity
-											</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                            <span class="m-nav__link-text">
-												Messages
-											</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-info"></i>
-                                            <span class="m-nav__link-text">
-												FAQ
-											</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                            <span class="m-nav__link-text">
-												Support
-											</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__separator m-nav__separator--fit"></li>
-                                    <li class="m-nav__item">
-                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                            Создать
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <!-- END: Subheader -->
@@ -183,7 +119,7 @@
                                 </div>-->
                                 <div class="m-widget5__item" *ngFor="let salon of salons">
                                     <div class="m-widget5__pic">
-                                        <img class="m-widget7__img" src="./assets/app/media/img//products/product10.jpg" alt="">
+                                        <img class="m-widget7__img" [src]="'http://api.avisits.com/' + salon.img" alt="">
                                     </div>
                                     <div class="m-widget5__content">
                                         <h4 class="m-widget5__title">
@@ -194,20 +130,19 @@
 										</span>
                                         <div class="m-widget5__info">
 											<span class="m-widget5__author">
-												Author:
+												Сотрудники: 4
 											</span>
-                                            <span class="m-widget5__info-author m--font-info">
+                                            <!--<span class="m-widget5__info-author m&#45;&#45;font-info">
 												Fly themes
 											</span>
                                             <span class="m-widget5__info-label">
 												Released:
 											</span>
-                                            <span class="m-widget5__info-date m--font-info">
+                                            <span class="m-widget5__info-date m&#45;&#45;font-info">
 												23.08.17
-											</span>
+											</span>-->
                                         </div>
                                     </div>
-                                   <!-- <a [routerLink]="['/components/salons/edit-salon/', salon.id]" >Edit</a>-->
                                     <div class="m-widget5__stats1">
                                         <button class="m-btn btn btn-primary edit-salon-button" type="button" title="Изменить" (click)="goToEditSalon(salon)">
                                             <i class="la la-edit"></i>

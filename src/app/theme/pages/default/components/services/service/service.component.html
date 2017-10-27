@@ -83,6 +83,7 @@
                         </li>
                     </ul>
                     <div class="tab-content">
+                        <!-- TABEL 1 -->
                         <div class="tab-pane active" id="m_tabs_1_1" role="tabpanel">
                             <!--begin::Form-->
                             <form
@@ -199,160 +200,157 @@
                             </form>
                             <!--end::Form-->
                         </div>
+                        <!-- TABEL 2 -->
                         <div class="tab-pane" id="m_tabs_1_2" role="tabpanel">
                             <h5>Установка новых цен</h5>
-                            <form class="m-form m-form--fit m-form--label-align-right">
-                                <div class="m-portlet__body">
+                            <div>
+                                <form class="m-form m-form--fit m-form--label-align-right">
+                                    <ng-template #chainPricesCreated></ng-template>
+                                    <div class="m-portlet__body">
 
-                                <!--    <div class="form-group m-form__group row">
-                                        <label class="col-form-label col-lg-2 col-sm-2">
-                                            Рабочих дней
-                                        </label>
-                                        <div class="col-lg-2 col-md-2 col-sm-2">
-                                            <input id="m_touchspin_5" type="text"
-                                                   class="form-control bootstrap-touchspin-vertical-btn" value=""
-                                                   name="demo1" placeholder="5">
-                                        </div>
-                                    </div>-->
+                                        <!--    <div class="form-group m-form__group row">
+                                                <label class="col-form-label col-lg-2 col-sm-2">
+                                                    Рабочих дней
+                                                </label>
+                                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                                    <input id="m_touchspin_5" type="text"
+                                                           class="form-control bootstrap-touchspin-vertical-btn" value=""
+                                                           name="demo1" placeholder="5">
+                                                </div>
+                                            </div>-->
 
-                                    <div class="form-group m-form__group prices_custom_form"  *ngFor="let priceName of chainPrices">
+                                        <div class="form-group m-form__group prices_custom_form"  *ngFor="let priceName of chainPrices">
                                             <span class="price_name">
                                                 {{priceName.level}}
                                             </span>
-                                        <input
-                                                (keyup)="logic()"
-                                                type="number"
-                                                class="form-control m-input"
-                                                placeholder="От"
-                                                min="1"
-                                                #start
+                                            <input
+                                                    (keyup)="logic()"
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="От"
+                                                    min="1"
+                                                    #start
+                                            >
+                                            <span class="custom_dash">-</span>
+                                            <input
+                                                    type="number"
+                                                    class="form-control m-input"
+                                                    placeholder="До"
+                                                    min="10"
+                                                    #end
+                                            >
+                                        </div>
 
-                                        >
-                                        <span class="custom_dash">-</span>
-                                        <input
-                                                type="number"
-                                                class="form-control m-input"
-                                                placeholder="До"
-                                                min="10"
-                                                #end
-                                        >
-                                    </div>
+                                        <!-- <div class="form-group m-form__group prices_custom_form">
+                                                 <span class="price_name">
+                                                     Название уровня цен 2
+                                                 </span>
+                                             <input
+                                                     type="number"
+                                                     class="form-control m-input"
+                                                     placeholder="От"
+                                             >
+                                             <span class="custom_dash">-</span>
+                                             <input
+                                                     type="number"
+                                                     class="form-control m-input"
+                                                     placeholder="До"
+                                             >
+                                         </div>
+                                         <div class="form-group m-form__group prices_custom_form">
+                                                 <span class="price_name">
+                                                     Название уровня цен 3
+                                                 </span>
+                                             <input
+                                                     type="number"
+                                                     class="form-control m-input"
+                                                     placeholder="От"
+                                             >
+                                             <span class="custom_dash">-</span>
+                                             <input
+                                                     type="number"
+                                                     class="form-control m-input"
+                                                     placeholder="До"
+                                             >
+                                         </div>-->
 
-                                   <!-- <div class="form-group m-form__group prices_custom_form">
-                                            <span class="price_name">
-                                                Название уровня цен 2
-                                            </span>
-                                        <input
-                                                type="number"
-                                                class="form-control m-input"
-                                                placeholder="От"
-                                        >
-                                        <span class="custom_dash">-</span>
-                                        <input
-                                                type="number"
-                                                class="form-control m-input"
-                                                placeholder="До"
-                                        >
-                                    </div>
-                                    <div class="form-group m-form__group prices_custom_form">
-                                            <span class="price_name">
-                                                Название уровня цен 3
-                                            </span>
-                                        <input
-                                                type="number"
-                                                class="form-control m-input"
-                                                placeholder="От"
-                                        >
-                                        <span class="custom_dash">-</span>
-                                        <input
-                                                type="number"
-                                                class="form-control m-input"
-                                                placeholder="До"
-                                        >
-                                    </div>-->
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-form-label custom_datePickerName">
-                                            Устанавит цены с
-                                        </label>
-                                        <div class="">
-                                            <div class='input-group date' id='m_datepicker_3'>
-                                                <input type='text' class="form-control m-input" readonly
-                                                       value="05/20/2017"/>
-                                                <span class="input-group-addon">
+                                        <div class="form-group m-form__group row">
+                                            <label class="col-form-label custom_datePickerName">
+                                                Устанавит цены с
+                                            </label>
+                                            <div class="">
+                                                <div class='input-group date' id='m_datepicker_3'>
+                                                    <input title="" type='text' class="form-control m-input" readonly value="05/20/2017" #newPricesDate/>
+                                                    <span class="input-group-addon">
 								                        <i class="la la-calendar"></i>
 							                        </span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-success" style="margin-left: 10px">
-                                            Установить новые цены
-                                        </button>
+                                        <!--  <button type="button" class="btn btn-success" style="margin-left: 10px">
+                                              Установить новые цены
+                                          </button>-->
+                                        <!--  <div class="form-group m-form__group col-md-8">
+                                              <div class="m-section__content">
+                                                  <p-accordion>
+                                                      <p-accordionTab header="Действующие цены, с 01.01.2017"
+                                                                      [selected]="false">
+                                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                          eiusmod tempor incididunt ut labore et
+                                                          dolore
+                                                          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                          ullamco laboris nisi ut aliquip ex ea
+                                                          commodo
+                                                          consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                                          velit esse cillum dolore eu fugiat nulla
+                                                          pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                                          in culpa qui officia deserunt mollit anim id
+                                                          est
+                                                          laborum.
+                                                      </p-accordionTab>
+                                                      <p-accordionTab header="Действующие цены, с 01.06.2017">
+                                                          Sed vitae dolor purus. Nulla laoreet enim quis orci molestie
+                                                          aliquam. Donec eleifend nibh id luctus
+                                                          imperdiet.
+                                                          Donec tellus justo, imperdiet quis turpis in, interdum rhoncus
+                                                          lorem. Proin ac sem augue. Praesent
+                                                          condimentum
+                                                          varius arcu nec dapibus. Suspendisse quis egestas justo, eget
+                                                          semper lectus. Nulla facilisi.
+                                                      </p-accordionTab>
+                                                      <p-accordionTab header="Действующие цены, с 01.12.2017">
+                                                          Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui,
+                                                          eu commodo orci risus at neque. Suspendisse
+                                                          vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec
+                                                          luctus porta sem, non luctus leo imperdiet
+                                                          rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur
+                                                          efficitur nisi. Phasellus consequat lectus ac
+                                                          metus pharetra pellentesque. Duis blandit sapien urna, eu
+                                                          imperdiet velit commodo eget. Phasellus porta
+                                                          massa
+                                                          scelerisque, commodo orci et, feugiat urna. Nulla volutpat
+                                                          hendrerit tortor, nec consequat justo. Nullam
+                                                          placerat hendrerit massa sed varius. Aenean molestie dapibus
+                                                          interdum. Etiam semper mollis hendrerit. Etiam
+                                                          sodales fermentum sem, porttitor venenatis arcu semper in. Proin
+                                                          non volutpat quam, vel sollicitudin mauris.
+                                                      </p-accordionTab>
+                                                  </p-accordion>
+                                              </div>
+                                          </div>-->
+
+
                                     </div>
-
-                                    <div class="form-group m-form__group col-md-8">
-                                        <div class="m-section__content">
-                                            <p-accordion>
-                                                <p-accordionTab header="Действующие цены, с 01.01.2017"
-                                                                [selected]="false">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et
-                                                    dolore
-                                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                                    ullamco laboris nisi ut aliquip ex ea
-                                                    commodo
-                                                    consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                                    velit esse cillum dolore eu fugiat nulla
-                                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                                                    in culpa qui officia deserunt mollit anim id
-                                                    est
-                                                    laborum.
-                                                </p-accordionTab>
-                                                <p-accordionTab header="Действующие цены, с 01.06.2017">
-                                                    Sed vitae dolor purus. Nulla laoreet enim quis orci molestie
-                                                    aliquam. Donec eleifend nibh id luctus
-                                                    imperdiet.
-                                                    Donec tellus justo, imperdiet quis turpis in, interdum rhoncus
-                                                    lorem. Proin ac sem augue. Praesent
-                                                    condimentum
-                                                    varius arcu nec dapibus. Suspendisse quis egestas justo, eget
-                                                    semper lectus. Nulla facilisi.
-                                                </p-accordionTab>
-                                                <p-accordionTab header="Действующие цены, с 01.12.2017">
-                                                    Vivamus auctor, ante ac laoreet cursus, metus leo vehicula dui,
-                                                    eu commodo orci risus at neque. Suspendisse
-                                                    vitae pretium magna. Donec tincidunt quis arcu nec porta. Donec
-                                                    luctus porta sem, non luctus leo imperdiet
-                                                    rhoncus. Nulla lectus turpis, interdum vitae est eu, efficitur
-                                                    efficitur nisi. Phasellus consequat lectus ac
-                                                    metus pharetra pellentesque. Duis blandit sapien urna, eu
-                                                    imperdiet velit commodo eget. Phasellus porta
-                                                    massa
-                                                    scelerisque, commodo orci et, feugiat urna. Nulla volutpat
-                                                    hendrerit tortor, nec consequat justo. Nullam
-                                                    placerat hendrerit massa sed varius. Aenean molestie dapibus
-                                                    interdum. Etiam semper mollis hendrerit. Etiam
-                                                    sodales fermentum sem, porttitor venenatis arcu semper in. Proin
-                                                    non volutpat quam, vel sollicitudin mauris.
-                                                </p-accordionTab>
-                                            </p-accordion>
-
-
+                                    <div class="m-portlet__foot m-portlet__foot--fit">
+                                        <div class="m-form__actions">
+                                            <button type="button" class="btn btn-primary" (click)="createServicePrices()">
+                                                Установить новые цены
+                                            </button>
                                         </div>
                                     </div>
-
-
-                                </div>
-                                <div class="m-portlet__foot m-portlet__foot--fit">
-                                    <div class="m-form__actions">
-                                        <button type="reset" class="btn btn-primary">
-                                            Сохранить
-                                        </button>
-                                        <button type="reset" class="btn btn-secondary button_float_right">
-                                            Переместить в карзину
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                            <ng-template #showChainPriceCreat>В этой сети нет уровни цен зайдте в СЕТИ и добавьте их.</ng-template>
                         </div>
                         <!-- TABEL 3 -->
                         <div class="tab-pane" id="m_tabs_1_3" role="tabpanel">

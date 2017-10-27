@@ -2,11 +2,11 @@ import {
     Component, OnInit, AfterViewInit, ViewChild, ElementRef, ViewChildren,
     ComponentFactoryResolver, ViewContainerRef
 } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
-import { ScriptLoaderService } from "../../../../../../_services/script-loader.service";
-import { AlertComponent } from "../../../../../../auth/_directives/alert.component";
-import { AlertService } from "../../../../../../auth/_services/alert.service";
-import { CreateSalonService } from "../../../../../_services/create-salon.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ScriptLoaderService} from "../../../../../../_services/script-loader.service";
+import {AlertComponent} from "../../../../../../auth/_directives/alert.component";
+import {AlertService} from "../../../../../../auth/_services/alert.service";
+import {CreateSalonService} from "../../../../../_services/create-salon.service";
 
 @Component({
     selector: 'app-create-salon',
@@ -46,6 +46,7 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
         }
     ];
     timePickers: any = {
+        photo: '',
         title: '',
         country: '',
         city: '',
@@ -57,7 +58,6 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
     };
 
 
-
     @ViewChild('latitude') private latitude: ElementRef;
     @ViewChild('longitude') private longitude: ElementRef;
     @ViewChild('street_number') private street_number: ElementRef;
@@ -66,19 +66,34 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
     @ViewChild('country') private country: ElementRef;
     @ViewChild('titleNewSalon') private titleNewSalon: ElementRef;
 
-
     @ViewChildren('start') startInputs;
     @ViewChildren('end') endInputs;
     @ViewChildren('onchangeStatusWeekday') onchangeStatusWeekday;
-    @ViewChild('timePicker', { read: ViewContainerRef }) timePicker: ViewContainerRef;
-
+    @ViewChild('timePicker', {read: ViewContainerRef}) timePicker: ViewContainerRef;
+    private base64textString: String = "";
 
     constructor(private _script: ScriptLoaderService,
-        private cfr: ComponentFactoryResolver,
-        private _alertService: AlertService,
-        private createSalonService: CreateSalonService,
-        private router: Router,
-        private route: ActivatedRoute, ) {
+                private cfr: ComponentFactoryResolver,
+                private _alertService: AlertService,
+                private createSalonService: CreateSalonService,
+                private router: Router,
+                private route: ActivatedRoute,) {
+    }
+
+
+    handleFileSelect(evt) {
+        let files = evt.target.files;
+        let file = files[0];
+        if (files && file) {
+            let reader = new FileReader();
+            reader.onload = this._handleReaderLoaded.bind(this);
+            reader.readAsBinaryString(file);
+        }
+    }
+    _handleReaderLoaded(readerEvt) {
+        let binaryString = readerEvt.target.result;
+        this.base64textString = btoa(binaryString);
+        console.log(btoa(binaryString));
     }
 
     onChange(showWeekday: { show: boolean, weekDay: string }) {
@@ -95,7 +110,7 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
     }
 
     goToAllSalons() {
-        this.router.navigate(['/components/salons/all-salons'], { relativeTo: this.route })
+        this.router.navigate(['/components/salons/all-salons'], {relativeTo: this.route})
     }
 
     onSubmit() {
@@ -105,9 +120,6 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
         let workingDays = [1, 1, 1, 1, 1, 1, 1];
         for (let i  in this.startInputs._results) {
             workDayCount++;
-            // console.log(this.startInputs._results[i].nativeElement.disabled);
-            // console.log(this.startInputs._results[i].nativeElement.value);
-            // console.log(this.onchangeStatusWeekday._results[i].nativeElement.checked);
             let working_status = this.onchangeStatusWeekday._results[i].nativeElement.checked;
             if (working_status == false) {
                 workingDays[i] = 1;
@@ -115,7 +127,6 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
             else if (working_status == true) {
                 workingDays[i] = 0;
             }
-            // console.log(workingDays[i]);
             this.timePickers.schedule.push({
                 num_of_day: parseInt(i) + 1,
                 start: this.startInputs._results[i].nativeElement.value,
@@ -145,20 +156,21 @@ export class CreateNewSalonComponent implements OnInit, AfterViewInit {
         }
         else {
             this.timePickers.title = this.titleNewSalon.nativeElement.value;
-                this.timePickers.country = this.country.nativeElement.value;
-                this.timePickers.city = this.city.nativeElement.value;
-                this.timePickers.address = this.street.nativeElement.value;
-                this.timePickers.street_number = this.street_number.nativeElement.value;
-                this.timePickers.latitude = this.latitude.nativeElement.value;
-                this.timePickers.longitude = this.longitude.nativeElement.value;
+            this.timePickers.country = this.country.nativeElement.value;
+            this.timePickers.city = this.city.nativeElement.value;
+            this.timePickers.address = this.street.nativeElement.value;
+            this.timePickers.street_number = this.street_number.nativeElement.value;
+            this.timePickers.latitude = this.latitude.nativeElement.value;
+            this.timePickers.longitude = this.longitude.nativeElement.value;
+            this.timePickers.photo = this.base64textString;
             // console.log(this.timePickers);
-            this.createSalonService.createNewSalon(this.timePickers)
-                .subscribe(
-                (response) => {
-                    if (response.success == "Created successfully") {
-                        this.router.navigate(['/components/salons/all-salons'], { relativeTo: this.route })
-                    }
-                })
+             this.createSalonService.createNewSalon(this.timePickers)
+                 .subscribe(
+                 (response) => {
+                     if (response.success == "Created successfully") {
+                         this.router.navigate(['/components/salons/all-salons'], { relativeTo: this.route })
+                     }
+                 })
         }
 
     }

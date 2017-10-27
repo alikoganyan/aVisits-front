@@ -1,5 +1,5 @@
 import {
-    AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewChildren,
+    AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnDestroy, OnInit, ViewChild, ViewChildren,
     ViewContainerRef
 } from '@angular/core';
 import {NgForm} from "@angular/forms";
@@ -15,16 +15,17 @@ import {ChainService} from "../../../../../_services/chain-service";
     templateUrl: './service.component.html',
     styleUrls: ['./service.component.css']
 })
-export class ServiceComponent implements OnInit, AfterViewInit {
+export class ServiceComponent implements OnInit, AfterViewInit, OnDestroy {
     serviceCategories = [];
     serviceGroups = [];
-    loading = false;
     chainPrices: any;
     currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     @ViewChildren('start') startInputs;
     @ViewChildren('end') endInputs;
     @ViewChild('salonCreated', {read: ViewContainerRef}) salonCreated: ViewContainerRef;
+    @ViewChild('chainPricesCreated', {read: ViewContainerRef}) chainPricesCreated: ViewContainerRef;
+    @ViewChild('newPricesDate') newPricesDate: ElementRef;
 
     constructor(private _script: ScriptLoaderService,
                 private createServicesService: CreateServicesService,
@@ -36,8 +37,6 @@ export class ServiceComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.getServiceCategories();
         this.getCurrentChain();
-
-
         // this.getGroups();
     }
 
@@ -66,7 +65,6 @@ export class ServiceComponent implements OnInit, AfterViewInit {
      }*/
 
     onSubmit(form: NgForm) {
-        this.loading = true;
         /*console.log(
             form.value,
             form.value.group,
@@ -78,10 +76,12 @@ export class ServiceComponent implements OnInit, AfterViewInit {
             form.value.group,
             form.value.duration
         ).subscribe(
-            (data) => {
+            (response) => {
+                console.log(response.data);
+                localStorage.setItem('createdService', JSON.stringify(response.data));
                 form.reset();
                 this.showAlert('salonCreated');
-                this._alertService.success('Вы создали услугу!');
+                this._alertService.success('Усулга успешно создана, зойдите в цены чтобы чтобы установить уровни цен!');
             },
             (error) => {
                 this.showAlert('salonCreated');
@@ -101,7 +101,7 @@ export class ServiceComponent implements OnInit, AfterViewInit {
         this.chainService.getChain(this.currentUser.chain.id)
             .subscribe(
                 (response) => {
-                    // console.log(response);
+                    console.log(response);
                     this.chainPrices = response.data.chain.levels;
                 }
             )
@@ -115,16 +115,51 @@ export class ServiceComponent implements OnInit, AfterViewInit {
     }
 
 
+    createServicePrices() {
+        let createdService = JSON.parse(localStorage.getItem('createdService'));
+        let prices = {
+            service_id: createdService.id,
+            date: this.newPricesDate.nativeElement.value,
+            prices: []
+        };
+        for (let i in this.chainPrices) {
+            this.endInputs._results[i].nativeElement.valueAsNumber = this.startInputs._results[i].nativeElement.valueAsNumber;
+            this.endInputs._results[i].nativeElement.min = this.endInputs._results[i].nativeElement.valueAsNumber;
+            console.log( this.startInputs._results[i].nativeElement.valueAsNumber)
+            prices.prices.push({
+                price_id: this.chainPrices[i].id,
+                price_from: this.startInputs._results[i].nativeElement.valueAsNumber,
+                price_to: this.endInputs._results[i].nativeElement.valueAsNumber
+            });
+
+        }
+
+        this.createServicesService.createServicePrices(prices)
+            .subscribe(
+                (response) => {
+                    console.log(response);
+                    if (response.status == "OK") {
+                        this.showAlert('chainPricesCreated');
+                        this._alertService.success('Уровни цен успешно установлены!');
+                        for (let i in this.chainPrices) {
+                            this.startInputs._results[i].nativeElement.valueAsNumber = null;
+                            this.endInputs._results[i].nativeElement.valueAsNumber = null;
+                        }
+                    }
+                })
+    }
 
     logic() {
-
         for (let i in this.chainPrices) {
             this.endInputs._results[i].nativeElement.valueAsNumber = this.startInputs._results[i].nativeElement.valueAsNumber;
             this.endInputs._results[i].nativeElement.min = this.endInputs._results[i].nativeElement.valueAsNumber;
         }
-        console.log(this.startInputs._results[0].nativeElement.min);
+        // console.log(this.startInputs._results[0].nativeElement.min);
         // console.log(this.endInputs._results[0].nativeElement.valueAsNumber);
     }
 
+    ngOnDestroy() {
+        localStorage.removeItem('createdService');
+    }
 
 }
