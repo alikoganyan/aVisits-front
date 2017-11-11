@@ -11,7 +11,7 @@ const routes: Routes = [
         "children": [
             {
                 path: "index",
-                loadChildren: ".\/pages\/default\/index\/index.module#IndexModule"
+                loadChildren: ".\/pages\/default\/index\/Index.module#IndexModule"
             },
             // {
             //     path: "components\/base\/typography",

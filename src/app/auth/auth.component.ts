@@ -7,16 +7,21 @@ import { UserService } from "./_services/user.service";
 import { AlertComponent } from "./_directives/alert.component";
 import { LoginCustom } from "./_helpers/login-custom";
 import { Helpers } from "../helpers";
+import {routerTransition} from "./auth.router.animations";
 
 @Component({
-    selector: ".m-grid.m-grid--hor.m-grid--root.m-page",
-    templateUrl: './templates/login-1.component.html',
-    encapsulation: ViewEncapsulation.None
+    // selector: ".m-grid.m-grid--hor.m-grid--root.m-page",
+    templateUrl: 'auth.component.html',
+    encapsulation: ViewEncapsulation.None,
+    animations: [
+        routerTransition
+    ]
 })
 
 export class AuthComponent implements OnInit {
     model: any = {};
     loading = false;
+    inTransition = false;
     returnUrl: string;
 
     @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
@@ -35,47 +40,46 @@ export class AuthComponent implements OnInit {
     ngOnInit() {
         this.model.remember = true;
         // get return url from route parameters or default to '/'
-        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
-        this._router.navigate([this.returnUrl]);
+        // this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+        // this._router.navigate([this.returnUrl]);
 
         this._script.load('body', 'assets/vendors/base/vendors.bundle.js', 'assets/demo/default/base/scripts.bundle.js')
             .then(() => {
                 Helpers.setLoading(false);
-                LoginCustom.init();
+                // LoginCustom.init();
             });
     }
 
-    signin() {
-        this.loading = true;
-        this._authService.login(this.model.email, this.model.password)
-            .subscribe(
-            data => {
-                this._router.navigate([this.returnUrl]);
-            },
-            error => {
-                this.showAlert('alertSignin');
-                this._alertService.error(error);
-                this.loading = false;
-            });
+    getState(outlet) {
+        return outlet.activatedRouteData.state;
     }
 
-    signup() {
-        this.loading = true;
-        this._userService.create(this.model)
-            .subscribe(
-            data => {
-                this.showAlert('alertSignin');
-                this._alertService.success('Thank you. To complete your registration please check your email.', true);
-                this.loading = false;
-                LoginCustom.displaySignInForm();
-                this.model = {};
-            },
-            error => {
-                this.showAlert('alertSignup');
-                this._alertService.error(error);
-                this.loading = false;
-            });
+    onTransitionStart() {
+        this.inTransition = false;
+        console.log("start")
+
     }
+    onTransitionDone() {
+        // $('#m_login');
+        this.inTransition = true;
+        console.log("end")
+    }
+
+    // signin() {
+    //     this.loading = true;
+    //     this._authService.login(this.model.email, this.model.password)
+    //         .subscribe(
+    //         data => {
+    //             this._router.navigate([this.returnUrl]);
+    //         },
+    //         error => {
+    //             this.showAlert('alertSignin');
+    //             this._alertService.error(error);
+    //             this.loading = false;
+    //         });
+    // }
+
+
 
     forgotPass() {
         this.loading = true;

@@ -1,0 +1,15 @@
+<div class="m-login--choose-chain">
+    <div class="m-login__head">
+        <h3 class="m-login__title">
+            Выберите салон
+        </h3>
+    </div>
+    <div class="btn-group-vertical btn-group-lg chain-selector">
+        <button type="button" class="m-btn btn btn-secondary btn-block"
+                *ngFor="let userChain of userChains"
+                (click)="selectUserChain(userChain.id)">
+            {{userChain.title}}
+        </button>
+    </div>
+</div>
+

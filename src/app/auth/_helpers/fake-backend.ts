@@ -11,6 +11,64 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
     backend.connections.subscribe((connection: MockConnection) => {
         // wrap in timeout to simulate server api call
         setTimeout(() => {
+            if (connection.request.url.endsWith('/user/signin') && connection.request.method === RequestMethod.Post) {
+                let params = JSON.parse(connection.request.getBody());
+
+                // find if any user matches login credentials
+                let filteredUsers = users.filter(user => {
+                    return user.email === params.email && user.password === params.password;
+                });
+
+                if (params.email === 'demo@demo.com') {
+                    filteredUsers[0] = {
+                        fullName: 'Demo',
+                        email: 'demo@demo.com'
+                    };
+                }
+
+                if (filteredUsers.length) {
+                    // if login details are valid return 200 OK with user details and fake jwt token
+                    let user = filteredUsers[0];
+                    connection.mockRespond(new Response(new ResponseOptions({
+                        status: 200,
+                        body: {
+                            "user": {
+                                "id": 0,
+                                "name": "demo",
+                                "email": "demo@demo.com",
+                                "last_name": "string",
+                                "father_name": "string",
+                                "phone": "string",
+                                "created_at": "2017-10-19T13:11:49.858Z",
+                                "updated_at": "2017-10-19T13:11:49.858Z",
+                                "chains": [
+                                    {
+                                        "id": 0,
+                                        "title": "chain 1",
+                                        "description": "string",
+                                        "user_id": 0,
+                                        "created_at": "string",
+                                        "updated_at": "string"
+                                    },
+                                    {
+                                        "id": 1,
+                                        "title": "chain 2",
+                                        "description": "string",
+                                        "user_id": 0,
+                                        "created_at": "string",
+                                        "updated_at": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    })));
+                } else {
+                    // else return 400 bad request
+                    connection.mockError(new Error('Email or password is incorrect'));
+                }
+
+                return;
+            }
 
             // authenticate
             if (connection.request.url.endsWith('/api/authenticate') && connection.request.method === RequestMethod.Post) {
