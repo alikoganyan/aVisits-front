@@ -16,9 +16,7 @@ export class CreateChainComponent implements OnInit {
     saveSuccessful: boolean = false;
     errors: any;
 
-    constructor(private route: ActivatedRoute,
-                private router: Router,
-                private chainService: ChainService) {
+    constructor(private chainService: ChainService) {
         this.chain = new Chain();
         this.chain.levels.push(new ChainPriceLevel('Цена'));
     }

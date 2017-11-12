@@ -1,0 +1,28 @@
+<div class="m-widget5__item">
+    <div class="m-widget5__pic">
+        <img alt="" class="m-widget7__img"
+             src="./assets/app/media/img//products/product6.jpg">
+    </div>
+    <div class="m-widget5__content">
+        <h4 class="m-widget5__title">
+            {{salon.title}}
+        </h4>
+        <div class="m-widget5__info">
+            <span class="m-widget5__author">
+                {{getSalonAddress()}}
+            </span>
+
+        </div>
+        <div class="m-widget5__info">
+            <span class="m-widget5__info-label">
+                Сеть: {{salon.chain_id}}
+            </span>
+        </div>
+    </div>
+    <div class="m-widget5__stats1">
+        <button class="m-btn btn btn-primary edit-salon-button" title="Изменить" type="button"
+                (click)="editSalon()">
+            <i class="la la-edit"></i>
+        </button>
+    </div>
+</div>

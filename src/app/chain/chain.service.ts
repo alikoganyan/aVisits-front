@@ -20,8 +20,7 @@ export class ChainService {
 
     getChainById(id: string): Observable<any> {
         return this.getChains()
-            .map(chains => chains.filter(c => c.id == id)[0])
-            .do(res => console.log(res));
+            .map(chains => chains.filter(c => c.id == id)[0]);
     }
 
     createChain(chain: any): Observable<any> {

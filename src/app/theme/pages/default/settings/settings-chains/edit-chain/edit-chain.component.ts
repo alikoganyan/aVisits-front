@@ -4,7 +4,6 @@ import {ChainService} from "../../../../../../chain/chain.service";
 import {Chain} from "../../../../../../chain/chain.model";
 
 @Component({
-    // selector: 'app-edit-chain',
     templateUrl: './edit-chain.component.html',
     styleUrls: ['./edit-chain.component.scss'],
     encapsulation: ViewEncapsulation.None

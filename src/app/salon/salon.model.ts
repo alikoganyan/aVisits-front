@@ -1,6 +1,9 @@
 import { SalonSchedule } from "./salon-schedule.model";
 
 export class Salon {
+    id: string;
+    chain_id: string;
+
     title: string;
     image: string;
 
@@ -8,14 +11,16 @@ export class Salon {
     city: string;
     streetNumber: string;
     address: string;
-    latitude: string;
-    longitude: string;
+    latitude: number;
+    longitude: number;
 
     currentTime: Date;
 
     schedule: SalonSchedule[];
 
     constructor(obj?: any) {
+        this.id = obj && obj.id || "";
+        this.chain_id = obj && obj.chain_id || 0;
         this.title = obj && obj.title || '';
         this.image = obj && obj.image || '';
         this.city = obj && obj.city || '';
@@ -24,7 +29,18 @@ export class Salon {
         this.latitude = obj && obj.latitude || '';
         this.longitude = obj && obj.longitude || '';
         this.currentTime = obj && obj.currentTime || Date.now();
-        this.schedule = obj && obj.schedule || new SalonSchedule();
+        this.schedule = obj && obj.schedule || this.createEmptySchedule();
+    }
 
+    createEmptySchedule(): SalonSchedule[] {
+        return [
+            new SalonSchedule(1),
+            new SalonSchedule(2),
+            new SalonSchedule(3),
+            new SalonSchedule(4),
+            new SalonSchedule(5),
+            new SalonSchedule(6),
+            new SalonSchedule(7)
+        ]
     }
 }

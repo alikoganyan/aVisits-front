@@ -1,0 +1,9 @@
+<div class="alert alert-success" role="alert" *ngIf="saveSuccessful">
+    Изменения сохранены
+</div>
+
+<app-salon-edit-form
+        [salon]="salon"
+        (saveSalon)="onSaveSalon($event)"
+        (deleteSalon)="onDeleteSalon($event)"
+></app-salon-edit-form>

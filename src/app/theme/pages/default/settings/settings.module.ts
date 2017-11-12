@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from "@angular/router";;
+import {RouterModule, Routes} from "@angular/router";
 
 
 const settingsRoutes: Routes = [
@@ -10,6 +10,10 @@ const settingsRoutes: Routes = [
             {
                 path: 'chains',
                 loadChildren: './settings-chains/settings-chains.module#SettingsChainsModule'
+            },
+            {
+                path: 'salons',
+                loadChildren: './settings-salons/settings-salons.module#SettingsSalonsModule'
             }
         ]
     },
