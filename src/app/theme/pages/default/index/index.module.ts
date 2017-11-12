@@ -2,11 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index.component';
-import { LayoutModule } from '../../../layouts/layout.module';
+import { LayoutModule } from '../../../../shared/layouts/layout.module';
 import { DefaultComponent } from '../default.component';
-
-/* Schedule */
-import { DxSchedulerModule, DxTemplateModule } from 'devextreme-angular';
 
 const routes: Routes = [
     {
@@ -22,10 +19,7 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes),
-        LayoutModule,
-        DxSchedulerModule,
-        DxTemplateModule
+        CommonModule, RouterModule.forChild(routes), LayoutModule
     ], exports: [
         RouterModule
     ], declarations: [
@@ -33,4 +27,7 @@ const routes: Routes = [
     ]
 })
 export class IndexModule {
+
+
+
 }

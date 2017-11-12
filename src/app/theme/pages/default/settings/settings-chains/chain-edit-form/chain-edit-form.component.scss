@@ -1,0 +1,41 @@
+app-chain-settings {
+  overflow: hidden;
+  margin-bottom: 60px;
+  flex: 1;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.back-to-allChains {
+  margin-top: 18px;
+}
+
+.title-div-width {
+  width: 100%;
+}
+
+.title-div-width h3 {
+  width: 100%;
+  text-align: center;
+}
+
+.divInputPrcieLevel {
+  position: relative;
+}
+
+.deleteChain {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.price-level-actions .la {
+  cursor: hand;
+}

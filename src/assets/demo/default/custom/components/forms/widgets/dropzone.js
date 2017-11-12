@@ -1,31 +1,58 @@
-var DropzoneDemo = function () {
-    var e = function () {
+//== Class definition
+
+var DropzoneDemo = function () {    
+    //== Private functions
+    var demos = function () {
+        // single file upload
         Dropzone.options.mDropzoneOne = {
-            paramName: "img",
+            paramName: "file", // The name that will be used to transfer the file
             maxFiles: 1,
-            maxFilesize: 5,
-            headers: {'content-Type' : undefined ,"Cache-Control":undefined},
-            accept: function (e, o) {
-                "justinbieber.jpg" == e.name ? o("Naha, you don't.") : o()
-            }
-        }, Dropzone.options.mDropzoneTwo = {
-            paramName: "img", maxFiles: 10, maxFilesize: 10, accept: function (e, o) {
-                "justinbieber.jpg" == e.name ? o("Naha, you don't.") : o()
-            }
-        }, Dropzone.options.mDropzoneThree = {
-            paramName: "img",
+            maxFilesize: 5, // MB
+            accept: function(file, done) {
+                if (file.name == "justinbieber.jpg") {
+                    done("Naha, you don't.");
+                } else { 
+                    done(); 
+                }
+            }   
+        };
+
+        // multiple file upload
+        Dropzone.options.mDropzoneTwo = {
+            paramName: "file", // The name that will be used to transfer the file
             maxFiles: 10,
-            maxFilesize: 10,
+            maxFilesize: 10, // MB
+            accept: function(file, done) {
+                if (file.name == "justinbieber.jpg") {
+                    done("Naha, you don't.");
+                } else { 
+                    done(); 
+                }
+            }   
+        };
+
+        // file type validation
+        Dropzone.options.mDropzoneThree = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFiles: 10,
+            maxFilesize: 10, // MB
             acceptedFiles: "image/*,application/pdf,.psd",
-            accept: function (e, o) {
-                "justinbieber.jpg" == e.name ? o("Naha, you don't.") : o()
-            }
+            accept: function(file, done) {
+                if (file.name == "justinbieber.jpg") {
+                    done("Naha, you don't.");
+                } else { 
+                    done(); 
+                }
+            }   
+        };
+    }
+
+    return {
+        // public functions
+        init: function() {
+            demos(); 
         }
     };
-    return {
-        init: function () {
-            e()
-        }
-    }
 }();
+
 DropzoneDemo.init();

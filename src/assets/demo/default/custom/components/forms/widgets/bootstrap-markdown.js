@@ -1,1 +1,20 @@
-var BootstrapMarkdown=function(){var n=function(){};return{init:function(){n()}}}();jQuery(document).ready(function(){BootstrapMarkdown.init()});
+//== Class definition
+
+var BootstrapMarkdown = function () {    
+    //== Private functions
+    var demos = function () {
+        
+    }
+
+    return {
+        // public functions
+        init: function() {
+            demos(); 
+        }
+    };
+}();
+
+//== Initialization
+jQuery(document).ready(function() {
+    BootstrapMarkdown.init();
+});

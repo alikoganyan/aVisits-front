@@ -1,19 +1,20 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
-import {LogoutComponent} from "./auth/logout/logout.component";
-import {CreateSalonComponent} from "./auth/create-salon/create-salon.component";
-import {AuthGuard} from "./auth/_guards/auth.guard";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { LogoutComponent } from "./auth/logout/logout.component";
+import { AuthGuard } from "./auth/_guards/auth.guard";
+import { AuthComponent } from "./auth/auth.component";
+import {SignupComponent} from "./auth/signup/signup.component";
 
 const routes: Routes = [
-    {path: 'login', loadChildren: './auth/auth.module#AuthModule'},
-    {path: 'create-new-salon', canActivate: [AuthGuard], component: CreateSalonComponent},
-    {path: 'logout', component: LogoutComponent},
-    {path: '', redirectTo: 'index', pathMatch: 'full'},
+    { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
+    { path: 'logout', component: LogoutComponent },
+    { path: '', redirectTo: 'index', pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {useHash: true})],
+    imports: [RouterModule.forRoot(routes, {
+        // enableTracing: true
+    })],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

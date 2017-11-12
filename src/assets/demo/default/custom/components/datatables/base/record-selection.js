@@ -1,99 +1,194 @@
+//== Class definition
+
 var DatatableRecordSelectionDemo = function () {
-    var t = function () {
-        var t = $(".m_datatable").mDatatable({
-            data: {
-                type: "remote",
-                source: {read: {url: "http://keenthemes.com/metronic/preview/inc/api/datatables/demos/default.php"}},
-                pageSize: 10,
-                saveState: {cookie: !0, webstorage: !0},
-                serverPaging: !0,
-                serverFiltering: !0,
-                serverSorting: !0
-            },
-            layout: {theme: "default", class: "", scroll: !1, height: 550, footer: !1},
-            sortable: !0,
-            filterable: !1,
-            pagination: !0,
-            columns: [{
-                field: "RecordID",
-                title: "#",
-                sortable: !1,
-                width: 40,
-                textAlign: "center",
-                selector: {class: "m-checkbox--solid m-checkbox--brand"}
-            }, {
-                field: "OrderID",
-                title: "Order ID",
-                filterable: !1,
-                width: 150,
-                template: "{{OrderID}} - {{ShipCountry}}"
-            }, {
-                field: "ShipCountry", title: "Ship Country", width: 150, template: function (t) {
-                    return t.ShipCountry + " - " + t.ShipCity
-                }
-            }, {field: "ShipCity", title: "Ship City", sortable: !1}, {
-                field: "Currency",
-                title: "Currency",
-                width: 100
-            }, {field: "ShipDate", title: "Ship Date", sortable: "asc"}, {
-                field: "Latitude",
-                title: "Latitude"
-            }, {
-                field: "Status", title: "Status", template: function (t) {
-                    var e = {
-                        1: {title: "Pending", class: "m-badge--brand"},
-                        2: {title: "Delivered", class: " m-badge--metal"},
-                        3: {title: "Canceled", class: " m-badge--primary"},
-                        4: {title: "Success", class: " m-badge--success"},
-                        5: {title: "Info", class: " m-badge--info"},
-                        6: {title: "Danger", class: " m-badge--danger"},
-                        7: {title: "Warning", class: " m-badge--warning"}
-                    };
-                    return '<span class="m-badge ' + e[t.Status].class + ' m-badge--wide">' + e[t.Status].title + "</span>"
-                }
-            }, {
-                field: "Type", title: "Type", template: function (t) {
-                    var e = {
-                        1: {title: "Online", state: "danger"},
-                        2: {title: "Retail", state: "primary"},
-                        3: {title: "Direct", state: "accent"}
-                    };
-                    return '<span class="m-badge m-badge--' + e[t.Type].state + ' m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-' + e[t.Type].state + '">' + e[t.Type].title + "</span>"
-                }
-            }, {
-                field: "Actions",
-                width: 110,
-                title: "Actions",
-                sortable: !1,
-                overflow: "visible",
-                template: function (t) {
-                    return '\t\t\t\t\t\t<div class="dropdown ' + (t.getDatatable().getPageSize() - t.getIndex() <= 4 ? "dropup" : "") + '">\t\t\t\t\t\t\t<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">                                <i class="la la-ellipsis-h"></i>                            </a>\t\t\t\t\t\t  \t<div class="dropdown-menu dropdown-menu-right">\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\t\t\t\t\t\t  \t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>\t\t\t\t\t\t<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">\t\t\t\t\t\t\t<i class="la la-trash"></i>\t\t\t\t\t\t</a>\t\t\t\t\t'
-                }
-            }]
-        }), e = t.getDataSourceQuery();
-        $("#m_form_search").on("keyup", function (e) {
-            var a = t.getDataSourceQuery();
-            a.generalSearch = $(this).val().toLowerCase(), t.setDataSourceQuery(a), t.load()
-        }).val(e.generalSearch), $("#m_form_status").on("change", function () {
-            var e = t.getDataSourceQuery();
-            e.Status = $(this).val().toLowerCase(), t.setDataSourceQuery(e), t.load()
-        }).val(void 0 !== e.Status ? e.Status : ""), $("#m_form_type").on("change", function () {
-            var e = t.getDataSourceQuery();
-            e.Type = $(this).val().toLowerCase(), t.setDataSourceQuery(e), t.load()
-        }).val(void 0 !== e.Type ? e.Type : ""), $("#m_form_status, #m_form_type").selectpicker(), $(".m_datatable").on("m-datatable--on-check", function (e, a) {
-            var l = t.setSelectedRecords().getSelectedRecords().length;
-            $("#m_datatable_selected_number").html(l), l > 0 && $("#m_datatable_group_action_form").collapse("show")
-        }).on("m-datatable--on-uncheck m-datatable--on-layout-updated", function (e, a) {
-            var l = t.setSelectedRecords().getSelectedRecords().length;
-            $("#m_datatable_selected_number").html(l), 0 === l && $("#m_datatable_group_action_form").collapse("hide")
-        })
-    };
-    return {
-        init: function () {
-            t()
-        }
-    }
+	//== Private functions
+
+	// basic demo
+	var demo = function () {
+
+		var datatable = $('.m_datatable').mDatatable({
+			// datasource definition
+			data: {
+				type: 'remote',
+				source: {
+					read: {
+						url: 'inc/api/datatables/demos/default.php'
+					}
+				},
+				pageSize: 10,
+				saveState: {
+					cookie: true,
+					webstorage: true
+				},
+				serverPaging: true,
+				serverFiltering: true,
+				serverSorting: true
+			},
+
+			// layout definition
+			layout: {
+				theme: 'default', // datatable theme
+				class: '', // custom wrapper class
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				height: 550, // datatable's body's fixed height
+				footer: false // display/hide footer
+			},
+
+			// column sorting
+			sortable: true,
+
+			pagination: true,
+
+			search: {
+				input: $('#generalSearch')
+			},
+
+			// columns definition
+			columns: [{
+				field: "RecordID",
+				title: "#",
+				sortable: false, // disable sort for this column
+				width: 40,
+				textAlign: 'center',
+				selector: {class: 'm-checkbox--solid m-checkbox--brand'}
+			}, {
+				field: "OrderID",
+				title: "Order ID",
+				// sortable: 'asc', // default sort
+				filterable: false, // disable or enable filtering
+				width: 150,
+				// basic templating support for column rendering,
+				template: '{{OrderID}} - {{ShipCountry}}'
+			}, {
+				field: "ShipCountry",
+				title: "Ship Country",
+				width: 150,
+				template: function (row) {
+					// callback function support for column rendering
+					return row.ShipCountry + ' - ' + row.ShipCity;
+				}
+			}, {
+				field: "ShipCity",
+				title: "Ship City",
+				sortable: false // disable sort for this column
+			}, {
+				field: "Currency",
+				title: "Currency",
+				width: 100
+			}, {
+				field: "ShipDate",
+				title: "Ship Date",
+				sortable: 'asc'
+			}, {
+				field: "Latitude",
+				title: "Latitude"
+			}, {
+				field: "Status",
+				title: "Status",
+				// callback function support for column rendering
+				template: function (row) {
+					var status = {
+						1: {'title': 'Pending', 'class': 'm-badge--brand'},
+						2: {'title': 'Delivered', 'class': ' m-badge--metal'},
+						3: {'title': 'Canceled', 'class': ' m-badge--primary'},
+						4: {'title': 'Success', 'class': ' m-badge--success'},
+						5: {'title': 'Info', 'class': ' m-badge--info'},
+						6: {'title': 'Danger', 'class': ' m-badge--danger'},
+						7: {'title': 'Warning', 'class': ' m-badge--warning'}
+					};
+					return '<span class="m-badge ' + status[row.Status].class + ' m-badge--wide">' + status[row.Status].title + '</span>';
+				}
+			}, {
+				field: "Type",
+				title: "Type",
+				// callback function support for column rendering
+				template: function (row) {
+					var status = {
+						1: {'title': 'Online', 'state': 'danger'},
+						2: {'title': 'Retail', 'state': 'primary'},
+						3: {'title': 'Direct', 'state': 'accent'}
+					};
+					return '<span class="m-badge m-badge--' + status[row.Type].state + ' m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-' + status[row.Type].state + '">' + status[row.Type].title + '</span>';
+				}
+			}, {
+				field: "Actions",
+				width: 110,
+				title: "Actions",
+				sortable: false,
+				overflow: 'visible',
+				template: function (row) {
+					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : '';
+
+					return '\
+						<div class="dropdown ' + dropup + '">\
+							<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
+                                <i class="la la-ellipsis-h"></i>\
+                            </a>\
+						  	<div class="dropdown-menu dropdown-menu-right">\
+						    	<a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>\
+						    	<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\
+						    	<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\
+						  	</div>\
+						</div>\
+						<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\
+							<i class="la la-edit"></i>\
+						</a>\
+						<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">\
+							<i class="la la-trash"></i>\
+						</a>\
+					';
+				}
+			}]
+		});
+
+		var query = datatable.getDataSourceQuery();
+
+		$('#m_form_status').on('change', function () {
+			// shortcode to datatable.getDataSourceParam('query');
+			var query = datatable.getDataSourceQuery();
+			query.Status = $(this).val().toLowerCase();
+			// shortcode to datatable.setDataSourceParam('query', query);
+			datatable.setDataSourceQuery(query);
+			datatable.load();
+		}).val(typeof query.Status !== 'undefined' ? query.Status : '');
+
+		$('#m_form_type').on('change', function () {
+			// shortcode to datatable.getDataSourceParam('query');
+			var query = datatable.getDataSourceQuery();
+			query.Type = $(this).val().toLowerCase();
+			// shortcode to datatable.setDataSourceParam('query', query);
+			datatable.setDataSourceQuery(query);
+			datatable.load();
+		}).val(typeof query.Type !== 'undefined' ? query.Type : '');
+
+		$('#m_form_status, #m_form_type').selectpicker();
+
+		// on checkbox checked event
+		$('.m_datatable')
+			.on('m-datatable--on-check', function (e, args) {
+				var count = datatable.getSelectedRecords().length;
+				$('#m_datatable_selected_number').html(count);
+				if (count > 0) {
+					$('#m_datatable_group_action_form').collapse('show');
+				}
+			})
+			.on('m-datatable--on-uncheck m-datatable--on-layout-updated', function (e, args) {
+				var count = datatable.getSelectedRecords().length;
+				$('#m_datatable_selected_number').html(count);
+				if (count === 0) {
+					$('#m_datatable_group_action_form').collapse('hide');
+				}
+			});
+	};
+
+	return {
+		// public functions
+		init: function () {
+			demo();
+		}
+	};
 }();
+
 jQuery(document).ready(function () {
-    DatatableRecordSelectionDemo.init()
+	DatatableRecordSelectionDemo.init();
 });

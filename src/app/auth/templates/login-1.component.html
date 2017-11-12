@@ -1,242 +1,32 @@
-<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile 		m-login m-login--1 m-login--singin"
-     id="m_login">
-    <div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
-        <div class="m-stack m-stack--hor m-stack--desktop">
-            <div class="m-stack__item m-stack__item--fluid">
-                <div class="m-login__wrapper">
-                    <div class="m-login__logo">
-                        <a href="#">
-                            <img src="./assets/app/media/img//logos/logo-2.png">
-                        </a>
-                    </div>
+<!--<div class="m-grid__item m-grid__item&#45;&#45;fluid m-grid m-grid&#45;&#45;ver-desktop m-grid&#45;&#45;desktop m-grid&#45;&#45;tablet-and-mobile m-grid&#45;&#45;hor-tablet-and-mobile m-login m-login&#45;&#45;1 m-login&#45;&#45;singin" id="m_login">-->
+	<!--<div class="m-grid__item m-grid__item&#45;&#45;order-tablet-and-mobile-2 m-login__aside">-->
+		<!--<div class="m-stack m-stack&#45;&#45;hor m-stack&#45;&#45;desktop">-->
+			<!--<div class="m-stack__item m-stack__item&#45;&#45;fluid">-->
+				<!--<div class="m-login__wrapper">-->
+					<!--<div class="m-login__logo">-->
+						<!--<a href="#">-->
+							<!--<img src="./assets/app/media/img//logos/logo-2.png">-->
+						<!--</a>-->
+					<!--</div>-->
 
-                    <!-- LOGIN START-->
-                    <div class="m-login__signin">
-                        <div class="m-login__head">
-                            <h3 class="m-login__title">
-                                Вход
-                            </h3>
-                        </div>
-                        <form (ngSubmit)="f.form.valid && signin()" #f="ngForm" class="m-login__form m-form" action="">
-                            <ng-template #alertSignin></ng-template>
-                            <div class="form-group m-form__group">
-                                <input
-                                        class="form-control m-input"
-                                        type="text"
-                                        placeholder="Ввод номера телефона или емайл"
-                                        name="emailOrPhone"
-                                        [(ngModel)]="model.emailOrPhone"
-                                        #email="ngModel"
-                                        autocomplete="off"
-                                >
-                            </div>
-                            <!-- <div class="form-group m-form__group">
-                                 <input class="form-control m-input m-login__form-input--last" type="password"
-                                        placeholder="Password" name="password" [(ngModel)]="model.password"
-                                        #password="ngModel">
-                             </div>-->
-                            <div class="row m-login__form-sub">
-                                <div class="col m--align-left">
-                                    <label class="m-checkbox m-checkbox--focus">
-                                        <input
-                                                type="checkbox"
-                                                name="remember"
-                                                [(ngModel)]="model.remember"
-                                                #remember="ngModel"
-                                        >
-                                        Запомнить
-                                        <span></span>
-                                    </label>
-                                </div>
-                                <div class="col m--align-right">
-                                    <a href="javascript:;" id="m_login_forget_password" class="m-link">
-                                        Забыли адрес эл. почты?
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="m-login__form-action">
-                                <button [disabled]="loading"
-                                        [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
-                                        id="m_login_signin_submit"
-                                        class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                    Далее
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- END LOGIN -->
+					<!--<router-outlet></router-outlet>-->
 
-                    <!-- REGISTER START -->
-                    <div class="m-login__signup">
-                        <div class="m-login__head">
-                            <h3 class="m-login__title">
-                                Регистрация
-                            </h3>
-                            <div class="m-login__desc">
-                                Введите свои данные, чтобы создать свою учетную запись:
-                            </div>
-                        </div>
-                        <form (ngSubmit)="f.form.valid && signup()" #f="ngForm" class="m-login__form m-form" action="">
-                            <ng-template #alertSignup></ng-template>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Ваше имя" name="name"
-                                       [(ngModel)]="model.name" #fullname="ngModel">
-                            </div>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Сотовый телефон"
-                                       name="phone"
-                                       [(ngModel)]="model.phone" #phone="ngModel">
-                            </div>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Емайл" name="email"
-                                       [(ngModel)]="model.email" #email="ngModel" autocomplete="off">
-                            </div>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="password" placeholder="Пароль"
-                                       name="password" [(ngModel)]="model.password" #password="ngModel">
-                            </div>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input m-login__form-input--last" type="password"
-                                       placeholder="Подверждение пароля" name="password_confirmation"
-                                       [(ngModel)]="model.password_confirmation"
-                                       #rpassword="ngModel">
-                            </div>
-                            <div class="row form-group m-form__group m-login__form-sub">
-                                <div class="col m--align-left">
-                                    <label class="m-checkbox m-checkbox--focus">
-                                        <input type="checkbox" name="agree" [(ngModel)]="model.agree" #agree="ngModel">
-                                        Нажимая << Зарегистрироваться >> Вы принимаете условия
-                                        <a href="#" class="m-link m-link--focus">
-                                            договора-оферты
-                                        </a>
-                                        .
-                                        <span></span>
-                                    </label>
-                                    <span class="m-form__help"></span>
-                                </div>
-                            </div>
-                            <div class="m-login__form-action">
-                                <button [disabled]="loading"
-                                        [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
-                                        id="m_login_signup_submit"
-                                        class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                    Регистрация
-                                </button>
-                                <button [disabled]="loading" id="m_login_signup_cancel"
-                                        class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">
-                                    Отмена
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- END REGISTER -->
+				<!--</div>-->
+			<!--</div>-->
 
-                    <!-- NEXT TO EMPLOYEE START -->
-                    <div class="m-next-employee">
-                        <div class="m-login__head">
-                            <h3 class="m-login__title">
-                                Выберите салон
-                            </h3>
-                        </div>
-                        <div class="select_employee">
-                            <ul>
-                                <li
-                                        *ngFor="let userChain of userChains"
-                                        (click)="selectUserChain(userChain)"
-                                        class="from_employee_to_password"
-                                >{{userChain.title}} - {{userChain.description}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- NEXT TO EMPLOYEE END -->
+		<!--</div>-->
+	<!--</div>-->
 
-                    <!-- NEXT TO PASSWORD START -->
-                    <div class="m-next-password">
-                        <div class="m-login__head">
-                            <h3 class="m-login__title">
-                                Введите пароль
-                            </h3>
-                        </div>
-                        <form (ngSubmit)="f.form.valid && enter()" #f="ngForm" class="m-login__form m-form" action="">
-                            <ng-template #alertEnter></ng-template>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="password" placeholder="Пароль"
-                                       name="password" [(ngModel)]="model.password" #password="ngModel">
-                            </div>
-
-                            <div class="m-login__form-action">
-                                <button
-                                        [disabled]="loading"
-                                        [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
-                                        class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air"
-                                        id="m_enter_form_button"
-                                >
-                                    Вход
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- NEXT TO PASSWORD END -->
-
-                    <!-- FORGET PASSWORD -->
-                    <div class="m-login__forget-password">
-                        <div class="m-login__head">
-                            <h3 class="m-login__title">
-                                Forgotten Password ?
-                            </h3>
-                            <div class="m-login__desc">
-                                Введите Ваш электронный адрес, чтобы сбросить пароль:
-                            </div>
-                        </div>
-                        <form (ngSubmit)="f.form.valid && forgotPass()" #f="ngForm" class="m-login__form m-form"
-                              action="">
-                            <ng-template #alertForgotPass></ng-template>
-                            <div class="form-group m-form__group">
-                                <input class="form-control m-input" type="text" placeholder="Емайл" name="email"
-                                       [(ngModel)]="model.email" #email="ngModel" id="m_email" autocomplete="off">
-                            </div>
-                            <div class="m-login__form-action">
-                                <button [disabled]="loading"
-                                        [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
-                                        id="m_login_forget_password_submit"
-                                        class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-                                    Запрос
-                                </button>
-                                <button [disabled]="loading" id="m_login_forget_password_cancel"
-                                        class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">
-                                    Отмена
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- END FORGOT PASSWORD -->
-                </div>
-            </div>
-            <div class="m-stack__item m-stack__item--center">
-                <div class="m-login__account">
-					<span class="m-login__account-msg">
-						У вас еще нет учетной записи?
-					</span>
-                    &nbsp;&nbsp;
-                    <a href="javascript:;" id="m_login_signup" class="m-link m-link--focus m-login__account-link">
-                        Регистрация
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content"
-         style="background-image: url(./assets/app/media/img//bg/bg-4.jpg)">
-        <div class="m-grid__item m-grid__item--middle">
-            <h3 class="m-login__welcome">
-                Бесплатно навсегда!
-            </h3>
-            <p class="m-login__msg">
-                Система постоянно развивается и дорабатывается. Онлайн запись и все необходимые функции всегда будут
-                бесплатными для тех кто успеет зарегистрироваться и будет пользоваться системой до выхода системы из
-                бета-версии.
-            </p>
-        </div>
-    </div>
-</div>
+	<!--<div class="m-grid__item m-grid__item&#45;&#45;fluid m-grid m-grid&#45;&#45;center m-grid&#45;&#45;hor m-grid__item&#45;&#45;order-tablet-and-mobile-1	m-login__content" style="background-image: url(./assets/app/media/img//bg/bg-4.jpg)">-->
+		<!--<div class="m-grid__item m-grid__item&#45;&#45;middle">-->
+			<!--<h3 class="m-login__welcome">-->
+				<!--Join Our Community-->
+			<!--</h3>-->
+			<!--<p class="m-login__msg">-->
+				<!--Lorem ipsum dolor sit amet, coectetuer adipiscing-->
+				<!--<br>-->
+				<!--elit sed diam nonummy et nibh euismod-->
+			<!--</p>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->

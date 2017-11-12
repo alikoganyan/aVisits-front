@@ -1,0 +1,36 @@
+<div class="m-content">
+    <div class="row">
+        <div class="col-xl-10 margin-auto">
+            <div class="m-portlet m-portlet--full-height">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text">
+                                Салоны
+                            </h3>
+                        </div>
+                    </div>
+                    <button class="btn btn-brand add-salon-button" type="button" (click)="redirectToCreateSalon()">
+                        Добавить салон
+                    </button>
+                </div>
+                <div class="m-portlet__body">
+
+                    <div class="tab-content">
+                        <div aria-expanded="true" class="tab-pane active" id="m_widget5_tab1_content">
+
+                            <div class="m-widget5">
+                                <app-salon-row
+                                        *ngFor="let salon of salons"
+                                        [salon]="salon"
+                                >
+                                </app-salon-row>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
