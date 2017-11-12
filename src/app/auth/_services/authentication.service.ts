@@ -39,3 +39,7 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
     }
 }
+
+export const AUTHENTICATION_PROVIDERS: Array<any> = [
+    { provide: AuthenticationService, useClass: AuthenticationService }
+];

@@ -1,0 +1,9 @@
+<div class="alert alert-success" role="alert" *ngIf="saveSuccessful">
+    Изменения сохранены
+</div>
+
+<app-chain-settings
+        [chain]="chain"
+        (saveChain)="onSaveChain($event)"
+        (deleteChain)="onDeleteChain($event)"
+></app-chain-settings>

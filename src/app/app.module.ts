@@ -9,6 +9,10 @@ import { AppComponent } from './app.component';
 import { ScriptLoaderService } from "./shared/_services/script-loader.service";
 import { ThemeRoutingModule } from "./theme/theme-routing.module";
 import { AuthModule } from "./auth/auth.module";
+import {ChainService} from "./chain/chain.service";
+import {FormsModule} from "@angular/forms";
+import {AUTHENTICATION_PROVIDERS, AuthenticationService} from "./auth/_services/authentication.service";
+import {BackendService} from "./backend/backend.service";
 
 @NgModule({
     declarations: [
@@ -22,8 +26,14 @@ import { AuthModule } from "./auth/auth.module";
         AppRoutingModule,
         ThemeRoutingModule,
         AuthModule,
+        FormsModule
     ],
-    providers: [ScriptLoaderService],
+    providers: [
+        ScriptLoaderService,
+        AUTHENTICATION_PROVIDERS,
+        ChainService,
+        { provide: BackendService, useClass: BackendService }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

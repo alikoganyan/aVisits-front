@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ThemeComponent } from './theme.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from "../auth/_guards/auth.guard";
+import {DefaultComponent} from "./pages/default/default.component";
 
 const routes: Routes = [
     {
@@ -12,6 +13,11 @@ const routes: Routes = [
             {
                 path: "index",
                 loadChildren: ".\/pages\/default\/index\/Index.module#IndexModule"
+            },
+            {
+                path: "settings",
+                component: DefaultComponent,
+                loadChildren: ".\/pages\/default\/settings\/Settings.module#SettingsModule"
             },
             // {
             //     path: "components\/base\/typography",
