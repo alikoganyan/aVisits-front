@@ -16,6 +16,7 @@ import { BackendService } from "./backend/backend.service";
 import { SalonService } from "./salon/salon.service";
 import { GeoNamesService } from "./shared/_services/geo-names.service";
 import { JsonpModule } from "@angular/http";
+import {UserService} from "./auth/_services/user.service";
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { JsonpModule } from "@angular/http";
     providers: [
         ScriptLoaderService,
         AUTHENTICATION_PROVIDERS,
+        UserService,
         ChainService,
         SalonService,
         GeoNamesService,

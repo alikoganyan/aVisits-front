@@ -15,7 +15,7 @@ export class BackendService {
 
         this.userService.currentUser
             .subscribe(
-            (user: User) => {
+            user => {
                 this.token = user.token;
             });
     }
