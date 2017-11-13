@@ -1,5 +1,5 @@
 import { ChainPriceLevel } from "./chain-price-level.model";
-import {Salon} from "../salon/salon.model";
+import { Salon } from "../salon/salon.model";
 
 export class Chain {
     id: string;

@@ -9,13 +9,13 @@ import { AppComponent } from './app.component';
 import { ScriptLoaderService } from "./shared/_services/script-loader.service";
 import { ThemeRoutingModule } from "./theme/theme-routing.module";
 import { AuthModule } from "./auth/auth.module";
-import {ChainService} from "./chain/chain.service";
-import {FormsModule} from "@angular/forms";
-import {AUTHENTICATION_PROVIDERS, AuthenticationService} from "./auth/_services/authentication.service";
-import {BackendService} from "./backend/backend.service";
-import {SalonService} from "./salon/salon.service";
-import {GeoNamesService} from "./shared/_services/geo-names.service";
-import {JsonpModule} from "@angular/http";
+import { ChainService } from "./chain/chain.service";
+import { FormsModule } from "@angular/forms";
+import { AUTHENTICATION_PROVIDERS, AuthenticationService } from "./auth/_services/authentication.service";
+import { BackendService } from "./backend/backend.service";
+import { SalonService } from "./salon/salon.service";
+import { GeoNamesService } from "./shared/_services/geo-names.service";
+import { JsonpModule } from "@angular/http";
 
 @NgModule({
     declarations: [

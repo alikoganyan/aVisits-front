@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {AuthenticationService} from "../_services/authentication.service";
+import { AuthenticationService } from "../_services/authentication.service";
 
 @Component({
     templateUrl: './signin-reset-password.component.html',

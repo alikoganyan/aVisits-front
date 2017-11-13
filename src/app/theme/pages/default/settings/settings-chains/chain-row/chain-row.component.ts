@@ -1,6 +1,6 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {Chain} from "../../../../../../chain/chain.model";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Chain } from "../../../../../../chain/chain.model";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     selector: 'app-chain-row',
@@ -21,7 +21,7 @@ export class ChainRowComponent implements OnInit {
     }
 
     editChain(chain: any): void {
-        this.router.navigate(['./edit', chain.id], {relativeTo: this.route})
+        this.router.navigate(['./edit', chain.id], { relativeTo: this.route })
     }
 
 }

@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {ChainService} from "../../../../../../chain/chain.service";
-import {Chain} from "../../../../../../chain/chain.model";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { ChainService } from "../../../../../../chain/chain.service";
+import { Chain } from "../../../../../../chain/chain.model";
 
 @Component({
     templateUrl: './edit-chain.component.html',
@@ -16,8 +16,8 @@ export class EditChainComponent implements OnInit {
     errors: any;
 
     constructor(private route: ActivatedRoute,
-                private router: Router,
-                private chainService: ChainService) {
+        private router: Router,
+        private chainService: ChainService) {
         route.params.subscribe(params => {
             this.id = params['id'];
         });
@@ -33,8 +33,8 @@ export class EditChainComponent implements OnInit {
         this.chainService
             .updateChain(chain)
             .subscribe(
-                data => this.saveSuccessful = true,
-                error => this.errors = error
+            data => this.saveSuccessful = true,
+            error => this.errors = error
             )
 
     }
@@ -43,7 +43,7 @@ export class EditChainComponent implements OnInit {
         this.chainService
             .deleteChain(chain)
             .subscribe(
-                data => this.router.navigate(['/settings/chains'])
+            data => this.router.navigate(['/settings/chains'])
             );
     }
 

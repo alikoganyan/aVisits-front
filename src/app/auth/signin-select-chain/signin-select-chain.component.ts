@@ -13,7 +13,6 @@ export class SigninSelectChainComponent implements OnInit {
         private route: ActivatedRoute,
         public authService: AuthenticationService, ) {
 
-        console.log(this.authService.stepsData)
         this.userChains = this.authService.stepsData.user.chains;
     }
 

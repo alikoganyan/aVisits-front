@@ -7,7 +7,7 @@ export class SalonSchedule {
 
     constructor(obj?: any) {
         this.numOfDay = obj && obj.numOfDay || 0;
-        this.start =    obj && obj.start || "10:00";
-        this.end =      obj && obj.end || "19:00";
+        this.start = obj && obj.start || "10:00";
+        this.end = obj && obj.end || "19:00";
     }
 }

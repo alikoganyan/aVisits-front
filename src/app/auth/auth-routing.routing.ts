@@ -4,10 +4,10 @@ import { AuthComponent } from "./auth.component";
 import { SigninComponent } from "./signin/signin.component";
 import { SigninSelectChainComponent } from "./signin-select-chain/signin-select-chain.component";
 import { SigninEnterPasswordComponent } from "./signin-enter-password/signin-enter-password.component";
-import {SignupComponent} from "./signup/signup.component";
-import {SigninResetPasswordComponent} from "./signin-reset-password/signin-reset-password.component";
-import {SigninEnterPasswordGuard} from "./_guards/signin-enter-password.guard";
-import {SigninGuardBase} from "./_guards/signin-guard-base";
+import { SignupComponent } from "./signup/signup.component";
+import { SigninResetPasswordComponent } from "./signin-reset-password/signin-reset-password.component";
+import { SigninEnterPasswordGuard } from "./_guards/signin-enter-password.guard";
+import { SigninGuardBase } from "./_guards/signin-guard-base";
 
 const authRoutes: Routes = [
     {
@@ -17,7 +17,7 @@ const authRoutes: Routes = [
             {
                 path: '',
                 component: SigninComponent,
-                data: { state: 'signin'}
+                data: { state: 'signin' }
             },
             {
                 path: 'select-chain',

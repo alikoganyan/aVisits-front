@@ -2,7 +2,7 @@ import { SalonSchedule } from "./salon-schedule.model";
 
 export class Salon {
     id: string;
-    chain_id: string;
+    chain_id: number;
 
     title: string;
     image: string;
@@ -26,8 +26,8 @@ export class Salon {
         this.city = obj && obj.city || '';
         this.streetNumber = obj && obj.streetNumber || '';
         this.address = obj && obj.address || '';
-        this.latitude = obj && obj.latitude || '';
-        this.longitude = obj && obj.longitude || '';
+        this.latitude = obj && obj.latitude || 59.327;
+        this.longitude = obj && obj.longitude || 18.067;
         this.currentTime = obj && obj.currentTime || Date.now();
         this.schedule = obj && obj.schedule || this.createEmptySchedule();
     }

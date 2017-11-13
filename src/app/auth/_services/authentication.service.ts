@@ -2,18 +2,30 @@ import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
+import { BackendService } from "../../backend/backend.service";
+import { UserService } from "./user.service";
 
 @Injectable()
 export class AuthenticationService {
     public stepsData: any = {};
 
-    constructor(private http: Http) {
+    constructor(
+        private backend: BackendService,
+        private userService: UserService) {
     }
 
     authenticationStepOne(email: string, phone: string) {
-        return this.http.post('/user/signin', JSON.stringify({ email: email, phone: phone }))
+        let data: any = {};
+        if (email) {
+            data.email = email;
+        }
+        if (phone) {
+            data.phone = phone;
+        }
+
+        return this.backend.post('user/signin', data)
             .map(res => res.json())
-            .do(data => this.stepsData = data);
+            .do(data => this.stepsData = data.data);
     }
 
     authenticationSelectChain(chainId: string) {
@@ -21,13 +33,12 @@ export class AuthenticationService {
     }
 
     login(password: string) {
-        return this.http.post('/api/authenticate', JSON.stringify({ email: this.stepsData.user.email, password: password }))
+        return this.backend.post(this.stepsData.selectedChain + '/user/login', { email: this.stepsData.user.email, password: password })
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
                 if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.userService.setCurrentUser(user);
                 }
 
                 return response;

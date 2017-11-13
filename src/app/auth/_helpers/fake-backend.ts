@@ -7,7 +7,7 @@ import {
     ResponseOptions,
     XHRBackend
 } from "@angular/http";
-import {MockBackend, MockConnection} from "@angular/http/testing";
+import { MockBackend, MockConnection } from "@angular/http/testing";
 
 let testSalons = [
     {
@@ -100,7 +100,6 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
 
 
             if (connection.request.url.match(/\/api\/\d+\/salon/)) {
-                console.log("mock salon request")
                 mockSalonRequest(connection);
                 return;
             }
@@ -148,10 +147,10 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
                     let user = matchedUsers.length ? matchedUsers[0] : null;
 
                     // respond 200 OK with user
-                    connection.mockRespond(new Response(new ResponseOptions({status: 200, body: user})));
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: user })));
                 } else {
                     // return 401 not authorised if token is null or invalid
-                    connection.mockRespond(new Response(new ResponseOptions({status: 401})));
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
                 }
 
                 return;
@@ -176,7 +175,7 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
                 localStorage.setItem('users', JSON.stringify(users));
 
                 // respond 200 OK
-                connection.mockRespond(new Response(new ResponseOptions({status: 200})));
+                connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
 
                 return;
             }
@@ -199,10 +198,10 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
                     }
 
                     // respond 200 OK
-                    connection.mockRespond(new Response(new ResponseOptions({status: 200})));
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
                 } else {
                     // return 401 not authorised if token is null or invalid
-                    connection.mockRespond(new Response(new ResponseOptions({status: 401})));
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
                 }
 
                 return;
@@ -213,10 +212,10 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
                 // check for fake auth token in header and return users if valid, this security
                 // is implemented server side in a real application
                 if (connection.request.headers.get('Authorization') === 'Bearer ' + token) {
-                    connection.mockRespond(new Response(new ResponseOptions({status: 200, body: {status: 'ok'}})));
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: { status: 'ok' } })));
                 } else {
                     // return 401 not authorised if token is null or invalid
-                    connection.mockRespond(new Response(new ResponseOptions({status: 401})));
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
                 }
 
                 return;
@@ -235,7 +234,7 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
                 if (filteredUsers.length) {
                     // in real world, if email is valid, send email change password link
                     let user = filteredUsers[0];
-                    connection.mockRespond(new Response(new ResponseOptions({status: 200})));
+                    connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
                 } else {
                     // else return 400 bad request
                     connection.mockError(new Error('User with this email does not exist'));
@@ -256,17 +255,17 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
             });
             realHttp.request(connection.request.url, requestOptions)
                 .subscribe((response: Response) => {
-                        connection.mockRespond(response);
-                    },
-                    (error: any) => {
-                        connection.mockError(error);
-                    });
+                    connection.mockRespond(response);
+                },
+                (error: any) => {
+                    connection.mockError(error);
+                });
 
         }, 50);
 
     });
 
-    let mockSignin = function (connection: MockConnection) {
+    let mockSignin = function(connection: MockConnection) {
         let params = JSON.parse(connection.request.getBody());
 
         // find if any user matches login credentials
@@ -323,7 +322,7 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
         }
     };
 
-    let mockAuthenticate = function (connection: MockConnection) {
+    let mockAuthenticate = function(connection: MockConnection) {
         // get parameters from post request
         let params = JSON.parse(connection.request.getBody());
 
@@ -359,17 +358,17 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
         }
     };
 
-    let mockGetChains = function (connection: MockConnection) {
+    let mockGetChains = function(connection: MockConnection) {
         // localStorage.setItem('chains', JSON.stringify(chains));
         // if (connection.request.headers.get('Authorization') === 'Bearer ' + token) {
-        connection.mockRespond(new Response(new ResponseOptions({status: 200, body: {data: chains}})));
+        connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: { data: chains } })));
         // } else {
         //     // return 401 not authorised if token is null or invalid
         //     connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
         // }
     };
 
-    let mockCreateChain = function (connection: MockConnection) {
+    let mockCreateChain = function(connection: MockConnection) {
         let newChain = JSON.parse(connection.request.getBody());
 
         newChain.id = chains.length + 1;
@@ -377,10 +376,10 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
         localStorage.setItem('chains', JSON.stringify(chains));
 
         // respond 200 OK
-        connection.mockRespond(new Response(new ResponseOptions({status: 200})));
+        connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
     };
 
-    let mockUpdateChain = function (connection: MockConnection) {
+    let mockUpdateChain = function(connection: MockConnection) {
         let chain = JSON.parse(connection.request.getBody());
 
         for (let i = 0; i < chains.length; i++) {
@@ -391,33 +390,33 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
         }
 
         localStorage.setItem('chains', JSON.stringify(chains));
-        connection.mockRespond(new Response(new ResponseOptions({status: 200})));
+        connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
     };
 
-    let mockGetUsers = function (connection: MockConnection) {
+    let mockGetUsers = function(connection: MockConnection) {
         // check for fake auth token in header and return users if valid, this security
         // is implemented server side in a real application
         if (connection.request.headers.get('Authorization') === 'Bearer ' + token) {
-            connection.mockRespond(new Response(new ResponseOptions({status: 200, body: users})));
+            connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: users })));
         } else {
             // return 401 not authorised if token is null or invalid
-            connection.mockRespond(new Response(new ResponseOptions({status: 401})));
+            connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
         }
     };
 
-    let mockSalonRequest = function (connection: MockConnection) {
+    let mockSalonRequest = function(connection: MockConnection) {
         if (connection.request.method === RequestMethod.Get) {
             mockGetSalonRequest(connection);
         }
-        else if(connection.request.method === RequestMethod.Post) {
+        else if (connection.request.method === RequestMethod.Post) {
             mockCreateSalon(connection);
         }
-        else if(connection.request.method === RequestMethod.Delete) {
+        else if (connection.request.method === RequestMethod.Delete) {
             mockDeleteSalon(connection);
         }
     };
 
-    let mockGetSalonRequest = function (connection: MockConnection) {
+    let mockGetSalonRequest = function(connection: MockConnection) {
         if (connection.request.url.match(/\/api\/\d+\/salon\/\d+/)) {
             mockGetSalon(connection);
         }
@@ -426,16 +425,16 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
         }
     };
 
-    let mockGetSalon = function (connection: MockConnection) {
+    let mockGetSalon = function(connection: MockConnection) {
         let urlParts = connection.request.url.split('/');
         let id = parseInt(urlParts[urlParts.length - 1]);
         let salon = testSalons.filter(s => s.id === id);
 
-        connection.mockRespond(new Response(new ResponseOptions({status: 200, body: {data: salon}})));
+        connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: { data: salon } })));
     };
 
-    let mockGetSalons = function (connection: MockConnection) {
-        connection.mockRespond(new Response(new ResponseOptions({status: 200, body: {data: testSalons}})));
+    let mockGetSalons = function(connection: MockConnection) {
+        connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: { data: testSalons } })));
     };
 
     let mockCreateSalon = function(connection: MockConnection) {
@@ -446,15 +445,15 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
         localStorage.setItem('salons', JSON.stringify(salons));
 
         // respond 200 OK
-        connection.mockRespond(new Response(new ResponseOptions({status: 200})));
+        connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
     };
 
     let mockDeleteSalon = function(connection: MockConnection) {
         let urlParts = connection.request.url.split('/');
         let id = parseInt(urlParts[urlParts.length - 1]);
 
-        for(let i = 0; i < salons.length; i++) {
-            if(salons[i].id === id) {
+        for (let i = 0; i < salons.length; i++) {
+            if (salons[i].id === id) {
                 salons.splice(i, 1);
                 break;
             }
@@ -462,7 +461,7 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
 
         localStorage.setItem('salons', JSON.stringify(salons));
 
-        connection.mockRespond(new Response(new ResponseOptions({status: 200})));
+        connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
     };
 
     return new Http(backend, options);

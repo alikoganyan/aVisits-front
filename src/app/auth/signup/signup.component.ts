@@ -2,10 +2,10 @@ import {
     Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
-import {UserService} from "../_services/user.service";
-import {AlertService} from "../_services/alert.service";
-import {AlertComponent} from "../_directives/alert.component";
-import {Router} from "@angular/router";
+import { UserService } from "../_services/user.service";
+import { AlertService } from "../_services/alert.service";
+import { AlertComponent } from "../_directives/alert.component";
+import { Router } from "@angular/router";
 
 @Component({
     templateUrl: './signup.component.html',
@@ -40,19 +40,19 @@ export class SignupComponent implements OnInit {
         this.loading = true;
         this.userService.create(this.model)
             .subscribe(
-                data => {
-                    this.showAlert();
-                    this.alertService.success('Thank you. To complete your registration please check your email.', true);
-                    this.loading = false;
-                    //navigate to signin
-                    this.router.navigate(['/login']);
-                    // LoginCustom.displaySignInForm();
-                },
-                error => {
-                    this.showAlert();
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+            data => {
+                this.showAlert();
+                this.alertService.success('Thank you. To complete your registration please check your email.', true);
+                this.loading = false;
+                //navigate to signin
+                this.router.navigate(['/login']);
+                // LoginCustom.displaySignInForm();
+            },
+            error => {
+                this.showAlert();
+                this.alertService.error(error);
+                this.loading = false;
+            });
     }
 
     showAlert() {

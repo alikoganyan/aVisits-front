@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ThemeComponent } from './theme.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from "../auth/_guards/auth.guard";
-import {DefaultComponent} from "./pages/default/default.component";
+import { DefaultComponent } from "./pages/default/default.component";
 
 const routes: Routes = [
     {
@@ -12,26 +12,13 @@ const routes: Routes = [
         "children": [
             {
                 path: "index",
-                loadChildren: ".\/pages\/default\/index\/Index.module#IndexModule"
+                loadChildren: ".\/pages\/default\/index\/index.module#IndexModule"
             },
             {
                 path: "settings",
                 component: DefaultComponent,
-                loadChildren: ".\/pages\/default\/settings\/Settings.module#SettingsModule"
+                loadChildren: ".\/pages\/default\/settings\/settings.module#SettingsModule"
             },
-            // {
-            //     path: "components\/base\/typography",
-            //     loadChildren: ".\/pages\/default\/components\/base\/base-typography\/base-typography.module#BaseTypographyModule"
-            // },
-
-            // {
-            //     path: "header\/actions",
-            //     loadChildren: ".\/pages\/default\/header\/header-actions\/header-actions.module#HeaderActionsModule"
-            // },
-            // {
-            //     path: "header\/profile",
-            //     loadChildren: ".\/pages\/default\/header\/header-profile\/header-profile.module#HeaderProfileModule"
-            // },
             {
                 path: "404",
                 loadChildren: ".\/pages\/default\/not-found\/not-found\/not-found.module#NotFoundModule"

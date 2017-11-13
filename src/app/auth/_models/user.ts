@@ -4,4 +4,7 @@ export class User {
     phone: string;
     password: string;
     fullName: string;
+    token: string;
+
+    chain: any;
 }

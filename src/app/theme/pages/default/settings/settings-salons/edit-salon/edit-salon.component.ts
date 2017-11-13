@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Salon} from "../../../../../../salon/salon.model";
-import {SalonService} from "../../../../../../salon/salon.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Salon } from "../../../../../../salon/salon.model";
+import { SalonService } from "../../../../../../salon/salon.service";
+import { ActivatedRoute, Router } from "@angular/router";
 import "rxjs/add/operator/do";
 
 @Component({
@@ -16,8 +16,8 @@ export class EditSalonComponent implements OnInit {
     saveSuccessful: boolean;
 
     constructor(private router: Router,
-                private route: ActivatedRoute,
-                private salonService: SalonService) {
+        private route: ActivatedRoute,
+        private salonService: SalonService) {
         route.params.subscribe(params => {
             this.id = params['id'];
         });
@@ -26,7 +26,6 @@ export class EditSalonComponent implements OnInit {
     ngOnInit() {
         this.salonService
             .getSalonById(this.id)
-            .do(console.log)
             .subscribe(salon => this.salon = salon);
     }
 
@@ -34,7 +33,7 @@ export class EditSalonComponent implements OnInit {
         this.salonService
             .updateSalon(salon)
             .subscribe(
-                data => this.saveSuccessful = true
+            data => this.saveSuccessful = true
             )
     }
 
@@ -42,7 +41,7 @@ export class EditSalonComponent implements OnInit {
         this.salonService
             .delete(salon)
             .subscribe(
-                data => this.router.navigate(['/settings/salons'])
+            data => this.router.navigate(['/settings/salons'])
             );
     }
 

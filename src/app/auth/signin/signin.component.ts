@@ -2,11 +2,11 @@ import {
     Component, ComponentFactoryResolver, Inject, OnInit, ViewChild, ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
-import {AuthenticationService} from "../_services/authentication.service";
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AlertComponent} from "../_directives/alert.component";
-import {AlertService} from "../_services/alert.service";
+import { AuthenticationService } from "../_services/authentication.service";
+import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AlertComponent } from "../_directives/alert.component";
+import { AlertService } from "../_services/alert.service";
 
 @Component({
     templateUrl: './signin.component.html',
@@ -19,14 +19,14 @@ export class SigninComponent implements OnInit {
     loading: boolean;
     model: any = {};
 
-    @ViewChild('alertSignin', {read: ViewContainerRef}) alertSignin: ViewContainerRef;
+    @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
 
     constructor(/*private fb: FormBuilder,*/
-                private router: Router,
-                private route: ActivatedRoute,
-                public authService: AuthenticationService,
-                private alertService: AlertService,
-                private cfr: ComponentFactoryResolver) {
+        private router: Router,
+        private route: ActivatedRoute,
+        public authService: AuthenticationService,
+        private alertService: AlertService,
+        private cfr: ComponentFactoryResolver) {
 
         this.model = {
             phoneOrEmail: '',
@@ -51,12 +51,12 @@ export class SigninComponent implements OnInit {
 
         this.authService.authenticationStepOne(email, phone)
             .subscribe(
-                data => this.onDataReceived(data),
-                error => {
-                    this.showAlert();
-                    this.alertService.error(error);
-                    this.loading = false;
-                }
+            data => this.onDataReceived(data.data),
+            error => {
+                this.showAlert();
+                this.alertService.error(error);
+                this.loading = false;
+            }
             );
     }
 
@@ -70,10 +70,11 @@ export class SigninComponent implements OnInit {
         }
 
         if (data.user.chains.length > 1) {
-            this.router.navigate(['select-chain'], {relativeTo: this.route});
+            this.router.navigate(['select-chain'], { relativeTo: this.route });
         }
         else {
-            this.router.navigate(['password'], {relativeTo: this.route});
+            this.authService.stepsData.selectedChain = data.user.chains[0].id;
+            this.router.navigate(['password'], { relativeTo: this.route });
         }
     }
 

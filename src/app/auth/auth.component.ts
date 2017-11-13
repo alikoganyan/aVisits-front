@@ -7,10 +7,10 @@ import { UserService } from "./_services/user.service";
 import { AlertComponent } from "./_directives/alert.component";
 import { LoginCustom } from "./_helpers/login-custom";
 import { Helpers } from "../helpers";
-import {routerTransition} from "./auth.router.animations";
+import { routerTransition } from "./auth.router.animations";
 
 @Component({
-    // selector: ".m-grid.m-grid--hor.m-grid--root.m-page",
+    selector: ".m-grid.m-grid--hor.m-grid--root.m-page",
     templateUrl: 'auth.component.html',
     encapsulation: ViewEncapsulation.None,
     animations: [
@@ -39,14 +39,10 @@ export class AuthComponent implements OnInit {
 
     ngOnInit() {
         this.model.remember = true;
-        // get return url from route parameters or default to '/'
-        // this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
-        // this._router.navigate([this.returnUrl]);
 
         this._script.load('body', 'assets/vendors/base/vendors.bundle.js', 'assets/demo/default/base/scripts.bundle.js')
             .then(() => {
                 Helpers.setLoading(false);
-                // LoginCustom.init();
             });
     }
 
@@ -56,13 +52,10 @@ export class AuthComponent implements OnInit {
 
     onTransitionStart() {
         this.inTransition = false;
-        console.log("start")
 
     }
     onTransitionDone() {
-        // $('#m_login');
         this.inTransition = true;
-        console.log("end")
     }
 
     // signin() {

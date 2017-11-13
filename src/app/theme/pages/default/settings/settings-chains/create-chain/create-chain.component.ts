@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {ChainService} from "../../../../../../chain/chain.service";
-import {Chain} from "../../../../../../chain/chain.model";
-import {ChainPriceLevel} from "../../../../../../chain/chain-price-level.model";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { ChainService } from "../../../../../../chain/chain.service";
+import { Chain } from "../../../../../../chain/chain.model";
+import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model";
 
 @Component({
     selector: 'app-create-chain',
@@ -28,8 +28,8 @@ export class CreateChainComponent implements OnInit {
         this.chainService
             .createChain(chain)
             .subscribe(
-                data => this.saveSuccessful = true,
-                error => this.errors = error
+            data => this.saveSuccessful = true,
+            error => this.errors = error
             )
 
     }

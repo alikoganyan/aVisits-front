@@ -19,8 +19,8 @@ import { SigninResetPasswordComponent } from './signin-reset-password/signin-res
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { Routes } from "@angular/router";
-import {SigninEnterPasswordGuard} from "./_guards/signin-enter-password.guard";
-import {SigninGuardBase} from "./_guards/signin-guard-base";
+import { SigninEnterPasswordGuard } from "./_guards/signin-enter-password.guard";
+import { SigninGuardBase } from "./_guards/signin-guard-base";
 
 
 @NgModule({
@@ -48,8 +48,8 @@ import {SigninGuardBase} from "./_guards/signin-guard-base";
         AuthenticationService,
         UserService,
         // api backend simulation
-        fakeBackendProvider,
-        MockBackend,
+        // fakeBackendProvider,
+        // MockBackend,
         BaseRequestOptions,
     ],
     entryComponents: [AlertComponent]

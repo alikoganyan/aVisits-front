@@ -2,48 +2,35 @@ import { Injectable } from "@angular/core";
 import { Headers, Http, RequestOptions, Response } from "@angular/http";
 
 import { User } from "../_models/index";
+import { Subject } from "rxjs/Subject";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { BackendService } from "../../backend/backend.service";
 
 @Injectable()
 export class UserService {
+    currentUser: Subject<User> = new BehaviorSubject<User>(new User());
+
     constructor(private http: Http) {
+        let user = JSON.parse(localStorage.getItem('currentUser'));
+        if (user) {
+            this.setCurrentUser(user);
+        }
     }
 
-    verify() {
-        return this.http.get('/api/verify', this.jwt()).map((response: Response) => response.json());
+    setCurrentUser(newUser: User): void {
+        localStorage.setItem('currentUser', JSON.stringify(newUser));
+        this.currentUser.next(newUser);
     }
 
     forgotPassword(email: string) {
-        return this.http.post('/api/forgot-password', JSON.stringify({ email }), this.jwt()).map((response: Response) => response.json());
-    }
-
-    getAll() {
-        return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
-    }
-
-    getById(id: number) {
-        return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/forgot-password', JSON.stringify({ email })).map((response: Response) => response.json());
     }
 
     create(user: User) {
-        return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/users', user).map((response: Response) => response.json());
     }
 
     update(user: User) {
-        return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
-    }
-
-    delete(id: number) {
-        return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
-    }
-
-    // private helper methods
-
-    private jwt() {
-        // create authorization header with jwt token
-        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (currentUser && currentUser.token) {
-            let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-            return new RequestOptions({ headers: headers });
-        }
+        return this.http.put('/api/users/' + user.id, user).map((response: Response) => response.json());
     }
 }

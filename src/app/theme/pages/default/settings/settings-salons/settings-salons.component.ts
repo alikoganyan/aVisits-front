@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {SalonService} from "../../../../../salon/salon.service";
-import {ChainService} from "../../../../../chain/chain.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Salon} from "../../../../../salon/salon.model";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { SalonService } from "../../../../../salon/salon.service";
+import { ChainService } from "../../../../../chain/chain.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Salon } from "../../../../../salon/salon.model";
 
 @Component({
     selector: 'app-settings-salons',
@@ -14,16 +14,16 @@ export class SettingsSalonsComponent implements OnInit {
     salons: Salon[];
 
     constructor(private router: Router,
-                private route: ActivatedRoute,
-                private chainService: ChainService,
-                private salonService: SalonService) {
+        private route: ActivatedRoute,
+        private chainService: ChainService,
+        private salonService: SalonService) {
     }
 
     ngOnInit() {
         this.salonService
             .getSalons()
             .subscribe(
-                (res: any) => this.renderSalons(res)
+            (res: any) => this.renderSalons(res)
             );
     }
 
@@ -32,6 +32,6 @@ export class SettingsSalonsComponent implements OnInit {
     }
 
     redirectToCreateSalon(): void {
-        this.router.navigate(['./create'], {relativeTo: this.route})
+        this.router.navigate(['./create'], { relativeTo: this.route })
     }
 }

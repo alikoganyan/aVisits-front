@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Chain} from "./chain.model";
-import {Http} from "@angular/http";
-import {Observable} from "rxjs/Observable";
+import { Chain } from "./chain.model";
+import { Http } from "@angular/http";
+import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/filter";
-import {BackendService} from "../backend/backend.service";
+import { BackendService } from "../backend/backend.service";
 
 @Injectable()
 export class ChainService {

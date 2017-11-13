@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {Router} from "@angular/router";
-import {Chain} from "../../../../../../chain/chain.model";
-import {ChainPriceLevel} from "../../../../../../chain/chain-price-level.model";
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Router } from "@angular/router";
+import { Chain } from "../../../../../../chain/chain.model";
+import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model";
 
 @Component({
     selector: 'app-chain-settings',

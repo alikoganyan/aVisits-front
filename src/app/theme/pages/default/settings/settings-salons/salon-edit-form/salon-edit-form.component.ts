@@ -2,13 +2,13 @@ import {
     Component, ElementRef, EventEmitter, Input, NgZone, OnInit, Output, ViewChild,
     ViewEncapsulation
 } from '@angular/core';
-import {Salon} from "../../../../../../salon/salon.model";
-import {MapsAPILoader} from "@agm/core";
-import {FormControl} from "@angular/forms";
+import { Salon } from "../../../../../../salon/salon.model";
+import { MapsAPILoader } from "@agm/core";
+import { FormControl } from "@angular/forms";
 import { } from 'googlemaps';
-import {GeoNamesService} from "../../../../../../shared/_services/geo-names.service";
+import { GeoNamesService } from "../../../../../../shared/_services/geo-names.service";
 import "rxjs/add/operator/do";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-salon-edit-form',
@@ -46,7 +46,6 @@ export class SalonEditFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log("init form")
         this.title = this.isCreateDialog ? 'Новый салон' : 'Обновить салон';
         this.submitButtonText = this.isCreateDialog ? 'Сохранить' : 'Обновить';
         this.canDeleteSalon = !this.isCreateDialog;
@@ -98,7 +97,6 @@ export class SalonEditFormComponent implements OnInit {
     loadCities($event): void {
         this.geoNamesService
             .getCities(this.getSelectedCountryId(), this.salon.city)
-            .do(console.log)
             .subscribe(
                 next => {
                     if(next.response) {
