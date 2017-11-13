@@ -13,6 +13,7 @@ import { AlertComponent } from "../_directives/alert.component";
     encapsulation: ViewEncapsulation.None
 })
 export class SigninEnterPasswordComponent implements OnInit {
+    loading: boolean;
     password: string = '';
 
     @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;

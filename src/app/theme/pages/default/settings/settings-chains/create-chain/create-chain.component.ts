@@ -33,4 +33,7 @@ export class CreateChainComponent implements OnInit {
             )
 
     }
+
+    onDeleteChain(chain: any): void {
+    }
 }
