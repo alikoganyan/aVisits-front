@@ -1,4 +1,5 @@
 <div class="m-login__signup">
+    <ng-template #alertSignup></ng-template>
     <div class="m-login__head">
         <h3 class="m-login__title">
             Регистрация
@@ -12,19 +13,23 @@
         <div class="form-group m-form__group">
             <input class="form-control m-input" type="text" placeholder="Название компании" name="companyName"
                    ngClass="{'form-control-danger': companyName.errors}"
-                   [(ngModel)]="model.companyName" #companyName="ngModel" required>
+                   [(ngModel)]="model.name" #companyName="ngModel" required>
         </div>
         <div class="form-group m-form__group">
-            <input class="form-control m-input" type="text" placeholder="Email" name="email" [(ngModel)]="model.email"
+            <input class="form-control m-input" type="text" placeholder="e-mail" name="email" [(ngModel)]="model.email"
                    #email="ngModel" autocomplete="off">
         </div>
         <div class="form-group m-form__group">
-            <input class="form-control m-input" type="password" placeholder="Password" name="password"
+            <input class="form-control m-input" type="text" placeholder="Номер телефона" name="phone" [(ngModel)]="model.phone"
+                   #email="ngModel" autocomplete="off">
+        </div>
+        <div class="form-group m-form__group">
+            <input class="form-control m-input" type="password" placeholder="Пароль" name="password"
                    [(ngModel)]="model.password" #password="ngModel">
         </div>
         <div class="form-group m-form__group">
-            <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password"
-                   name="rpassword" [(ngModel)]="model.rpassword" #rpassword="ngModel">
+            <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Подтверждение пароля"
+                   name="rpassword" [(ngModel)]="model.password_confirmation" #rpassword="ngModel">
         </div>
 
         <div class="m-login__form-action">

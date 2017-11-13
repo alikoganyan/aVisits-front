@@ -6,8 +6,8 @@ import { User } from "../auth/_models/user";
 
 @Injectable()
 export class BackendService {
-    private baseUrl = 'http://api.avisits.com/api/';
-    private headers = new Headers({ 'Content-Type': 'application/json' });
+    public static apiUrl = 'http://api.avisits.com/api/';
+    public static headers = new Headers({ 'Content-Type': 'application/json' });
     private token: string;
 
     constructor(private http: Http,
@@ -22,27 +22,27 @@ export class BackendService {
 
     public get(url: string): Observable<any> {
         return this.http.get(
-            this.baseUrl + url + this.getTokenParameter(),
-            { headers: this.headers });
+            BackendService.apiUrl + url + this.getTokenParameter(),
+            { headers: BackendService.headers });
     }
 
     public post(url: string, data: any): Observable<any> {
         return this.http.post(
-            this.baseUrl + url + this.getTokenParameter(),
+            BackendService.apiUrl + url + this.getTokenParameter(),
             JSON.stringify(data),
-            { headers: this.headers });
+            { headers: BackendService.headers });
     }
 
     public put(url: string, data: any): Observable<any> {
         return this.http.put(
-            this.baseUrl + url + this.getTokenParameter(),
+            BackendService.apiUrl + url + this.getTokenParameter(),
             JSON.stringify(data),
-            { headers: this.headers });
+            { headers: BackendService.headers });
     }
 
     public delete(url: string): Observable<any> {
         return this.http.delete(
-            this.baseUrl + url + this.getTokenParameter());
+            BackendService.apiUrl + url + this.getTokenParameter());
     }
 
     getTokenParameter(): string {

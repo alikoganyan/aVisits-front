@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
     loading: boolean;
     model: any;
 
-    @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
+    @ViewChild('alertSignup', { read: ViewContainerRef }) alertSignup: ViewContainerRef;
 
     constructor(
         private router: Router,
@@ -27,12 +27,11 @@ export class SignupComponent implements OnInit {
         private cfr: ComponentFactoryResolver
     ) {
         this.model = {
-            companyName: '',
-            userName: '',
+            name: '',
             phone: '',
             email: '',
             password: '',
-            passwordConfirm: ''
+            password_confirmation: ''
         }
     }
 
@@ -45,7 +44,7 @@ export class SignupComponent implements OnInit {
                 this.alertService.success('Thank you. To complete your registration please check your email.', true);
                 this.loading = false;
                 //navigate to signin
-                this.router.navigate(['/login']);
+                this.router.navigate(['/auth']);
                 // LoginCustom.displaySignInForm();
             },
             error => {
@@ -56,9 +55,9 @@ export class SignupComponent implements OnInit {
     }
 
     showAlert() {
-        this['alertSignin'].clear();
+        this['alertSignup'].clear();
         let factory = this.cfr.resolveComponentFactory(AlertComponent);
-        let ref = this['alertSignin'].createComponent(factory);
+        let ref = this['alertSignup'].createComponent(factory);
         ref.changeDetectorRef.detectChanges();
     }
 

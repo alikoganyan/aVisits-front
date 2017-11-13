@@ -51,17 +51,18 @@ export class SigninComponent implements OnInit {
 
         this.authService.authenticationStepOne(email, phone)
             .subscribe(
-            data => this.onDataReceived(data.data),
+            res => this.onDataReceived(res),
             error => {
-                this.showAlert();
-                this.alertService.error(error);
-                this.loading = false;
-            }
+                    this.showAlert();
+                    this.alertService.error(error);
+                    this.loading = false;
+                }
             );
     }
 
-    onDataReceived(data: any) {
-        if (!data.user) {
+    onDataReceived(res: any) {
+        let user = res.data.user;
+        if (!user || res.status !== 'OK') {
             this.showAlert();
             this.alertService.error("user not found");
             this.loading = false;
@@ -69,11 +70,11 @@ export class SigninComponent implements OnInit {
             return;
         }
 
-        if (data.user.chains.length > 1) {
+        if (user.chains.length > 1) {
             this.router.navigate(['select-chain'], { relativeTo: this.route });
         }
         else {
-            this.authService.stepsData.selectedChain = data.user.chains[0].id;
+            this.authService.stepsData.selectedChain = user.chains[0].id;
             this.router.navigate(['password'], { relativeTo: this.route });
         }
     }
