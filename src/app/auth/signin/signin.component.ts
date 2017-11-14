@@ -53,10 +53,10 @@ export class SigninComponent implements OnInit {
             .subscribe(
             res => this.onDataReceived(res),
             error => {
-                    this.showAlert();
-                    this.alertService.error(error);
-                    this.loading = false;
-                }
+                this.showAlert();
+                this.alertService.error(error);
+                this.loading = false;
+            }
             );
     }
 

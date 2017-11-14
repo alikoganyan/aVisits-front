@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SigninSelectChainComponent } from './signin-select-chain.component';
 
-describe('SigninSelectChainComponent', () => {
+xdescribe('SigninSelectChainComponent', () => {
     let component: SigninSelectChainComponent;
     let fixture: ComponentFixture<SigninSelectChainComponent>;
 
