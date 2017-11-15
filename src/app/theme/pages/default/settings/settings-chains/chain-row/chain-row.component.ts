@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import { Chain } from "../../../../../../chain/chain.model";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -10,18 +10,21 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class ChainRowComponent implements OnInit {
     @Input() chain: Chain;
+    @Output() editChainRequested: EventEmitter<any>;
 
     constructor(
         private router: Router,
         private route: ActivatedRoute
     ) {
+
+        this.editChainRequested = new EventEmitter();
     }
 
     ngOnInit() {
     }
 
     editChain(chain: any): void {
-        this.router.navigate(['./edit', chain.id], { relativeTo: this.route })
+        this.editChainRequested.next(chain);
     }
 
 }

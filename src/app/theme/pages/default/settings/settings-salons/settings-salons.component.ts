@@ -3,6 +3,8 @@ import { SalonService } from "../../../../../salon/salon.service";
 import { ChainService } from "../../../../../chain/chain.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Salon } from "../../../../../salon/salon.model";
+import {CreateSalonComponent} from "./create-salon/create-salon.component";
+import {EditSalonComponent} from "./edit-salon/edit-salon.component";
 
 @Component({
     selector: 'app-settings-salons',
@@ -12,6 +14,7 @@ import { Salon } from "../../../../../salon/salon.model";
 })
 export class SettingsSalonsComponent implements OnInit {
     salons: Salon[];
+    editFormData: any;
 
     constructor(private router: Router,
         private route: ActivatedRoute,
@@ -31,7 +34,21 @@ export class SettingsSalonsComponent implements OnInit {
         this.salons = salons;
     }
 
-    redirectToCreateSalon(): void {
-        this.router.navigate(['./create'], { relativeTo: this.route })
+    openModalForm(form: any, inputs?: any): void {
+        this.editFormData = {
+            component: form,
+            inputs: inputs || {}
+        };
+    }
+
+    openCreateSalonForm(): void {
+        this.openModalForm(CreateSalonComponent);
+    }
+
+    openEditSalonForm(salon: Salon): void {
+        console.log(salon)
+        this.openModalForm(EditSalonComponent, {
+            salon: salon
+        });
     }
 }

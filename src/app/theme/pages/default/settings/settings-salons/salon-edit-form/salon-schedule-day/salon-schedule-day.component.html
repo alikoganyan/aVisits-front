@@ -1,8 +1,19 @@
-<label class="m-checkbox">
-    <input type="checkbox">
-    {{daySchedule.numOfDay}}
-    <span></span>
-</label>
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon">
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" >
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description"></span>
+            </label>
+        </span>
+        <span class="input-group-addon" style="width: 42px">{{daySchedule.num_of_day | dayOfWeek}}</span>
+        <input type="text" class="form-control" value="10:00">
+        <span class="input-group-addon">-</span>
+        <input type="text" class="form-control" value="20:00">
+    </div>
+</div>
 
-<dx-date-box></dx-date-box>
-<dx-date-box></dx-date-box>
+
+<!--<dx-date-box></dx-date-box>-->
+<!--<dx-date-box></dx-date-box>-->

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, Injector, OnInit, ViewEncapsulation} from '@angular/core';
 import { Salon } from "../../../../../../salon/salon.model";
 import { SalonService } from "../../../../../../salon/salon.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -16,17 +16,13 @@ export class EditSalonComponent implements OnInit {
     saveSuccessful: boolean;
 
     constructor(private router: Router,
-        private route: ActivatedRoute,
-        private salonService: SalonService) {
-        route.params.subscribe(params => {
-            this.id = params['id'];
-        });
+                private route: ActivatedRoute,
+                private salonService: SalonService,
+                private injector: Injector) {
+        this.salon = this.injector.get('salon');
     }
 
     ngOnInit() {
-        this.salonService
-            .getSalonById(this.id)
-            .subscribe(salon => this.salon = salon);
     }
 
     onSaveSalon(salon: Salon) {
@@ -41,7 +37,7 @@ export class EditSalonComponent implements OnInit {
         this.salonService
             .delete(salon)
             .subscribe(
-            data => this.router.navigate(['/settings/salons'])
+            // data => this.router.navigate(['/settings/salons'])
             );
     }
 

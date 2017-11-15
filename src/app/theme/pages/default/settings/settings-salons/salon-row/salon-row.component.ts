@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import { Salon } from "../../../../../../salon/salon.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import {ChainService} from "../../../../../../chain/chain.service";
@@ -11,6 +11,7 @@ import {ChainService} from "../../../../../../chain/chain.service";
 })
 export class SalonRowComponent implements OnInit {
     @Input() salon: any;
+    @Output() editSalonRequested: EventEmitter<any>;
     chainName: string;
 
     constructor(
@@ -18,6 +19,7 @@ export class SalonRowComponent implements OnInit {
         private router: Router,
         private chainService: ChainService
     ) {
+        this.editSalonRequested = new EventEmitter();
     }
 
     ngOnInit() {
@@ -32,7 +34,7 @@ export class SalonRowComponent implements OnInit {
     }
 
     editSalon(): void {
-        this.router.navigate(['./edit', this.salon.id], { relativeTo: this.route });
+        this.editSalonRequested.next(this.salon);
     }
 
 }

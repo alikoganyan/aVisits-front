@@ -5,7 +5,7 @@ import {
 import { UserService } from "../_services/user.service";
 import { AlertService } from "../_services/alert.service";
 import { AlertComponent } from "../_directives/alert.component";
-import { Router } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     templateUrl: './signup.component.html',
@@ -22,6 +22,7 @@ export class SignupComponent implements OnInit {
 
     constructor(
         private router: Router,
+        private route: ActivatedRoute,
         private userService: UserService,
         private alertService: AlertService,
         private cfr: ComponentFactoryResolver
@@ -40,12 +41,9 @@ export class SignupComponent implements OnInit {
         this.userService.create(this.model)
             .subscribe(
             data => {
-                this.showAlert();
-                this.alertService.success('Thank you. To complete your registration please check your email.', true);
                 this.loading = false;
                 //navigate to signin
-                this.router.navigate(['/auth']);
-                // LoginCustom.displaySignInForm();
+                this.router.navigate(['../signup-complete'], { relativeTo: this.route });
             },
             error => {
                 this.showAlert();

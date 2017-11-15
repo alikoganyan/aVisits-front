@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { AuthenticationService } from "../_services/authentication.service";
+import {UserService} from "../_services/user.service";
 
 @Component({
     templateUrl: './signin-select-chain.component.html',
@@ -9,11 +10,14 @@ import { AuthenticationService } from "../_services/authentication.service";
 export class SigninSelectChainComponent implements OnInit {
     userChains: any;
 
-    constructor(private router: Router,
+    constructor(
+        private router: Router,
         private route: ActivatedRoute,
-        public authService: AuthenticationService, ) {
+        private authService: AuthenticationService,
+        private userService: UserService
+            ) {
 
-        this.userChains = this.authService.stepsData.user.chains;
+        this.userChains = this.userService.currentUser.getValue().chains;
     }
 
     selectUserChain(chainId: string) {
@@ -23,8 +27,7 @@ export class SigninSelectChainComponent implements OnInit {
 
 
     ngOnInit() {
-        let login = $('#m_login');
-        (<any>login.find('.m-login--choose-chain')).animateClass('flipInX animated');
+        $('.m-login--choose-chain').animateClass('flipInX animated');
     }
 
 }

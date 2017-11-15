@@ -1,25 +1,22 @@
 <div class="m-widget5__item">
-    <div class="m-widget5__pic">
-        <img alt="" class="m-widget7__img"
-             src="./assets/app/media/img//products/product6.jpg">
-    </div>
-    <div class="m-widget5__content">
-        <h4 class="m-widget5__title">
-            {{chain.title}}
-        </h4>
-        <div class="m-widget5__info">
-            <span class="m-widget5__author">
-                Салонов:
-            </span>
-            <span class="m-widget5__info-label">
-                {{chain.salonsCount}}
-            </span>
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="img-thumbnail" src="assets/app/media/img/products/product1.jpg" alt="">
         </div>
-    </div>
-    <div class="m-widget5__stats1">
-        <button class="m-btn btn btn-primary edit-salon-button" title="Изменить" type="button"
-                (click)="editChain(chain)">
-            <i class="la la-edit"></i>
-        </button>
+        <div class="col-sm col-9">
+            <h5>
+                <a class="m-link m--font-bolder" href="#">
+                    {{chain.title}}
+                </a>
+            </h5>
+            <p>
+                Салонов: {{chain.salonsCount}}
+            </p>
+        </div>
+        <div class="col-sm col-3 m--align-right">
+            <button type="button" class="btn btn-success btn-sm" (click)="editChain(chain)" data-toggle="modal" data-target="#modalDialog">
+                <i class="la la-edit"></i>
+            </button>
+        </div>
     </div>
 </div>

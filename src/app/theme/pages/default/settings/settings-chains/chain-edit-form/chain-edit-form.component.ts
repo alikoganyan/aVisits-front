@@ -12,6 +12,7 @@ import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model
 export class ChainEditFormComponent implements OnInit {
     @Input() isCreateDialog: boolean;
     @Input() chain: Chain = new Chain();
+    @Input() error: string = '';
     @Output() saveChain = new EventEmitter<any>();
     @Output() deleteChain = new EventEmitter<any>();
 

@@ -1,33 +1,15 @@
-<div [@routerTransition]="getState(o)"
-     class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile m-login m-login--1 m-login--singin" id="m_login">
-    <div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
-        <div class="m-stack m-stack--hor m-stack--desktop">
-            <div class="m-stack__item m-stack__item--fluid">
-                <div class="m-login__wrapper">
-                    <div class="m-login__logo">
-                        <a href="#">
-                            <img src="./assets/app/media/img//logos/logo-2.png">
-                        </a>
-                    </div>
-
-                    <router-outlet #o="outlet"></router-outlet>
-
-                </div>
+<div app-auth [@routerTransition]="getState(o)"
+     class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url(assets/app/media/img//bg/bg-3.jpg);" >
+    <div class="m-grid__item m-grid__item--fluid m-login__wrapper">
+        <div class="m-login__container">
+            <div class="m-login__logo">
+                <a href="#">
+                    <img src="assets/app/media/img//logos/logo-1.png">
+                </a>
             </div>
 
-        </div>
-    </div>
+            <router-outlet #o="outlet"></router-outlet>
 
-    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content" style="background-image: url(./assets/app/media/img//bg/bg-4.jpg)">
-        <div class="m-grid__item m-grid__item--middle">
-            <h3 class="m-login__welcome">
-                Join Our Community
-            </h3>
-            <p class="m-login__msg">
-                Lorem ipsum dolor sit amet, coectetuer adipiscing
-                <br>
-                elit sed diam nonummy et nibh euismod
-            </p>
         </div>
     </div>
 </div>

@@ -8,6 +8,8 @@ import { SignupComponent } from "./signup/signup.component";
 import { SigninResetPasswordComponent } from "./signin-reset-password/signin-reset-password.component";
 import { SigninEnterPasswordGuard } from "./_guards/signin-enter-password.guard";
 import { SigninGuardBase } from "./_guards/signin-guard-base";
+import {SignupCompleteComponent} from "./signup-complete/signup-complete.component";
+import {SigninSelectChainGuard} from "./_guards/signin-select-chain.guard";
 
 const authRoutes: Routes = [
     {
@@ -22,7 +24,7 @@ const authRoutes: Routes = [
             {
                 path: 'select-chain',
                 component: SigninSelectChainComponent,
-                canActivate: [SigninGuardBase]
+                canActivate: [SigninSelectChainGuard]
             },
             {
                 path: 'password',
@@ -32,6 +34,10 @@ const authRoutes: Routes = [
             {
                 path: 'signup',
                 component: SignupComponent
+            },
+            {
+                path: 'signup-complete',
+                component: SignupCompleteComponent
             },
             {
                 path: 'reset-password',

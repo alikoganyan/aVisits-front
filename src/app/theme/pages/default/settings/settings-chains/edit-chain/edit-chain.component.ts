@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, Injector, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { ChainService } from "../../../../../../chain/chain.service";
 import { Chain } from "../../../../../../chain/chain.model";
@@ -10,30 +10,30 @@ import { Chain } from "../../../../../../chain/chain.model";
 })
 export class EditChainComponent implements OnInit {
     id: string;
-    chain: Chain = new Chain();
+    /*@Input() */chain: Chain;
     //TODO: show toaster
     saveSuccessful: boolean = false;
     errors: any;
 
     constructor(private route: ActivatedRoute,
         private router: Router,
-        private chainService: ChainService) {
-        route.params.subscribe(params => {
-            this.id = params['id'];
-        });
+        private chainService: ChainService,
+        private injector: Injector) {
+
+        this.chain = this.injector.get('chain');
     }
 
     ngOnInit() {
-        this.chainService
-            .getChainById(this.id)
-            .subscribe(chain => this.chain = chain);
     }
 
     onSaveChain(chain: any): void {
         this.chainService
             .updateChain(chain)
             .subscribe(
-            data => this.saveSuccessful = true,
+            data => {
+                this.saveSuccessful = true;
+                this.hideDialog();
+            },
             error => this.errors = error
             )
 
@@ -43,8 +43,12 @@ export class EditChainComponent implements OnInit {
         this.chainService
             .deleteChain(chain)
             .subscribe(
-            data => this.router.navigate(['/settings/chains'])
+                next => this.hideDialog()
             );
+    }
+
+    hideDialog() {
+        (<any>$("#modalDialog")).modal('hide')
     }
 
 }

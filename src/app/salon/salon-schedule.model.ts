@@ -1,12 +1,12 @@
 export class SalonSchedule {
     id: string;
-    numOfDay: string;
+    num_of_day: string;
     workingStatus: boolean;
     start: string;
     end: string;
 
     constructor(obj?: any) {
-        this.numOfDay = obj && obj.numOfDay || 0;
+        this.num_of_day = obj && obj.num_of_day || 1;
         this.start = obj && obj.start || "10:00";
         this.end = obj && obj.end || "19:00";
     }

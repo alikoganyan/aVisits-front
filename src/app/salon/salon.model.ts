@@ -33,14 +33,11 @@ export class Salon {
     }
 
     createEmptySchedule(): SalonSchedule[] {
-        return [
-            new SalonSchedule(1),
-            new SalonSchedule(2),
-            new SalonSchedule(3),
-            new SalonSchedule(4),
-            new SalonSchedule(5),
-            new SalonSchedule(6),
-            new SalonSchedule(7)
-        ]
+        let schedules = [];
+        for(let i = 1; i < 8; i++) {
+            schedules.push(new SalonSchedule({num_of_day: i}));
+        }
+
+        return schedules;
     }
 }

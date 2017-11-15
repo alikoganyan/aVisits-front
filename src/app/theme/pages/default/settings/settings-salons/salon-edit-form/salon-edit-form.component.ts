@@ -119,8 +119,4 @@ export class SalonEditFormComponent implements OnInit {
         this.deleteSalon.emit(this.salon);
     }
 
-    goToSalons(): void {
-        this.router.navigate(['/settings/salons']);
-    }
-
 }

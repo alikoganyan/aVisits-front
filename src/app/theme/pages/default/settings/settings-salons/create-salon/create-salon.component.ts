@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { SalonService } from "../../../../../../salon/salon.service";
 import { UserService } from "../../../../../../auth/_services/user.service";
 import { AuthenticationService } from "../../../../../../auth/_services/authentication.service";
+import {User} from "../../../../../../auth/_models/user";
 
 @Component({
     selector: 'app-create-salon',
@@ -13,15 +14,20 @@ import { AuthenticationService } from "../../../../../../auth/_services/authenti
 })
 export class CreateSalonComponent implements OnInit {
     salon: Salon;
+    user: User;
     saveSuccessful: boolean;
     currentChainId: any;
 
     constructor(
         private salonService: SalonService,
-        private authService: AuthenticationService
+        private authService: AuthenticationService,
+        private userService: UserService
     ) {
+        this.userService.currentUser.subscribe(
+            nextUser => this.user = nextUser
+        );
 
-        this.currentChainId = this.authService.stepsData.selectedChain;
+        this.currentChainId = this.user.selectedChain;
         this.salon = new Salon();
         this.salon.chain_id = this.currentChainId;
     }

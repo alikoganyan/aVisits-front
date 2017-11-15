@@ -3,46 +3,29 @@ import { Http, Headers } from "@angular/http";
 import { UserService } from "../auth/_services/user.service";
 import { Observable } from "rxjs/Observable";
 import { User } from "../auth/_models/user";
+import {AuthenticationService} from "../auth/_services/authentication.service";
+import {BackendBaseService} from "./backend-base.service";
 
 @Injectable()
-export class BackendService {
-    public static apiUrl = 'http://api.avisits.com/api/';
-    public static headers = new Headers({ 'Content-Type': 'application/json' });
+export class BackendService extends BackendBaseService {
     private token: string;
 
-    constructor(private http: Http,
-        private userService: UserService) {
+    constructor(http: Http,
+                public authService: AuthenticationService) {
+        super(http);
 
-        this.userService.currentUser
+        console.log("create backend service")
+
+        this.authService.currentAuthData
             .subscribe(
-            user => {
-                this.token = user.token;
+            authData => {
+                console.log(authData)
+                this.token = authData.token;
             });
     }
 
-    public get(url: string): Observable<any> {
-        return this.http.get(
-            BackendService.apiUrl + url + this.getTokenParameter(),
-            { headers: BackendService.headers });
-    }
-
-    public post(url: string, data: any): Observable<any> {
-        return this.http.post(
-            BackendService.apiUrl + url + this.getTokenParameter(),
-            JSON.stringify(data),
-            { headers: BackendService.headers });
-    }
-
-    public put(url: string, data: any): Observable<any> {
-        return this.http.put(
-            BackendService.apiUrl + url + this.getTokenParameter(),
-            JSON.stringify(data),
-            { headers: BackendService.headers });
-    }
-
-    public delete(url: string): Observable<any> {
-        return this.http.delete(
-            BackendService.apiUrl + url + this.getTokenParameter());
+    prepareUrl(url: string): string {
+        return super.prepareUrl(url) + this.getTokenParameter();
     }
 
     getTokenParameter(): string {

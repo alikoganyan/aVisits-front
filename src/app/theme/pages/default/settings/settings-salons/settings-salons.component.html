@@ -1,7 +1,7 @@
 <div class="m-content">
     <div class="row">
-        <div class="col-xl-10 margin-auto">
-            <div class="m-portlet m-portlet--full-height">
+        <div class="col-xl-8">
+            <div class="m-portlet">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
@@ -10,27 +10,43 @@
                             </h3>
                         </div>
                     </div>
-                    <button class="btn btn-brand add-salon-button" type="button" (click)="redirectToCreateSalon()">
-                        Добавить салон
-                    </button>
+                    <div class="m-portlet__head-tools">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDialog" (click)="openCreateSalonForm()">
+                            Добавить
+                        </button>
+                    </div>
                 </div>
                 <div class="m-portlet__body">
-
-                    <div class="tab-content">
-                        <div aria-expanded="true" class="tab-pane active" id="m_widget5_tab1_content">
-
-                            <div class="m-widget5">
-                                <app-salon-row
-                                        *ngFor="let salon of salons"
-                                        [salon]="salon"
-                                >
-                                </app-salon-row>
-
-                            </div>
+                    <div class="m-widget5">
+                        <div class="m-widget5__item">
+                            <select class="form-control m-bootstrap-select m_selectpicker" data-live-search="true">
+                                <option>
+                                    Все сети
+                                </option>
+                                <option>
+                                    Сеть 1
+                                </option>
+                                <option>
+                                    Сеть 2
+                                </option>
+                            </select>
                         </div>
+
+                        <app-salon-row
+                                *ngFor="let salon of salons"
+                                [salon]="salon"
+                                (editSalonRequested)="openEditSalonForm($event)"
+                        >
+                        </app-salon-row>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="modal fade" id="modalDialog" role="dialog" tabindex="-1" style="display: none">
+    <app-dynamic-component [dialogData]="editFormData"></app-dynamic-component>
 </div>

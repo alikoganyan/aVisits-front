@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthenticationService } from "../_services/authentication.service";
+import {UserService} from "../_services/user.service";
 
 @Injectable()
 export class SigninGuardBase implements CanActivate {
-    constructor(private router: Router,
-        public authService: AuthenticationService) {
+    constructor(
+        private router: Router,
+        private authService: AuthenticationService
+        ) {
     }
 
     canActivate(next: ActivatedRouteSnapshot,
@@ -20,17 +23,14 @@ export class SigninGuardBase implements CanActivate {
     }
 
     canActivateCore(): boolean {
-        return !!this.getUser();
+        return !!this.getAuthData();
     }
 
-    getUser(): any {
-        if (this.authService.stepsData) {
-            return this.authService.stepsData.user;
-        }
-        return null;
+    getAuthData(): any {
+        return this.authService.currentAuthData.getValue();
     }
 
     redirectToLogin() {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth']);
     }
 }

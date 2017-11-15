@@ -1,0 +1,23 @@
+<div class="m-login__signup-complete">
+    <ng-template #alertSignup></ng-template>
+    <div class="m-login__head">
+        <h3 class="m-login__title">
+            Регистрация
+        </h3>
+        <div class="m-login__desc">
+            Спасибо. Для завершения регистрации проверьте свой e-mail.
+        </div>
+    </div>
+    <div class="m-login__form m-form">
+        <div class="m-login__form-action">
+            <button [disabled]="loading"
+                    [ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
+                    (click)="completeSignup()"
+                    class="btn btn-primary"
+            >
+                Продолжить
+            </button>
+        </div>
+    </div>
+
+</div>

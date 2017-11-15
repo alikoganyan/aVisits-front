@@ -7,6 +7,7 @@ import { ChainRowComponent } from './chain-row/chain-row.component';
 import { CreateChainComponent } from './create-chain/create-chain.component';
 import { EditChainComponent } from './edit-chain/edit-chain.component';
 import { FormsModule } from "@angular/forms";
+import {SharedModule} from "../../../../../shared/shared.module";
 
 const chainRoutes: Routes = [
     {
@@ -15,14 +16,6 @@ const chainRoutes: Routes = [
             {
                 path: '',
                 component: SettingsChainsComponent
-            },
-            {
-                path: 'create',
-                component: CreateChainComponent
-            },
-            {
-                path: 'edit/:id',
-                component: EditChainComponent
             }
         ]
     },
@@ -33,6 +26,7 @@ const chainRoutes: Routes = [
         CommonModule,
         RouterModule.forChild(chainRoutes),
         FormsModule,
+        SharedModule
     ],
     exports: [
         RouterModule,
@@ -41,6 +35,10 @@ const chainRoutes: Routes = [
         ChainEditFormComponent,
         SettingsChainsComponent,
         ChainRowComponent,
+        CreateChainComponent,
+        EditChainComponent
+    ],
+    entryComponents: [
         CreateChainComponent,
         EditChainComponent
     ]

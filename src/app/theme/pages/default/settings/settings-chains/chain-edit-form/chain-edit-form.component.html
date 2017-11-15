@@ -1,109 +1,85 @@
-<div class="m-content">
-    <div class="row">
-        <div class="col-md-8 margin-auto">
-            <!--begin::Portlet-->
-            <div class="m-portlet m-portlet--tab">
-                <div class="m-portlet__head">
-                    <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title title-div-width">
-                            <button class="btn btn-primary back-to-allChains" type="button" (click)="goToChains()">
-                                <i class="fa fa-chevron-left"></i> Все сети
-                            </button>
-                            <h3 class="m-portlet__head-text">
-                                {{title}}
-                            </h3>
-                        </div>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+                {{title}}
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                    ×
+                </span>
+            </button>
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+            {{error}}
+        </div>
+
+        <form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
+            <div class="modal-body">
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Название</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" name="title" [(ngModel)]="chain.title" placeholder="Введите название" required>
                     </div>
                 </div>
+                <fieldset>
+                    <legend>Уровни цен</legend>
+                    <div class="form-group row"
+                         *ngFor="let priceLevel of chain.levels; let i = index"
+                         ngModelGroup="levels"
+                         #levels="ngModelGroup">
 
-                <!--begin::Form-->
-                <form class="m-form m-form--fit m-form--label-align-right" (ngSubmit)="onSubmit()" #f="ngForm">
-                    <div class="m-portlet__body">
-                        <!-- TITLE -->
-                        <div class="form-group m-form__group row">
-                            <label class="col-form-label col-lg-3 col-sm-12">
-                                Название
-                            </label>
-                            <div class="col-lg-4 col-md-9 col-sm-12">
-                                <input class="form-control" type="text" name="title" [(ngModel)]="chain.title" required>
-                            </div>
-                        </div>
-                        <!-- Price Levels -->
-                        <div class="m-form__group row">
-                            <label class="col-form-label col-lg-3 col-sm-12">
-                                Уровни цен:
-                            </label>
-                        </div>
-
-
-                        <div
-                                class="m-form__group row"
-                                *ngFor="let priceLevel of chain.levels; let i = index"
-                                ngModelGroup="levels"
-                                #levels="ngModelGroup"
-                        >
-                            <label class="col-form-label col-lg-3 col-sm-12">
-                                Уровень {{i+1}}
-                            </label>
-                            <div class="col-lg-6 col-md-9 col-sm-12 divInputPrcieLevel">
+                        <label class="col-sm-3 col-form-label">Уровень {{i+1}}</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Название"
                                        [name]="'price' + i"
                                        [(ngModel)]="priceLevel.level"
                                 >
-                            </div>
-                            <div class="col-lg-2 col-md-2 price-level-actions">
-                                <i class="la la-remove"
-                                   (click)="removePriceLevel(i)"
-                                   *ngIf="canRemovePriceLevels()"
-                                ></i>
-                                <i class="la la-plus"
-                                   (click)="addPriceLevel(i)"
-                                ></i>
-                            </div>
-                        </div>
-
-
-                        <div class="m-form__group row">
-                            <div class="col-lg-6 col-md-9 col-sm-12">
-                                <label class="m-checkbox">
-                                    <input type="checkbox">
-                                    Вводить номер телефона по маске
-                                    <span></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="m-form__group row">
-                            <div class="col-lg-6 col-md-9 col-sm-12">
-                                <input
-                                        class="form-control"
-                                        id="m_inputmask-create-chain_3"
-                                        type="text"
-                                        name="phone_number"
-                                        [(ngModel)]="chain.phone_number"
-                                >
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="m-portlet__foot m-portlet__foot--fit">
-                        <div class="m-form__actions m-form__actions">
-                            <div class="">
-                                <button class="btn btn-primary" type="submit" >
-                                    {{submitButtonText}}
-                                </button>
-                                <button class="btn btn-danger deleteChainButton" type="button"
-                                        *ngIf="canDeleteChain"
-                                        (click)="onDelete()">
-                                    Удалить
-                                </button>
+                                <span class="input-group-btn">
+                                        <button (click)="removePriceLevel(i)" *ngIf="canRemovePriceLevels()" class="btn btn-danger" type="button">
+                                            <i class="la la-remove"></i>
+                                        </button>
+                                        <button class="btn btn-success" type="button" (click)="addPriceLevel(i)">
+                                            <i class="la la-plus"></i>
+                                        </button>
+                                    </span>
                             </div>
                         </div>
                     </div>
-                </form>
-                <!--end::Form-->
+
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Вводить номер телефона по маске</span>
+                        </label>
+                        <input class="form-control" type="text" name="phone_number" [(ngModel)]="chain.phone_number">
+                    </div>
+                </fieldset>
             </div>
-            <!--end::Portlet-->
-        </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">
+                            {{submitButtonText}}
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Закрыть
+                        </button>
+                    </div>
+                    <div class="col-auto ml-auto">
+                        <button type="button" class="btn btn-outline-danger" *ngIf="canDeleteChain" (click)="onDelete()">
+                            <span class="m--hidden-mobile">Удалить</span>
+                            <span class="m--visible-mobile">
+										<i class="la la-trash"></i>
+									</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

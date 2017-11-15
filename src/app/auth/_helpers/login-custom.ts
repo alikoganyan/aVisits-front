@@ -1,25 +1,5 @@
 export class LoginCustom {
 
-    static handleSignInFormSubmit() {
-        $('#m_login_signin_submit').click(function(e) {
-            let form = $(this).closest('form');
-            form.validate({
-                rules: {
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true
-                    }
-                }
-            });
-            if (!form.valid()) {
-                e.preventDefault();
-                return;
-            }
-        });
-    }
 
     static displaySignUpForm() {
         let login = $('#m_login');
@@ -126,7 +106,6 @@ export class LoginCustom {
 
     static init() {
         LoginCustom.handleFormSwitch();
-        LoginCustom.handleSignInFormSubmit();
         LoginCustom.handleSignUpFormSubmit();
         LoginCustom.handleForgetPasswordFormSubmit();
     }

@@ -1,49 +1,51 @@
 <!-- BEGIN: Subheader -->
-<!--<div class="m-subheader">
+<div class="m-subheader m--hidden-mobile">
     <div class="d-flex align-items-center">
         <div class="mr-auto">
             <h3 class="m-subheader__title">
-                Сети салонов
+                Сети
             </h3>
         </div>
     </div>
-</div>-->
+</div>
 <!-- END: Subheader -->
-
 
 <div class="m-content">
     <div class="row">
-        <div class="col-xl-10 margin-auto">
-            <div class="m-portlet m-portlet--full-height">
+        <div class="col-xl-8">
+            <div class="m-portlet">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-                                Сети салонов
+                                Сети
                             </h3>
                         </div>
                     </div>
-                    <button class="btn btn-brand add-chain-button" type="button" (click)="redirectToCreateChain()">
-                        Добавить сеть
-                    </button>
+                    <div class="m-portlet__head-tools">
+                        <button type="button" class="btn btn-primary" (click)="redirectToCreateChain()" data-toggle="modal" data-target="#modalDialog">
+                            Добавить
+                        </button>
+                    </div>
                 </div>
                 <div class="m-portlet__body">
+                    <div class="m-widget5">
 
-                    <div class="tab-content">
-                        <div aria-expanded="true" class="tab-pane active" id="m_widget5_tab1_content">
+                        <app-chain-row
+                                *ngFor="let chain of chains"
+                                [chain]="chain"
+                                (editChainRequested)="openEditForm($event)"
+                        >
+                        </app-chain-row>
 
-                            <div class="m-widget5">
-                                <app-chain-row
-                                        *ngFor="let chain of chains"
-                                        [chain]="chain"
-                                >
-                                </app-chain-row>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!--it's not good that this modal is visible by descendant components TODO something better and reusable-->
+<div class="modal fade" id="modalDialog" role="dialog" tabindex="-1" style="display: none">
+    <app-dynamic-component [dialogData]="editFormData"></app-dynamic-component>
 </div>

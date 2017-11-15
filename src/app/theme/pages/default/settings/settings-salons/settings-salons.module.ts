@@ -7,10 +7,11 @@ import { CreateSalonComponent } from './create-salon/create-salon.component';
 import { SalonEditFormComponent } from './salon-edit-form/salon-edit-form.component';
 import { EditSalonComponent } from './edit-salon/edit-salon.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { Ng4GeoautocompleteModule } from "ng4-geoautocomplete";
 import { AgmCoreModule } from "@agm/core";
-import { DxAutocompleteModule, DxDateBoxModule, DxMapModule } from "devextreme-angular";
+import { DxAutocompleteModule, DxDateBoxModule } from "devextreme-angular";
 import { SalonScheduleDayComponent } from './salon-edit-form/salon-schedule-day/salon-schedule-day.component';
+import {SharedModule} from "../../../../../shared/shared.module";
+import { DayOfWeekPipe } from './salon-edit-form/salon-schedule-day/day-of-week.pipe';
 
 const salonRoutes: Routes = [
     {
@@ -19,14 +20,6 @@ const salonRoutes: Routes = [
             {
                 path: '',
                 component: SettingsSalonsComponent
-            },
-            {
-                path: 'create',
-                component: CreateSalonComponent
-            },
-            {
-                path: 'edit/:id',
-                component: EditSalonComponent
             }
         ]
     },
@@ -38,6 +31,7 @@ const salonRoutes: Routes = [
         RouterModule.forChild(salonRoutes),
         FormsModule,
         ReactiveFormsModule,
+        SharedModule,
 
         DxAutocompleteModule,
         DxDateBoxModule,
@@ -54,7 +48,12 @@ const salonRoutes: Routes = [
         CreateSalonComponent,
         SalonEditFormComponent,
         EditSalonComponent,
-        SalonScheduleDayComponent
+        SalonScheduleDayComponent,
+        DayOfWeekPipe
+    ],
+    entryComponents: [
+        CreateSalonComponent,
+        EditSalonComponent
     ]
 })
 export class SettingsSalonsModule {

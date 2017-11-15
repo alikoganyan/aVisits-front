@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+body,
+.btn {
+  font-family: 'Roboto';
+}
+
+.modal .modal-content .modal-header .close {
+  line-height: 1;
+}
+
+.modal-footer {
+  display: block;
+}
+
+.m--font-white {
+  color: white;
+}
+
+@media (min-width: 993px) {
+  .m-header {
+    right: auto;
+    width: 255px;
+  }
+  .m-aside-left--minimize .m-header {
+    width: 80px;
+  }
+  .m-aside-left {
+    padding-top: 70px;
+  }
+  .m-header--fixed .m-body {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .m-widget5__item .img-thumbnail {
+    margin-bottom: 20px;
+  }
+  .modal .modal-content .modal-header,
+  .modal .modal-content .modal-body,
+  .modal .modal-content .modal-footer {
+    padding: 10px;
+  }
+}
+
+.input-group-addon .custom-control {
+  min-height: 1.4rem;
+  min-width: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.input-group-addon .m-switch label {
+  display: block;
+  margin: 0;
+}
+
+.input-group .bootstrap-select {
+  max-width: calc(100% - 77px);
+}
+
+.input-group .bootstrap-select.btn-group > .dropdown-toggle {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.input-group .filter-option {
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+

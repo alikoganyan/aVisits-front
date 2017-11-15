@@ -1,126 +1,165 @@
-<div class="m-content">
-    <div class="row">
-        <div class="col-md-8 margin-auto">
-            <!--begin::Portlet-->
-            <div class="m-portlet m-portlet--tab">
-                <div class="m-portlet__head">
-                    <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title title-div-width">
-                            <button class="btn btn-primary back-to-all-salons" type="button" (click)="goToSalons()">
-                                <i class="fa fa-chevron-left"></i> Все салоны
-                            </button>
-                            <h3 class="m-portlet__head-text">
-                                {{title}}
-                            </h3>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+                Добавление салона
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                    ×
+                </span>
+            </button>
+        </div>
+        <form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Название</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="salon-title" placeholder="Введите название"
+                               [(ngModel)]="salon.title" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Страна</label>
+                    <div class="col-sm-9">
+                        <dx-autocomplete
+                                class="form-control m-bootstrap-select m_selectpicker"
+                                [dataSource]="countries"
+                                [(value)]="salon.country"
+                                [valueExpr]="'title'"
+                                [searchExpr]="'title'"
+                                (onClosed)="loadCities($event)"
+                                required>
+                        </dx-autocomplete>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Город</label>
+                    <div class="col-sm-9">
+                        <dx-autocomplete
+                                class="form-control m-bootstrap-select m_selectpicker"
+                                [dataSource]="cities"
+                                [(value)]="salon.city"
+                                [valueExpr]="'title'"
+                                [searchExpr]="'title'"
+                                (onValueChanged)="loadCities($event)"
+                                required>
+                        </dx-autocomplete>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Адрес</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input [(value)]="salon.address"
+                                   name="city-location"
+                                   autocorrect="off"
+                                   autocapitalize="off"
+                                   spellcheck="off" type="text" class="form-control m-input" #search
+                                   [formControl]="searchControl"
+                                   required>
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="la la-search"></i>
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <agm-map
+                            [latitude]="salon.latitude"
+                            [longitude]="salon.longitude"
+                            [scrollwheel]="false"
+                            [zoom]="zoom">
+                        <agm-marker
+                                [(latitude)]="salon.latitude"
+                                [(longitude)]="salon.longitude"
+                                (dragEnd)="onMarkerDragEnd()"
+                                [markerDraggable]="true">
+                        </agm-marker>
+                    </agm-map>
+                </div>
+                <fieldset>
+                    <legend>Режим работы</legend>
 
-                <form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
-                    <div class="m-portlet__body">
-                        <div class="m-form__section m-form__section--first">
-                            <div class="form-group m-form__group">
-                                <label>
-                                    Название:
-                                </label>
-                                <input type="text" class="form-control m-input" name="salon-title"
-                                       [(ngModel)]="salon.title" required>
-                            </div>
-
-                            <div class="form-group m-form__group">
-                                <label>
-                                    Страна
-                                </label>
-                                <dx-autocomplete
-                                        class="form-control m-input"
-                                        [dataSource]="countries"
-                                        [(value)]="salon.country"
-                                        [valueExpr]="'title'"
-                                        [searchExpr]="'title'"
-                                        (onClosed)="loadCities($event)"
-                                        required>
-                                </dx-autocomplete>
-                            </div>
-
-                            <div class="form-group m-form__group">
-                                <label>
-                                    Город
-                                </label>
-                                <dx-autocomplete
-                                        class="form-control m-input"
-                                        [dataSource]="cities"
-                                        [(value)]="salon.city"
-                                        [valueExpr]="'title'"
-                                        [searchExpr]="'title'"
-                                        (onValueChanged)="loadCities($event)"
-                                        required>
-                                </dx-autocomplete>
-                            </div>
-
-                            <div class="form-group m-form__group">
-                                <label>
-                                    Адрес
-                                </label>
-                                <input
-                                        [(value)]="salon.address"
-                                        name="city-location"
-                                        autocorrect="off"
-                                        autocapitalize="off"
-                                        spellcheck="off" type="text" class="form-control m-input" #search
-                                        [formControl]="searchControl"
-                                        required>
-                            </div>
-
-                            <agm-map
-                                    [latitude]="salon.latitude"
-                                    [longitude]="salon.longitude"
-                                    [scrollwheel]="false"
-                                    [zoom]="zoom">
-                                <agm-marker
-                                        [(latitude)]="salon.latitude"
-                                        [(longitude)]="salon.longitude"
-                                        (dragEnd)="onMarkerDragEnd()"
-                                        [markerDraggable]="true">
-                                </agm-marker>
-                            </agm-map>
-
-
-                        </div>
-
-                        <div class="form-group m-form__group">
-                            <label>
-                                Режим работы
-                            </label>
-
-                            <app-salon-schedule-day
-                                    *ngFor="let daySchedule of salon.schedule"
-                                    [daySchedule]="daySchedule"
-                            ></app-salon-schedule-day>
-
-                        </div>
-
-                        <div class="m-form__seperator m-form__seperator--dashed"></div>
-
-                    </div>
-                    <div class="m-portlet__foot m-portlet__foot--fit">
-                        <div class="m-form__actions m-form__actions">
-                            <div class="">
-                                <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
-                                    {{submitButtonText}}
-                                </button>
-                                <button class="btn btn-danger-outline delete-salon-button" type="button"
-                                        *ngIf="canDeleteSalon"
-                                        (click)="onDelete()">
-                                    Удалить
-                                </button>
-                            </div>
+                    <app-salon-schedule-day
+                            *ngFor="let daySchedule of salon.schedule"
+                            [daySchedule]="daySchedule"
+                    ></app-salon-schedule-day>
+                </fieldset>
+                <fieldset>
+                    <legend>Напоминания о записях по умолчанию</legend>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
+                            <select class="form-control m-bootstrap-select m_selectpicker">
+                                <option>
+                                    В день визита за 1 час, не позже 11
+                                </option>
+                                <option>
+                                    Опция 1
+                                </option>
+                                <option>
+                                    Опция 2
+                                </option>
+                            </select>
                         </div>
                     </div>
-                </form>
-
-                <!--end::Form-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
+                            <select class="form-control m-bootstrap-select m_selectpicker">
+                                <option>
+                                    В день визита за 1 час, не позже 11
+                                </option>
+                                <option>
+                                    Опция 1
+                                </option>
+                                <option>
+                                    Опция 2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
-            <!--end::Portlet-->
-        </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-auto">
+                        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+                            {{submitButtonText}}
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Закрыть
+                        </button>
+                    </div>
+                    <div class="col-auto ml-auto">
+                        <button class="btn btn-danger-outline delete-salon-button" type="button"
+                                *ngIf="canDeleteSalon"
+                                (click)="onDelete()">
+                            <span class="m--hidden-mobile">Удалить</span>
+                            <span class="m--visible-mobile">
+                            <i class="la la-trash"></i>
+                        </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

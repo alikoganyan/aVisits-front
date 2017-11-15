@@ -13,4 +13,5 @@ interface JQuery {
     valid(): JQuery;
     resetForm(): JQuery;
     markdown(): JQuery;
+    modal(action: any): void;
 }

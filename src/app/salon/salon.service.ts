@@ -13,11 +13,11 @@ export class SalonService {
 
     constructor(
         private backend: BackendService,
-        private userService: UserService,
+        private authService: AuthenticationService,
         private chainService: ChainService
     ) {
-        this.userService.currentUser.subscribe(
-            user => this.currentChainId = user.chain.id
+        this.authService.currentAuthData.subscribe(
+            authData => this.currentChainId = authData.chain.id
         )
     }
 
@@ -28,8 +28,12 @@ export class SalonService {
                 return chains.reduce((acc, item) => {
                     return acc.concat(item.salons);
                 }, []);
-            });
-
+            })
+            .map(salons => salons.map(salon => {
+                salon.latitude = parseInt(salon.latitude);
+                salon.longitude = parseInt(salon.longitude)
+                return salon;
+            }))
     }
 
     getSalonById(id): Observable<any> {

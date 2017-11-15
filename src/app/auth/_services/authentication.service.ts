@@ -4,14 +4,23 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
 import { BackendService } from "../../backend/backend.service";
 import { UserService } from "./user.service";
+import {Observable} from "rxjs/Observable";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {BackendBaseService} from "../../backend/backend-base.service";
 
 @Injectable()
 export class AuthenticationService {
-    public stepsData: any = {};
+    storageKey: string = 'authData';
+    data: any = {};
+    public currentAuthData: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
-    constructor(
-        private backend: BackendService,
-        private userService: UserService) {
+    constructor(private backend: BackendBaseService,
+                public userService: UserService) {
+
+        let data = JSON.parse(localStorage.getItem(this.storageKey));
+        if(data) {
+            this.extendAuthData(data);
+        }
     }
 
     authenticationStepOne(email: string, phone: string) {
@@ -25,20 +34,34 @@ export class AuthenticationService {
 
         return this.backend.post('user/signin', data)
             .map(res => res.json())
-            .do(data => this.stepsData = data.data);
+            .do(data => this.extendAuthData(data.data));
     }
 
     authenticationSelectChain(chainId: string) {
-        this.stepsData = Object.assign({}, this.stepsData, { selectedChain: chainId });
+        this.extendAuthData({ selectedChain: chainId });
+    }
+
+    extendAuthData(data): void {
+        this.extendAuthDataCore(data);
+        if(data.user) {
+            this.userService.setCurrentUser(data.user);
+        }
+    }
+
+    extendAuthDataCore(data): void {
+        this.data = Object.assign({}, this.data, data);
+        this.currentAuthData.next(this.data);
+
+        localStorage.setItem(this.storageKey, JSON.stringify(this.data));
     }
 
     login(password: string) {
-        return this.backend.post(this.stepsData.selectedChain + '/user/login', { email: this.stepsData.user.email, password: password })
+        return this.backend.post(this.data.selectedChain + '/user/login', { email: this.data.user.email, password: password })
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
-                let user = response.json();
-                if (user && user.token) {
-                    this.userService.setCurrentUser(user);
+                let data = response.json();
+                if (data && data.token) {
+                    this.extendAuthData(data);
                 }
 
                 return response;
@@ -47,7 +70,7 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem(this.storageKey);
     }
 }
 

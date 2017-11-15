@@ -25,10 +25,9 @@ const settingsRoutes: Routes = [
         RouterModule.forChild(settingsRoutes)
     ],
     exports: [
-        RouterModule
+        RouterModule,
     ],
     declarations: [
-
     ]
 })
 export class SettingsModule {

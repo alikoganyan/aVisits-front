@@ -53,10 +53,10 @@ export class SigninComponent implements OnInit {
             .subscribe(
             res => this.onDataReceived(res),
             error => {
-                this.showAlert();
-                this.alertService.error(error);
-                this.loading = false;
-            }
+                    this.showAlert();
+                    this.alertService.error(error);
+                    this.loading = false;
+                }
             );
     }
 
@@ -74,7 +74,7 @@ export class SigninComponent implements OnInit {
             this.router.navigate(['select-chain'], { relativeTo: this.route });
         }
         else {
-            this.authService.stepsData.selectedChain = user.chains[0].id;
+            this.authService.authenticationSelectChain(user.chains[0].id);
             this.router.navigate(['password'], { relativeTo: this.route });
         }
     }

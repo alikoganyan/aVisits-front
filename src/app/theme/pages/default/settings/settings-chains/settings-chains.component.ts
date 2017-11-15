@@ -1,7 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+    Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef,
+    ViewEncapsulation
+} from '@angular/core';
 import { Chain } from "../../../../../chain/chain.model";
 import { ChainService } from "../../../../../chain/chain.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import {CreateChainComponent} from "./create-chain/create-chain.component";
+import {EditChainComponent} from "./edit-chain/edit-chain.component";
 
 @Component({
     selector: 'app-settings-chains',
@@ -11,6 +16,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class SettingsChainsComponent implements OnInit {
     chains: Chain[];
+    editFormData: any;
+
+    //TODO: research directive, component & service for modal dialog
 
     constructor(
         private chainService: ChainService,
@@ -31,8 +39,21 @@ export class SettingsChainsComponent implements OnInit {
         this.chains = chains;
     }
 
+    openModalForm(form: any, inputs?: any): void {
+        this.editFormData = {
+            component: form,
+            inputs: inputs || {}
+        };
+    }
+
     redirectToCreateChain(): void {
-        this.router.navigate(['./create'], { relativeTo: this.route })
+        this.openModalForm(CreateChainComponent);
+    }
+
+    openEditForm(chain: Chain): void {
+        this.openModalForm(EditChainComponent, {
+            chain: chain
+        });
     }
 
 }
