@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
     encapsulation: ViewEncapsulation.None
 })
 export class SignupCompleteComponent implements OnInit {
+    loading: boolean = false;
 
     constructor(private router: Router) {
     }
