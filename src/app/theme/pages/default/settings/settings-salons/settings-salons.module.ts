@@ -36,7 +36,6 @@ const salonRoutes: Routes = [
         DxAutocompleteModule,
         DxDateBoxModule,
 
-        // Ng4GeoautocompleteModule.forRoot(),
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyDBGVDv5fOFgfW4ixNZL_2krgkriGu6vvc',
             libraries: ['places']

@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HrefPreventDefaultDirective } from '../_directives/href-prevent-default.directive';
 import { UnwrapTagDirective } from '../_directives/unwrap-tag.directive';
+import {NavTitleService} from "./header-nav/nav-title.service";
 
 @NgModule({
     declarations: [
@@ -35,6 +36,9 @@ import { UnwrapTagDirective } from '../_directives/unwrap-tag.directive';
         ScrollTopComponent,
         TooltipsComponent,
         HrefPreventDefaultDirective,
+    ],
+    providers: [
+        NavTitleService
     ],
     imports: [
         CommonModule,

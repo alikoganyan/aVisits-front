@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { Helpers } from '../../../helpers';
+import {NavTitleService} from "./nav-title.service";
 
 declare let mLayout: any;
 @Component({
@@ -8,10 +9,12 @@ declare let mLayout: any;
     encapsulation: ViewEncapsulation.None,
 })
 export class HeaderNavComponent implements OnInit, AfterViewInit {
+    title: string;
 
-
-    constructor() {
-
+    constructor(private navTitleService: NavTitleService) {
+        navTitleService.title.subscribe(
+            (title) => this.title = title
+        );
     }
     ngOnInit() {
 

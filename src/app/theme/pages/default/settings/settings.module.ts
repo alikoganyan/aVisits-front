@@ -9,11 +9,13 @@ const settingsRoutes: Routes = [
         children: [
             {
                 path: 'chains',
-                loadChildren: './settings-chains/settings-chains.module#SettingsChainsModule'
+                loadChildren: './settings-chains/settings-chains.module#SettingsChainsModule',
+                data: { title: 'Сети' }
             },
             {
                 path: 'salons',
-                loadChildren: './settings-salons/settings-salons.module#SettingsSalonsModule'
+                loadChildren: './settings-salons/settings-salons.module#SettingsSalonsModule',
+                data: { title: 'Салоны' }
             }
         ]
     },
