@@ -1,4 +1,4 @@
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
@@ -12,136 +12,146 @@
         </div>
         <form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
             <div class="modal-body">
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Название</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="salon-title" placeholder="Введите название"
-                               [(ngModel)]="salon.title" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Страна</label>
-                    <div class="col-sm-9">
-                        <dx-autocomplete
-                                class="form-control m-bootstrap-select m_selectpicker"
-                                [dataSource]="countries"
-                                [(value)]="salon.country"
-                                [valueExpr]="'title'"
-                                [searchExpr]="'title'"
-                                (onClosed)="loadCities($event)"
-                                required>
-                        </dx-autocomplete>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Город</label>
-                    <div class="col-sm-9">
-                        <dx-autocomplete
-                                class="form-control m-bootstrap-select m_selectpicker"
-                                [dataSource]="cities"
-                                [(value)]="salon.city"
-                                [valueExpr]="'title'"
-                                [searchExpr]="'title'"
-                                (onValueChanged)="loadCities($event)"
-                                required>
-                        </dx-autocomplete>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Адрес</label>
-                    <div class="col-sm-9">
-                        <div class="input-group">
-                            <input [(value)]="salon.address"
-                                   name="city-location"
-                                   autocorrect="off"
-                                   autocapitalize="off"
-                                   spellcheck="off" type="text" class="form-control m-input" #search
-                                   [formControl]="searchControl"
-                                   required>
-                            <span class="input-group-btn">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Название</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="salon-title"
+                                       placeholder="Введите название"
+                                       [(ngModel)]="salon.title" required>
+                            </div>
+                        </div>
+                        <fieldset>
+                            <legend>Местоположение</legend>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Страна</label>
+                                <div class="col-sm-9">
+                                    <dx-autocomplete
+                                            class="form-control m-bootstrap-select m_selectpicker"
+                                            [dataSource]="countries"
+                                            [(value)]="salon.country"
+                                            [valueExpr]="'title'"
+                                            [searchExpr]="'title'"
+                                            (onClosed)="loadCities($event)"
+                                            required>
+                                    </dx-autocomplete>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Город</label>
+                                <div class="col-sm-9">
+                                    <dx-autocomplete
+                                            class="form-control m-bootstrap-select m_selectpicker"
+                                            [dataSource]="cities"
+                                            [(value)]="salon.city"
+                                            [valueExpr]="'title'"
+                                            [searchExpr]="'title'"
+                                            (onValueChanged)="loadCities($event)"
+                                            required>
+                                    </dx-autocomplete>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Адрес</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input [(value)]="salon.address"
+                                               name="city-location"
+                                               autocorrect="off"
+                                               autocapitalize="off"
+                                               spellcheck="off" type="text" class="form-control m-input" #search
+                                               [formControl]="searchControl"
+                                               required>
+                                        <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button">
                                     <i class="la la-search"></i>
                                 </button>
                             </span>
-                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <agm-map
+                                        [latitude]="salon.latitude"
+                                        [longitude]="salon.longitude"
+                                        [scrollwheel]="false"
+                                        [zoom]="zoom">
+                                    <agm-marker
+                                            [(latitude)]="salon.latitude"
+                                            [(longitude)]="salon.longitude"
+                                            (dragEnd)="onMarkerDragEnd()"
+                                            [markerDraggable]="true">
+                                    </agm-marker>
+                                </agm-map>
+                            </div>
+                        </fieldset>
                     </div>
-                </div>
-                <div class="form-group">
-                    <agm-map
-                            [latitude]="salon.latitude"
-                            [longitude]="salon.longitude"
-                            [scrollwheel]="false"
-                            [zoom]="zoom">
-                        <agm-marker
-                                [(latitude)]="salon.latitude"
-                                [(longitude)]="salon.longitude"
-                                (dragEnd)="onMarkerDragEnd()"
-                                [markerDraggable]="true">
-                        </agm-marker>
-                    </agm-map>
-                </div>
-                <fieldset>
-                    <legend>Режим работы</legend>
+                    <div class="col-lg-6">
+                        <fieldset>
+                            <legend>Режим работы</legend>
 
-                    <app-salon-schedule-day
-                            *ngFor="let daySchedule of salon.schedule"
-                            [daySchedule]="daySchedule"
-                    ></app-salon-schedule-day>
-                </fieldset>
-                <fieldset>
-                    <legend>Напоминания о записях по умолчанию</legend>
-                    <div class="form-group">
-                        <div class="input-group">
+                            <app-salon-schedule-day
+                                    *ngFor="let daySchedule of salon.schedule"
+                                    [daySchedule]="daySchedule"
+                            ></app-salon-schedule-day>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Напоминания о записях по&nbsp;умолчанию</legend>
+                            <div class="form-group">
+                                <div class="input-group">
                             <span class="input-group-addon">
-                                <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+                                <span class="m-switch m-switch--outline m-switch--icon">
                                     <label>
                                         <input type="checkbox" checked="checked" name="">
                                         <span></span>
                                     </label>
                                 </span>
                             </span>
-                            <select class="form-control m-bootstrap-select m_selectpicker">
-                                <option>
-                                    В день визита за 1 час, не позже 11
-                                </option>
-                                <option>
-                                    Опция 1
-                                </option>
-                                <option>
-                                    Опция 2
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
+                                    <select class="form-control m-bootstrap-select m_selectpicker">
+                                        <option>
+                                            В день визита за 1 час, не позже 11
+                                        </option>
+                                        <option>
+                                            Опция 1
+                                        </option>
+                                        <option>
+                                            Опция 2
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
                             <span class="input-group-addon">
-                                <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+                                <span class="m-switch m-switch--outline m-switch--icon">
                                     <label>
                                         <input type="checkbox" checked="checked" name="">
                                         <span></span>
                                     </label>
                                 </span>
                             </span>
-                            <select class="form-control m-bootstrap-select m_selectpicker">
-                                <option>
-                                    В день визита за 1 час, не позже 11
-                                </option>
-                                <option>
-                                    Опция 1
-                                </option>
-                                <option>
-                                    Опция 2
-                                </option>
-                            </select>
-                        </div>
+                                    <select class="form-control m-bootstrap-select m_selectpicker">
+                                        <option>
+                                            В день визита за 1 час, не позже 11
+                                        </option>
+                                        <option>
+                                            Опция 1
+                                        </option>
+                                        <option>
+                                            Опция 2
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
-                </fieldset>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-auto">
-                        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+                        <button class="btn btn-success" type="submit" [disabled]="!f.valid">
                             {{submitButtonText}}
                         </button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">

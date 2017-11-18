@@ -1,10 +1,9 @@
 <div class="form-group">
     <div class="input-group">
         <span class="input-group-addon">
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" [(ngModel)]="daySchedule.working_status" >
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"></span>
+            <label class="m-checkbox m-checkbox--brand">
+                <input type="checkbox" [(ngModel)]="daySchedule.working_status" >
+                <span></span>
             </label>
         </span>
         <span class="input-group-addon" style="width: 42px">{{daySchedule.num_of_day | dayOfWeek}}</span>
