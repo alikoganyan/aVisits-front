@@ -17,7 +17,6 @@ import {User} from "../_models/user";
 export class SigninEnterPasswordComponent implements OnInit {
     loading: boolean;
     password: string = '';
-    user: User;
     chainName: any = '';
 
     @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
@@ -31,20 +30,13 @@ export class SigninEnterPasswordComponent implements OnInit {
 
         this.authService.currentAuthData.subscribe(
             authData => {
-                this.user = authData.user;
                 this.chainName = this.getChainName(authData);
             }
         );
     }
 
     getChainName(authData: any) {
-        let chain;
-        if(this.user.chains) {
-            chain = this.user.chains.filter(c => c.id === authData.selectedChain)[0];
-        }
-        else {
-            chain = authData.chain;
-        }
+        let chain = authData.chains.filter(c => c.id === authData.selectedChain)[0];
         return (<any>chain).title;
     }
 
@@ -57,8 +49,7 @@ export class SigninEnterPasswordComponent implements OnInit {
                 },
                 error => {
                     this.showAlert();
-                    this.alertService.error(error);
-                    // this.loading = false;
+                    this.alertService.error(error.json().error);
                 }
             );
     }

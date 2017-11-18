@@ -2,11 +2,11 @@ import {
     Component, ComponentFactoryResolver, Inject, OnInit, ViewChild, ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
-import { AuthenticationService } from "../_services/authentication.service";
-import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { AlertComponent } from "../_directives/alert.component";
-import { AlertService } from "../_services/alert.service";
+import {AuthenticationService} from "../_services/authentication.service";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {AlertComponent} from "../_directives/alert.component";
+import {AlertService} from "../_services/alert.service";
 
 @Component({
     templateUrl: './signin.component.html',
@@ -19,14 +19,14 @@ export class SigninComponent implements OnInit {
     loading: boolean;
     model: any = {};
 
-    @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
+    @ViewChild('alertSignin', {read: ViewContainerRef}) alertSignin: ViewContainerRef;
 
     constructor(/*private fb: FormBuilder,*/
-        private router: Router,
-        private route: ActivatedRoute,
-        public authService: AuthenticationService,
-        private alertService: AlertService,
-        private cfr: ComponentFactoryResolver) {
+                private router: Router,
+                private route: ActivatedRoute,
+                public authService: AuthenticationService,
+                private alertService: AlertService,
+                private cfr: ComponentFactoryResolver) {
 
         this.model = {
             phoneOrEmail: '',
@@ -51,31 +51,29 @@ export class SigninComponent implements OnInit {
 
         this.authService.authenticationStepOne(email, phone)
             .subscribe(
-            res => this.onDataReceived(res),
-            error => {
+                res => this.onDataReceived(res),
+                error => {
+                    let errorText = error;
+                    if (error.status === 404) {
+                        errorText = 'Пользователь не найден';
+                    }
+
                     this.showAlert();
-                    this.alertService.error(error);
+                    this.alertService.error(errorText);
                     this.loading = false;
                 }
             );
     }
 
     onDataReceived(res: any) {
-        let user = res.data.user;
-        if (!user || res.status !== 'OK') {
-            this.showAlert();
-            this.alertService.error("user not found");
-            this.loading = false;
+        let chains = res.data.chains;
 
-            return;
-        }
-
-        if (user.chains.length > 1) {
-            this.router.navigate(['select-chain'], { relativeTo: this.route });
+        if (chains.length > 1) {
+            this.router.navigate(['select-chain'], {relativeTo: this.route});
         }
         else {
-            this.authService.authenticationSelectChain(user.chains[0].id);
-            this.router.navigate(['password'], { relativeTo: this.route });
+            this.authService.authenticationSelectChain(chains[0].id);
+            this.router.navigate(['password'], {relativeTo: this.route});
         }
     }
 

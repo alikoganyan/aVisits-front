@@ -2,37 +2,38 @@ import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
-import { BackendService } from "../../backend/backend.service";
 import { UserService } from "./user.service";
-import {Observable} from "rxjs/Observable";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {BackendBaseService} from "../../backend/backend-base.service";
 
 @Injectable()
 export class AuthenticationService {
-    storageKey: string = 'authData';
+    authDataKey: string = 'authData';
+    tokenKey: string = 'token';
     data: any = {};
     public currentAuthData: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
     constructor(private backend: BackendBaseService,
                 public userService: UserService) {
 
-        let data = JSON.parse(localStorage.getItem(this.storageKey));
+        let data = JSON.parse(localStorage.getItem(this.authDataKey));
         if(data) {
             this.extendAuthData(data);
         }
     }
 
     authenticationStepOne(email: string, phone: string) {
-        let data: any = {};
+        let credentials: any = {};
         if (email) {
-            data.email = email;
+            credentials.email = email;
         }
         if (phone) {
-            data.phone = phone;
+            credentials.phone = phone;
         }
 
-        return this.backend.post('user/signin', data)
+        this.extendAuthData({credentials: credentials});
+
+        return this.backend.post('user/signin', credentials)
             .map(res => res.json())
             .do(data => this.extendAuthData(data.data));
     }
@@ -52,11 +53,17 @@ export class AuthenticationService {
         this.data = Object.assign({}, this.data, data);
         this.currentAuthData.next(this.data);
 
-        localStorage.setItem(this.storageKey, JSON.stringify(this.data));
+        if(data.token) {
+            localStorage.setItem(this.tokenKey, JSON.stringify(data.token));
+        }
+
+        localStorage.setItem(this.authDataKey, JSON.stringify(this.data));
     }
 
     login(password: string) {
-        return this.backend.post(this.data.selectedChain + '/user/login', { email: this.data.user.email, password: password })
+        this.data.credentials = Object.assign({}, this.data.credentials, { password: password });
+
+        return this.backend.post(this.data.selectedChain + '/user/login', this.data.credentials)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let data = response.json();
@@ -68,9 +75,19 @@ export class AuthenticationService {
             });
     }
 
+    requestRecoveryCode(recoveryData: any) {
+        this.extendAuthDataCore(recoveryData);
+        return this.backend.post('user/forgot-password', JSON.stringify(recoveryData)).map((response: Response) => response.json());
+    }
+
+    resetPassword(resetData: any) {
+        return this.backend.post('user/reset-password', JSON.stringify(resetData)).map((response: Response) => response.json());
+    }
+
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem(this.storageKey);
+        localStorage.removeItem(this.authDataKey);
+        localStorage.removeItem(this.tokenKey);
     }
 }
 

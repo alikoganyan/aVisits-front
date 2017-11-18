@@ -6,6 +6,9 @@ import { AuthenticationService } from "../_services/authentication.service";
 import {UserService} from "../_services/user.service";
 import {AlertService} from "../_services/alert.service";
 import {AlertComponent} from "../_directives/alert.component";
+import {FormBuilder} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
     templateUrl: './signin-reset-password.component.html'
@@ -13,39 +16,66 @@ import {AlertComponent} from "../_directives/alert.component";
 export class SigninResetPasswordComponent implements OnInit {
     phone: string;
     email: string;
+    authData: any;
+    recoveryData: any = {
+        token: '',
+        type: '',
+        phone: '',
+        password: '',
+        confirm_password: ''
+    };
+    recoveryCode: any;
+    showRecoveryCode: boolean = true;
+
 
     @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
 
-    constructor(
-        private userService: UserService,
-        private authService: AuthenticationService,
-        private alertService: AlertService,
-        private cfr: ComponentFactoryResolver) {
+    constructor(private router: Router,
+                private route: ActivatedRoute,
+                private authService: AuthenticationService,
+                private alertService: AlertService,
+                private cfr: ComponentFactoryResolver) {
 
-        let user = this.userService.currentUser.getValue();
-        this.phone = user.phone;
-        this.email = user.email;
+        this.route.params.subscribe(
+            params => {
+                this.recoveryCode = params;
+                this.showRecoveryCode = false;
+            }
+        );
+
+        this.authData = this.authService.currentAuthData.getValue();
+        this.phone = this.authData.phone;
+        this.email = this.authData.email;
     }
 
     ngOnInit() {
-        $('.m-login__forgotten').animateClass('flipInX animated');
+        $('.m-login__reset-password').animateClass('flipInX animated');
     }
 
     resetPassword(): void {
         this.showAlert();
-        this.alertService.success('Новый пароль отправлен на вашу почту (TODO: phone)');
 
-        // this.userService.forgotPassword(this.email)
-        //     .subscribe(
-        //         res => {
-        //             this.showAlert();
-        //             this.alertService.success('Новый пароль отправлен на вашу почту');
-        //         },
-        //         error => {
-        //             this.showAlert();
-        //             this.alertService.error(error);
-        //         }
-        //     );
+        this.authService.resetPassword(this.recoveryData)
+            .subscribe(
+                res => {
+                    this.showAlert();
+                    this.alertService.success('Пароль успешно изменен');
+                },
+                error => {
+                    this.showAlert();
+                    this.alertService.error(error);
+                }
+            );
+    }
+
+    resendCode(): void {
+        this.authService.requestRecoveryCode(this.authData.recoveryData)
+            .subscribe(
+                res => {
+                    this.showAlert();
+                    this.alertService.success('Новый пароль отправлен на вашу почту');
+                }
+            )
     }
 
     showAlert() {

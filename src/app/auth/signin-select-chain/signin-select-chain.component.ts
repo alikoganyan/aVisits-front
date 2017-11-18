@@ -13,11 +13,10 @@ export class SigninSelectChainComponent implements OnInit {
     constructor(
         private router: Router,
         private route: ActivatedRoute,
-        private authService: AuthenticationService,
-        private userService: UserService
+        private authService: AuthenticationService
             ) {
 
-        this.userChains = this.userService.currentUser.getValue().chains;
+        this.userChains = this.authService.currentAuthData.getValue().chains;
     }
 
     selectUserChain(chainId: string) {

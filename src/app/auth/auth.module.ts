@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { BaseRequestOptions, HttpModule } from "@angular/http";
+import {BaseRequestOptions, Http, HttpModule, RequestOptions} from "@angular/http";
 import { MockBackend } from "@angular/http/testing";
 
 import { AuthRoutingModule } from "./auth-routing.routing";
@@ -20,7 +20,14 @@ import { SigninEnterPasswordGuard } from "./_guards/signin-enter-password.guard"
 import { SigninGuardBase } from "./_guards/signin-guard-base";
 import { SignupCompleteComponent } from './signup-complete/signup-complete.component';
 import {SigninSelectChainGuard} from "./_guards/signin-select-chain.guard";
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { SigninForgotPasswordComponent } from './signin-forgot-password/signin-forgot-password.component';
+import { SigninPasswordChangedComponent } from './signin-password-changed/signin-password-changed.component';
+import {SigninForgotPasswordGuard} from "./_guards/signin-forgot-password.guard";
 
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+    return new AuthHttp(new AuthConfig(), http, options);
+}
 
 @NgModule({
     declarations: [
@@ -33,6 +40,8 @@ import {SigninSelectChainGuard} from "./_guards/signin-select-chain.guard";
         SigninComponent,
         SignupComponent,
         SignupCompleteComponent,
+        SigninForgotPasswordComponent,
+        SigninPasswordChangedComponent,
     ],
     imports: [
         CommonModule,
@@ -41,10 +50,16 @@ import {SigninSelectChainGuard} from "./_guards/signin-select-chain.guard";
         AuthRoutingModule,
     ],
     providers: [
+        {
+            provide: AuthHttp,
+            useFactory: authHttpServiceFactory,
+            deps: [Http, RequestOptions]
+        },
         AuthGuard,
         SigninGuardBase,
         SigninEnterPasswordGuard,
         SigninSelectChainGuard,
+        SigninForgotPasswordGuard,
         AlertService,
         // api backend simulation
         // fakeBackendProvider,

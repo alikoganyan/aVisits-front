@@ -31,10 +31,6 @@ export class AuthComponent implements OnInit {
 
     constructor(private _router: Router,
         private _script: ScriptLoaderService,
-        private _userService: UserService,
-        private _route: ActivatedRoute,
-        private _authService: AuthenticationService,
-        private _alertService: AlertService,
         private cfr: ComponentFactoryResolver) {
     }
 
@@ -57,40 +53,6 @@ export class AuthComponent implements OnInit {
     }
     onTransitionDone() {
         this.inTransition = true;
-    }
-
-    // signin() {
-    //     this.loading = true;
-    //     this._authService.login(this.model.email, this.model.password)
-    //         .subscribe(
-    //         data => {
-    //             this._router.navigate([this.returnUrl]);
-    //         },
-    //         error => {
-    //             this.showAlert('alertSignin');
-    //             this._alertService.error(error);
-    //             this.loading = false;
-    //         });
-    // }
-
-
-
-    forgotPass() {
-        this.loading = true;
-        this._userService.forgotPassword(this.model.email)
-            .subscribe(
-            data => {
-                this.showAlert('alertSignin');
-                this._alertService.success('Cool! Password recovery instruction has been sent to your email.', true);
-                this.loading = false;
-                LoginCustom.displaySignInForm();
-                this.model = {};
-            },
-            error => {
-                this.showAlert('alertForgotPass');
-                this._alertService.error(error);
-                this.loading = false;
-            });
     }
 
     showAlert(target) {

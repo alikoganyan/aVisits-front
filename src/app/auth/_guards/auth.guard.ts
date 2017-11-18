@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 import { UserService } from "../_services/user.service";
 import { Observable } from "rxjs/Rx";
 import {AuthenticationService} from "../_services/authentication.service";
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -11,9 +12,9 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-        let authData = JSON.parse(localStorage.getItem('authData'));
-        if (authData)
+        if(tokenNotExpired()) {
             return true;
+        }
 
         this._router.navigate(['/auth']);
     }

@@ -19,10 +19,6 @@ export class UserService {
         this.currentUser.next(newUser);
     }
 
-    forgotPassword(email: string) {
-        return this.backend.post('forgot-password', JSON.stringify({ email })).map((response: Response) => response.json());
-    }
-
     create(user: User) {
         return this.backend.post('user/signup', user)
             .map((response: Response) => response.json());
