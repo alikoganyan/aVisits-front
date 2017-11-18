@@ -3,9 +3,8 @@
 </div>
 
 <app-chain-settings
-        [isCreateDialog]="true"
-        [chain]="chain"
-        [error]="errors"
-        (saveChain)="onSaveChain($event)"
-        (deleteChain)="onDeleteChain($event)"
+        [isCreateForm]="true"
+        [data]="chain"
+        (saveRequested)="onSaveChain($event)"
+        (deleteRequested)="onDeleteChain($event)"
 ></app-chain-settings>

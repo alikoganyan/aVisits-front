@@ -8,10 +8,12 @@ import { SalonEditFormComponent } from './salon-edit-form/salon-edit-form.compon
 import { EditSalonComponent } from './edit-salon/edit-salon.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AgmCoreModule } from "@agm/core";
-import { DxAutocompleteModule, DxDateBoxModule } from "devextreme-angular";
+import { DxAutocompleteModule, DxDateBoxModule, DxPopupModule } from "devextreme-angular";
 import { SalonScheduleDayComponent } from './salon-edit-form/salon-schedule-day/salon-schedule-day.component';
 import {SharedModule} from "../../../../../shared/shared.module";
 import { DayOfWeekPipe } from './salon-edit-form/salon-schedule-day/day-of-week.pipe';
+import { TimeToJsDatePipe } from './salon-edit-form/salon-schedule-day/time-to-js-date.pipe';
+import { JsDateToTimeStringPipe } from './salon-edit-form/salon-schedule-day/js-date-to-time-string.pipe';
 
 const salonRoutes: Routes = [
     {
@@ -35,6 +37,7 @@ const salonRoutes: Routes = [
 
         DxAutocompleteModule,
         DxDateBoxModule,
+        DxPopupModule,
 
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyDBGVDv5fOFgfW4ixNZL_2krgkriGu6vvc',
@@ -48,7 +51,12 @@ const salonRoutes: Routes = [
         SalonEditFormComponent,
         EditSalonComponent,
         SalonScheduleDayComponent,
-        DayOfWeekPipe
+        DayOfWeekPipe,
+        TimeToJsDatePipe,
+        JsDateToTimeStringPipe
+    ],
+    providers: [
+        JsDateToTimeStringPipe
     ],
     entryComponents: [
         CreateSalonComponent,

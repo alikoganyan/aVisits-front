@@ -21,13 +21,13 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Название</label>
                     <div class="col-sm-9">
-                        <input class="form-control" type="text" name="title" [(ngModel)]="chain.title" placeholder="Введите название" required>
+                        <input class="form-control" type="text" name="title" [(ngModel)]="data.title" placeholder="Введите название" required>
                     </div>
                 </div>
                 <fieldset>
                     <legend>Уровни цен</legend>
                     <div class="form-group row"
-                         *ngFor="let priceLevel of chain.levels; let i = index"
+                         *ngFor="let priceLevel of data.levels; let i = index"
                          ngModelGroup="levels"
                          #levels="ngModelGroup">
 
@@ -56,7 +56,7 @@
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Вводить номер телефона по маске</span>
                         </label>
-                        <input class="form-control" type="text" name="phone_number" [(ngModel)]="chain.phone_number">
+                        <input class="form-control" type="text" name="phone_number" [(ngModel)]="data.phone_number">
                     </div>
                 </fieldset>
             </div>

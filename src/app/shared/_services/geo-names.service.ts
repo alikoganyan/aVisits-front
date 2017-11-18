@@ -23,7 +23,7 @@ export class GeoNamesService {
     }
 
     getStreet(country: string, city: string, street: string): Observable<any> {
-        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + country + '+' + city + '+' + street + '&callback=JSONP_CALLBACK&key=AIzaSyD4AD-6nrr-uDDkblQh3TeJhbMfg8xWOys')
+        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + country + '%20' + city + '%20' + street + '&callback=JSONP_CALLBACK&key=AIzaSyD4AD-6nrr-uDDkblQh3TeJhbMfg8xWOys')
             .map(
             (response) => response.json()
             )

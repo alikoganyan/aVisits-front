@@ -47,7 +47,7 @@
                                             [(value)]="salon.city"
                                             [valueExpr]="'title'"
                                             [searchExpr]="'title'"
-                                            (onValueChanged)="loadCities($event)"
+                                            (onValueChanged)="cityValueChanged($event)"
                                             required>
                                     </dx-autocomplete>
                                 </div>
@@ -56,13 +56,15 @@
                                 <label class="col-sm-3 col-form-label">Адрес</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input [(value)]="salon.address"
-                                               name="city-location"
-                                               autocorrect="off"
-                                               autocapitalize="off"
-                                               spellcheck="off" type="text" class="form-control m-input" #search
-                                               [formControl]="searchControl"
-                                               required>
+                                        <dx-autocomplete
+                                                class="form-control m-bootstrap-select m_selectpicker"
+                                                [dataSource]="addresses"
+                                                [(value)]="salon.address"
+                                                [valueExpr]="'title'"
+                                                [searchExpr]="'title'"
+                                                (onValueChanged)="addressValueChanged($event)"
+                                                required>
+                                        </dx-autocomplete>
                                         <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button">
                                     <i class="la la-search"></i>

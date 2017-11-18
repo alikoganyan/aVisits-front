@@ -23,6 +23,7 @@ export class SalonEditFormComponent implements OnInit {
     @Output() deleteSalon = new EventEmitter<any>();
 
     title: string;
+    popupVisible: boolean;
     submitButtonText: string;
     canDeleteSalon: boolean;
 
@@ -31,6 +32,7 @@ export class SalonEditFormComponent implements OnInit {
 
     countries: any[];
     cities: any[];
+    addresses: any[];
 
     addressAutoComplete: google.maps.places.Autocomplete;
 
@@ -54,19 +56,20 @@ export class SalonEditFormComponent implements OnInit {
 
         this.searchControl = new FormControl();
 
-        this.initAddressAutoComplete();
+        // this.initAddressAutoComplete();
     }
 
-    initAddressAutoComplete(): void {
-        this.mapsAPILoader.load().then(() => {
-            this.addressAutoComplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-                types: ["address"]
-            });
-            this.addressAutoComplete.addListener("place_changed", () => {
-                this.ngZone.run(() => this.onAddressPlaceChanged());
-            });
-        });
-    }
+    // initAddressAutoComplete(): void {
+    //     this.mapsAPILoader.load().then(() => {
+    //         console.log("maps api load", this.searchElementRef.nativeElement)
+    //         this.addressAutoComplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+    //             types: ["address"]
+    //         });
+    //         this.addressAutoComplete.addListener("place_changed", () => {
+    //             /*this.ngZone.run(() => */this.onAddressPlaceChanged()/*);*/
+    //         });
+    //     });
+    // }
 
     onAddressPlaceChanged() {
         let place: google.maps.places.PlaceResult = this.addressAutoComplete.getPlace();
@@ -105,6 +108,47 @@ export class SalonEditFormComponent implements OnInit {
                 },
                 error => {}
             )
+    }
+
+    loadAddresses(): void {
+        this.geoNamesService
+            .getStreet(this.salon.country, this.salon.city, this.salon.address)
+            .do(console.log)
+            .subscribe(
+                next => {
+                    this.addresses = next.results.map(r => this.formatAddress(r))
+                    // this.addresses = next.results.map(r => {
+                    //     return {title: r.address_components[0]['long_name']}
+                    // })
+                    console.log(this.addresses)
+                })
+    }
+
+    formatAddress(place): any {
+        let route = '',
+            streetNumber = '';
+        let routePart = place.address_components.filter(c => c.types[0] === 'route');
+        if(routePart && routePart[0]) {
+            route = routePart[0]['long_name']
+        }
+
+        let streetNumberPart = place.address_components.filter(c => c.types[0] === 'street_number');
+        if(streetNumberPart && streetNumberPart[0]) {
+            streetNumber = ' ' + streetNumberPart[0]['long_name'];
+        }
+
+        return { title: route + streetNumber };
+    }
+
+    addressValueChanged($event): void {
+        this.loadAddresses();
+    }
+
+    cityValueChanged($event) {
+        this.loadCities($event);
+        if(!this.salon.country) {
+            this.salon.country = "Россия";
+        }
     }
 
     getSelectedCountryId(): any {

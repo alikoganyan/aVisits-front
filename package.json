@@ -25,6 +25,7 @@
         "@angular/platform-browser-dynamic": "^4.4.6",
         "@angular/router": "^4.4.6",
         "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
+        "angular2-jwt": "^0.2.3",
         "classlist.js": "^1.1.20150312",
         "core-js": "^2.5.1",
         "enhanced-resolve": "^3.4.1",
@@ -47,8 +48,8 @@
         "@types/googlemaps": "^3.29.2",
         "@types/jasmine": "^2.8.0",
         "@types/jquery": "^3.2.16",
-        "devextreme": "^17.1.8",
-        "devextreme-angular": "^17.1.8",
+        "devextreme": "^17.2.3",
+        "devextreme-angular": "^17.2.3",
         "karma-phantomjs-launcher": "^1.0.4",
         "karma-source-map-support": "^1.2.0",
         "typescript": "~2.3.3"

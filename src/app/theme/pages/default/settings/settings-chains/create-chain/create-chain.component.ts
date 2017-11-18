@@ -24,6 +24,7 @@ export class CreateChainComponent implements OnInit {
     }
 
     onSaveChain(chain: any): void {
+        console.log("onsavechain", chain)
         this.chainService
             .createChain(chain)
             .subscribe(

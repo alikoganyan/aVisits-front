@@ -7,12 +7,20 @@
             </label>
         </span>
         <span class="input-group-addon" style="width: 42px">{{daySchedule.num_of_day | dayOfWeek}}</span>
-        <input type="text" class="form-control" value="10:00">
+        <dx-date-box
+                class="form-control"
+                type="time"
+                displayFormat="HH:mm"
+                [value]="daySchedule.start | timeToJsDate"
+                (onValueChanged)="onStartChanged($event)"
+        ></dx-date-box>
         <span class="input-group-addon">-</span>
-        <input type="text" class="form-control" value="20:00">
+        <dx-date-box
+                class="form-control"
+                type="time"
+                displayFormat="HH:mm"
+                [value]="daySchedule.end | timeToJsDate"
+                (onValueChanged)="onEndChanged($event)"
+        ></dx-date-box>
     </div>
 </div>
-
-
-<!--<dx-date-box></dx-date-box>-->
-<!--<dx-date-box></dx-date-box>-->

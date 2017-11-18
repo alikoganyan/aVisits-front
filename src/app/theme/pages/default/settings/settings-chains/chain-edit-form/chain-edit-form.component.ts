@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } fro
 import { Router } from "@angular/router";
 import { Chain } from "../../../../../../chain/chain.model";
 import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model";
+import {EditFormBase} from "../../edit-form-base";
 
 @Component({
     selector: 'app-chain-settings',
@@ -9,49 +10,62 @@ import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model
     styleUrls: ['./chain-edit-form.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class ChainEditFormComponent implements OnInit {
-    @Input() isCreateDialog: boolean;
-    @Input() chain: Chain = new Chain();
-    @Input() error: string = '';
-    @Output() saveChain = new EventEmitter<any>();
-    @Output() deleteChain = new EventEmitter<any>();
+export class ChainEditFormComponent extends EditFormBase<Chain> {
+    // @Input() isCreateDialog: boolean;
+    // @Input() chain: Chain = new Chain();
+    // @Input() error: string = '';
+    // @Output() saveChain = new EventEmitter<any>();
+    // @Output() deleteChain = new EventEmitter<any>();
 
-    title: string;
-    submitButtonText: string;
+    // title: string;
+    // submitButtonText: string;
     canDeleteChain: boolean;
+    // chain: Chain; //= this.obj;
+
+    protected get createTitle() { return 'Новая сеть'; }
+    protected get editTitle() { return 'Обновить сеть'; }
 
     constructor(
         private router: Router) {
+
+        super();
+
+
     }
 
-    ngOnInit() {
-        this.title = this.isCreateDialog ? 'Новая сеть' : 'Обновить сеть';
-        this.submitButtonText = this.isCreateDialog ? 'Сохранить' : 'Обновить';
-        this.canDeleteChain = !this.isCreateDialog;
-    }
+    // ngOnInit() {
+    //     super.ngOnInit()
+    //     console.log(this.data)
+    // }
 
-    onSubmit(): void {
-        this.saveChain.emit(this.chain);
-    }
+    // ngOnInit() {
+        // this.title = this.isCreateDialog ? 'Новая сеть' : 'Обновить сеть';
+        // this.submitButtonText = this.isCreateDialog ? 'Сохранить' : 'Обновить';
+        // this.canDeleteChain = !this.isCreateDialog;
+    // }
 
-    onDelete(): void {
-        this.deleteChain.emit(this.chain);
-    }
+    // onSubmit(): void {
+    //     this.saveChain.emit(this.chain);
+    // }
+
+    // onDelete(): void {
+    //     this.deleteChain.emit(this.chain);
+    // }
 
     canRemovePriceLevels(): boolean {
-        return this.chain.levels.length > 1;
+        return this.data.levels.length > 1;
     }
 
     removePriceLevel(index: number): void {
-        this.chain.levels.splice(index, 1);
+        this.data.levels.splice(index, 1);
     }
 
     addPriceLevel(): void {
-        this.chain.levels.push(new ChainPriceLevel());
+        this.data.levels.push(new ChainPriceLevel());
     }
 
-    goToChains(): void {
-        this.router.navigate(['/settings/chains']);
-    }
+    // goToChains(): void {
+    //     this.router.navigate(['/settings/chains']);
+    // }
 
 }

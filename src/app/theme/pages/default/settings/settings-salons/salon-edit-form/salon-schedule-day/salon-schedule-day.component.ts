@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {JsDateToTimeStringPipe} from "./js-date-to-time-string.pipe";
 
 @Component({
     selector: 'app-salon-schedule-day',
@@ -9,9 +10,15 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 export class SalonScheduleDayComponent implements OnInit {
     @Input() daySchedule: any;
 
-    constructor() { }
+    constructor(private jsDateToTime: JsDateToTimeStringPipe) { }
 
     ngOnInit() {
     }
 
+    onStartChanged($event) {
+        this.daySchedule.start = this.jsDateToTime.transform($event.value);
+    }
+    onEndChanged($event) {
+        this.daySchedule.end = this.jsDateToTime.transform($event.value);
+    }
 }
