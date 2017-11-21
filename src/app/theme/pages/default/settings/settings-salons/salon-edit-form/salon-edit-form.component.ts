@@ -3,12 +3,16 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import { Salon } from "../../../../../../salon/salon.model";
-import { MapsAPILoader } from "@agm/core";
+import {GoogleMapsAPIWrapper, MapsAPILoader} from "@agm/core";
 import { FormControl } from "@angular/forms";
 import { } from 'googlemaps';
 import { GeoNamesService } from "../../../../../../shared/_services/geo-names.service";
 import "rxjs/add/operator/do";
 import { Router } from "@angular/router";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import "rxjs/add/operator/take";
+import "rxjs/add/operator/mergeAll";
+import {SalonService} from "../../../../../../salon/salon.service";
 
 @Component({
     selector: 'app-salon-edit-form',
@@ -27,128 +31,106 @@ export class SalonEditFormComponent implements OnInit {
     submitButtonText: string;
     canDeleteSalon: boolean;
 
-    public searchControl: FormControl;
-    public zoom: number;
+    public zoom: number = 10;
 
     countries: any[];
+    countryNames: any[];
     cities: any[];
-    addresses: any[];
-
-    addressAutoComplete: google.maps.places.Autocomplete;
-
-    @ViewChild("search")
-    public searchElementRef: ElementRef;
 
     constructor(
+        public activeModal: NgbActiveModal,
         private router: Router,
         private mapsAPILoader: MapsAPILoader,
+        private mapsApiWrapper: GoogleMapsAPIWrapper,
         private ngZone: NgZone,
-        private geoNamesService: GeoNamesService
+        private geoNamesService: GeoNamesService,
+        private salonService: SalonService
     ) {
+        this.salonService.salonSaved.subscribe(
+            next => this.activeModal.close()
+        );
+        this.salonService.salonDeleted.subscribe(
+            next => this.activeModal.close()
+        );
+        this.salonService.salonFailed.subscribe(
+            next => console.log(next)
+        );
     }
 
     ngOnInit() {
-        this.title = this.isCreateDialog ? 'Новый салон' : 'Обновить салон';
+        this.title = this.isCreateDialog ? 'Добавление салона' : 'Обновить салон';
         this.submitButtonText = this.isCreateDialog ? 'Сохранить' : 'Обновить';
         this.canDeleteSalon = !this.isCreateDialog;
 
         this.loadCountries();
 
-        this.searchControl = new FormControl();
-
-        // this.initAddressAutoComplete();
+        this.popupVisible = true;
     }
 
-    // initAddressAutoComplete(): void {
-    //     this.mapsAPILoader.load().then(() => {
-    //         console.log("maps api load", this.searchElementRef.nativeElement)
-    //         this.addressAutoComplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-    //             types: ["address"]
-    //         });
-    //         this.addressAutoComplete.addListener("place_changed", () => {
-    //             /*this.ngZone.run(() => */this.onAddressPlaceChanged()/*);*/
-    //         });
-    //     });
-    // }
-
-    onAddressPlaceChanged() {
-        let place: google.maps.places.PlaceResult = this.addressAutoComplete.getPlace();
-
-        //verify result
-        if (place.geometry === undefined || place.geometry === null) {
+    onAddressPlaceChanged(place: any) {
+        if (!place.geometry) {
             return;
         }
-        this.searchControl.setValue(place.name);
-        //set latitude, longitude and zoom
-        this.salon.latitude = place.geometry.location.lat();
-        this.salon.longitude = place.geometry.location.lng();
+        this.salon.latitude = place.geometry.location.lat;
+        this.salon.longitude = place.geometry.location.lng;
         this.zoom = 17;
     }
 
-    onMarkerDragEnd(): void {
-        //TODO: update address
+    onMarkerDragEnd(coords): void {
+        this.geoNamesService
+            .latLngToAddress(coords.lat, coords.lng)
+            .subscribe((addressComponents) => {
+                addressComponents.forEach(addressComponent => {
+                    switch(addressComponent.type) {
+                        case 'country':
+                            this.salon.country = addressComponent.title;
+                            break;
+                        case 'locality':
+                            this.salon.city = addressComponent.title;
+                            break;
+                        case 'street_address':
+                        case 'premise':
+                            this.salon.address = addressComponent.title;
+                            break;
+                    }
+                })
+            });
     }
 
     loadCountries(): void {
         this.geoNamesService
             .getCountries()
+            .map(next => next.response.items)
             .subscribe(
-                next => this.countries = next.response.items
+                next => {
+                    this.countries = next;
+                    this.countryNames = next.map(i => i.title);
+                }
             )
     }
 
-    loadCities($event): void {
+    loadCities(text): void {
         this.geoNamesService
-            .getCities(this.getSelectedCountryId(), this.salon.city)
+            .getCities(this.getSelectedCountryId(), text || '')
+            .map(next => next.response.items.map(i => i.title))
             .subscribe(
-                next => {
-                    if(next.response) {
-                        this.cities = next.response.items
-                    }
-                },
+                next => this.cities = next,
                 error => {}
             )
     }
 
-    loadAddresses(): void {
+    searchAddress(): void {
         this.geoNamesService
             .getStreet(this.salon.country, this.salon.city, this.salon.address)
-            .do(console.log)
             .subscribe(
                 next => {
-                    this.addresses = next.results.map(r => this.formatAddress(r))
-                    // this.addresses = next.results.map(r => {
-                    //     return {title: r.address_components[0]['long_name']}
-                    // })
-                    console.log(this.addresses)
-                })
-    }
-
-    formatAddress(place): any {
-        let route = '',
-            streetNumber = '';
-        let routePart = place.address_components.filter(c => c.types[0] === 'route');
-        if(routePart && routePart[0]) {
-            route = routePart[0]['long_name']
-        }
-
-        let streetNumberPart = place.address_components.filter(c => c.types[0] === 'street_number');
-        if(streetNumberPart && streetNumberPart[0]) {
-            streetNumber = ' ' + streetNumberPart[0]['long_name'];
-        }
-
-        return { title: route + streetNumber };
-    }
-
-    addressValueChanged($event): void {
-        this.loadAddresses();
+                    let place = next.results[0];
+                    this.onAddressPlaceChanged(place);
+                });
     }
 
     cityValueChanged($event) {
-        this.loadCities($event);
-        if(!this.salon.country) {
-            this.salon.country = "Россия";
-        }
+        this.salon.city = $event.value;
     }
 
     getSelectedCountryId(): any {
@@ -161,6 +143,11 @@ export class SalonEditFormComponent implements OnInit {
 
     onDelete() {
         this.deleteSalon.emit(this.salon);
+    }
+
+    onClose() {
+        // TODO: check for changes in form
+        this.activeModal.close();
     }
 
 }

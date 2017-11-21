@@ -5,6 +5,7 @@ import { SalonService } from "../../../../../../salon/salon.service";
 import { UserService } from "../../../../../../auth/_services/user.service";
 import { AuthenticationService } from "../../../../../../auth/_services/authentication.service";
 import {User} from "../../../../../../auth/_models/user";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
     selector: 'app-create-salon',
@@ -19,6 +20,7 @@ export class CreateSalonComponent implements OnInit {
     currentChainId: any;
 
     constructor(
+        public activeModal: NgbActiveModal,
         private salonService: SalonService,
         private authService: AuthenticationService,
         private userService: UserService
@@ -38,10 +40,7 @@ export class CreateSalonComponent implements OnInit {
 
     onSaveSalon(salon: Salon) {
         this.salonService
-            .createSalon(salon)
-            .subscribe(
-            data => this.saveSuccessful = true
-            )
+            .createSalon(salon);
     }
 
 }

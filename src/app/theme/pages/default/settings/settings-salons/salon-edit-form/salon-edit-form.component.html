@@ -1,10 +1,9 @@
-<div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
-                Добавление салона
+                {{title}}
             </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
                 <span aria-hidden="true">
                     ×
                 </span>
@@ -29,11 +28,11 @@
                                 <div class="col-sm-9">
                                     <dx-autocomplete
                                             class="form-control m-bootstrap-select m_selectpicker"
-                                            [dataSource]="countries"
+                                            [dataSource]="countryNames"
                                             [(value)]="salon.country"
-                                            [valueExpr]="'title'"
-                                            [searchExpr]="'title'"
-                                            (onClosed)="loadCities($event)"
+                                            valueExpr="this"
+                                            (onValueChanged)="loadCities(null)"
+                                            placeholder="Выберите страну"
                                             required>
                                     </dx-autocomplete>
                                 </div>
@@ -45,9 +44,10 @@
                                             class="form-control m-bootstrap-select m_selectpicker"
                                             [dataSource]="cities"
                                             [(value)]="salon.city"
-                                            [valueExpr]="'title'"
-                                            [searchExpr]="'title'"
+                                            valueExpr="this"
+                                            (onKeyUp)="loadCities($event.event.srcElement.value)"
                                             (onValueChanged)="cityValueChanged($event)"
+                                            placeholder="Введите город"
                                             required>
                                     </dx-autocomplete>
                                 </div>
@@ -56,17 +56,13 @@
                                 <label class="col-sm-3 col-form-label">Адрес</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <dx-autocomplete
+                                        <input type="text" name="address"
                                                 class="form-control m-bootstrap-select m_selectpicker"
-                                                [dataSource]="addresses"
-                                                [(value)]="salon.address"
-                                                [valueExpr]="'title'"
-                                                [searchExpr]="'title'"
-                                                (onValueChanged)="addressValueChanged($event)"
+                                                [(ngModel)]="salon.address"
+                                                placeholder="Введите адрес"
                                                 required>
-                                        </dx-autocomplete>
                                         <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-primary" type="button" (click)="searchAddress()">
                                     <i class="la la-search"></i>
                                 </button>
                             </span>
@@ -75,14 +71,14 @@
                             </div>
                             <div class="form-group">
                                 <agm-map
-                                        [latitude]="salon.latitude"
-                                        [longitude]="salon.longitude"
+                                        [latitude]="+salon.latitude"
+                                        [longitude]="+salon.longitude"
                                         [scrollwheel]="false"
                                         [zoom]="zoom">
                                     <agm-marker
                                             [(latitude)]="salon.latitude"
                                             [(longitude)]="salon.longitude"
-                                            (dragEnd)="onMarkerDragEnd()"
+                                            (dragEnd)="onMarkerDragEnd($event.coords)"
                                             [markerDraggable]="true">
                                     </agm-marker>
                                 </agm-map>
@@ -102,48 +98,40 @@
                             <legend>Напоминания о записях по&nbsp;умолчанию</legend>
                             <div class="form-group">
                                 <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="m-switch m-switch--outline m-switch--icon">
-                                    <label>
-                                        <input type="checkbox" checked="checked" name="">
-                                        <span></span>
-                                    </label>
-                                </span>
-                            </span>
-                                    <select class="form-control m-bootstrap-select m_selectpicker">
-                                        <option>
-                                            В день визита за 1 час, не позже 11
-                                        </option>
-                                        <option>
-                                            Опция 1
-                                        </option>
-                                        <option>
-                                            Опция 2
-                                        </option>
-                                    </select>
+                                    <span class="input-group-addon">
+                                        <span class="m-switch m-switch--outline m-switch--icon">
+                                            <label>
+                                                <input type="checkbox" checked="checked" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                    <dx-select-box
+                                            class="notification-type"
+                                            [dataSource]="salonService.firstNotificationTypes"
+                                            displayExpr="title"
+                                            valueExpr="id"
+                                            [value]="salon.notify_about_appointments"
+                                    ></dx-select-box>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="m-switch m-switch--outline m-switch--icon">
-                                    <label>
-                                        <input type="checkbox" checked="checked" name="">
-                                        <span></span>
-                                    </label>
-                                </span>
-                            </span>
-                                    <select class="form-control m-bootstrap-select m_selectpicker">
-                                        <option>
-                                            В день визита за 1 час, не позже 11
-                                        </option>
-                                        <option>
-                                            Опция 1
-                                        </option>
-                                        <option>
-                                            Опция 2
-                                        </option>
-                                    </select>
+                                    <span class="input-group-addon">
+                                        <span class="m-switch m-switch--outline m-switch--icon">
+                                            <label>
+                                                <input type="checkbox" checked="checked" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                    <dx-select-box
+                                            class="notification-type"
+                                            [dataSource]="salonService.firstNotificationTypes"
+                                            displayExpr="title"
+                                            valueExpr="id"
+                                            [value]="salon.notify_about_appointments"
+                                    ></dx-select-box>
                                 </div>
                             </div>
                         </fieldset>
@@ -153,10 +141,10 @@
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-auto">
-                        <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+                        <button class="btn btn-success" type="submit">
                             {{submitButtonText}}
                         </button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <button type="button" class="btn btn-secondary" (click)="onClose()">
                             Закрыть
                         </button>
                     </div>
@@ -173,5 +161,3 @@
                 </div>
             </div>
         </form>
-    </div>
-</div>

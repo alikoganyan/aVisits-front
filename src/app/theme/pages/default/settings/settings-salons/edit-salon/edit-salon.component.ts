@@ -27,18 +27,12 @@ export class EditSalonComponent implements OnInit {
 
     onSaveSalon(salon: Salon) {
         this.salonService
-            .updateSalon(salon)
-            .subscribe(
-            data => this.saveSuccessful = true
-            )
+            .updateSalon(salon);
     }
 
     onDeleteSalon(salon: Salon) {
         this.salonService
-            .delete(salon)
-            .subscribe(
-            // data => this.router.navigate(['/settings/salons'])
-            );
+            .delete(salon);
     }
 
 }

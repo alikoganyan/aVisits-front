@@ -6,10 +6,19 @@ import { ChainService } from "../chain/chain.service";
 import { Salon } from "./salon.model";
 import { AuthenticationService } from "../auth/_services/authentication.service";
 import { UserService } from "../auth/_services/user.service";
+import {Subject} from "rxjs/Subject";
+import {Subscription} from "rxjs/Subscription";
 
 @Injectable()
 export class SalonService {
     private currentChainId: number;
+    private salonSavedSubject = new Subject<any>();
+    private salonDeletedSubject = new Subject<any>();
+    private salonFailedSubject = new Subject<any>();
+
+    salonSaved = this.salonSavedSubject.asObservable();
+    salonDeleted = this.salonDeletedSubject.asObservable();
+    salonFailed = this.salonFailedSubject.asObservable();
 
     constructor(
         private backend: BackendService,
@@ -45,16 +54,38 @@ export class SalonService {
         return this.backend.get(`${chain.id}/salon`);
     }
 
-    createSalon(salon: Salon): Observable<any> {
+    createSalon(salon: Salon): Subscription {
         return this.backend.post(`${this.currentChainId}/salon`, salon)
+            .subscribe(
+                next => this.salonSavedSubject.next(next),
+                err => this.salonFailedSubject.next(err)
+            );
     }
 
-    updateSalon(salon: Salon): Observable<any> {
+    updateSalon(salon: Salon): Subscription {
         return this.backend.put(`${salon.chain_id}/salon`, salon)
+            .subscribe(
+                next => this.salonSavedSubject.next(next),
+                err => this.salonFailedSubject.next(err)
+            )
     }
 
-    delete(salon: Salon): Observable<any> {
-        return this.backend.delete(`${salon.chain_id}/salon/${salon.id}`);
+    delete(salon: Salon): Subscription {
+        return this.backend.delete(`${salon.chain_id}/salon/${salon.id}`)
+            .subscribe(
+                next => this.salonDeletedSubject.next(next),
+                err => this.salonFailedSubject.next(err)
+            )
     }
 
+    public firstNotificationTypes: any[] = [
+            { id: 0, title: 'В день визита за 1 час, не позже 11'},
+            { id: 1, title: 'В день визита за 2 час, не позже 11'},
+            { id: 2, title: 'В день визита за 3 час, не позже 11'},
+            { id: 3, title: 'За 1 день в 19 часов'},
+            { id: 4, title: 'За 1 день в 12 часов'},
+            { id: 5, title: 'За 2 дня в 12 часов'},
+            { id: 6, title: 'За 3 дня в 12 часов'},
+            { id: 7, title: 'За 7 дней в 12 часов'},
+        ];
 }

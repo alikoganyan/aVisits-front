@@ -16,6 +16,7 @@ export class Salon {
 
     currentTime: Date;
 
+    notify_about_appointments: number;
     schedule: SalonSchedule[];
 
     constructor(obj?: any) {
@@ -26,9 +27,10 @@ export class Salon {
         this.city = obj && obj.city || '';
         this.streetNumber = obj && obj.streetNumber || '';
         this.address = obj && obj.address || '';
-        this.latitude = obj && obj.latitude || 59.327;
-        this.longitude = obj && obj.longitude || 18.067;
+        this.latitude = obj && obj.latitude || 55.7536207;
+        this.longitude = obj && obj.longitude || 37.6225599; //moscow, red square
         this.currentTime = obj && obj.currentTime || Date.now();
+        this.notify_about_appointments = obj && obj.notify_about_appointments || 1;
         this.schedule = obj && obj.schedule || this.createEmptySchedule();
     }
 

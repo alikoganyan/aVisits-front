@@ -166,3 +166,21 @@ body,
     padding: 10px;
   }
 }
+
+//modal animation
+.modal {
+  &.show .modal-dialog,
+  &.custom-hide .modal-dialog {
+    opacity: 0;
+    transform: translate(0, -25%);
+  }
+
+  &.custom-hide .modal-dialog {
+    transition: 0.25s ease-out;
+  }
+
+  &.custom-show .modal-dialog {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
