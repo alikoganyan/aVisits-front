@@ -22,14 +22,10 @@ export class AuthenticationService {
         }
     }
 
-    authenticationStepOne(email: string, phone: string) {
-        let credentials: any = {};
-        if (email) {
-            credentials.email = email;
-        }
-        if (phone) {
-            credentials.phone = phone;
-        }
+    authenticationStepOne(login: string) {
+        let credentials: any = {
+            login: login
+        };
 
         this.extendAuthData({credentials: credentials});
 

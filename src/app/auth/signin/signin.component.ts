@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
                 private cfr: ComponentFactoryResolver) {
 
         this.model = {
-            phoneOrEmail: '',
+            login: '',
             remember: false
         };
     }
@@ -40,16 +40,7 @@ export class SigninComponent implements OnInit {
     onFormSubmit() {
         this.loading = true;
 
-        let phone = '',
-            email = '';
-        if (this.model.phoneOrEmail.indexOf('@') > 0) {
-            email = this.model.phoneOrEmail;
-        }
-        else {
-            phone = this.model.phoneOrEmail;
-        }
-
-        this.authService.authenticationStepOne(email, phone)
+        this.authService.authenticationStepOne(this.model.login)
             .subscribe(
                 res => this.onDataReceived(res),
                 error => {

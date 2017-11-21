@@ -9,7 +9,7 @@
             <input class="form-control" type="text"
                    name="email" autocomplete="off"
                    placeholder="Введите номер телефона или email"
-                   [(ngModel)]="model.phoneOrEmail"
+                   [(ngModel)]="model.login"
                    #phoneOrMail="ngModel"
                    required>
             <div *ngIf="phoneOrMail.invalid && (phoneOrMail.dirty || phoneOrMail.touched)"
