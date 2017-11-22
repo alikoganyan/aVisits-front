@@ -18,7 +18,7 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="salon-title"
                                        placeholder="Введите название"
-                                       [(ngModel)]="salon.title" required>
+                                       [(ngModel)]="data.title" required>
                             </div>
                         </div>
                         <fieldset>
@@ -29,7 +29,7 @@
                                     <dx-autocomplete
                                             class="form-control m-bootstrap-select m_selectpicker"
                                             [dataSource]="countryNames"
-                                            [(value)]="salon.country"
+                                            [(value)]="data.country"
                                             valueExpr="this"
                                             (onValueChanged)="loadCities(null)"
                                             placeholder="Выберите страну"
@@ -43,7 +43,7 @@
                                     <dx-autocomplete
                                             class="form-control m-bootstrap-select m_selectpicker"
                                             [dataSource]="cities"
-                                            [(value)]="salon.city"
+                                            [(value)]="data.city"
                                             valueExpr="this"
                                             (onKeyUp)="loadCities($event.event.srcElement.value)"
                                             (onValueChanged)="cityValueChanged($event)"
@@ -58,7 +58,7 @@
                                     <div class="input-group">
                                         <input type="text" name="address"
                                                 class="form-control m-bootstrap-select m_selectpicker"
-                                                [(ngModel)]="salon.address"
+                                                [(ngModel)]="data.address"
                                                 placeholder="Введите адрес"
                                                 required>
                                         <span class="input-group-btn">
@@ -70,14 +70,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <agm-map
-                                        [latitude]="+salon.latitude"
-                                        [longitude]="+salon.longitude"
+                                <agm-map #map
+                                        [latitude]="+data.latitude"
+                                        [longitude]="+data.longitude"
                                         [scrollwheel]="false"
                                         [zoom]="zoom">
                                     <agm-marker
-                                            [(latitude)]="salon.latitude"
-                                            [(longitude)]="salon.longitude"
+                                            [(latitude)]="data.latitude"
+                                            [(longitude)]="data.longitude"
                                             (dragEnd)="onMarkerDragEnd($event.coords)"
                                             [markerDraggable]="true">
                                     </agm-marker>
@@ -90,48 +90,24 @@
                             <legend>Режим работы</legend>
 
                             <app-salon-schedule-day
-                                    *ngFor="let daySchedule of salon.schedule"
+                                    *ngFor="let daySchedule of data.schedule"
                                     [daySchedule]="daySchedule"
                             ></app-salon-schedule-day>
                         </fieldset>
                         <fieldset>
                             <legend>Напоминания о записях по&nbsp;умолчанию</legend>
                             <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <span class="m-switch m-switch--outline m-switch--icon">
-                                            <label>
-                                                <input type="checkbox" checked="checked" name="">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </span>
-                                    <dx-select-box
+                                <div>
+                                    <dx-tag-box
                                             class="notification-type"
-                                            [dataSource]="salonService.firstNotificationTypes"
+                                            [dataSource]="salonService.notificationTypes"
                                             displayExpr="title"
-                                            valueExpr="id"
-                                            [value]="salon.notify_about_appointments"
-                                    ></dx-select-box>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <span class="m-switch m-switch--outline m-switch--icon">
-                                            <label>
-                                                <input type="checkbox" checked="checked" name="">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </span>
-                                    <dx-select-box
-                                            class="notification-type"
-                                            [dataSource]="salonService.firstNotificationTypes"
-                                            displayExpr="title"
-                                            valueExpr="id"
-                                            [value]="salon.notify_about_appointments"
-                                    ></dx-select-box>
+                                            valueExpr="key"
+                                            applyValueMode="useButtons"
+                                            [showSelectionControls]="true"
+                                            [value]="data.notify_about_appointments"
+                                            (onValueChanged)="notificationChanged($event)"
+                                    ></dx-tag-box>
                                 </div>
                             </div>
                         </fieldset>

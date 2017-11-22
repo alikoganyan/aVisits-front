@@ -3,7 +3,7 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import { Salon } from "../../../../../../salon/salon.model";
-import {GoogleMapsAPIWrapper, MapsAPILoader} from "@agm/core";
+import {AgmMap, GoogleMapsAPIWrapper, MapsAPILoader} from "@agm/core";
 import { FormControl } from "@angular/forms";
 import { } from 'googlemaps';
 import { GeoNamesService } from "../../../../../../shared/_services/geo-names.service";
@@ -13,6 +13,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import "rxjs/add/operator/take";
 import "rxjs/add/operator/mergeAll";
 import {SalonService} from "../../../../../../salon/salon.service";
+import {EditFormBase} from "../../edit-form-base";
 
 @Component({
     selector: 'app-salon-edit-form',
@@ -20,18 +21,18 @@ import {SalonService} from "../../../../../../salon/salon.service";
     styleUrls: ['./salon-edit-form.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class SalonEditFormComponent implements OnInit {
-    @Input() isCreateDialog: boolean;
-    @Input() salon: Salon = new Salon();
-    @Output() saveSalon = new EventEmitter<any>();
-    @Output() deleteSalon = new EventEmitter<any>();
+export class SalonEditFormComponent extends EditFormBase<Salon> {
 
-    title: string;
+    protected get createTitle() { return 'Добавление салона'; }
+    protected get editTitle() { return 'Обновить салон'; }
+
+    @ViewChild('map') map: AgmMap;
+
     popupVisible: boolean;
     submitButtonText: string;
     canDeleteSalon: boolean;
 
-    public zoom: number = 10;
+    public zoom: number;
 
     countries: any[];
     countryNames: any[];
@@ -39,13 +40,11 @@ export class SalonEditFormComponent implements OnInit {
 
     constructor(
         public activeModal: NgbActiveModal,
-        private router: Router,
-        private mapsAPILoader: MapsAPILoader,
-        private mapsApiWrapper: GoogleMapsAPIWrapper,
-        private ngZone: NgZone,
         private geoNamesService: GeoNamesService,
         private salonService: SalonService
     ) {
+        super();
+
         this.salonService.salonSaved.subscribe(
             next => this.activeModal.close()
         );
@@ -58,21 +57,29 @@ export class SalonEditFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.title = this.isCreateDialog ? 'Добавление салона' : 'Обновить салон';
-        this.submitButtonText = this.isCreateDialog ? 'Сохранить' : 'Обновить';
-        this.canDeleteSalon = !this.isCreateDialog;
+        super.ngOnInit();
+
+        this.canDeleteSalon = !this.isCreateForm;
+        this.zoom = this.isCreateForm ? 10 : 17;
 
         this.loadCountries();
 
         this.popupVisible = true;
+
+        this.resizeMap();
+    }
+
+    resizeMap() {
+        // https://github.com/SebastianM/angular-google-maps/issues/995
+        this.map.triggerResize();
     }
 
     onAddressPlaceChanged(place: any) {
         if (!place.geometry) {
             return;
         }
-        this.salon.latitude = place.geometry.location.lat;
-        this.salon.longitude = place.geometry.location.lng;
+        this.data.latitude = place.geometry.location.lat;
+        this.data.longitude = place.geometry.location.lng;
         this.zoom = 17;
     }
 
@@ -83,17 +90,20 @@ export class SalonEditFormComponent implements OnInit {
                 addressComponents.forEach(addressComponent => {
                     switch(addressComponent.type) {
                         case 'country':
-                            this.salon.country = addressComponent.title;
+                            this.data.country = addressComponent.title;
                             break;
                         case 'locality':
-                            this.salon.city = addressComponent.title;
+                            this.data.city = addressComponent.title;
                             break;
                         case 'street_address':
                         case 'premise':
-                            this.salon.address = addressComponent.title;
+                            this.data.address = addressComponent.title;
                             break;
                     }
-                })
+                });
+
+                this.data.latitude = coords.lat;
+                this.data.longitude = coords.lng;
             });
     }
 
@@ -121,7 +131,7 @@ export class SalonEditFormComponent implements OnInit {
 
     searchAddress(): void {
         this.geoNamesService
-            .getStreet(this.salon.country, this.salon.city, this.salon.address)
+            .getStreet(this.data.country, this.data.city, this.data.address)
             .subscribe(
                 next => {
                     let place = next.results[0];
@@ -130,19 +140,15 @@ export class SalonEditFormComponent implements OnInit {
     }
 
     cityValueChanged($event) {
-        this.salon.city = $event.value;
+        this.data.city = $event.value;
     }
 
     getSelectedCountryId(): any {
-        return ((this.countries || []).filter(c => c.title === this.salon.country)[0] || {}).id || 0;
+        return ((this.countries || []).filter(c => c.title === this.data.country)[0] || {}).id || 0;
     }
 
-    onSubmit() {
-        this.saveSalon.emit(this.salon);
-    }
-
-    onDelete() {
-        this.deleteSalon.emit(this.salon);
+    notificationChanged($event): void {
+        this.data.notify_about_appointments = $event.value;
     }
 
     onClose() {

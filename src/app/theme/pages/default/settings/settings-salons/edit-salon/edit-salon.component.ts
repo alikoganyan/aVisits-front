@@ -1,4 +1,4 @@
-import {Component, Injector, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { Salon } from "../../../../../../salon/salon.model";
 import { SalonService } from "../../../../../../salon/salon.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -16,10 +16,17 @@ export class EditSalonComponent implements OnInit {
     saveSuccessful: boolean;
 
     constructor(private router: Router,
-                private route: ActivatedRoute,
-                private salonService: SalonService,
-                private injector: Injector) {
-        this.salon = this.injector.get('salon');
+        private route: ActivatedRoute,
+        private salonService: SalonService,
+        private injector: Injector) {
+
+        this.salonService.editedSalon
+            .filter(s => s !== null)
+            .subscribe(
+            next => {
+                this.salon = next
+            }
+        );
     }
 
     ngOnInit() {

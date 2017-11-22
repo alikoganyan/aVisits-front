@@ -16,21 +16,25 @@ export class Salon {
 
     currentTime: Date;
 
-    notify_about_appointments: number;
+    notify_about_appointments: string[];
     schedule: SalonSchedule[];
 
     constructor(obj?: any) {
         this.id = obj && obj.id || "";
         this.chain_id = obj && obj.chain_id || 0;
         this.title = obj && obj.title || '';
-        this.image = obj && obj.image || '';
+        this.image = obj && obj.img || '';
+
+        this.country = obj && obj.country || '';
         this.city = obj && obj.city || '';
         this.streetNumber = obj && obj.streetNumber || '';
         this.address = obj && obj.address || '';
-        this.latitude = obj && obj.latitude || 55.7536207;
-        this.longitude = obj && obj.longitude || 37.6225599; //moscow, red square
+
+        this.latitude = obj && parseFloat(obj.latitude) || 55.7536207;
+        this.longitude = obj && parseFloat(obj.longitude) || 37.6225599; //moscow, red square
         this.currentTime = obj && obj.currentTime || Date.now();
-        this.notify_about_appointments = obj && obj.notify_about_appointments || 1;
+
+        this.notify_about_appointments = obj && obj.notify_about_appointments || [];
         this.schedule = obj && obj.schedule || this.createEmptySchedule();
     }
 

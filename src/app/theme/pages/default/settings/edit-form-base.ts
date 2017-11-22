@@ -22,8 +22,6 @@ export abstract class EditFormBase<T> implements OnInit {
     }
 
     onSubmit(): void {
-        console.log('submit form')
-        debugger
         this.save.emit(this.data);
     }
 

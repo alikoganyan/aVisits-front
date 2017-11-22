@@ -16,7 +16,6 @@ import {ModalService} from "../../../../../shared/modal.service";
 })
 export class SettingsSalonsComponent implements OnInit {
     salons: Salon[];
-    editFormData: any;
 
     constructor(private router: Router,
         private route: ActivatedRoute,
@@ -27,7 +26,7 @@ export class SettingsSalonsComponent implements OnInit {
 
     ngOnInit() {
         this.salonService
-            .getSalons()
+            .getSalonsGeneralData()
             .subscribe(
             (res: any) => this.renderSalons(res)
             );
@@ -37,17 +36,26 @@ export class SettingsSalonsComponent implements OnInit {
         this.salons = salons;
     }
 
-    openModalForm(form: any, inputs?: any): void {
+    openModalForm(form: any): void {
         const modalRef = this.modalService.open(form, { size: 'lg' });
     }
 
     openCreateSalonForm(): void {
+        this.salonService.setEditedSalon(new Salon());
         this.openModalForm(CreateSalonComponent);
     }
 
     openEditSalonForm(salon: Salon): void {
-        this.openModalForm(EditSalonComponent, {
-            salon: salon
-        });
+        this.salonService.getSalonById(salon.id)
+            .subscribe(
+                next => {
+                    this.salonService.setEditedSalon(next);
+
+                },
+                    err => console.log(err)
+            );
+
+        this.openModalForm(EditSalonComponent);
+
     }
 }
