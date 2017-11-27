@@ -124,5 +124,6 @@ export type Actions
     | UpdateChainFailure
     | RemoveChain
     | RemoveChainSuccess
+    | RemoveChainFailure
 
     ;

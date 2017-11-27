@@ -52,7 +52,8 @@ export function reducer(state = initialState, action: collection.Actions): State
             };
         }
 
-        case collection.ADD_CHAIN_FAILURE: {
+        case collection.ADD_CHAIN_FAILURE:
+        case collection.REMOVE_CHAIN_FAILURE: {
             return {
                 ...state,
                 error: action.payload

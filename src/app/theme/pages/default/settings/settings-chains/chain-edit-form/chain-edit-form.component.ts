@@ -12,7 +12,6 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
     encapsulation: ViewEncapsulation.None
 })
 export class ChainEditFormComponent extends EditFormBase<Chain> {
-    canDeleteChain: boolean;
 
     protected get createTitle() { return 'Новая сеть'; }
     protected get editTitle() { return 'Обновить сеть'; }

@@ -90,10 +90,10 @@ export class UpdateSalonFailure implements ActionWithPayload<Salon> {
 /**
  * Remove salon
  */
-export class RemoveSalon implements ActionWithPayload<number> {
+export class RemoveSalon implements ActionWithPayload<Salon> {
     readonly type = REMOVE_SALON;
 
-    constructor(public payload: number) {}
+    constructor(public payload: Salon) {}
 }
 
 export class RemoveSalonSuccess implements ActionWithPayload<number> {

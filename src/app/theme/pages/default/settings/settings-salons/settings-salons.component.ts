@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { SalonService } from "../../../../../salon/salon.service";
 import { ChainService } from "../../../../../chain/chain.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -14,17 +14,25 @@ import * as fromRoot from '../../reducers';
 import * as salonActions from '../../../../../salon/actions/collection';
 import * as chainActions from '../../../../../chain/actions/collection';
 import {Store} from "@ngrx/store";
+import {Observable} from "rxjs/Observable";
+import "rxjs/add/observable/of";
+import {Chain} from "../../../../../chain/chain.model";
 
 @Component({
     selector: 'app-settings-salons',
     templateUrl: './settings-salons.component.html',
     styleUrls: ['./settings-salons.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsSalonsComponent implements OnInit {
     salons$ = this.store.select(fromSalon.selectAllSalons);
     chains$ = this.store.select(fromChain.selectAllChains);
+        // .startWith([new Chain({ id: null, title: 'Все сети'})]);
+
     selectedChain$ = this.store.select(fromAuth.getSelectedChainId);
+
+    operationSuccessful$ = this.store.select(fromSalon.selectOperationSuccessful);
 
     private modal: any;
 
@@ -35,6 +43,12 @@ export class SettingsSalonsComponent implements OnInit {
     ngOnInit() {
         this.store.dispatch(new salonActions.LoadAll());
         this.store.dispatch(new chainActions.LoadAll());
+
+        this.operationSuccessful$
+            .filter(next => next === true)
+            .subscribe(
+                operationSuccessful => this.modal.close()
+            );
     }
 
 

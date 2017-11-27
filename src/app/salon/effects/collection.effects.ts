@@ -42,6 +42,16 @@ export class SalonCollectionEffects {
                 .catch(error =>of(new Collection.UpdateSalonFailure(error.json())))
         );
 
+    @Effect()
+    removeSalon$ = this.actions$
+        .ofType(Collection.REMOVE_SALON)
+        .map((action: Collection.RemoveSalon) => action.payload)
+        .exhaustMap(salon =>
+            this.salonService.delete(salon)
+                .map(response => new Collection.RemoveSalonSuccess(salon.id))
+                .catch(error => of(new Collection.RemoveSalonFailure(error.json())))
+        );
+
 
     constructor(
         private actions$: Actions,

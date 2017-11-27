@@ -21,7 +21,9 @@ export abstract class SalonDialogBase implements OnInit {
         this.store.dispatch(this.createSaveAction(salon));
     }
 
-    onDeleteSalon(salon: any) {
-        this.store.dispatch(new salonActions.RemoveSalon(salon.id));
+    onDeleteSalon(salon: Salon) {
+        if(confirm(`Вы действительно хотите удалить ${salon.title}`)) {
+            this.store.dispatch(new salonActions.RemoveSalon(salon));
+        }
     }
 }

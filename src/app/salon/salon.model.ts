@@ -1,11 +1,11 @@
 import { SalonSchedule } from "./salon-schedule.model";
 
 export class Salon {
-    id: string;
+    id: number;
     chain_id: number;
 
     title: string;
-    image: string;
+    // image: string;
 
     country: string;
     city: string;
@@ -20,10 +20,10 @@ export class Salon {
     schedule: SalonSchedule[];
 
     constructor(obj?: any) {
-        this.id = obj && obj.id || "";
+        this.id = obj && obj.id || 0;
         this.chain_id = obj && obj.chain_id || 0;
         this.title = obj && obj.title || '';
-        this.image = obj && obj.img || '';
+        // this.image = obj && obj.img || ''; //TODO: wait for backend to implement upload
 
         this.country = obj && obj.country || '';
         this.city = obj && obj.city || '';

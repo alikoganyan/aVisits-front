@@ -1,4 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {
+    ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output,
+    ViewEncapsulation
+} from '@angular/core';
 import { Chain } from "../../../../../../chain/chain.model";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -6,24 +9,20 @@ import { ActivatedRoute, Router } from "@angular/router";
     selector: 'app-chain-row',
     templateUrl: './chain-row.component.html',
     styleUrls: ['./chain-row.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChainRowComponent implements OnInit {
     @Input() chain: Chain;
-    @Output() editChainRequested: EventEmitter<any>;
+    @Output() editChainRequested = new EventEmitter<Chain>();
 
-    constructor(
-        private router: Router,
-        private route: ActivatedRoute
-    ) {
-
-        this.editChainRequested = new EventEmitter();
+    constructor() {
     }
 
     ngOnInit() {
     }
 
-    editChain(chain: any): void {
+    editChain(chain: Chain): void {
         this.editChainRequested.next(chain);
     }
 

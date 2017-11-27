@@ -23,11 +23,12 @@ export class ChainService {
             .map(chains => chains.filter(c => c.id == id)[0]);
     }
 
-    createChain(chain: Chain): Observable<any> {
-        return this.backend.post('chain', chain);
+    createChain(chain: Chain): Observable<Chain> {
+        return this.backend.post('chain', chain)
+            .map(res => res.json().data.chain);
     }
 
-    updateChain(chain: any): Observable<any> {
+    updateChain(chain: Chain): Observable<any> {
         return this.backend.put('chain', chain);
     }
 

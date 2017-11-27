@@ -33,6 +33,8 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
 
     chainsDataSource$ = this.store.select(fromChain.selectAllChains);
     chainsDataSource: any;
+    notificationTypes: any[];
+    notificationTypesValue: any[];
 
     popupVisible: boolean;
     submitButtonText: string;
@@ -59,6 +61,8 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
         this.chainsDataSource$.subscribe(
             next => this.chainsDataSource = next
         );
+        this.notificationTypes = this.salonService.notificationTypes;
+        this.notificationTypesValue = this.data.notify_about_appointments;//.split(',');
 
         this.canDeleteSalon = !this.isCreateForm;
         this.zoom = this.isCreateForm ? 10 : 17;

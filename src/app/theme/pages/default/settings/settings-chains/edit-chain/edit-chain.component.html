@@ -1,10 +1,7 @@
-<div class="alert alert-success" role="alert" *ngIf="saveSuccessful">
-    Изменения сохранены
-</div>
-
 <app-chain-settings
-        [isCreateForm]="true"
+        [isCreateForm]="false"
         [data]="chain$ | async"
+        [error]="error$ | async"
         (save)="onSaveChain($event)"
         (deleteRequested)="onDeleteChain($event)"
 ></app-chain-settings>

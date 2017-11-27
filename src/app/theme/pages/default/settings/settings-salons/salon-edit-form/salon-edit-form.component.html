@@ -1,21 +1,26 @@
-
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-                {{title}}
-            </h5>
-            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">
+        {{title}}
+    </h5>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
                 <span aria-hidden="true">
                     ×
                 </span>
-            </button>
-        </div>
+    </button>
+</div>
 
-        <div class="alert alert-danger" role="alert" *ngIf="error">
-            {{error | json}}
-        </div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+    {{error | json}}
+</div>
 
-        <form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
-            <div class="modal-body">
+<form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="modal-body">
+        <nav class="nav nav-tabs" role="tablist">
+            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-data" role="tab">Данные</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#nav-settings" role="tab">Настройки</a>
+        </nav>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="nav-data" role="tabpanel">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group row">
@@ -38,6 +43,25 @@
                                 ></dx-select-box>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Фотография</label>
+                            <div class="col-sm-9">
+                                <div class="card">
+                                    <img class="card-img-top" src="assets/app/media/img/products/product1.jpg"
+                                         alt="Card image cap">
+                                    <div class="card-body">
+                                        <dx-file-uploader
+                                                [multiple]="false"
+                                                accept="image/*"
+                                                uploadMode="instantly"
+                                                selectButtonText="Выберите изображение"
+                                        ></dx-file-uploader>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
                         <fieldset>
                             <legend>Местоположение</legend>
                             <div class="form-group row">
@@ -74,10 +98,10 @@
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" name="address"
-                                                class="form-control m-bootstrap-select m_selectpicker"
-                                                [(ngModel)]="data.address"
-                                                placeholder="Введите адрес"
-                                                required>
+                                               class="form-control m-bootstrap-select m_selectpicker"
+                                               [(ngModel)]="data.address"
+                                               placeholder="Введите адрес"
+                                               required>
                                         <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button" (click)="searchAddress()">
                                     <i class="la la-search"></i>
@@ -88,10 +112,10 @@
                             </div>
                             <div class="form-group">
                                 <agm-map #map
-                                        [latitude]="+data.latitude"
-                                        [longitude]="+data.longitude"
-                                        [scrollwheel]="false"
-                                        [zoom]="zoom">
+                                         [latitude]="+data.latitude"
+                                         [longitude]="+data.longitude"
+                                         [scrollwheel]="false"
+                                         [zoom]="zoom">
                                     <agm-marker
                                             [(latitude)]="data.latitude"
                                             [(longitude)]="data.longitude"
@@ -102,6 +126,10 @@
                             </div>
                         </fieldset>
                     </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-settings" role="tabpanel">
+                <div class="row">
                     <div class="col-lg-6">
                         <fieldset>
                             <legend>Режим работы</legend>
@@ -111,13 +139,15 @@
                                     [daySchedule]="daySchedule"
                             ></app-salon-schedule-day>
                         </fieldset>
+                    </div>
+                    <div class="col-lg-6">
                         <fieldset>
                             <legend>Напоминания о записях по&nbsp;умолчанию</legend>
                             <div class="form-group">
                                 <div>
                                     <dx-tag-box
                                             class="notification-type"
-                                            [dataSource]="salonService.notificationTypes"
+                                            [dataSource]="notificationTypes"
                                             displayExpr="title"
                                             valueExpr="key"
                                             applyValueMode="useButtons"
@@ -153,4 +183,6 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
+    </div>
+</form>

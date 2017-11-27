@@ -9,7 +9,7 @@ import { EditSalonComponent } from './edit-salon/edit-salon.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {AgmCoreModule, GoogleMapsAPIWrapper} from "@agm/core";
 import {
-    DxAutocompleteModule, DxDateBoxModule, DxDropDownBoxModule, DxPopupModule, DxSelectBoxModule,
+    DxAutocompleteModule, DxDateBoxModule, DxDropDownBoxModule, DxFileUploaderModule, DxPopupModule, DxSelectBoxModule,
     DxTagBoxModule
 } from "devextreme-angular";
 import { SalonScheduleDayComponent } from './salon-edit-form/salon-schedule-day/salon-schedule-day.component';
@@ -52,6 +52,7 @@ const salonRoutes: Routes = [
         DxSelectBoxModule,
         DxTagBoxModule,
         DxDropDownBoxModule,
+        DxFileUploaderModule,
 
         // NgbModalModule.forRoot(),
         AgmCoreModule.forRoot(),

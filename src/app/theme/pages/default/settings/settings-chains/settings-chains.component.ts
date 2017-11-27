@@ -7,7 +7,6 @@ import { Chain } from "../../../../../chain/chain.model";
 import {CreateChainComponent} from "./create-chain/create-chain.component";
 import {EditChainComponent} from "./edit-chain/edit-chain.component";
 import {Store} from "@ngrx/store";
-// import * as fromChain from '../../../../../chain/reducers';
 import * as fromChain from '../../reducers/chain';
 import * as fromRoot from '../../reducers';
 import * as chainActions from '../../../../../chain/actions/collection';

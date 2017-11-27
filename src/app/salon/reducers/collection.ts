@@ -68,10 +68,18 @@ export function reducer(
         }
 
         case collection.ADD_SALON_FAILURE:
-        case collection.UPDATE_SALON_FAILURE: {
+        case collection.UPDATE_SALON_FAILURE:
+        case collection.REMOVE_SALON_FAILURE: {
             return {
                 ...state,
                 error: action.payload
+            };
+        }
+
+        case collection.REMOVE_SALON_SUCCESS: {
+            return {
+                ...adapter.removeOne(action.payload, state),
+                operationSuccessful: true
             };
         }
 
