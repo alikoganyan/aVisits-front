@@ -3,6 +3,10 @@ import { Salon } from "../../../../../../salon/salon.model";
 import { SalonService } from "../../../../../../salon/salon.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import "rxjs/add/operator/do";
+import {Store} from "@ngrx/store";
+import * as fromRoot from '../../../reducers';
+import * as salonActions from '../../../../../../salon/actions/collection';
+import {SalonDialogBase} from "../salon-dialog-base/salon-dialog-base";
 
 @Component({
     selector: 'app-edit-salon',
@@ -10,36 +14,15 @@ import "rxjs/add/operator/do";
     styleUrls: ['./edit-salon.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class EditSalonComponent implements OnInit {
-    id: string;
-    salon: Salon = new Salon();
-    saveSuccessful: boolean;
+export class EditSalonComponent extends SalonDialogBase {
 
-    constructor(private router: Router,
-        private route: ActivatedRoute,
-        private salonService: SalonService,
-        private injector: Injector) {
-
-        this.salonService.editedSalon
-            .filter(s => s !== null)
-            .subscribe(
-            next => {
-                this.salon = next
-            }
-        );
+    protected createSaveAction(salon: Salon): salonActions.AddSalon | salonActions.UpdateSalon {
+        return new salonActions.UpdateSalon(salon);
     }
 
-    ngOnInit() {
+    constructor(protected store: Store<fromRoot.State>) {
+        super(store);
     }
 
-    onSaveSalon(salon: Salon) {
-        this.salonService
-            .updateSalon(salon);
-    }
-
-    onDeleteSalon(salon: Salon) {
-        this.salonService
-            .delete(salon);
-    }
 
 }

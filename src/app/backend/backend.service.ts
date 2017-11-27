@@ -1,27 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from "@angular/http";
-import { UserService } from "../auth/_services/user.service";
-import { Observable } from "rxjs/Observable";
-import { User } from "../auth/_models/user";
 import {AuthenticationService} from "../auth/_services/authentication.service";
 import {BackendBaseService} from "./backend-base.service";
 
 @Injectable()
 export class BackendService extends BackendBaseService {
-    private token: string;
+    private token: string | null;
 
     constructor(http: Http,
-                public authService: AuthenticationService) {
+                private authService: AuthenticationService) {
+
         super(http);
 
-        console.log("create backend service")
-
-        this.authService.currentAuthData
-            .subscribe(
-            authData => {
-                console.log(authData)
-                this.token = authData.token;
-            });
+        this.authService.token$.subscribe(t => this.token = t);
     }
 
     prepareUrl(url: string): string {

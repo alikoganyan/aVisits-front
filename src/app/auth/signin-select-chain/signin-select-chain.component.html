@@ -4,11 +4,11 @@
         <div class="m-login__desc">Выберете сеть для входа</div>
     </div>
     <div class="m-login__form m-form">
-        <div class="form-group" *ngFor="let userChain of userChains" >
+        <div class="form-group" *ngFor="let userChain of userChains$ | async" >
             <button class="btn btn-primary btn-block" (click)="selectUserChain(userChain.id)">{{userChain.title}}</button>
         </div>
         <div class="m-login__form-action">
-            <a href="javascript:;" class="m-link" routerLink="/auth/password">Назад</a>
+            <a href="javascript:;" class="m-link" routerLink="/auth">Назад</a>
         </div>
     </div>
 </div>

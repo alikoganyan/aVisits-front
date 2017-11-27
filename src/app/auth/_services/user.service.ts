@@ -10,13 +10,8 @@ import {BackendBaseService} from "../../backend/backend-base.service";
 
 @Injectable()
 export class UserService {
-    currentUser: BehaviorSubject<User> = new BehaviorSubject<User>(new User());
 
     constructor(private backend: BackendBaseService) {
-    }
-
-    setCurrentUser(newUser: User): void {
-        this.currentUser.next(newUser);
     }
 
     create(user: User) {

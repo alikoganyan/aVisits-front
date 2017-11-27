@@ -6,7 +6,7 @@ import { SigninGuardBase } from "./signin-guard-base";
 
 @Injectable()
 export class SigninEnterPasswordGuard extends SigninGuardBase {
-    canActivateCore(): boolean {
-        return super.canActivateCore() && this.getAuthData().selectedChain;
-    }
+    // canActivateCore(): boolean {
+    //     return super.canActivateCore() && this.getAuthData().selectedChain;
+    // }
 }

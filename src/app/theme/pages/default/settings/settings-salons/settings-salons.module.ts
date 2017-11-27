@@ -9,7 +9,7 @@ import { EditSalonComponent } from './edit-salon/edit-salon.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {AgmCoreModule, GoogleMapsAPIWrapper} from "@agm/core";
 import {
-    DxAutocompleteModule, DxDateBoxModule, DxPopupModule, DxSelectBoxModule,
+    DxAutocompleteModule, DxDateBoxModule, DxDropDownBoxModule, DxPopupModule, DxSelectBoxModule,
     DxTagBoxModule
 } from "devextreme-angular";
 import { SalonScheduleDayComponent } from './salon-edit-form/salon-schedule-day/salon-schedule-day.component';
@@ -19,6 +19,11 @@ import { TimeToJsDatePipe } from './salon-edit-form/salon-schedule-day/time-to-j
 import { JsDateToTimeStringPipe } from './salon-edit-form/salon-schedule-day/js-date-to-time-string.pipe';
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import {ModalService} from "../../../../../shared/modal.service";
+import {StoreModule} from "@ngrx/store";
+// import {reducers} from "../../../../../salon/reducers/index";
+import {EffectsModule} from "@ngrx/effects";
+import {SalonEffects} from "../../../../../salon/effects/salon.effects";
+import {SalonCollectionEffects} from "../../../../../salon/effects/collection.effects";
 
 const salonRoutes: Routes = [
     {
@@ -39,13 +44,16 @@ const salonRoutes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
+        // StoreModule.forFeature('salons', reducers),
+        // EffectsModule.forFeature([SalonEffects, SalonCollectionEffects]),
 
         DxAutocompleteModule,
         DxDateBoxModule,
         DxSelectBoxModule,
         DxTagBoxModule,
+        DxDropDownBoxModule,
 
-        NgbModalModule.forRoot(),
+        // NgbModalModule.forRoot(),
         AgmCoreModule.forRoot(),
     ],
     declarations: [
@@ -62,7 +70,7 @@ const salonRoutes: Routes = [
     providers: [
         JsDateToTimeStringPipe,
         GoogleMapsAPIWrapper,
-        ModalService
+        // ModalService
     ],
     entryComponents: [
         CreateSalonComponent,

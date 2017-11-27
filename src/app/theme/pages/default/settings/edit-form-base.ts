@@ -3,6 +3,7 @@ import {EventEmitter, Input, OnInit, Output} from "@angular/core";
 export abstract class EditFormBase<T> implements OnInit {
     @Input() isCreateForm: boolean;
     @Input() data: T;
+    @Input() error: any;
     @Output() save = new EventEmitter<T>();
     @Output() deleteRequested = new EventEmitter<T>();
 

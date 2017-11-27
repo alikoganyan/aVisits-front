@@ -1,10 +1,9 @@
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
+
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
                 {{title}}
             </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
                 <span aria-hidden="true">
                     ×
                 </span>
@@ -12,7 +11,7 @@
         </div>
 
         <div class="alert alert-danger" role="alert" *ngIf="error">
-            {{error}}
+            {{error | json}}
         </div>
 
         <form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
@@ -63,10 +62,10 @@
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" >
                             {{submitButtonText}}
                         </button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <button type="button" class="btn btn-secondary" (click)="onClose()">
                             Закрыть
                         </button>
                     </div>
@@ -81,5 +80,3 @@
                 </div>
             </div>
         </form>
-    </div>
-</div>

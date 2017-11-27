@@ -4,7 +4,7 @@
 
 <app-chain-settings
         [isCreateForm]="true"
-        [data]="chain"
+        [data]="chain$ | async"
         (save)="onSaveChain($event)"
         (deleteRequested)="onDeleteChain($event)"
 ></app-chain-settings>

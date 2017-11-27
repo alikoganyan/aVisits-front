@@ -4,7 +4,8 @@
 
 
 <app-salon-edit-form
-        [data]="salon"
+        [data]="salon$ | async"
+        [error]="error$ | async"
         [isCreateForm]="true"
         (save)="onSaveSalon($event)"
 ></app-salon-edit-form>

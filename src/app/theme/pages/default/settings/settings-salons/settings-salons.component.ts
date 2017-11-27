@@ -6,7 +6,14 @@ import { Salon } from "../../../../../salon/salon.model";
 import {CreateSalonComponent} from "./create-salon/create-salon.component";
 import {EditSalonComponent} from "./edit-salon/edit-salon.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ModalService} from "../../../../../shared/modal.service";
+import {ModalConfig, ModalService} from "../../../../../shared/modal.service";
+import * as fromSalon from '../../reducers/salon';
+import * as fromChain from '../../reducers/chain';
+import * as fromAuth from '../../../../../auth/reducers';
+import * as fromRoot from '../../reducers';
+import * as salonActions from '../../../../../salon/actions/collection';
+import * as chainActions from '../../../../../chain/actions/collection';
+import {Store} from "@ngrx/store";
 
 @Component({
     selector: 'app-settings-salons',
@@ -15,47 +22,33 @@ import {ModalService} from "../../../../../shared/modal.service";
     encapsulation: ViewEncapsulation.None
 })
 export class SettingsSalonsComponent implements OnInit {
-    salons: Salon[];
+    salons$ = this.store.select(fromSalon.selectAllSalons);
+    chains$ = this.store.select(fromChain.selectAllChains);
+    selectedChain$ = this.store.select(fromAuth.getSelectedChainId);
 
-    constructor(private router: Router,
-        private route: ActivatedRoute,
-        private chainService: ChainService,
-        private salonService: SalonService,
-        private modalService: ModalService) {
+    private modal: any;
+
+    constructor(private store: Store<fromRoot.State>,
+                private modalService: ModalService) {
     }
 
     ngOnInit() {
-        this.salonService
-            .getSalonsGeneralData()
-            .subscribe(
-            (res: any) => this.renderSalons(res)
-            );
+        this.store.dispatch(new salonActions.LoadAll());
+        this.store.dispatch(new chainActions.LoadAll());
     }
 
-    renderSalons(salons: any): void {
-        this.salons = salons;
-    }
 
-    openModalForm(form: any): void {
-        const modalRef = this.modalService.open(form, { size: 'lg' });
+    openModalForm(form: any, salon: Salon): void {
+        this.store.dispatch(new salonActions.SetCurrentSalon(salon));
+        this.modal = this.modalService.open(new ModalConfig(form, { size: 'lg' }));
     }
 
     openCreateSalonForm(): void {
-        this.salonService.setEditedSalon(new Salon());
-        this.openModalForm(CreateSalonComponent);
+        this.openModalForm(CreateSalonComponent, new Salon());
     }
 
     openEditSalonForm(salon: Salon): void {
-        this.salonService.getSalonById(salon.id)
-            .subscribe(
-                next => {
-                    this.salonService.setEditedSalon(next);
-
-                },
-                    err => console.log(err)
-            );
-
-        this.openModalForm(EditSalonComponent);
+        this.openModalForm(EditSalonComponent, salon);
 
     }
 }

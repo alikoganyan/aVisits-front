@@ -8,6 +8,12 @@ import { CreateChainComponent } from './create-chain/create-chain.component';
 import { EditChainComponent } from './edit-chain/edit-chain.component';
 import { FormsModule } from "@angular/forms";
 import {SharedModule} from "../../../../../shared/shared.module";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
+// import {reducers} from "../../../../../chain/reducers/index";
+import {ChainEffects} from "../../../../../chain/effects/chain.effects";
+import {ModalService} from "../../../../../shared/modal.service";
+import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 
 const chainRoutes: Routes = [
     {
@@ -26,7 +32,11 @@ const chainRoutes: Routes = [
         CommonModule,
         RouterModule.forChild(chainRoutes),
         FormsModule,
-        SharedModule
+        SharedModule,
+        NgbModalModule.forRoot(),
+
+        // StoreModule.forFeature('chains', reducers),
+        // EffectsModule.forFeature([ChainEffects]),
     ],
     exports: [
         RouterModule,
@@ -37,6 +47,9 @@ const chainRoutes: Routes = [
         ChainRowComponent,
         CreateChainComponent,
         EditChainComponent
+    ],
+    providers: [
+        ModalService
     ],
     entryComponents: [
         CreateChainComponent,

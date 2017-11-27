@@ -7,8 +7,8 @@ export class ModalService {
     constructor(private ngbModal: NgbModal) {
     }
 
-    open(content: any, config?: any) {
-        let modal = this.ngbModal.open(content, config);
+    open(config: ModalConfig) {
+        let modal = this.ngbModal.open(config.content, config.options);
         let instance = (modal as any)._windowCmptRef.instance;
         setImmediate(() => {
             instance.windowClass = 'custom-show'
@@ -23,4 +23,9 @@ export class ModalService {
         return modal
     }
 
+}
+
+export class ModalConfig {
+    constructor(public content: any,
+                public options: any) { }
 }

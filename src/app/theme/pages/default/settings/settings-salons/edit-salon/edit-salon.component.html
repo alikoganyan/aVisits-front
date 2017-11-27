@@ -3,7 +3,8 @@
 </div>
 
 <app-salon-edit-form
-        [data]="salon"
+        [data]="salon$ | async"
+        [error]="error$ | async"
         (save)="onSaveSalon($event)"
         (deleteRequested)="onDeleteSalon($event)"
 ></app-salon-edit-form>

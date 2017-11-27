@@ -9,6 +9,11 @@
                 </span>
             </button>
         </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+            {{error | json}}
+        </div>
+
         <form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
             <div class="modal-body">
                 <div class="row">
@@ -19,6 +24,18 @@
                                 <input type="text" class="form-control" name="salon-title"
                                        placeholder="Введите название"
                                        [(ngModel)]="data.title" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Сеть</label>
+                            <div class="col-sm-9">
+                                <dx-select-box
+                                        class="form-control"
+                                        [(value)]="data.chain_id"
+                                        valueExpr="id"
+                                        displayExpr="title"
+                                        [dataSource]="chainsDataSource"
+                                ></dx-select-box>
                             </div>
                         </div>
                         <fieldset>

@@ -23,7 +23,7 @@ export class ChainService {
             .map(chains => chains.filter(c => c.id == id)[0]);
     }
 
-    createChain(chain: any): Observable<any> {
+    createChain(chain: Chain): Observable<any> {
         return this.backend.post('chain', chain);
     }
 
@@ -31,8 +31,8 @@ export class ChainService {
         return this.backend.put('chain', chain);
     }
 
-    deleteChain(chain: any): Observable<any> {
-        return this.backend.delete('chain/' + chain.id);
+    deleteChain(chainId: number): Observable<any> {
+        return this.backend.delete('chain/' + chainId);
     }
 
 }

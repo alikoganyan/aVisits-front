@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="m-portlet__head-tools">
-                        <button type="button" class="btn btn-primary" (click)="redirectToCreateChain()" data-toggle="modal" data-target="#modalDialog">
+                        <button type="button" class="btn btn-primary" (click)="openCreateForm()" >
                             Добавить
                         </button>
                     </div>
@@ -20,7 +20,7 @@
                     <div class="m-widget5">
 
                         <app-chain-row
-                                *ngFor="let chain of chains"
+                                *ngFor="let chain of chains$ | async"
                                 [chain]="chain"
                                 (editChainRequested)="openEditForm($event)"
                         >
@@ -31,9 +31,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<!--it's not good that this modal is visible by descendant components TODO something better and reusable-->
-<div class="modal fade" id="modalDialog" role="dialog" tabindex="-1" style="display: none">
-    <app-dynamic-component [dialogData]="editFormData"></app-dynamic-component>
 </div>

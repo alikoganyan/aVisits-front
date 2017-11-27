@@ -14,6 +14,9 @@ import "rxjs/add/operator/take";
 import "rxjs/add/operator/mergeAll";
 import {SalonService} from "../../../../../../salon/salon.service";
 import {EditFormBase} from "../../edit-form-base";
+import * as fromChain from '../../../reducers/chain';
+import * as fromRoot from '../../../reducers';
+import {Store} from "@ngrx/store";
 
 @Component({
     selector: 'app-salon-edit-form',
@@ -28,6 +31,9 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
 
     @ViewChild('map') map: AgmMap;
 
+    chainsDataSource$ = this.store.select(fromChain.selectAllChains);
+    chainsDataSource: any;
+
     popupVisible: boolean;
     submitButtonText: string;
     canDeleteSalon: boolean;
@@ -41,23 +47,18 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     constructor(
         public activeModal: NgbActiveModal,
         private geoNamesService: GeoNamesService,
-        private salonService: SalonService
+        private salonService: SalonService,
+        private store: Store<fromRoot.State>
     ) {
         super();
-
-        this.salonService.salonSaved.subscribe(
-            next => this.activeModal.close()
-        );
-        this.salonService.salonDeleted.subscribe(
-            next => this.activeModal.close()
-        );
-        this.salonService.salonFailed.subscribe(
-            next => console.log(next)
-        );
     }
 
     ngOnInit() {
         super.ngOnInit();
+
+        this.chainsDataSource$.subscribe(
+            next => this.chainsDataSource = next
+        );
 
         this.canDeleteSalon = !this.isCreateForm;
         this.zoom = this.isCreateForm ? 10 : 17;

@@ -34,9 +34,9 @@ export class SigninForgotPasswordComponent implements OnInit {
                 private cfr: ComponentFactoryResolver,
                 private alertService: AlertService) {
 
-        let credentials = this.authService.currentAuthData.getValue().credentials;
-        this.recoveryData.phone = credentials.phone;
-        this.recoveryData.email = credentials.email;
+        // let credentials = this.authService.currentAuthData.getValue().credentials;
+        // this.recoveryData.phone = credentials.phone;
+        // this.recoveryData.email = credentials.email;
     }
 
     ngOnInit() {

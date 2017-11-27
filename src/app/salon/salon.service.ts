@@ -28,9 +28,6 @@ export class SalonService {
         private authService: AuthenticationService,
         private chainService: ChainService
     ) {
-        this.authService.currentAuthData.subscribe(
-            authData => this.currentChainId = authData.chain.id
-        )
     }
 
     getSalonsGeneralData(): Observable<any> {
@@ -54,36 +51,39 @@ export class SalonService {
         return this.backend.get(`${chain.id}/salon`);
     }
 
-    createSalon(salon: Salon): Subscription {
-        return this.backend.post(`${this.currentChainId}/salon`, salon)
-            .subscribe(
-            next => this.salonSavedSubject.next(next),
-            err => this.salonFailedSubject.next(err),
-                () => this.editedSalonSubject.next(null)
-            );
+    createSalon(salon: Salon): Observable<any> {
+        console.log('service add salon')
+        let chainId = salon.chain_id;
+        salon.chain_id = 0;
+        return this.backend.post(`${chainId}/salon`, salon)
+            // .subscribe(
+            // next => this.salonSavedSubject.next(next),
+            // err => this.salonFailedSubject.next(err),
+            //     () => this.editedSalonSubject.next(null)
+            // );
     }
 
-    updateSalon(salon: Salon): Subscription {
+    updateSalon(salon: Salon): Observable<any> {
         return this.backend.put(`${salon.chain_id}/salon`, salon)
-            .subscribe(
-            next => this.salonSavedSubject.next(next),
-            err => this.salonFailedSubject.next(err),
-                () => this.editedSalonSubject.next(null)
-            )
+            // .subscribe(
+            // next => this.salonSavedSubject.next(next),
+            // err => this.salonFailedSubject.next(err),
+            //     () => this.editedSalonSubject.next(null)
+            // )
     }
 
-    delete(salon: Salon): Subscription {
+    delete(salon: Salon): Observable<any> {
         return this.backend.delete(`${salon.chain_id}/salon/${salon.id}`)
-            .subscribe(
-            next => this.salonDeletedSubject.next(next),
-            err => this.salonFailedSubject.next(err),
-                () => this.editedSalonSubject.next(null)
-            )
+            // .subscribe(
+            // next => this.salonDeletedSubject.next(next),
+            // err => this.salonFailedSubject.next(err),
+            //     () => this.editedSalonSubject.next(null)
+            // )
     }
 
-    setEditedSalon(salon: Salon): void {
-        this.editedSalonSubject.next(salon);
-    }
+    // setEditedSalon(salon: Salon): void {
+    //     this.editedSalonSubject.next(salon);
+    // }
 
     public notificationTypes: any[] = [
         { key: "1h11", title: 'В день визита за 1 час, не позже 11' },

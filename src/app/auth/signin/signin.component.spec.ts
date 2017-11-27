@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SigninComponent } from './signin.component';
+import { SigninPageComponent } from './signin.component';
 import {FormsModule} from "@angular/forms";
 import {RouterTestingModule} from "@angular/router/testing";
 import {AuthenticationService} from "../_services/authentication.service";
@@ -11,14 +11,14 @@ import {fakeBackendProvider} from "../_helpers/fake-backend";
 import {MockBackend} from "@angular/http/testing";
 import {AlertService} from "../_services/alert.service";
 
-describe('SigninComponent', () => {
-    let component: SigninComponent;
-    let fixture: ComponentFixture<SigninComponent>;
+describe('SigninPageComponent', () => {
+    let component: SigninPageComponent;
+    let fixture: ComponentFixture<SigninPageComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [FormsModule, RouterTestingModule, HttpModule],
-            declarations: [SigninComponent],
+            declarations: [SigninPageComponent],
             providers: [
                 AuthenticationService,
                 BackendService,
@@ -33,7 +33,7 @@ describe('SigninComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SigninComponent);
+        fixture = TestBed.createComponent(SigninPageComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

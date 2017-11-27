@@ -19,21 +19,18 @@
                 <div class="m-portlet__body">
                     <div class="m-widget5">
                         <div class="m-widget5__item">
-                            <select class="form-control m-bootstrap-select m_selectpicker" data-live-search="true">
-                                <option>
-                                    Все сети
-                                </option>
-                                <option>
-                                    Сеть 1
-                                </option>
-                                <option>
-                                    Сеть 2
-                                </option>
-                            </select>
+                            <dx-select-box
+                                    class="form-control m-bootstrap-select m_selectpicker"
+                                    [value]="selectedChain$ | async"
+                                    [dataSource]="chains$ | async"
+                                    valueExpr="id"
+                                    displayExpr="title"
+                            >
+                            </dx-select-box>
                         </div>
 
                         <app-salon-row
-                                *ngFor="let salon of salons"
+                                *ngFor="let salon of salons$ | async"
                                 [salon]="salon"
                                 (editSalonRequested)="openEditSalonForm($event)"
                         >

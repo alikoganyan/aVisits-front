@@ -18,6 +18,19 @@ import { GeoNamesService } from "./shared/_services/geo-names.service";
 import { JsonpModule } from "@angular/http";
 import {UserService} from "./auth/_services/user.service";
 import {BackendBaseService} from "./backend/backend-base.service";
+import {StoreModule} from "@ngrx/store";
+import {RouterStateSerializer, StoreRouterConnectingModule} from "@ngrx/router-store";
+import {EffectsModule} from "@ngrx/effects";
+import {metaReducers, reducers} from "./reducers/index";
+import {environment} from "../environments/environment";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {CustomRouterStateSerializer} from "./shared/router.utils";
+// import {LayoutEffects} from "./shared/effects/layout.effects";
+import {ModalService} from "./shared/modal.service";
+import {NgbActiveModal, NgbModal, NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModalStack} from "@ng-bootstrap/ng-bootstrap/modal/modal-stack";
+import {NgbModalBackdrop} from "@ng-bootstrap/ng-bootstrap/modal/modal-backdrop";
+import {DefaultPageModule} from "./theme/pages/default/default-page.module";
 
 @NgModule({
     declarations: [
@@ -31,18 +44,24 @@ import {BackendBaseService} from "./backend/backend-base.service";
         AppRoutingModule,
         ThemeRoutingModule,
         AuthModule,
+        DefaultPageModule,
         FormsModule,
-        JsonpModule
+        JsonpModule,
+
+        StoreModule.forRoot(reducers, {metaReducers}),
+        StoreRouterConnectingModule,
+        EffectsModule.forRoot([/*LayoutEffects*/]),
+        StoreDevtoolsModule.instrument(),
     ],
     providers: [
         ScriptLoaderService,
         AUTHENTICATION_PROVIDERS,
         UserService,
         ChainService,
-        SalonService,
-        GeoNamesService,
+
         BackendBaseService,
-        BackendService
+
+        { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
     ],
     bootstrap: [AppComponent]
 })

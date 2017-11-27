@@ -1,59 +1,64 @@
 import {
+    ChangeDetectionStrategy,
     Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
 import { Chain } from "../../../../../chain/chain.model";
-import { ChainService } from "../../../../../chain/chain.service";
-import { ActivatedRoute, Router } from "@angular/router";
 import {CreateChainComponent} from "./create-chain/create-chain.component";
 import {EditChainComponent} from "./edit-chain/edit-chain.component";
+import {Store} from "@ngrx/store";
+// import * as fromChain from '../../../../../chain/reducers';
+import * as fromChain from '../../reducers/chain';
+import * as fromRoot from '../../reducers';
+import * as chainActions from '../../../../../chain/actions/collection';
+import * as layoutActions from '../../../../../shared/actions/layout';
+import {ModalConfig, ModalService} from "../../../../../shared/modal.service";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
     selector: 'app-settings-chains',
     templateUrl: './settings-chains.component.html',
     styleUrls: ['./settings-chains.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsChainsComponent implements OnInit {
-    chains: Chain[];
-    editFormData: any;
+    chains$ = this.store.select(fromChain.selectAllChains);
+    operationSuccessful$ = this.store.select(fromChain.selectOperationSuccessful);
+    // showModal$ = this.store.select(fromRoot.getShowModal);
 
-    //TODO: research directive, component & service for modal dialog
+    private modal: any;
 
     constructor(
-        private chainService: ChainService,
-        private router: Router,
-        private route: ActivatedRoute) {
+        private store: Store<fromRoot.State>,
+        private modalService: ModalService,
+        public activeModal: NgbActiveModal,
+        ) {
 
     }
 
     ngOnInit() {
-        this.chainService
-            .getChains()
+        this.store.dispatch(new chainActions.LoadAll());
+        this.operationSuccessful$
+            .filter(next => next === true)
             .subscribe(
-            (res: any) => this.renderChains(res)
-            );
+            operationSuccessful => this.modal.close()
+            )
     }
 
-    renderChains(chains: any): void {
-        this.chains = chains;
+    openModalForm(form: any, chain: Chain): void {
+        this.store.dispatch(new chainActions.SetCurrentChain(chain));
+        this.modal = this.modalService.open(new ModalConfig(form, { size: 'md' }));
+        // this.store.dispatch(new layoutActions.OpenModal());
     }
 
-    openModalForm(form: any, inputs?: any): void {
-        this.editFormData = {
-            component: form,
-            inputs: inputs || {}
-        };
-    }
 
-    redirectToCreateChain(): void {
-        this.openModalForm(CreateChainComponent);
+    openCreateForm(): void {
+        this.openModalForm(CreateChainComponent, new Chain());
     }
 
     openEditForm(chain: Chain): void {
-        this.openModalForm(EditChainComponent, {
-            chain: chain
-        });
+        this.openModalForm(EditChainComponent, chain);
     }
 
 }

@@ -1,3 +1,5 @@
+import * as fromRoot from '../../../reducers';
+import * as salonActions from '../../../../../../salon/actions/collection';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Salon } from "../../../../../../salon/salon.model";
 import { Router } from "@angular/router";
@@ -6,6 +8,8 @@ import { UserService } from "../../../../../../auth/_services/user.service";
 import { AuthenticationService } from "../../../../../../auth/_services/authentication.service";
 import {User} from "../../../../../../auth/_models/user";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {SalonDialogBase} from "../salon-dialog-base/salon-dialog-base";
+import {Store} from "@ngrx/store";
 
 @Component({
     selector: 'app-create-salon',
@@ -13,34 +17,14 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
     styleUrls: ['./create-salon.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class CreateSalonComponent implements OnInit {
-    salon: Salon;
-    user: User;
-    saveSuccessful: boolean;
-    currentChainId: any;
+export class CreateSalonComponent extends SalonDialogBase {
 
-    constructor(
-        public activeModal: NgbActiveModal,
-        private salonService: SalonService,
-        private authService: AuthenticationService,
-        private userService: UserService
-    ) {
-        this.userService.currentUser.subscribe(
-            nextUser => this.user = nextUser
-        );
-
-        this.currentChainId = this.user.selectedChain;
-        this.salon = new Salon();
-        this.salon.chain_id = this.currentChainId;
+    protected createSaveAction(salon: Salon): salonActions.AddSalon | salonActions.UpdateSalon {
+        return new salonActions.AddSalon(salon);
     }
 
-    ngOnInit() {
-
-    }
-
-    onSaveSalon(salon: Salon) {
-        this.salonService
-            .createSalon(salon);
+    constructor(protected store: Store<fromRoot.State>) {
+        super(store);
     }
 
 }

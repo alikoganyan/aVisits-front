@@ -43,9 +43,9 @@ export class SigninResetPasswordComponent implements OnInit {
             }
         );
 
-        this.authData = this.authService.currentAuthData.getValue();
-        this.phone = this.authData.phone;
-        this.email = this.authData.email;
+        // this.authData = this.authService.currentAuthData.getValue();
+        // this.phone = this.authData.phone;
+        // this.email = this.authData.email;
     }
 
     ngOnInit() {

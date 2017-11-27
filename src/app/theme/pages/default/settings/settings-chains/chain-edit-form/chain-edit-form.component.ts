@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { Chain } from "../../../../../../chain/chain.model";
 import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model";
 import {EditFormBase} from "../../edit-form-base";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
     selector: 'app-chain-settings',
@@ -16,7 +17,7 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     protected get createTitle() { return 'Новая сеть'; }
     protected get editTitle() { return 'Обновить сеть'; }
 
-    constructor() {
+    constructor(public activeModal: NgbActiveModal) {
         super();
     }
 
@@ -30,5 +31,10 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
 
     addPriceLevel(): void {
         this.data.levels.push(new ChainPriceLevel());
+    }
+
+    onClose() {
+        // TODO: check for changes in form
+        this.activeModal.close();
     }
 }

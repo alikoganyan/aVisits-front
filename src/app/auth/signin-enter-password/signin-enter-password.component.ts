@@ -8,6 +8,9 @@ import { AlertService } from "../_services/alert.service";
 import { AlertComponent } from "../_directives/alert.component";
 import {UserService} from "../_services/user.service";
 import {User} from "../_models/user";
+import * as fromAuth from '../reducers';
+import * as Auth from '../actions/auth';
+import {Store} from "@ngrx/store";
 
 @Component({
     templateUrl: './signin-enter-password.component.html',
@@ -15,50 +18,17 @@ import {User} from "../_models/user";
     encapsulation: ViewEncapsulation.None
 })
 export class SigninEnterPasswordComponent implements OnInit {
-    loading: boolean;
-    password: string = '';
-    chainName: any = '';
+    selectedChain$ = this.store.select(fromAuth.getSelectedChain);
+    error$ = this.store.select(fromAuth.getError);
 
-    @ViewChild('alertSignin', { read: ViewContainerRef }) alertSignin: ViewContainerRef;
 
-    constructor(private router: Router,
-                private route: ActivatedRoute,
-                private authService: AuthenticationService,
-                public userService: UserService,
-                private alertService: AlertService,
-                private cfr: ComponentFactoryResolver) {
+    constructor(private store: Store<fromAuth.State>) {
 
-        this.authService.currentAuthData.subscribe(
-            authData => {
-                this.chainName = this.getChainName(authData);
-            }
-        );
-    }
-
-    getChainName(authData: any) {
-        let chain = authData.chains.filter(c => c.id === authData.selectedChain)[0];
-        return (<any>chain).title;
     }
 
 
-    signIn() {
-        this.authService.login(this.password)
-            .subscribe(
-            res => {
-                    this.router.navigate(['/index']);
-                },
-                error => {
-                    this.showAlert();
-                    this.alertService.error(error.json().error);
-                }
-            );
-    }
-
-    showAlert() {
-        this['alertSignin'].clear();
-        let factory = this.cfr.resolveComponentFactory(AlertComponent);
-        let ref = this['alertSignin'].createComponent(factory);
-        ref.changeDetectorRef.detectChanges();
+    signIn(password) {
+        this.store.dispatch(new Auth.SubmitPassword(password));
     }
 
 
