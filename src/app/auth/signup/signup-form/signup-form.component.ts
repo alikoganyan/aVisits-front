@@ -13,6 +13,9 @@ export class SignupFormComponent implements OnInit {
 
     form: FormGroup;
 
+    loading: boolean;
+    errorMessage: string;
+
     constructor(private fb: FormBuilder) {
         this.form = fb.group({
             name: ['', Validators.required],

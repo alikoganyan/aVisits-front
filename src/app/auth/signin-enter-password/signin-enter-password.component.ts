@@ -33,7 +33,7 @@ export class SigninEnterPasswordComponent implements OnInit {
 
 
     ngOnInit() {
-        $('.m-login__password').animateClass('flipInX animated');
+        (<any>$('.m-login__password')).animateClass('flipInX animated');
     }
 
 }

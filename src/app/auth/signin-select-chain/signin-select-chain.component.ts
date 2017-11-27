@@ -24,7 +24,7 @@ export class SigninSelectChainComponent implements OnInit {
 
 
     ngOnInit() {
-        $('.m-login--choose-chain').animateClass('flipInX animated');
+        (<any>$('.m-login--choose-chain')).animateClass('flipInX animated');
     }
 
 }

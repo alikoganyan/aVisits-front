@@ -13,6 +13,8 @@ export class SigninPasswordFormComponent implements OnInit {
 
     @Output() submitted = new EventEmitter<string>();
 
+    loading: boolean;
+
     form: FormGroup = new FormGroup({
         password: new FormControl('')
     });

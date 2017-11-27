@@ -40,7 +40,7 @@ export class SigninForgotPasswordComponent implements OnInit {
     }
 
     ngOnInit() {
-        $('.m-login__forgotten').animateClass('flipInX animated');
+        (<any>$('.m-login__forgotten')).animateClass('flipInX animated');
     }
 
     setNotificationType(type: any): void {

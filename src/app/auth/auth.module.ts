@@ -70,6 +70,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
             useFactory: authHttpServiceFactory,
             deps: [Http, RequestOptions]
         },
+        AuthenticationService,
         AuthGuard,
         SigninGuardBase,
         SigninEnterPasswordGuard,

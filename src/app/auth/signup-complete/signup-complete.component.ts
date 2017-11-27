@@ -14,7 +14,7 @@ export class SignupCompleteComponent implements OnInit {
     }
 
     ngOnInit() {
-        $('.m-login__signup-complete').animateClass('flipInX animated');
+        (<any>$('.m-login__signup-complete')).animateClass('flipInX animated');
     }
 
     completeSignup(): void {

@@ -49,7 +49,7 @@ export class SigninResetPasswordComponent implements OnInit {
     }
 
     ngOnInit() {
-        $('.m-login__reset-password').animateClass('flipInX animated');
+        (<any>$('.m-login__reset-password')).animateClass('flipInX animated');
     }
 
     resetPassword(): void {
