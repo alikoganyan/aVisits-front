@@ -22,8 +22,6 @@ export abstract class ChainDialogBase implements OnInit {
     }
 
     onDeleteChain(chain: any): void {
-        if(confirm(`Вы действительно хотите удалить ${chain.title}`)) {
-            this.store.dispatch(new chainActions.RemoveChain(chain.id));
-        }
+        this.store.dispatch(new chainActions.RemoveChain(chain.id));
     }
 }

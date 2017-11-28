@@ -46,6 +46,8 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     countryNames: any[];
     cities: any[];
 
+    imageSrc: string;
+
     constructor(
         public activeModal: NgbActiveModal,
         private geoNamesService: GeoNamesService,
@@ -57,6 +59,8 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
 
     ngOnInit() {
         super.ngOnInit();
+
+        this.imageSrc = 'assets/app/media/img/products/product1.jpg';
 
         this.chainsDataSource$.subscribe(
             next => this.chainsDataSource = next
@@ -153,7 +157,26 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     }
 
     notificationChanged($event): void {
-        this.data.notify_about_appointments = $event.value;
+        let maxCount = 2;
+        let newValue = $event.value;
+        if($event.value.length > maxCount) {
+            newValue = $event.value.slice(0, maxCount);
+        }
+
+        this.data.notify_about_appointments = newValue;
+    }
+
+    onFileChange($event) {
+        let file:File = $event.value[0];
+        let fileReader = new FileReader();
+
+        fileReader.onload = (fileLoaded) => {
+            let image = (<any>fileLoaded.target).result;
+            this.data.photo = image;
+            this.imageSrc = image; //show preview
+        };
+
+        fileReader.readAsDataURL(file);
     }
 
     onClose() {

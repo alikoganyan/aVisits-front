@@ -46,8 +46,8 @@ export class SettingsChainsComponent implements OnInit {
     }
 
     openModalForm(form: any, chain: Chain): void {
-        this.store.dispatch(new chainActions.SetCurrentChain(chain));
-        this.modal = this.modalService.open(new ModalConfig(form, { size: 'md' }));
+        this.store.dispatch(new chainActions.SetCurrentChain(chain.id));
+        this.modal = this.modalService.open(new ModalConfig(form, {size: 'md' }));
         // this.store.dispatch(new layoutActions.OpenModal());
     }
 

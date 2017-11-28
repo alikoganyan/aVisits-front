@@ -2,7 +2,7 @@ import {EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 export abstract class EditFormBase<T> implements OnInit {
     @Input() isCreateForm: boolean;
-    @Input() data: T;
+    @Input() data: any;
     @Input() error: any;
     @Output() save = new EventEmitter<T>();
     @Output() deleteRequested = new EventEmitter<T>();
@@ -27,7 +27,9 @@ export abstract class EditFormBase<T> implements OnInit {
     }
 
     onDelete(): void {
-        this.deleteRequested.emit(this.data);
+        if(confirm(`Вы действительно хотите удалить ${this.data.title}?`)) {
+            this.deleteRequested.emit(this.data);
+        }
     }
 
 }
