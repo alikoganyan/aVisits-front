@@ -17,6 +17,9 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/of";
 import {Chain} from "../../../../../chain/chain.model";
+import "rxjs/add/operator/combineLatest";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/filter";
 
 @Component({
     selector: 'app-settings-salons',
@@ -26,13 +29,35 @@ import {Chain} from "../../../../../chain/chain.model";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsSalonsComponent implements OnInit {
-    salons$ = this.store.select(fromSalon.selectAllSalons);
     chains$ = this.store.select(fromChain.selectAllChains);
-        // .startWith([new Chain({ id: null, title: 'Все сети'})]);
-
-    selectedChain$ = this.store.select(fromAuth.getSelectedChainId);
-
     operationSuccessful$ = this.store.select(fromSalon.selectOperationSuccessful);
+    selectedChain$ = this.store.select(fromChain.selectCurrentChain);
+
+    chainsFilterDS$ = this.chains$
+        .map(chains => chains.map(c => ({ id: c.id, title: c.title})))
+        .map(chains => {
+            chains.unshift({ id: null, title: "Все сети"});
+            return chains;
+        });
+
+    filteredSalons$ = this.store.select(fromSalon.selectAllSalons)
+        .combineLatest(this.selectedChain$,
+            (salons, selectedChain) =>
+                salons.filter(s =>
+                    selectedChain ? s.chain_id === selectedChain : true
+                )
+        );
+
+    salonsInfo$ = this.filteredSalons$.combineLatest(this.chains$)
+        .map(([salons, chains]) => {
+            return salons.map(salon => {
+                return {
+                    salon: salon,
+                    chainTitle: this.getChainTitle(salon, chains)
+                }
+            })
+        });
+
 
     private modal: any;
 
@@ -51,6 +76,14 @@ export class SettingsSalonsComponent implements OnInit {
             );
     }
 
+    getChainTitle(salon: Salon, chains: Chain[]): string {
+        let chain = chains.filter(c => c.id === salon.chain_id)[0];
+        return chain ? chain.title : '';
+    }
+
+    onChainFilterChanged(chain: any) {
+        this.store.dispatch(new chainActions.SetCurrentChain(chain));
+    }
 
     openModalForm(form: any, salon: Salon): void {
         this.store.dispatch(new salonActions.SetCurrentSalon(salon));

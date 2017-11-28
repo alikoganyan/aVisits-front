@@ -22,16 +22,19 @@
                             <dx-select-box
                                     class="form-control m-bootstrap-select m_selectpicker"
                                     [value]="selectedChain$ | async"
-                                    [dataSource]="chains$ | async"
+                                    [dataSource]="chainsFilterDS$ | async"
                                     valueExpr="id"
                                     displayExpr="title"
+                                    placeholder="Выберите сеть для фильтрации..."
+                                    (onValueChanged)="onChainFilterChanged($event.value)"
                             >
                             </dx-select-box>
                         </div>
 
                         <app-salon-row
-                                *ngFor="let salon of salons$ | async"
-                                [salon]="salon"
+                                *ngFor="let info of salonsInfo$ | async"
+                                [salon]="info.salon"
+                                [chainTitle]="info.chainTitle"
                                 (editSalonRequested)="openEditSalonForm($event)"
                         >
                         </app-salon-row>

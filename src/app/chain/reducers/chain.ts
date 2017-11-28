@@ -5,7 +5,7 @@ import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
 import {Chain} from "../chain.model";
 
 export interface State extends EntityState<Chain> {
-    currentChain: Chain | null;
+    currentChain: number | null;
     loading: boolean;
     operationSuccessful: boolean;
     error: string | null;

@@ -20,10 +20,10 @@ export const REMOVE_CHAIN_SUCCESS = '[Chain Collection] Remove Chain Success';
 export const REMOVE_CHAIN_FAILURE = '[Chain Collection] Remove Chain Failure';
 
 
-export class SetCurrentChain implements ActionWithPayload<Chain> {
+export class SetCurrentChain implements ActionWithPayload<number> {
     readonly type = SET_CURRENT_CHAIN;
 
-    constructor(public payload: Chain) {}
+    constructor(public payload: number) {}
 }
 
 /**

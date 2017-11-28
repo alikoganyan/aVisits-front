@@ -1,4 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {
+    ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output,
+    ViewEncapsulation
+} from '@angular/core';
 import { Salon } from "../../../../../../salon/salon.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import {ChainService} from "../../../../../../chain/chain.service";
@@ -7,10 +10,12 @@ import {ChainService} from "../../../../../../chain/chain.service";
     selector: 'app-salon-row',
     templateUrl: './salon-row.component.html',
     styleUrls: ['./salon-row.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SalonRowComponent implements OnInit {
     @Input() salon: any;
+    @Input() chainTitle: any;
     @Output() editSalonRequested: EventEmitter<any>;
     chainName: string;
 
@@ -23,10 +28,10 @@ export class SalonRowComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.chainService.getChainById(this.salon.chain_id)
-            .subscribe(
-                chain => this.chainName = chain.title
-            );
+        // this.chainService.getChainById(this.salon.chain_id)
+        //     .subscribe(
+        //         chain => this.chainName = chain.title
+        //     );
     }
 
     getSalonAddress(): string {
