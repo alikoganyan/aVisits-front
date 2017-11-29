@@ -6,12 +6,16 @@ import {fakeBackendProvider} from "../auth/_helpers/fake-backend";
 import {MockBackend} from "@angular/http/testing";
 import {BaseRequestOptions, HttpModule} from "@angular/http";
 import {UserService} from "../auth/_services/user.service";
+import {AuthenticationService} from "../auth/_services/authentication.service";
+import {BackendBaseService} from "../backend/backend-base.service";
+import {StoreModule} from "@ngrx/store";
 
-fdescribe('ChainService', () => {
+describe('ChainService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
-                HttpModule
+                HttpModule,
+                StoreModule.forRoot([])
             ],
             providers: [
                 UserService,
@@ -19,7 +23,9 @@ fdescribe('ChainService', () => {
                 BackendService,
                 fakeBackendProvider,
                 MockBackend,
-                BaseRequestOptions
+                BackendBaseService,
+                BaseRequestOptions,
+                AuthenticationService
             ]
         });
     });

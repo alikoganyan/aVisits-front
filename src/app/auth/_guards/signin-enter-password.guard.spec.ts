@@ -8,13 +8,15 @@ import {UserService} from "../_services/user.service";
 import {fakeBackendProvider} from "../_helpers/fake-backend";
 import {MockBackend} from "@angular/http/testing";
 import {BaseRequestOptions, HttpModule} from "@angular/http";
+import {Store, StoreModule} from "@ngrx/store";
 
 fdescribe('SigninEnterPasswordGuard', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
                 RouterTestingModule,
-                HttpModule
+                HttpModule,
+                StoreModule.forRoot([])
             ],
             providers: [
                 SigninEnterPasswordGuard,
