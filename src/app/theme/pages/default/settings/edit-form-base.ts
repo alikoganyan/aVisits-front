@@ -4,6 +4,7 @@ export abstract class EditFormBase<T> implements OnInit {
     @Input() isCreateForm: boolean;
     @Input() data: any;
     @Input() error: any;
+    @Input() loading: boolean;
     @Output() save = new EventEmitter<T>();
     @Output() deleteRequested = new EventEmitter<T>();
 

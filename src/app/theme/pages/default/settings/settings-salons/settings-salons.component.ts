@@ -44,7 +44,7 @@ export class SettingsSalonsComponent implements OnInit {
         .combineLatest(this.selectedChain$,
             (salons, selectedChain) =>
                 salons.filter(s =>
-                    selectedChain ? s.chain_id === selectedChain : true
+                    selectedChain ? s.chain_id === selectedChain.id : true
                 )
         );
 
@@ -67,7 +67,7 @@ export class SettingsSalonsComponent implements OnInit {
 
     ngOnInit() {
         this.store.dispatch(new salonActions.LoadAll());
-        this.store.dispatch(new chainActions.LoadAll());
+        this.store.dispatch(chainActions.collectionActions.LoadAll());
 
         this.operationSuccessful$
             .filter(next => next === true)
@@ -82,7 +82,7 @@ export class SettingsSalonsComponent implements OnInit {
     }
 
     onChainFilterChanged(chain: any) {
-        this.store.dispatch(new chainActions.SetCurrentChain(chain));
+        this.store.dispatch(chainActions.collectionActions.SetCurrentEntity(chain));
     }
 
     openModalForm(form: any, salon: Salon): void {

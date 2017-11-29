@@ -18,7 +18,7 @@ export class CreateChainComponent extends ChainDialogBase {
     }
 
     createSaveAction(chain: Chain) {
-        return new chainActions.AddChain(chain);
+        return chainActions.collectionActions.AddEntity(chain);
     }
 
 }

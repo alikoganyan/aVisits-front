@@ -3,7 +3,7 @@ import * as fromChains from '../../../../chain/reducers/chain';
 import * as fromSalons from '../../../../salon/reducers/collection';
 
 
-import {ActionReducerMap, createFeatureSelector, createSelector} from "@ngrx/store";
+import {ActionReducerMap, combineReducers, createFeatureSelector, createSelector} from "@ngrx/store";
 
 export interface State extends fromRoot.State {
     chains: fromChains.State,
@@ -11,7 +11,7 @@ export interface State extends fromRoot.State {
 }
 
 export const reducers = {
-    chains: fromChains.reducer,
+    chains: fromChains.reducers,
     salons: fromSalons.reducer
 };
 

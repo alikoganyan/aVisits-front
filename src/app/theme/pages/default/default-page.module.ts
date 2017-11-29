@@ -12,6 +12,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {ChainEffects} from "../../../chain/effects/chain.effects";
 import {SalonCollectionEffects} from "../../../salon/effects/collection.effects";
 import {SalonEffects} from "../../../salon/effects/salon.effects";
+import {collectionActions, ChainCollectionActions} from "../../../chain/actions/collection";
 
 @NgModule({
     imports: [
@@ -33,6 +34,7 @@ import {SalonEffects} from "../../../salon/effects/salon.effects";
         NgbModal,
         NgbModalStack,
         NgbActiveModal,
+        { provide: ChainCollectionActions, useValue: collectionActions }
     ]
 })
 export class DefaultPageModule {

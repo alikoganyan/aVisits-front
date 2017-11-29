@@ -4,6 +4,9 @@ import { Chain } from "../../../../../../chain/chain.model";
 import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model";
 import {EditFormBase} from "../../edit-form-base";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import * as fromRoot from "../../../reducers";
+import * as chainActions from '../../../../../../chain/actions/collection';
+import {Store} from "@ngrx/store";
 
 @Component({
     selector: 'app-chain-settings',
@@ -16,7 +19,8 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     protected get createTitle() { return 'Новая сеть'; }
     protected get editTitle() { return 'Обновить сеть'; }
 
-    constructor(public activeModal: NgbActiveModal) {
+    constructor(public activeModal: NgbActiveModal,
+                private store: Store<fromRoot.State>) {
         super();
     }
 
@@ -35,5 +39,6 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     onClose() {
         // TODO: check for changes in form
         this.activeModal.close();
+        this.store.dispatch(chainActions.collectionActions.FinishOperation());
     }
 }

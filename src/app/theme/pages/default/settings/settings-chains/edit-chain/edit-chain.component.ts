@@ -18,7 +18,7 @@ export class EditChainComponent extends ChainDialogBase {
     }
     
     createSaveAction(chain: Chain) {
-        return new chainActions.UpdateChain(chain);
+        return chainActions.collectionActions.UpdateEntity(chain);
     }
 
 }

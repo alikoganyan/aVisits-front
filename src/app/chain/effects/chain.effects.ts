@@ -1,72 +1,52 @@
 import {Injectable} from "@angular/core";
 import {Actions, Effect} from "@ngrx/effects";
 import {Observable} from "rxjs/Observable";
-import {Action} from "@ngrx/store";
-import * as Chain from '../actions/collection';
-import * as Layout from '../../shared/actions/layout';
 import {ChainService} from "../chain.service";
 import {of} from "rxjs/observable/of";
 import "rxjs/add/operator/exhaustMap";
 import "rxjs/add/operator/catch";
+import {Chain} from "../chain.model";
+import {ChainCollectionActions} from "../actions/collection";
+import {EntityCollectionEffects} from "../../entity-collection/entity-collection.effects";
+
 
 @Injectable()
-export class ChainEffects {
-    @Effect()
-    loadChains$: Observable<Action> = this.actions$
-        .ofType(Chain.LOAD_ALL)
-        .exhaustMap(() =>
-            this.chainService
-                .getChains()
-                .map(response => new Chain.LoadAllSuccess(response))
-                .catch(error => of(new Chain.LoadAllFailure(error)))
-        );
+export class ChainEffects extends EntityCollectionEffects<Chain>{
+    fetchEntities(): Observable<any> {
+        return this.chainService.getChains();
+    }
+
+    addEntity(value: Chain): Observable<any> {
+        return this.chainService.createChain(value);
+    }
+
+    updateEntity(value: Chain): Observable<any> {
+        return this.chainService.updateChain(value);
+    }
+
+    removeEntity(index: number): Observable<any> {
+        return this.chainService.deleteChain(index);
+    }
 
     @Effect()
-    addChain$ = this.actions$
-        .ofType(Chain.ADD_CHAIN)
-        .map((action: Chain.AddChain) => action.payload)
-        .exhaustMap(chain =>
-            this.chainService
-                .createChain(chain)
-                .map(response => new Chain.AddChainSuccess(response))
-                .catch(error => of(new Chain.AddChainFailure(error.json())))
-        );
+    loadChains$ = this.loadEntitiesEffect$;
 
     @Effect()
-    updateChain$ = this.actions$
-        .ofType(Chain.UPDATE_CHAIN)
-        .map((action: Chain.UpdateChain) => action.payload)
-        .exhaustMap(chain =>
-            this.chainService
-                .updateChain(chain)
-                .map(response => new Chain.UpdateChainSuccess(response))
-                .catch(error => of(new Chain.UpdateChainFailure(error)))
-        );
+    addChain$ = this.addEntityEffect$;
 
     @Effect()
-    deleteChain$ = this.actions$
-        .ofType(Chain.REMOVE_CHAIN)
-        .map((action: Chain.RemoveChain) => action.payload)
-        .exhaustMap(chainId =>
-            this.chainService
-                .deleteChain(chainId)
-                .map(response => new Chain.RemoveChainSuccess(chainId))
-                .catch(error => of(new Chain.RemoveChainFailure(error)))
-        );
+    updateChain$ = this.updateEntityEffect$;
+
+    @Effect()
+    deleteChain$ = this.removeEntityEffect$;
 
 
-    // @Effect()
-    // updateChainSuccess$ = this.actions$
-    //     .ofType(Chain.UPDATE_CHAIN_SUCCESS)
-    //     .map(() => new Layout.CloseModal());
-    //
-    // @Effect()
-    // addChainSuccess$ = this.actions$
-    //     .ofType(Chain.ADD_CHAIN_SUCCESS)
-    //     .map(() => new Layout.CloseModal());
 
     constructor(
-        private actions$: Actions,
-        private chainService: ChainService
-    ) {}
+        protected chainService: ChainService,
+        protected actions$: Actions,
+        protected collectionActions: ChainCollectionActions)
+    {
+        super(actions$, collectionActions)
+    }
 }

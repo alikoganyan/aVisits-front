@@ -37,7 +37,7 @@ export class SettingsChainsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.store.dispatch(new chainActions.LoadAll());
+        this.store.dispatch(chainActions.collectionActions.LoadAll());
         this.operationSuccessful$
             .filter(next => next === true)
             .subscribe(
@@ -46,7 +46,7 @@ export class SettingsChainsComponent implements OnInit {
     }
 
     openModalForm(form: any, chain: Chain): void {
-        this.store.dispatch(new chainActions.SetCurrentChain(chain.id));
+        this.store.dispatch(chainActions.collectionActions.SetCurrentEntity(chain));
         this.modal = this.modalService.open(new ModalConfig(form, {size: 'md' }));
         // this.store.dispatch(new layoutActions.OpenModal());
     }

@@ -3,88 +3,44 @@ import * as collection from '../actions/collection';
 import {EntitySelectors} from "@ngrx/entity/src/models";
 import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
 import {Chain} from "../chain.model";
+import {
+    CollectionActions,
+} from "../../entity-collection/entity-collection.actions";
+import {combineReducers} from "@ngrx/store";
+import {EntityCollectionReducer, EntityCollectionState} from "../../entity-collection/entity-collection.reducer";
 
-export interface State extends EntityState<Chain> {
-    currentChain: number | null;
-    loading: boolean;
-    operationSuccessful: boolean;
-    error: string | null;
+export interface ChainEntityState extends EntityCollectionState<Chain> {
 }
 
-export const adapter: EntityAdapter<Chain> = createEntityAdapter<Chain>({
-    selectId: (chain: Chain) => chain.id,
-    sortComparer: false,
-});
+// export interface ChainState {
+    //some additional data
+// }
 
-export const initialState: State = adapter.getInitialState({
-    currentChain: null,
-    loading: false,
-    operationSuccessful: false,
-    error: null
-});
-
-export function reducer(state = initialState, action: collection.Actions): State {
-
-    switch (action.type) {
-        case collection.SET_CURRENT_CHAIN: {
-            return {
-                ...state,
-                currentChain: action.payload
-            }
-        }
-
-        case collection.LOAD_ALL_SUCCESS: {
-            return adapter.addAll(action.payload, state);
-        }
-
-        case collection.ADD_CHAIN:
-        case collection.UPDATE_CHAIN: {
-            return {
-                ...state,
-                operationSuccessful: false
-            };
-        }
-
-        case collection.ADD_CHAIN_SUCCESS: {
-            return {
-                ...adapter.addOne(action.payload, state),
-                operationSuccessful: true
-            };
-        }
-
-        case collection.ADD_CHAIN_FAILURE:
-        case collection.REMOVE_CHAIN_FAILURE: {
-            return {
-                ...state,
-                error: action.payload
-            };
-        }
-
-        case collection.UPDATE_CHAIN_SUCCESS: {
-            return {
-                ...adapter.updateOne({
-                    id: action.payload.id,
-                    changes: action.payload
-                }, state),
-                operationSuccessful: true
-            };
-        }
-
-        case collection.REMOVE_CHAIN_SUCCESS: {
-            return {
-                ...adapter.removeOne(action.payload, state),
-                operationSuccessful: true
-            };
-        }
-
-
-        default: {
-            return state;
-        }
-    }
-
+export interface State {
+    chainEntities: ChainEntityState,
+    // state: ChainState
 }
 
-export const getSelectedChain = (state: State) => state.currentChain;
-export const getOperationSuccessful = (state: State) => state.operationSuccessful;
-export const getError = (state: State) => state.error;
+
+class ChainEntityCollectionReducer extends EntityCollectionReducer<Chain, ChainEntityState> {}
+
+export const chainEntityReducer = new ChainEntityCollectionReducer(
+    collection.collectionActions,
+    (chain: Chain) => chain.id
+    );
+
+export const entityReducer = chainEntityReducer.getReducer();
+
+
+export const reducers = combineReducers({
+    chainEntities: entityReducer,
+    // state: reducer
+});
+
+
+export const getEntitiesState = (state: State) => state.chainEntities;
+
+export const getError = (state: ChainEntityState) => state.error;
+export const getCurrentChain = (state: ChainEntityState) => state.currentEntity;
+export const getOperationComplete = (state: ChainEntityState) => state.operationComplete;
+export const getLoading = (state: ChainEntityState) => state.loading;

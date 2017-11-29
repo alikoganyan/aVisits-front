@@ -2,6 +2,7 @@
         [isCreateForm]="false"
         [data]="chain$ | async"
         [error]="error$ | async"
+        [loading]="loading$ | async"
         (save)="onSaveChain($event)"
         (deleteRequested)="onDeleteChain($event)"
 ></app-chain-settings>
