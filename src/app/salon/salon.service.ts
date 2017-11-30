@@ -13,15 +13,6 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 @Injectable()
 export class SalonService {
     private currentChainId: number;
-    private editedSalonSubject = new BehaviorSubject<any>(null);
-    private salonSavedSubject = new Subject<any>();
-    private salonDeletedSubject = new Subject<any>();
-    private salonFailedSubject = new Subject<any>();
-
-    editedSalon = this.editedSalonSubject.asObservable();
-    salonSaved = this.salonSavedSubject.asObservable();
-    salonDeleted = this.salonDeletedSubject.asObservable();
-    salonFailed = this.salonFailedSubject.asObservable();
 
     constructor(
         private backend: BackendService,
@@ -52,38 +43,20 @@ export class SalonService {
     }
 
     createSalon(salon: Salon): Observable<any> {
-        console.log('service add salon')
         let chainId = salon.chain_id;
         salon.chain_id = 0;
-        return this.backend.post(`${chainId}/salon`, salon)
-            // .subscribe(
-            // next => this.salonSavedSubject.next(next),
-            // err => this.salonFailedSubject.next(err),
-            //     () => this.editedSalonSubject.next(null)
-            // );
+
+        return this.backend.post(`${chainId}/salon`, salon);
     }
 
     updateSalon(salon: Salon): Observable<any> {
-        return this.backend.put(`${salon.chain_id}/salon`, salon)
-            // .subscribe(
-            // next => this.salonSavedSubject.next(next),
-            // err => this.salonFailedSubject.next(err),
-            //     () => this.editedSalonSubject.next(null)
-            // )
+        return this.backend.put(`${salon.chain_id}/salon`, salon);
     }
 
     delete(salon: Salon): Observable<any> {
-        return this.backend.delete(`${salon.chain_id}/salon/${salon.id}`)
-            // .subscribe(
-            // next => this.salonDeletedSubject.next(next),
-            // err => this.salonFailedSubject.next(err),
-            //     () => this.editedSalonSubject.next(null)
-            // )
+        return this.backend.delete(`${salon.chain_id}/salon/${salon.id}`);
     }
 
-    // setEditedSalon(salon: Salon): void {
-    //     this.editedSalonSubject.next(salon);
-    // }
 
     public notificationTypes: any[] = [
         { key: "1h11", title: 'В день визита за 1 час, не позже 11' },

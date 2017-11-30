@@ -66,7 +66,7 @@ export class SettingsSalonsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.store.dispatch(new salonActions.LoadAll());
+        this.store.dispatch(salonActions.collectionActions.LoadAll());
         this.store.dispatch(chainActions.collectionActions.LoadAll());
 
         this.operationSuccessful$
@@ -86,7 +86,7 @@ export class SettingsSalonsComponent implements OnInit {
     }
 
     openModalForm(form: any, salon: Salon): void {
-        this.store.dispatch(new salonActions.SetCurrentSalon(salon));
+        this.store.dispatch(salonActions.collectionActions.SetCurrentEntity(salon));
         this.modal = this.modalService.open(new ModalConfig(form, { size: 'lg' }));
     }
 

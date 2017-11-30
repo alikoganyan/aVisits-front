@@ -8,8 +8,9 @@ import {Salon} from "../../../../../../salon/salon.model";
 export abstract class SalonDialogBase implements OnInit {
     salon$ = this.store.select(fromSalon.selectCurrentSalon);
     error$ = this.store.select(fromSalon.selectError);
+    loading$ = this.store.select(fromSalon.selectLoading);
 
-    protected abstract createSaveAction(salon: Salon): salonActions.AddSalon | salonActions.UpdateSalon;
+    protected abstract createSaveAction(salon: Salon);
 
     constructor(protected store: Store<fromRoot.State>) {
     }
@@ -22,6 +23,6 @@ export abstract class SalonDialogBase implements OnInit {
     }
 
     onDeleteSalon(salon: Salon) {
-        this.store.dispatch(new salonActions.RemoveSalon(salon));
+        this.store.dispatch(salonActions.collectionActions.RemoveEntity(salon.id));
     }
 }

@@ -19,8 +19,8 @@ import {Store} from "@ngrx/store";
 })
 export class CreateSalonComponent extends SalonDialogBase {
 
-    protected createSaveAction(salon: Salon): salonActions.AddSalon | salonActions.UpdateSalon {
-        return new salonActions.AddSalon(salon);
+    protected createSaveAction(salon: Salon) {
+        return salonActions.collectionActions.AddEntity(salon);
     }
 
     constructor(protected store: Store<fromRoot.State>) {

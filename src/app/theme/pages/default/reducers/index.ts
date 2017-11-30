@@ -12,7 +12,7 @@ export interface State extends fromRoot.State {
 
 export const reducers = {
     chains: fromChains.reducers,
-    salons: fromSalons.reducer
+    salons: fromSalons.reducers
 };
 
 export const getRootState = createFeatureSelector<State>('default-page');

@@ -16,6 +16,7 @@ import {SalonService} from "../../../../../../salon/salon.service";
 import {EditFormBase} from "../../edit-form-base";
 import * as fromChain from '../../../reducers/chain';
 import * as fromRoot from '../../../reducers';
+import * as salonActions from '../../../../../../salon/actions/collection';
 import {Store} from "@ngrx/store";
 
 @Component({
@@ -182,6 +183,7 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     onClose() {
         // TODO: check for changes in form
         this.activeModal.close();
+        this.store.dispatch(salonActions.collectionActions.FinishOperation());
     }
 
 }

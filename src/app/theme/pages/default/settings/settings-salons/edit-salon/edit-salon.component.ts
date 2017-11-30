@@ -16,8 +16,8 @@ import {SalonDialogBase} from "../salon-dialog-base/salon-dialog-base";
 })
 export class EditSalonComponent extends SalonDialogBase {
 
-    protected createSaveAction(salon: Salon): salonActions.AddSalon | salonActions.UpdateSalon {
-        return new salonActions.UpdateSalon(salon);
+    protected createSaveAction(salon: Salon) {
+        return salonActions.collectionActions.UpdateEntity(salon);
     }
 
     constructor(protected store: Store<fromRoot.State>) {

@@ -10,7 +10,6 @@ export class ChainCollectionActions extends EntityCollectionActions<Chain> {
 
     constructor() {
         super();
-        console.log('create chain collection actions')
     }
 }
 

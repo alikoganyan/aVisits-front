@@ -2,58 +2,66 @@ import {Injectable} from "@angular/core";
 import {Actions, Effect} from "@ngrx/effects";
 import {SalonService} from "../salon.service";
 import * as Collection from '../actions/collection';
+import * as fromSalonsReducer from '../../theme/pages/default/reducers/salon';
+import * as fromSalons from '../reducers/collection';
 import "rxjs/add/operator/exhaustMap";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import {of} from "rxjs/observable/of";
+import {EntityCollectionEffects} from "../../entity-collection/entity-collection.effects";
+import {Salon} from "../salon.model";
+import {Observable} from "rxjs/Observable";
+import {SalonCollectionActions} from "../actions/collection";
+import {Store} from "@ngrx/store";
 
 @Injectable()
-export class SalonCollectionEffects {
-    @Effect()
-    loadSalons$ = this.actions$
-        .ofType(Collection.LOAD_ALL)
-        .exhaustMap(() =>
-            this.salonService
-                .getSalonsGeneralData()
-                .map(response => new Collection.LoadAllSuccess(response))
-                .catch(error => of(new Collection.LoadAllFailure(error)))
-        );
+export class SalonCollectionEffects extends EntityCollectionEffects<Salon> {
+    fetchEntities(): Observable<any> {
+        return this.salonService.getSalonsGeneralData();
+    }
+
+    addEntity(value: Salon): Observable<any> {
+        return this.salonService.createSalon(value);
+    }
+
+    updateEntity(value: Salon): Observable<any> {
+        return this.salonService.updateSalon(value);
+    }
+
+    removeEntity(index: number): Observable<any> {
+        return this.store.select(fromSalonsReducer.selectSalonEntities)
+            .map(entities => {
+                return entities[index]
+            })
+            .do(console.log)
+            .map(salon => {
+                debugger
+                return this.salonService.delete(salon)
+            })
+            .catch(e => of(console.log(e)))
+    }
 
 
     @Effect()
-    addSalon$ = this.actions$
-        .ofType(Collection.ADD_SALON)
-        .map((action: Collection.AddSalon) => action.payload)
-        .exhaustMap(salon =>
-            this.salonService
-                .createSalon(salon)
-                .map(response => new Collection.AddSalonSuccess(response))
-                .catch(error =>of(new Collection.AddSalonFailure(error.json())))
-        );
+    loadSalons$ = this.loadEntitiesEffect$;
 
     @Effect()
-    updateSalon$ = this.actions$
-        .ofType(Collection.UPDATE_SALON)
-        .map((action: Collection.UpdateSalon) => action.payload)
-        .exhaustMap(salon =>
-            this.salonService
-                .updateSalon(salon)
-                .map(response => new Collection.UpdateSalonSuccess(response))
-                .catch(error =>of(new Collection.UpdateSalonFailure(error.json())))
-        );
+    addSalon$ = this.addEntityEffect$;
 
     @Effect()
-    removeSalon$ = this.actions$
-        .ofType(Collection.REMOVE_SALON)
-        .map((action: Collection.RemoveSalon) => action.payload)
-        .exhaustMap(salon =>
-            this.salonService.delete(salon)
-                .map(response => new Collection.RemoveSalonSuccess(salon.id))
-                .catch(error => of(new Collection.RemoveSalonFailure(error.json())))
-        );
+    updateSalon$ = this.updateEntityEffect$;
+
+    @Effect()
+    removeSalon$ = this.removeEntityEffect$;
 
 
     constructor(
-        private actions$: Actions,
-        private salonService: SalonService) {}
+        protected actions$: Actions,
+        protected salonService: SalonService,
+        protected collectionActions: SalonCollectionActions,
+        private store: Store<fromSalons.State>
+    ) {
+
+        super(actions$, collectionActions);
+    }
 }

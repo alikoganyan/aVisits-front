@@ -5,15 +5,20 @@ import {createSelector} from "@ngrx/store";
 /**
  * Salons
  */
-export const selectSalonsState = createSelector(fromRoot.getRootState, state => state.salons);
+export const selectSalonsRootState = createSelector(fromRoot.getRootState, state => state.salons);
+
+export const selectSalonEntitiesState = createSelector(selectSalonsRootState,
+    fromSalons.getEntitiesState);
+
 
 export const {
     selectIds: selectSalonsIds,
     selectEntities: selectSalonEntities,
     selectAll: selectAllSalons,
     selectTotal: selectSalonTotal
-} = fromSalons.adapter.getSelectors(selectSalonsState);
+} = fromSalons.salonEntityReducer.getCollectionSelectors(selectSalonEntitiesState);
 
-export const selectCurrentSalon = createSelector(selectSalonsState, fromSalons.getSelectedSalon);
-export const selectOperationSuccessful = createSelector(selectSalonsState, fromSalons.getOperationSuccessful);
-export const selectError = createSelector(selectSalonsState, fromSalons.getError);
+export const selectCurrentSalon = createSelector(selectSalonEntitiesState, fromSalons.getCurrentSalon);
+export const selectOperationSuccessful = createSelector(selectSalonEntitiesState, fromSalons.getOperationComplete);
+export const selectError = createSelector(selectSalonEntitiesState, fromSalons.getError);
+export const selectLoading = createSelector(selectSalonEntitiesState, fromSalons.getLoading);
