@@ -18,7 +18,7 @@ export const reducers =  {
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
     return localStorageSync({
         keys: [{
-            auth: [{'status': 'token'}, 'userChains']
+            auth: { reviver: (key, value) => key === 'error' ? null : value }
         }],
         rehydrate: true
     })(reducer);
