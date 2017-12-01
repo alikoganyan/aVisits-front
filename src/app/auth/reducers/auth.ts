@@ -29,14 +29,15 @@ export function reducer(state = initialState, action: auth.Actions | signup.Acti
         case auth.SUBMIT_CREDENTIALS: {
             return {
                 ...state,
-                credentials: action.payload
+                credentials: action.payload,
+                error: null
             };
         }
 
         case auth.SUBMIT_CREDENTIALS_FAILURE: {
             return {
                 ...state,
-                error: action.payload.ExceptionHandler
+                error: action.payload.status
             };
         }
 
