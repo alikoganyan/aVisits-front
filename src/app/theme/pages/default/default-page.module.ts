@@ -7,7 +7,7 @@ import {BackendService} from "../../../backend/backend.service";
 import {ModalService} from "../../../shared/modal.service";
 import {NgbModalStack} from "@ng-bootstrap/ng-bootstrap/modal/modal-stack";
 import {StoreModule} from "@ngrx/store";
-import {reducers} from "./reducers/index";
+import {reducerProvider, reducerToken} from "./reducers/index";
 import {EffectsModule} from "@ngrx/effects";
 import {ChainEffects} from "../../../chain/effects/chain.effects";
 import {SalonCollectionEffects} from "../../../salon/effects/collection.effects";
@@ -19,7 +19,7 @@ import * as fromSalon from "../../../salon/actions/collection";
     imports: [
         CommonModule,
         NgbModalModule.forRoot(),
-        StoreModule.forFeature('default-page', reducers),
+        StoreModule.forFeature('default-page', reducerToken),
         EffectsModule.forFeature([
             ChainEffects,
             SalonCollectionEffects,
@@ -35,6 +35,7 @@ import * as fromSalon from "../../../salon/actions/collection";
         NgbModal,
         NgbModalStack,
         NgbActiveModal,
+        reducerProvider,
         { provide: fromChain.ChainCollectionActions, useValue: fromChain.collectionActions },
         { provide: fromSalon.SalonCollectionActions, useValue: fromSalon.collectionActions },
     ]
