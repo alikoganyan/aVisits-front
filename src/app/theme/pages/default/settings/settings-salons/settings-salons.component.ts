@@ -12,6 +12,7 @@ import * as fromChain from '../../reducers/chain';
 import * as fromAuth from '../../../../../auth/reducers';
 import * as fromRoot from '../../reducers';
 import * as salonActions from '../../../../../salon/actions/collection';
+import * as pageActions from '../../../../../salon/actions/page';
 import * as chainActions from '../../../../../chain/actions/collection';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
@@ -31,7 +32,7 @@ import "rxjs/add/operator/filter";
 export class SettingsSalonsComponent implements OnInit {
     chains$ = this.store.select(fromChain.selectAllChains);
     operationSuccessful$ = this.store.select(fromSalon.selectOperationSuccessful);
-    selectedChain$ = this.store.select(fromChain.selectCurrentChain);
+    filterChainId$ = this.store.select(fromSalon.selectFilterChainId);
 
     chainsFilterDS$ = this.chains$
         .map(chains => chains.map(c => ({ id: c.id, title: c.title})))
@@ -41,11 +42,10 @@ export class SettingsSalonsComponent implements OnInit {
         });
 
     filteredSalons$ = this.store.select(fromSalon.selectAllSalons)
-        .combineLatest(this.selectedChain$,
-            (salons, selectedChain) =>
-                salons.filter(s =>
-                    selectedChain ? s.chain_id === selectedChain.id : true
-                )
+        .combineLatest(this.filterChainId$,
+            (salons, filterChainId) => salons.filter(s =>
+                filterChainId ? s.chain_id === filterChainId : true
+            )
         );
 
     salonsInfo$ = this.filteredSalons$.combineLatest(this.chains$)
@@ -81,8 +81,8 @@ export class SettingsSalonsComponent implements OnInit {
         return chain ? chain.title : '';
     }
 
-    onChainFilterChanged(chain: any) {
-        this.store.dispatch(chainActions.collectionActions.SetCurrentEntity(chain));
+    onChainFilterChanged(chainId: number) {
+        this.store.dispatch(new pageActions.SetFilterChainId(chainId));
     }
 
     openModalForm(form: any, salon: Salon): void {

@@ -10,6 +10,8 @@ export const selectSalonsRootState = createSelector(fromRoot.getRootState, state
 export const selectSalonEntitiesState = createSelector(selectSalonsRootState,
     fromSalons.getEntitiesState);
 
+export const selectSalonPageState = createSelector(selectSalonsRootState,
+    fromSalons.getPageState);
 
 export const {
     selectIds: selectSalonsIds,
@@ -22,3 +24,5 @@ export const selectCurrentSalon = createSelector(selectSalonEntitiesState, fromS
 export const selectOperationSuccessful = createSelector(selectSalonEntitiesState, fromSalons.getOperationComplete);
 export const selectError = createSelector(selectSalonEntitiesState, fromSalons.getError);
 export const selectLoading = createSelector(selectSalonEntitiesState, fromSalons.getLoading);
+
+export const selectFilterChainId = createSelector(selectSalonPageState, fromSalons.getFilterChainId);
