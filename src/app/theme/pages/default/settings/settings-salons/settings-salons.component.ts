@@ -12,8 +12,9 @@ import * as fromChain from '../../reducers/chain';
 import * as fromAuth from '../../../../../auth/reducers';
 import * as fromRoot from '../../reducers';
 import * as salonActions from '../../../../../salon/actions/collection';
-import * as pageActions from '../../../../../salon/actions/page';
 import * as chainActions from '../../../../../chain/actions/collection';
+import * as filterReducer from '../../reducers/filter';
+import * as filterActions from '../../../../../filter/actions/filter';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/of";
@@ -32,7 +33,7 @@ import "rxjs/add/operator/filter";
 export class SettingsSalonsComponent implements OnInit {
     chains$ = this.store.select(fromChain.selectAllChains);
     operationSuccessful$ = this.store.select(fromSalon.selectOperationSuccessful);
-    filterChainId$ = this.store.select(fromSalon.selectFilterChainId);
+    filterChainId$ = this.store.select(filterReducer.selectFilterChainId);
 
     chainsFilterDS$ = this.chains$
         .map(chains => chains.map(c => ({ id: c.id, title: c.title})))
@@ -82,7 +83,8 @@ export class SettingsSalonsComponent implements OnInit {
     }
 
     onChainFilterChanged(chainId: number) {
-        this.store.dispatch(new pageActions.SetFilterChainId(chainId));
+        // this.store.dispatch(new pageActions.SetFilterChainId(chainId));
+        // this.store.dispatch(new pageActions.SetFilterChainId(chainId));
     }
 
     openModalForm(form: any, salon: Salon): void {

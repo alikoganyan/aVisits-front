@@ -1,6 +1,7 @@
 import * as fromRoot from '../../../../reducers';
 import * as fromChains from '../../../../chain/reducers/chain';
-import * as fromSalons from '../../../../salon/reducers/collection';
+import * as fromSalons from '../../../../salon/reducers/index';
+import * as fromFilter from '../../../../filter/reducers/filter';
 
 
 import {ActionReducerMap, combineReducers, createFeatureSelector, createSelector} from "@ngrx/store";
@@ -9,12 +10,16 @@ import {InjectionToken} from "@angular/core";
 export interface State extends fromRoot.State {
     chains: fromChains.State,
     salons: fromSalons.State,
+
+    filter: fromFilter.FilterState,
 }
 
 export function getReducers() {
     return {
         chains: fromChains.reducers,
         salons: fromSalons.reducers,
+
+        filter: fromFilter.reducer,
     }
 };
 
