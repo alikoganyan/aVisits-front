@@ -1,7 +1,8 @@
 import { ChainPriceLevel } from "./chain-price-level.model";
 import { Salon } from "../salon/salon.model";
+import {UniqueEntity} from "../entity-collection/unique-entity";
 
-export class Chain {
+export class Chain implements UniqueEntity {
     id: number;
     title: string;
     phone_number: string;

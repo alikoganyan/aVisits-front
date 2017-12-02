@@ -3,17 +3,19 @@ import {CollectionActions, EntityCollectionActions, ActionBase} from "./entity-c
 import {Action} from "@ngrx/store";
 import {of} from "rxjs/observable/of";
 import {Actions} from "@ngrx/effects";
+import {UniqueEntity} from "./unique-entity";
 
-export abstract class EntityCollectionEffects<T> {
-    abstract fetchEntities(): Observable<any>;
+export abstract class EntityCollectionEffects<T extends UniqueEntity> {
+    abstract fetchEntities(args?: any): Observable<any>;
     abstract addEntity(value: T): Observable<any>;
     abstract updateEntity(value: T): Observable<any>;
-    abstract removeEntity(index: number): Observable<any>;
+    abstract removeEntity(value: T): Observable<any>;
 
 
     loadEntitiesEffect$: Observable<Action> = this.actions$
         .ofType(this.collectionActions.actionTypes[CollectionActions.LOAD_ALL])
-        .exhaustMap(() => this.fetchEntities()
+        .map((action: ActionBase<T>) => action.payload)
+        .exhaustMap((args) => this.fetchEntities(args)
             .map(response =>
                 this.collectionActions.LoadAllSuccess(response)
             )
@@ -50,11 +52,15 @@ export abstract class EntityCollectionEffects<T> {
 
     removeEntityEffect$: Observable<Action> = this.actions$
         .ofType(this.collectionActions.actionTypes[CollectionActions.REMOVE_ENTITY])
-        .map((action: ActionBase<number>) => action.payload)
-        .exhaustMap(index => this.removeEntity(index)
+        .map((action: ActionBase<T>) => action.payload)
+        .map((value: T) => ({
+            id: value.id,
+            entity: value
+        }))
+        .exhaustMap(({id, entity}) => this.removeEntity(entity)
             .mergeMap(response => {
                 return [
-                    this.collectionActions.RemoveEntitySuccess(index),
+                    this.collectionActions.RemoveEntitySuccess(id),
                     this.collectionActions.FinishOperation()
                 ];
             })

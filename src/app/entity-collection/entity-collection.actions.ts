@@ -1,4 +1,5 @@
 import {Action} from "@ngrx/store";
+import {UniqueEntity} from "./unique-entity";
 
 export enum CollectionActions {
     SET_CURRENT_ENTITY,
@@ -22,16 +23,16 @@ export enum CollectionActions {
     FINISH_OPERATION
 }
 
-export abstract class EntityCollectionActions<T> {
+export abstract class EntityCollectionActions<T extends UniqueEntity> {
     protected abstract get entityName(): string;
 
     public actionTypes: ActionTypeMap = this.generateActionTypes();
 
     SetCurrentEntity = ActionFactory.create<T>(this.actionTypes[CollectionActions.SET_CURRENT_ENTITY]);
 
-    LoadAll         = ActionFactory.create      (this.actionTypes[CollectionActions.LOAD_ALL]);
-    LoadAllSuccess  = ActionFactory.create<T[]> (this.actionTypes[CollectionActions.LOAD_ALL_SUCCESS]);
-    LoadAllFailure  = ActionFactory.create<any> (this.actionTypes[CollectionActions.LOAD_ALL_FAILURE]);
+    LoadAll         = ActionFactory.create<number>  (this.actionTypes[CollectionActions.LOAD_ALL]);
+    LoadAllSuccess  = ActionFactory.create<T[]>     (this.actionTypes[CollectionActions.LOAD_ALL_SUCCESS]);
+    LoadAllFailure  = ActionFactory.create<any>     (this.actionTypes[CollectionActions.LOAD_ALL_FAILURE]);
 
     AddEntity           = ActionFactory.create<T>   (this.actionTypes[CollectionActions.ADD_ENTITY]);
     AddEntitySuccess    = ActionFactory.create<T>   (this.actionTypes[CollectionActions.ADD_ENTITY_SUCCESS]);

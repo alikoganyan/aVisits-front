@@ -32,8 +32,8 @@ export class ChainService {
         return this.backend.put('chain', chain);
     }
 
-    deleteChain(chainId: number): Observable<any> {
-        return this.backend.delete('chain/' + chainId);
+    deleteChain(chain: Chain): Observable<any> {
+        return this.backend.delete('chain/' + chain.id);
     }
 
 }

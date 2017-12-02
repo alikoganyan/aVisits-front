@@ -24,8 +24,8 @@ export class ChainEffects extends EntityCollectionEffects<Chain>{
         return this.chainService.updateChain(value);
     }
 
-    removeEntity(index: number): Observable<any> {
-        return this.chainService.deleteChain(index);
+    removeEntity(value: Chain): Observable<any> {
+        return this.chainService.deleteChain(value);
     }
 
     @Effect()

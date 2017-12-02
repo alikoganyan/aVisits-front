@@ -1,14 +1,15 @@
 import {createEntityAdapter, EntityState} from "@ngrx/entity";
 import {ActionBase, CollectionActions, EntityCollectionActions} from "./entity-collection.actions";
+import {UniqueEntity} from "./unique-entity";
 
-export interface EntityCollectionState<T> extends EntityState<T> {
+export interface EntityCollectionState<T extends UniqueEntity> extends EntityState<T> {
     currentEntity: T | null;
     loading: boolean;
     error: string | null;
     operationComplete: boolean;
 }
 
-export abstract class EntityCollectionReducer<T, S extends EntityCollectionState<T>> {
+export abstract class EntityCollectionReducer<T extends UniqueEntity, S extends EntityCollectionState<T>> {
     public adapter;
 
     constructor(

@@ -1,6 +1,7 @@
 import { SalonSchedule } from "./salon-schedule.model";
+import {UniqueEntity} from "../entity-collection/unique-entity";
 
-export class Salon {
+export class Salon implements UniqueEntity {
     id: number;
     chain_id: number;
 

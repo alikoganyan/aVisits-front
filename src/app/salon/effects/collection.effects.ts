@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Actions, Effect} from "@ngrx/effects";
 import {SalonService} from "../salon.service";
 import * as Collection from '../actions/collection';
-import * as fromSalonsReducer from '../../theme/pages/default/reducers/salon';
+import * as fromSalonsReducer from '../../theme/pages/default/reducers';
 import * as fromSalons from '../reducers/collection';
 import "rxjs/add/operator/exhaustMap";
 import "rxjs/add/operator/map";
@@ -28,17 +28,8 @@ export class SalonCollectionEffects extends EntityCollectionEffects<Salon> {
         return this.salonService.updateSalon(value);
     }
 
-    removeEntity(index: number): Observable<any> {
-        return this.store.select(fromSalonsReducer.selectSalonEntities)
-            .map(entities => {
-                return entities[index]
-            })
-            .do(console.log)
-            .map(salon => {
-                debugger
-                return this.salonService.delete(salon)
-            })
-            .catch(e => of(console.log(e)))
+    removeEntity(value: Salon): Observable<any> {
+        return this.salonService.delete(value);
     }
 
 
@@ -59,7 +50,7 @@ export class SalonCollectionEffects extends EntityCollectionEffects<Salon> {
         protected actions$: Actions,
         protected salonService: SalonService,
         protected collectionActions: SalonCollectionActions,
-        private store: Store<fromSalons.State>
+        private store: Store<fromSalonsReducer.State>
     ) {
 
         super(actions$, collectionActions);
