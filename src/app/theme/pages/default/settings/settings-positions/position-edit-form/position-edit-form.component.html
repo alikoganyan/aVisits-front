@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">
+        {{title}}
+    </h5>
+    <button type="button" class="close" (click)="onClose()" aria-label="Close">
+        <span aria-hidden="true">
+        ×
+        </span>
+    </button>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="error">
+    {{error | json}}
+</div>
+
+
+<form class="m-form m-form--fit" (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="modal-body">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Название</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="title" [(ngModel)]="data.title" placeholder="Введите название должности">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Описание</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" name="description" [(ngModel)]="data.description" placeholder="Введите описание должности" rows="6"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-auto">
+                <button type="submit" class="btn btn-success" [disabled]="loading">
+                    {{submitButtonText}}
+                </button>
+                <button type="button" class="btn btn-secondary" (click)="onClose()" [disabled]="loading">
+                    Закрыть
+                </button>
+            </div>
+            <div class="col-auto ml-auto">
+                <button type="button" class="btn btn-outline-danger" *ngIf="!isCreateForm" (click)="onDelete()" [disabled]="loading">
+                    <span class="m--hidden-mobile">Удалить</span>
+                    <span class="m--visible-mobile">
+                    <i class="la la-trash"></i>
+                  </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

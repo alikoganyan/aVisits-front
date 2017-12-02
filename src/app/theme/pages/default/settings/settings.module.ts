@@ -16,6 +16,11 @@ const settingsRoutes: Routes = [
                 path: 'salons',
                 loadChildren: './settings-salons/settings-salons.module#SettingsSalonsModule',
                 data: { title: 'Салоны' }
+            },
+            {
+                path: 'positions',
+                loadChildren: './settings-positions/settings-positions.module#SettingsPositionsModule',
+                data: { title: 'Должности' }
             }
         ]
     },

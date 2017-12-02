@@ -14,6 +14,9 @@ import {SalonCollectionEffects} from "../../../salon/effects/collection.effects"
 import {SalonEffects} from "../../../salon/effects/salon.effects";
 import * as fromChain from "../../../chain/actions/collection";
 import * as fromSalon from "../../../salon/actions/collection";
+import * as fromPosition from "../../../position/actions/collection";
+import {PositionEffects} from "../../../position/effects/position.effects";
+import {EmployeePositionService} from "../../../position/position.service";
 
 @NgModule({
     imports: [
@@ -24,11 +27,13 @@ import * as fromSalon from "../../../salon/actions/collection";
             ChainEffects,
             SalonCollectionEffects,
             SalonEffects,
+            PositionEffects,
         ])
     ],
     declarations: [],
     providers: [
         SalonService,
+        EmployeePositionService,
         GeoNamesService,
         BackendService,
         ModalService,
@@ -38,6 +43,7 @@ import * as fromSalon from "../../../salon/actions/collection";
         reducerProvider,
         { provide: fromChain.ChainCollectionActions, useValue: fromChain.collectionActions },
         { provide: fromSalon.SalonCollectionActions, useValue: fromSalon.collectionActions },
+        { provide: fromPosition.PositionCollectionActions, useValue: fromPosition.collectionActions },
     ]
 })
 export class DefaultPageModule {

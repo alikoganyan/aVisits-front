@@ -1,0 +1,8 @@
+<app-position-edit-form
+        [isCreateForm]="true"
+        [data]="position$ | async"
+        [error]="error$ | async"
+        [loading]="loading$ | async"
+        (save)="onSavePosition($event)"
+        (deleteRequested)="onDeletePosition($event)"
+></app-position-edit-form>
