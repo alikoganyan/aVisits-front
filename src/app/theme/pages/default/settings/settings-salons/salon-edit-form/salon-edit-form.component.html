@@ -39,7 +39,7 @@
                                         [(value)]="data.chain_id"
                                         valueExpr="id"
                                         displayExpr="title"
-                                        [dataSource]="chainsDataSource"
+                                        [dataSource]="chainsDataSource$ | async"
                                 ></dx-select-box>
                             </div>
                         </div>

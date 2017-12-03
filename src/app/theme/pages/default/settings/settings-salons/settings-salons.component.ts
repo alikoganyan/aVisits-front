@@ -1,27 +1,23 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { SalonService } from "../../../../../salon/salon.service";
-import { ChainService } from "../../../../../chain/chain.service";
-import { ActivatedRoute, Router } from "@angular/router";
 import { Salon } from "../../../../../salon/salon.model";
 import {CreateSalonComponent} from "./create-salon/create-salon.component";
 import {EditSalonComponent} from "./edit-salon/edit-salon.component";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ModalConfig, ModalService} from "../../../../../shared/modal.service";
 import * as fromSalon from '../../reducers/salon';
-import * as fromChain from '../../reducers/chain';
-import * as fromAuth from '../../../../../auth/reducers';
+import * as fromFilter from '../../reducers/filter';
 import * as fromRoot from '../../reducers';
 import * as salonActions from '../../../../../salon/actions/collection';
 import * as chainActions from '../../../../../chain/actions/collection';
 import * as filterReducer from '../../reducers/filter';
 import * as filterActions from '../../../../../filter/actions/filter';
-import {Store} from "@ngrx/store";
-import {Observable} from "rxjs/Observable";
+import {MemoizedSelector, Store} from "@ngrx/store";
 import "rxjs/add/observable/of";
-import {Chain} from "../../../../../chain/chain.model";
 import "rxjs/add/operator/combineLatest";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/filter";
+import {SettingsMasterViewComponent} from "../settings-page-base/settings-master-view-component";
+import {EntityCollectionActions} from "../../../../../entity-collection/entity-collection.actions";
 
 @Component({
     selector: 'app-settings-salons',
@@ -30,74 +26,61 @@ import "rxjs/add/operator/filter";
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SettingsSalonsComponent implements OnInit {
-    chains$ = this.store.select(fromChain.selectAllChains);
-    operationSuccessful$ = this.store.select(fromSalon.selectOperationSuccessful);
-    filterChainId$ = this.store.select(filterReducer.selectFilterChainId);
-
-    chainsFilterDS$ = this.chains$
-        .map(chains => chains.map(c => ({ id: c.id, title: c.title})))
-        .map(chains => {
-            chains.unshift({ id: null, title: "Все сети"});
-            return chains;
-        });
-
-    filteredSalons$ = this.store.select(fromSalon.selectAllSalons)
-        .combineLatest(this.filterChainId$,
-            (salons, filterChainId) => salons.filter(s =>
-                filterChainId ? s.chain_id === filterChainId : true
-            )
-        );
-
-    salonsInfo$ = this.filteredSalons$.combineLatest(this.chains$)
-        .map(([salons, chains]) => {
-            return salons.map(salon => {
-                return {
-                    salon: salon,
-                    chainTitle: this.getChainTitle(salon, chains)
-                }
-            })
-        });
-
-
-    private modal: any;
-
-    constructor(private store: Store<fromRoot.State>,
-                private modalService: ModalService) {
+export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> {
+    /**
+     * override properties
+     */
+    protected get operationCompleteSelector(): MemoizedSelector<Object, boolean> {
+        return fromSalon.selectOperationSuccessful;
     }
 
-    ngOnInit() {
-        this.store.dispatch(salonActions.collectionActions.LoadAll());
-        this.store.dispatch(chainActions.collectionActions.LoadAll());
-
-        this.operationSuccessful$
-            .filter(next => next === true)
-            .subscribe(
-                operationSuccessful => this.modal.close()
-            );
+    protected get entitiesSelector(): MemoizedSelector<Object, any> {
+        return fromSalon.selectSalons;
     }
 
-    getChainTitle(salon: Salon, chains: Chain[]): string {
-        let chain = chains.filter(c => c.id === salon.chain_id)[0];
-        return chain ? chain.title : '';
+    protected get entityCollectionActions(): EntityCollectionActions<Salon> {
+        return salonActions.collectionActions;
+    }
+
+    protected get modalSize(): string {
+        return 'lg';
+    }
+
+    protected get createEntityComponent() {
+        return CreateSalonComponent;
+    }
+
+    protected get editEntityComponent() {
+        return EditSalonComponent;
+    }
+
+    /**
+     * override methods
+     */
+    protected createEntityInstance(): Salon {
+        return new Salon();
+    }
+
+    loadEntities() {
+        super.loadEntities();
+
+        this.store$.dispatch(chainActions.collectionActions.LoadAll());
+    }
+
+    /**
+     * own properties
+     */
+    filterByChainsDataSource$ = this.store$.select(fromFilter.selectFilterByChainDataSource);
+    filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
+
+
+    constructor(protected store$: Store<fromRoot.State>,
+                protected modalService: ModalService,
+                protected activeModal: NgbActiveModal,) {
+        super(store$, modalService, activeModal);
     }
 
     onChainFilterChanged(chainId: number) {
-        // this.store.dispatch(new pageActions.SetFilterChainId(chainId));
-        // this.store.dispatch(new pageActions.SetFilterChainId(chainId));
-    }
-
-    openModalForm(form: any, salon: Salon): void {
-        this.store.dispatch(salonActions.collectionActions.SetCurrentEntity(salon));
-        this.modal = this.modalService.open(new ModalConfig(form, { size: 'lg' }));
-    }
-
-    openCreateSalonForm(): void {
-        this.openModalForm(CreateSalonComponent, new Salon());
-    }
-
-    openEditSalonForm(salon: Salon): void {
-        this.openModalForm(EditSalonComponent, salon);
-
+        this.store$.dispatch(new filterActions.SetFilterChainId(chainId));
     }
 }

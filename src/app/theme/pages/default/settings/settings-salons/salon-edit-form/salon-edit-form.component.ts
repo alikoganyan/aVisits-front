@@ -33,7 +33,6 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     @ViewChild('map') map: AgmMap;
 
     chainsDataSource$ = this.store.select(fromChain.selectAllChains);
-    chainsDataSource: any;
     notificationTypes: any[];
     notificationTypesValue: any[];
 
@@ -63,9 +62,6 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
 
         this.imageSrc = 'assets/app/media/img/products/product1.jpg';
 
-        this.chainsDataSource$.subscribe(
-            next => this.chainsDataSource = next
-        );
         this.notificationTypes = this.salonService.notificationTypes;
         this.notificationTypesValue = this.data.notify_about_appointments;//.split(',');
 

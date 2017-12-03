@@ -20,7 +20,7 @@
                     <div class="m-widget5">
 
                         <app-chain-row
-                                *ngFor="let chain of chains$ | async"
+                                *ngFor="let chain of entities$ | async"
                                 [chain]="chain"
                                 (editChainRequested)="openEditForm($event)"
                         >

@@ -1,3 +1,7 @@
-<p>
-  edit-position works!
-</p>
+<app-position-edit-form
+        [data]="position$ | async"
+        [error]="error$ | async"
+        [loading]="loading$ | async"
+        (save)="onSavePosition($event)"
+        (deleteRequested)="onDeletePosition($event)"
+></app-position-edit-form>

@@ -5,6 +5,7 @@ import {Store} from "@ngrx/store";
 import * as fromRoot from '../../../reducers';
 import * as fromPosition from '../../../reducers/positions';
 import * as positionActions from '../../../../../../position/actions/collection';
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
     selector: 'app-edit-position',
@@ -14,13 +15,11 @@ import * as positionActions from '../../../../../../position/actions/collection'
 })
 export class EditPositionComponent extends PositionDialogBase {
     protected createSaveAction(position: EmployeePosition) {
+        return positionActions.collectionActions.UpdateEntity(position);
     }
 
     constructor(protected store$: Store<fromRoot.State>,) {
         super(store$);
-    }
-
-    ngOnInit() {
     }
 
 }

@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="m-portlet__head-tools">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDialog" (click)="openCreateSalonForm()">
+                        <button type="button" class="btn btn-primary" (click)="openCreateForm()">
                             Добавить
                         </button>
                     </div>
@@ -21,8 +21,8 @@
                         <div class="m-widget5__item">
                             <dx-select-box
                                     class="form-control m-bootstrap-select m_selectpicker"
-                                    [value]="selectedChain$ | async"
-                                    [dataSource]="chainsFilterDS$ | async"
+                                    [value]="filterChainId$ | async"
+                                    [dataSource]="filterByChainsDataSource$ | async"
                                     valueExpr="id"
                                     displayExpr="title"
                                     placeholder="Выберите сеть для фильтрации..."
@@ -32,10 +32,10 @@
                         </div>
 
                         <app-salon-row
-                                *ngFor="let info of salonsInfo$ | async"
+                                *ngFor="let info of entities$ | async"
                                 [salon]="info.salon"
                                 [chainTitle]="info.chainTitle"
-                                (editSalonRequested)="openEditSalonForm($event)"
+                                (editSalonRequested)="openEditForm($event)"
                         >
                         </app-salon-row>
 

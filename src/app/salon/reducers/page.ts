@@ -20,7 +20,7 @@ export function reducer(state: SalonPageState = initialState,
         }
 
         default: {
-            return initialState;
+            return state;
         }
     }
 

@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="m-portlet__head-tools">
-                        <button type="button" class="btn btn-primary" (click)="openCreatePositionForm()">
+                        <button type="button" class="btn btn-primary" (click)="openCreateForm()">
                             Добавить
                         </button>
                     </div>
@@ -21,8 +21,8 @@
                         <div class="m-widget5__item">
                             <dx-select-box
                                     class="form-control m-bootstrap-select m_selectpicker"
-                                    [value]="selectedChain$ | async"
-                                    [dataSource]="chainsFilterDS$ | async"
+                                    [value]="filterChainId$ | async"
+                                    [dataSource]="filterByChainsDataSource$ | async"
                                     valueExpr="id"
                                     displayExpr="title"
                                     placeholder="Выберите сеть для фильтрации..."
@@ -32,8 +32,9 @@
                         </div>
 
                         <app-position-row
-                                *ngFor="let position of positions$ | async"
-
+                                *ngFor="let position of entities$ | async"
+                                [employeePosition]="position"
+                                (editPositionRequested)="openEditForm(position)"
                         ></app-position-row>
                     </div>
                 </div>

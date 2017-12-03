@@ -29,7 +29,7 @@ export function reducer(state: FilterState = initialState,
         }
 
         default: {
-            return initialState;
+            return state;
         }
     }
 

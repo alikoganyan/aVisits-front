@@ -5,6 +5,7 @@ import * as fromPosition from '../../../reducers/positions';
 import * as positionActions from '../../../../../../position/actions/collection';
 import {Store} from "@ngrx/store";
 import {EmployeePosition} from "../../../../../../position/position.model";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
     selector: 'app-create-position',
@@ -14,14 +15,11 @@ import {EmployeePosition} from "../../../../../../position/position.model";
 })
 export class CreatePositionComponent extends PositionDialogBase {
     protected createSaveAction(position: EmployeePosition) {
-        position.chain_id = 66;
         return positionActions.collectionActions.AddEntity(position);
     }
 
+
     constructor(protected store$: Store<fromRoot.State>,) {
         super(store$);
-    }
-
-    ngOnInit() {
     }
 }

@@ -17,7 +17,8 @@ export class EmployeePositionService {
     }
     
     createPosition(position: EmployeePosition): Observable<any> {
-        return this.backend.post(`${position.chain_id}/position`, position);
+        return this.backend.post(`${position.chain_id}/position`, position)
+            .map(res => res.json().data.position);
     }
 
     updatePosition(position: EmployeePosition): Observable<any> {
