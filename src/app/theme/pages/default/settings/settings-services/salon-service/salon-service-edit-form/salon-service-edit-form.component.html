@@ -1,0 +1,285 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">
+        Добавление услуги
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                ×
+              </span>
+    </button>
+</div>
+<div class="modal-body">
+    <nav class="nav nav-tabs" id="myTab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-data-tab" data-toggle="tab" href="#nav-data" role="tab"
+           aria-controls="nav-data" aria-selected="true">Данные</a>
+        <a class="nav-item nav-link" id="nav-prices-tab" data-toggle="tab" href="#nav-prices" role="tab"
+           aria-controls="nav-prices" aria-selected="false">Цены</a>
+        <a class="nav-item nav-link" id="nav-employees-tab" data-toggle="tab" href="#nav-employees" role="tab"
+           aria-controls="nav-employees" aria-selected="false">Сотрудники</a>
+        <a class="nav-item nav-link" id="nav-salons-tab" data-toggle="tab" href="#nav-salons" role="tab"
+           aria-controls="nav-salons" aria-selected="false">Салоны</a>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <form class="tab-pane fade show active" id="nav-data" role="tabpanel" aria-labelledby="nav-data-tab">
+            <div class="form-group row mb-4">
+                <label class="col-lg-3 col-sm-4 col-form-label">Название</label>
+                <div class="col-lg-9 col-sm-8">
+                    <input type="text" class="form-control" placeholder="Введите название">
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-lg-3 col-sm-4 col-form-label">Категория</label>
+                <div class="col-lg-9 col-sm-8">
+                    <select class="form-control m-bootstrap-select m_selectpicker" data-live-search="true"
+                            title="Выберете категорию">
+                        <option>
+                            Категория 1
+                        </option>
+                        <option>
+                            - Категория 1.1
+                        </option>
+                        <option>
+                            -- Категория 1.1.1
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="m-checkbox m-checkbox--brand m-0">
+                    <input type="checkbox" checked>
+                    Доступна для онлайн-записи
+                    <span></span>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="m-checkbox m-checkbox--brand m-0">
+                    <input type="checkbox" checked>
+                    Услуга только для записи
+                    <span></span>
+                </label>
+                <span class="info ml-2" data-toggle="m-tooltip" data-placement="top"
+                      data-original-title="С такой услугой визит нельзя оплатить, она должна быть заменена на другую"><i
+                        class="la la-info-circle"></i></span>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-lg-3 col-sm-4 col-form-label">Продолжительность</label>
+                <div class="col-lg-4 col-sm-5 input-group">
+                    <input type="text" class="form-control" value="60">
+                    <span class="input-group-addon">минут</span>
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-lg-3 col-sm-4 col-form-label">Шаг вывода времени для онлайн записи</label>
+                <!--<div class="col-lg-4 col-sm-5">-->
+                    <!--<select class="form-control m-bootstrap-select m_selectpicker">-->
+                        <!--<option>-->
+                            <!--15 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--30 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--45 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--1 час 15 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--1 час 30 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--1 час 45 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--2 часа-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--2часа 30 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--3 часа-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--3 часа 30 минут-->
+                        <!--</option>-->
+                        <!--<option>-->
+                            <!--4 часа-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            </div>
+        </form>
+        <form class="tab-pane fade" id="nav-prices" role="tabpanel" aria-labelledby="nav-prices-tab">
+            <fieldset>
+                <legend>Установка новых цен <span class="info ml-2" data-toggle="m-tooltip" data-placement="top"
+                                                  data-original-title="Если цена фиксированная - оставьте поле &quot;до&quot; пустым"><i
+                        class="la la-info-circle"></i></span></span></legend>
+                <div class="form-group row">
+                    <div class="col-lg-4 col-md-6"></div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="row text-center">
+                            <div class="col">
+                                <span class="mr-4">От</span>
+                            </div>
+                            <div class="col">
+                                <span class="mr-5">До</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4 col-md-6 col-form-label">1. Название уровня цен 1</label>
+                    <div class="col-lg-4 col-md-6 input-group">
+                        <input type="text" class="form-control" value="900">
+                        <span class="input-group-addon">-</span>
+                        <input type="text" class="form-control" value="1200">
+                        <span class="input-group-addon">₽</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4 col-md-6 col-form-label">2. Название уровня цен 2</label>
+                    <div class="col-lg-4 col-md-6 input-group">
+                        <input type="text" class="form-control" value="900">
+                        <span class="input-group-addon">-</span>
+                        <input type="text" class="form-control" value="1200">
+                        <span class="input-group-addon">₽</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4 col-md-6 col-form-label">3. Название уровня цен 3</label>
+                    <div class="col-lg-4 col-md-6 input-group">
+                        <input type="text" class="form-control" value="900">
+                        <span class="input-group-addon">-</span>
+                        <input type="text" class="form-control" value="1200">
+                        <span class="input-group-addon">₽</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-4 col-md-6 col-form-label">Установить цены с</label>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="input-group date" id="datepicker_set_price">
+                            <input type="text" class="form-control m-input" value="05/20/2017" readonly/>
+                            <span class="input-group-addon">
+                          <i class="la la-calendar-check-o"></i>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="button">Установить новые цены</button>
+                </div>
+            </fieldset>
+            <div class="collapse-item">
+                <a class="collapsed" data-toggle="collapse" href="#history" aria-expanded="true"
+                   aria-controls="history">
+                    <span>История изменения цен</span>
+                    <i class="la la-angle-down"></i>
+                </a>
+                <div id="history" class="collapse" role="tabpanel">
+                    <table class="table table-sm table-auto mt-3">
+                        <tbody>
+                        <tr>
+                            <td><span class="mr-4">01.01.2017</span></td>
+                            <td>600, 1200-1800, 2000-2400</td>
+                        </tr>
+                        <tr>
+                            <td><span class="mr-4">01.01.2017</span></td>
+                            <td>600, 1200-1800, 2000-2400</td>
+                        </tr>
+                        <tr>
+                            <td><span class="mr-4">01.01.2017</span></td>
+                            <td>600, 1200-1800, 2000-2400</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+        <form class="tab-pane fade" id="nav-employees" role="tabpanel" aria-labelledby="nav-employees-tab">
+            <div class="form-group row">
+                <div class="col-lg-4 col-sm-6"></div>
+                <div class="col-lg-3 col-sm-6 text-center">Продолж-ть</div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-4 col-sm-6 col-form-label">
+                    <label class="m-checkbox m-checkbox--brand m-0">
+                        <input type="checkbox" checked>
+                        Петр Семено (Парикмахер)
+                        <span></span>
+                    </label>
+                </div>
+                <div class="col-lg-3 col-sm-6 input-group">
+                    <input type="text" class="form-control" value="60">
+                    <span class="input-group-addon">минут</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-4 col-sm-6 col-form-label">
+                    <label class="m-checkbox m-checkbox--brand m-0">
+                        <input type="checkbox" checked>
+                        Петр Семено (Парикмахер)
+                        <span></span>
+                    </label>
+                </div>
+                <div class="col-lg-3 col-sm-6 input-group">
+                    <input type="text" class="form-control" value="90">
+                    <span class="input-group-addon">минут</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-4 col-sm-6 col-form-label">
+                    <label class="m-checkbox m-checkbox--brand m-0">
+                        <input type="checkbox">
+                        Петр Семено (Парикмахер)
+                        <span></span>
+                    </label>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                </div>
+            </div>
+        </form>
+        <div class="tab-pane fade" id="nav-salons" role="tabpanel" aria-labelledby="nav-salons-tab">
+            <fieldset>
+                <legend>Укажите салоны в которых указывается услуга</legend>
+                <label class="m-checkbox m-checkbox--brand d-block">
+                    <input type="checkbox" checked>
+                    Название салона
+                    <span></span>
+                </label>
+                <label class="m-checkbox m-checkbox--brand d-block">
+                    <input type="checkbox">
+                    Название салона
+                    <span></span>
+                </label>
+                <label class="m-checkbox m-checkbox--brand d-block">
+                    <input type="checkbox">
+                    Название салона
+                    <span></span>
+                </label>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-auto">
+            <button type="button" class="btn btn-success">
+                Сохранить
+            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                <span class="m--hidden-mobile">Клонировать</span>
+                <span class="m--visible-mobile">
+                    <i class="la la-copy"></i>
+                  </span>
+            </button>
+        </div>
+        <div class="col-auto ml-auto">
+            <button type="button" class="btn btn-outline-danger">
+                <span class="m--hidden-mobile">Удалить</span>
+                <span class="m--visible-mobile">
+                    <i class="la la-trash"></i>
+                  </span>
+            </button>
+        </div>
+    </div>
+</div>

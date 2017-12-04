@@ -21,6 +21,11 @@ const settingsRoutes: Routes = [
                 path: 'positions',
                 loadChildren: './settings-positions/settings-positions.module#SettingsPositionsModule',
                 data: { title: 'Должности' }
+            },
+            {
+                path: 'services',
+                loadChildren: './settings-services/settings-services.module#SettingsServicesModule',
+                data: { title: 'Услуги' }
             }
         ]
     },

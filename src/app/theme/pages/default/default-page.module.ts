@@ -17,6 +17,8 @@ import * as fromSalon from "../../../salon/actions/collection";
 import * as fromPosition from "../../../position/actions/collection";
 import {PositionEffects} from "../../../position/effects/position.effects";
 import {EmployeePositionService} from "../../../position/position.service";
+import {ServiceCategoryService} from "../../../services-category/service-category.service";
+import {SalonService_Service} from "../../../salon-service/salon-service.service";
 
 @NgModule({
     imports: [
@@ -36,6 +38,9 @@ import {EmployeePositionService} from "../../../position/position.service";
         EmployeePositionService,
         GeoNamesService,
         BackendService,
+        ServiceCategoryService,
+        SalonService_Service,
+
         ModalService,
         NgbModal,
         NgbModalStack,

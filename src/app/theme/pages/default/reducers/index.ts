@@ -2,6 +2,9 @@ import * as fromRoot from '../../../../reducers';
 import * as fromChains from '../../../../chain/reducers/chain';
 import * as fromSalons from '../../../../salon/reducers/index';
 import * as fromPositions from '../../../../position/reducers/position';
+import * as fromServiceCategories from '../../../../services-category/reducers/index';
+import * as fromSalonServices from '../../../../salon-service/reducers/index';
+
 import * as fromFilter from '../../../../filter/reducers/filter';
 
 
@@ -12,6 +15,8 @@ export interface State extends fromRoot.State {
     chains: fromChains.State,
     salons: fromSalons.State,
     positions: fromPositions.State,
+    serviceCategories: fromServiceCategories.State,
+    salonServices: fromSalonServices.State,
 
     filter: fromFilter.FilterState,
 }
@@ -21,6 +26,8 @@ export function getReducers() {
         chains: fromChains.reducers,
         salons: fromSalons.reducers,
         positions: fromPositions.reducers,
+        serviceCategories: fromServiceCategories.reducers,
+        salonServices: fromSalonServices.reducers,
 
         filter: fromFilter.reducer,
     }
