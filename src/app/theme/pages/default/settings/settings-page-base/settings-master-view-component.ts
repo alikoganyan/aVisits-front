@@ -32,7 +32,7 @@ export abstract class SettingsMasterViewComponent<T extends UniqueEntity> implem
      * properties
      */
     protected operationComplete$: Store<boolean>;
-    protected entities$: Store<any>;
+    public entities$: Store<any>;
 
     protected modal: NgbModalRef;
 
