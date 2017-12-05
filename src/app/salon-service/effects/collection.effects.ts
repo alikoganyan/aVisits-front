@@ -6,7 +6,9 @@ import {SalonServiceCollectionActions} from "../actions/collection";
 import {Store} from "@ngrx/store";
 import {SalonService_Service} from "../salon-service.service";
 import * as fromRoot from '../../theme/pages/default/reducers'
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class SalonServiceCollectionEffects extends EntityCollectionEffects<SalonServiceModel> {
     fetchEntities(args?: any): Observable<any> {
         return this.salonServicesService.get(args);
@@ -42,7 +44,6 @@ export class SalonServiceCollectionEffects extends EntityCollectionEffects<Salon
         protected actions$: Actions,
         protected salonServicesService: SalonService_Service,
         protected collectionActions: SalonServiceCollectionActions,
-        private store: Store<fromRoot.State>
     ) {
 
         super(actions$, collectionActions);

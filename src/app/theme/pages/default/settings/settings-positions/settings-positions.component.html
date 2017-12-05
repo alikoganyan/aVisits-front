@@ -19,16 +19,7 @@
                 <div class="m-portlet__body">
                     <div class="m-widget5">
                         <div class="m-widget5__item">
-                            <dx-select-box
-                                    class="form-control m-bootstrap-select m_selectpicker"
-                                    [value]="filterChainId$ | async"
-                                    [dataSource]="filterByChainsDataSource$ | async"
-                                    valueExpr="id"
-                                    displayExpr="title"
-                                    placeholder="Выберите сеть для фильтрации..."
-                                    (onValueChanged)="onChainFilterChanged($event.value)"
-                            >
-                            </dx-select-box>
+                            <app-filter-by-chain></app-filter-by-chain>
                         </div>
 
                         <app-position-row

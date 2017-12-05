@@ -38,7 +38,7 @@ export class SettingsChainsComponent extends SettingsMasterViewComponent<Chain> 
         return chainActions.collectionActions;
     }
 
-    protected get modalSize() {
+    getModalSize() {
         return 'md';
     }
 

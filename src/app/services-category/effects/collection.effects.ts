@@ -7,7 +7,7 @@ import {Observable} from "rxjs/Observable";
 import {ServiceCategoryService} from "../service-category.service";
 
 @Injectable()
-export class ServiceCategoryEffects extends EntityCollectionEffects<ServiceCategoryModel> {
+export class ServiceCategoryCollectionEffects extends EntityCollectionEffects<ServiceCategoryModel> {
     fetchEntities(args?: any): Observable<any> {
         return this.serviceCategoryService.getCategories(args);
     }
@@ -37,8 +37,8 @@ export class ServiceCategoryEffects extends EntityCollectionEffects<ServiceCateg
     deleteCategory$ = this.removeEntityEffect$;
 
     constructor(
-        protected serviceCategoryService: ServiceCategoryService,
         protected actions$: Actions,
+        protected serviceCategoryService: ServiceCategoryService,
         protected collectionActions: ServiceCategoryCollectionActions)
     {
         super(actions$, collectionActions)

@@ -38,7 +38,7 @@ export class SettingsPositionsComponent extends SettingsMasterViewComponent<Empl
         return positionActions.collectionActions;
     }
 
-    protected get modalSize(): string {
+    getModalSize(): string {
         return 'md';
     }
 
@@ -60,7 +60,7 @@ export class SettingsPositionsComponent extends SettingsMasterViewComponent<Empl
     loadEntities() {
         // super.loadEntities();
 
-        this.store$.dispatch(chainActions.collectionActions.LoadAll());
+
     }
 
     subscribeToStore() {
@@ -76,7 +76,6 @@ export class SettingsPositionsComponent extends SettingsMasterViewComponent<Empl
     /**
      * own properties
      */
-    filterByChainsDataSource$ = this.store$.select(fromFilter.selectFilterByChainDataSource);
     filterChainId$ = this.store$.select(fromFilter.selectFilterChainId);
 
 
@@ -84,9 +83,5 @@ export class SettingsPositionsComponent extends SettingsMasterViewComponent<Empl
                 protected modalService: ModalService,
                 protected activeModal: NgbActiveModal,) {
         super(store$, modalService, activeModal);
-    }
-
-    onChainFilterChanged(chainId: number) {
-        this.store$.dispatch(new filterActions.SetFilterChainId(chainId));
     }
 }

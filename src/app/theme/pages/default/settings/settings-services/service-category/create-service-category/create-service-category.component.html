@@ -1,3 +1,8 @@
-<p>
-  create-service-category works!
-</p>
+<app-service-category-edit-form
+        [isCreateForm]="true"
+        [loading]="loading$ | async"
+        [data]="category$ | async"
+        [error]="error$ | async"
+        (save)="onSaveCategory($event)"
+        (deleteRequested)="onDeleteCategory($event)"
+></app-service-category-edit-form>

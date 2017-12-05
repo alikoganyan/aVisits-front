@@ -42,7 +42,7 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
         return salonActions.collectionActions;
     }
 
-    protected get modalSize(): string {
+    getModalSize(): string {
         return 'lg';
     }
 
@@ -70,17 +70,11 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
     /**
      * own properties
      */
-    filterByChainsDataSource$ = this.store$.select(fromFilter.selectFilterByChainDataSource);
     filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
-
 
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,
                 protected activeModal: NgbActiveModal,) {
         super(store$, modalService, activeModal);
-    }
-
-    onChainFilterChanged(chainId: number) {
-        this.store$.dispatch(new filterActions.SetFilterChainId(chainId));
     }
 }

@@ -1,0 +1,21 @@
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary" [disabled]="loading">
+                {{submitButtonText}}
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="onClose()" [disabled]="loading">
+                Закрыть
+            </button>
+        </div>
+        <div class="col-auto ml-auto">
+            <button type="button" class="btn btn-outline-danger" *ngIf="showDeleteButton" (click)="onDelete()"
+                    [disabled]="loading">
+                <span class="m--hidden-mobile">Удалить</span>
+                <span class="m--visible-mobile">
+                  <i class="la la-trash"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -11,20 +11,20 @@ export class ServiceCategoryService {
 
 
     getCategories(chainId: any): Observable<any> {
-        return this.backend.get(``)
+        return this.backend.get(`${chainId}/service_category`)
             .map(res => res.json().data);
     }
 
     createCategory(value: ServiceCategoryModel): Observable<any> {
-        return this.backend.post(``, value);
+        return this.backend.post(`${value.chain_id}/service_category`, value);
     }
 
     updateCategory(value: ServiceCategoryModel): Observable<any> {
-        return this.backend.put(``, value);
+        return this.backend.put(`${value.chain_id}/service_category/${value.id}`, value);
     }
 
     deleteCategory(value: ServiceCategoryModel): Observable<any> {
-        return this.backend.delete(``);
+        return this.backend.delete(`${value.chain_id}/service_category/${value.id}`);
     }
 
 }

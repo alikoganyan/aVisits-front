@@ -8,6 +8,16 @@ import { CreateSalonServiceComponent } from './salon-service/create-salon-servic
 import { EditSalonServiceComponent } from './salon-service/edit-salon-service/edit-salon-service.component';
 import { ServiceCategoryEditFormComponent } from './service-category/service-category-edit-form/service-category-edit-form.component';
 import { SalonServiceEditFormComponent } from './salon-service/salon-service-edit-form/salon-service-edit-form.component';
+import {SharedModule} from "../../../../../shared/shared.module";
+import {FormsModule} from "@angular/forms";
+import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+
+const DIALOG_COMPONENTS = [
+    CreateServiceCategoryComponent,
+    EditServiceCategoryComponent,
+    CreateSalonServiceComponent,
+    EditSalonServiceComponent,
+];
 
 const serviceRoutes: Routes = [
     {
@@ -24,9 +34,20 @@ const serviceRoutes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
+        SharedModule,
+        FormsModule,
         RouterModule.forChild(serviceRoutes),
+        NgbModalModule.forRoot(),
     ],
-    declarations: [SettingsServicesComponent, CreateServiceCategoryComponent, EditServiceCategoryComponent, CreateSalonServiceComponent, EditSalonServiceComponent, ServiceCategoryEditFormComponent, SalonServiceEditFormComponent]
+    declarations: [
+        DIALOG_COMPONENTS,
+        SettingsServicesComponent,
+        ServiceCategoryEditFormComponent,
+        SalonServiceEditFormComponent
+    ],
+    entryComponents: [
+        DIALOG_COMPONENTS
+    ]
 })
 export class SettingsServicesModule {
 }

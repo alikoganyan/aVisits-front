@@ -12,8 +12,12 @@ export const selectFilterChainId = createSelector(selectFilterState, fromFilter.
 
 export const selectFilterByChainDataSource = createSelector(
     fromChain.selectAllChains,
-    (chains: Chain[]) => {
-        let chainsInfo = chains.map(c => ({ id: c.id, title: c.title}));
+    (chains: Chain[]) => chains.map(c => ({ id: c.id, title: c.title}))
+);
+
+export const selectFilterByChainExtendedDataSource = createSelector(
+    selectFilterByChainDataSource,
+    (chainsInfo: {id: number, title: string}[]) => {
         chainsInfo.unshift({ id: null, title: "Все сети"});
 
         return chainsInfo;

@@ -31,7 +31,7 @@ export function getReducers() {
 
         filter: fromFilter.reducer,
     }
-};
+}
 
 export const getRootState = createFeatureSelector<State>('default-page');
 

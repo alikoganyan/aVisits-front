@@ -15,10 +15,14 @@ import {SalonEffects} from "../../../salon/effects/salon.effects";
 import * as fromChain from "../../../chain/actions/collection";
 import * as fromSalon from "../../../salon/actions/collection";
 import * as fromPosition from "../../../position/actions/collection";
+import * as fromServiceCategory from "../../../services-category/actions/collection";
+import * as fromSalonService from "../../../salon-service/actions/collection";
 import {PositionEffects} from "../../../position/effects/position.effects";
 import {EmployeePositionService} from "../../../position/position.service";
 import {ServiceCategoryService} from "../../../services-category/service-category.service";
 import {SalonService_Service} from "../../../salon-service/salon-service.service";
+import {ServiceCategoryCollectionEffects} from "../../../services-category/effects/collection.effects";
+import {SalonServiceCollectionEffects} from "../../../salon-service/effects/collection.effects";
 
 @NgModule({
     imports: [
@@ -30,6 +34,8 @@ import {SalonService_Service} from "../../../salon-service/salon-service.service
             SalonCollectionEffects,
             SalonEffects,
             PositionEffects,
+            ServiceCategoryCollectionEffects,
+            SalonServiceCollectionEffects
         ])
     ],
     declarations: [],
@@ -49,6 +55,8 @@ import {SalonService_Service} from "../../../salon-service/salon-service.service
         { provide: fromChain.ChainCollectionActions, useValue: fromChain.collectionActions },
         { provide: fromSalon.SalonCollectionActions, useValue: fromSalon.collectionActions },
         { provide: fromPosition.PositionCollectionActions, useValue: fromPosition.collectionActions },
+        { provide: fromServiceCategory.ServiceCategoryCollectionActions, useValue: fromServiceCategory.collectionActions },
+        { provide: fromSalonService.SalonServiceCollectionActions, useValue: fromSalonService.collectionActions },
     ]
 })
 export class DefaultPageModule {

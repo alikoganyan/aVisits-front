@@ -1,0 +1,10 @@
+<dx-select-box
+        class="form-control m-bootstrap-select m_selectpicker"
+        [value]="selectedChainId$ | async"
+        [dataSource]="dataSource$ | async"
+        valueExpr="id"
+        displayExpr="title"
+        placeholder="Выберите сеть для фильтрации..."
+        (onValueChanged)="onFilterChanged($event.value)"
+>
+</dx-select-box>
