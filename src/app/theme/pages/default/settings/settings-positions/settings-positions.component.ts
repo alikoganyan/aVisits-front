@@ -15,6 +15,7 @@ import {EditPositionComponent} from "./edit-position/edit-position.component";
 import {SettingsMasterViewComponent} from "../settings-page-base/settings-master-view-component";
 import {EntityCollectionActions} from "../../../../../entity-collection/entity-collection.actions";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import * as filterReducer from "../../../../../reducers/filter";
 
 @Component({
     selector: 'app-settings-positions',
@@ -76,7 +77,7 @@ export class SettingsPositionsComponent extends SettingsMasterViewComponent<Empl
     /**
      * own properties
      */
-    filterChainId$ = this.store$.select(fromFilter.selectFilterChainId);
+    filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
 
 
     constructor(protected store$: Store<fromRoot.State>,

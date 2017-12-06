@@ -4,6 +4,7 @@ import * as fromRoot from "../../theme/pages/default/reducers";
 import {Store} from "@ngrx/store";
 import * as filterActions from "../../filter/actions/filter";
 import * as fromFilter from "../../theme/pages/default/reducers/filter";
+import * as filterReducer from "../../reducers/filter";
 
 @Component({
     selector: 'app-filter-by-chain',
@@ -14,7 +15,7 @@ export class FilterByChainComponent implements OnInit {
     @Input() showSelectAll: boolean = false;
 
     dataSource$: Store<any>;
-    selectedChainId$ = this.store$.select(fromFilter.selectFilterChainId);
+    selectedChainId$ = this.store$.select(filterReducer.selectFilterChainId);
 
     constructor(private store$: Store<fromRoot.State>) {
     }

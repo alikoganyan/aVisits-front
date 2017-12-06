@@ -9,7 +9,7 @@ import * as fromFilter from '../../reducers/filter';
 import * as fromRoot from '../../reducers';
 import * as salonActions from '../../../../../salon/actions/collection';
 import * as chainActions from '../../../../../chain/actions/collection';
-import * as filterReducer from '../../reducers/filter';
+import * as filterReducer from '../../../../../reducers/filter';
 import * as filterActions from '../../../../../filter/actions/filter';
 import {MemoizedSelector, Store} from "@ngrx/store";
 import "rxjs/add/observable/of";

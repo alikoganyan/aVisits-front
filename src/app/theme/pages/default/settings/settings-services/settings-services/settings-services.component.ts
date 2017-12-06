@@ -22,6 +22,7 @@ import {CreateSalonServiceComponent} from "../salon-service/create-salon-service
 import {CreateServiceCategoryComponent} from "../service-category/create-service-category/create-service-category.component";
 import {EditSalonServiceComponent} from "../salon-service/edit-salon-service/edit-salon-service.component";
 import * as positionActions from "../../../../../../position/actions/collection";
+import * as filterReducer from "../../../../../../reducers/filter";
 
 @Component({
   selector: 'app-settings-services',
@@ -64,7 +65,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
             : categoryActions.collectionActions.SetCurrentEntity(entity);
     }
 
-    filterChainId$ = this.store$.select(fromFilter.selectFilterChainId);
+    filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
     categories$ = this.store$.select(fromCategory.selectAllServiceCategories);
 
     constructor(protected store$: Store<fromRoot.State>,

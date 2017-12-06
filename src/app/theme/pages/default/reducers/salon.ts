@@ -5,6 +5,7 @@ import * as chainReducer from './chain';
 import {Salon} from "../../../../salon/salon.model";
 import {Chain} from "../../../../chain/chain.model";
 import {createSelector} from "@ngrx/store";
+import * as filterReducer from "../../../../reducers/filter";
 
 /**
  * Salons
@@ -32,10 +33,9 @@ export const selectLoading = createSelector(selectSalonEntitiesState, fromSalons
 // export const selectFilterChainId = createSelector(selectSalonPageState, fromSalons.getFilterChainId);
 
 
-
 export const filterSalonsByChain = createSelector(
     selectAllSalons,
-    fromFilter.selectFilterChainId,
+    filterReducer.selectFilterChainId,
     (salons: Salon[], filterChainId) => salons.filter(s =>
         filterChainId ? s.chain_id === filterChainId : true
     )

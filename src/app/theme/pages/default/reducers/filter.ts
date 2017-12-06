@@ -1,14 +1,10 @@
 import {createSelector} from "@ngrx/store";
 import * as fromRoot from './index';
 import * as fromChain from './chain';
-import * as fromFilter from '../../../../filter/reducers';
+import * as fromFilter from '../../../../reducers/filter';
+import * as filterReducer from '../../../../filter/reducers';
 import {Chain} from "../../../../chain/chain.model";
 
-
-export const selectFilterState = createSelector(fromRoot.getRootState,
-    state => state.filter);
-
-export const selectFilterChainId = createSelector(selectFilterState, fromFilter.getFilterChainId);
 
 export const selectFilterByChainDataSource = createSelector(
     fromChain.selectAllChains,

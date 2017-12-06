@@ -11,6 +11,7 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/operator/map";
 import {Store} from "@ngrx/store";
 import "rxjs/add/operator/withLatestFrom";
+import * as filterActions from "../../filter/actions/filter";
 
 @Injectable()
 export class AuthEffects {
@@ -71,9 +72,11 @@ export class AuthEffects {
         .ofType(Auth.LOGIN_REDIRECT, Auth.LOGOUT)
         .do(() => this.router.navigate(['/auth']));
 
-    @Effect({ dispatch: false })
+    @Effect()
     selectChain$ = this.actions$
         .ofType(Auth.SELECT_CHAIN)
+        .map((action: Auth.SelectChain) => action.payload)
+        .map(chainId => new filterActions.SetFilterChainId(chainId))
         .do(() => this.router.navigate(['/auth/password']));
 
     @Effect({ dispatch: false })

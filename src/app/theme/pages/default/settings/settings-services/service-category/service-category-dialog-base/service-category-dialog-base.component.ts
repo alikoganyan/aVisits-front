@@ -4,11 +4,17 @@ import * as fromRoot from "../../../../reducers";
 import * as fromCategory from "../../../../reducers/service-category";
 import * as categoryActions from "../../../../../../../services-category/actions/collection";
 import {ServiceCategoryModel} from "../../../../../../../services-category/service-category.model";
+import {Subscription} from "rxjs/Subscription";
+import * as fromFilter from "../../../../reducers/filter";
+import * as filterReducer from "../../../../../../../reducers/filter";
 
 export abstract class ServiceCategoryDialogBase implements OnInit {
     category$ = this.store$.select(fromCategory.selectCurrentServiceCategory);
     error$ = this.store$.select(fromCategory.selectError);
     loading$ = this.store$.select(fromCategory.selectLoading);
+
+    selectedChainId: number;
+    selectedChainIdSubscription: Subscription;
 
     protected abstract createSaveAction(category: ServiceCategoryModel): Action;
 
@@ -16,9 +22,17 @@ export abstract class ServiceCategoryDialogBase implements OnInit {
     }
 
     ngOnInit() {
+        this.selectedChainIdSubscription = this.store$.select(filterReducer.selectFilterChainId)
+            .subscribe(
+                next => {
+                    console.log(next);
+                    this.selectedChainId = next
+                }
+            );
     }
 
     onSaveCategory(category: ServiceCategoryModel) {
+        category.chain_id = this.selectedChainId;
         this.store$.dispatch(this.createSaveAction(category));
     }
 

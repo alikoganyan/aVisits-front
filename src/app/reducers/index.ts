@@ -1,21 +1,25 @@
 import * as fromRouter from '@ngrx/router-store';
 import * as fromAuth from '../auth/reducers';
 import * as fromLayout from '../shared/reducers/layout';
+import * as fromRootFilter from './filter';
 import {RouterStateUrl} from "../shared/router.utils";
 import {ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer} from "@ngrx/store";
 import {localStorageSync} from "ngrx-store-localstorage";
+import * as filterReducer from "../filter/reducers/filter";
 
 export interface State {
     routerReducer: fromRouter.RouterReducerState<RouterStateUrl>,
-    layout: fromLayout.State
+    layout: fromLayout.State,
+    filter: filterReducer.FilterState,
 }
 
 export const reducers =  {
     routerReducer: fromRouter.routerReducer,
-    layout: fromLayout.reducer
+    layout: fromLayout.reducer,
+    filter: filterReducer.reducer,
 };
 
-export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+export function localStorageSyncAuthReducer(reducer: ActionReducer<any>): ActionReducer<any> {
     return localStorageSync({
         keys: [{
             auth: { reviver: (key, value) => key === 'error' ? null : value }
@@ -23,7 +27,17 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
         rehydrate: true
     })(reducer);
 }
-export const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+
+export function localStorageSyncFilterReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+    return localStorageSync({
+        keys: [ 'filter' ],
+        rehydrate: true
+    })(reducer);
+}
+
+
+
+export const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncAuthReducer, localStorageSyncFilterReducer];
 
 // export const selectLayoutState = createFeatureSelector<fromLayout.State>('layout');
 //
