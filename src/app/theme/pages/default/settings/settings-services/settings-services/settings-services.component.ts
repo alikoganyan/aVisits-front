@@ -67,6 +67,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
 
     filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
     categories$ = this.store$.select(fromCategory.selectAllServiceCategories);
+    categoriesTVDataSource$ = this.store$.select(fromCategory.selectServiceCategoriesDataSource);
 
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,

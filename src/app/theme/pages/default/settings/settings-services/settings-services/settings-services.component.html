@@ -49,14 +49,16 @@
                 <div class="m-portlet__body">
                     <app-filter-by-chain></app-filter-by-chain>
 
-                    <div class="form-group row mb-4">
-                        <label class="col-sm-3 col-form-label">Фильтр</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Введите часть названия услуги">
-                        </div>
-                    </div>
                     <!--begin: Services-->
                     <div class="services">
+                        <dx-tree-view
+                                [items]="categories$ | async"
+                                [displayExpr]="'title'"
+                                [searchEnabled]="true"
+                                [searchMode]="contains"
+
+                        ></dx-tree-view>
+
                         <!--<div class="item" *ngFor="let category of categories$ | async">-->
                             <!--{{ category.title }}-->
                         <!--</div>-->

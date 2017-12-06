@@ -16,11 +16,13 @@ export class ServiceCategoryService {
     }
 
     createCategory(value: ServiceCategoryModel): Observable<any> {
-        return this.backend.post(`${value.chain_id}/service_category`, value);
+        return this.backend.post(`${value.chain_id}/service_category`, value)
+            .map(res => res.json().data);
     }
 
     updateCategory(value: ServiceCategoryModel): Observable<any> {
-        return this.backend.put(`${value.chain_id}/service_category/${value.id}`, value);
+        return this.backend.put(`${value.chain_id}/service_category/${value.id}`, value)
+            .map(res => res.json().data);
     }
 
     deleteCategory(value: ServiceCategoryModel): Observable<any> {
