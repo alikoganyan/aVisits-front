@@ -25,14 +25,16 @@ export abstract class ServiceCategoryDialogBase implements OnInit {
         this.selectedChainIdSubscription = this.store$.select(filterReducer.selectFilterChainId)
             .subscribe(
                 next => {
-                    console.log(next);
                     this.selectedChainId = next
                 }
             );
     }
 
     onSaveCategory(category: ServiceCategoryModel) {
-        category.chain_id = this.selectedChainId;
+        if(category.parent_id === null) {
+            delete category['parent_id'];
+        }
+
         this.store$.dispatch(this.createSaveAction(category));
     }
 

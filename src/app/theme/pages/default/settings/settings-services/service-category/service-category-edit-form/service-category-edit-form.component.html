@@ -24,21 +24,26 @@
         <div class="form-group row">
             <label class="col-sm-3 col-form-label">Входит в категорию</label>
             <div class="col-sm-9">
-                <select class="form-control m-bootstrap-select m_selectpicker" data-live-search="true"
-                        title="Выберете категорию">
-                    <option>
-                        Нет
-                    </option>
-                    <option>
-                        Категория 1
-                    </option>
-                    <option>
-                        - Категория 1.1
-                    </option>
-                    <option>
-                        -- Категория 1.1.1
-                    </option>
-                </select>
+                <dx-drop-down-box
+                        [value]="parentIdSubject$ | async"
+                        [displayExpr]="'title'"
+                        [valueExpr]="'id'"
+                        [dataSource]="categories$ | async"
+                >
+                    <div *dxTemplate="let data of 'content'">
+                        <dx-tree-view
+                                [items]="categories$ | async"
+                                [displayExpr]="'title'"
+                                [parentIdExpr]="'parent_id'"
+                                [dataStructure]="'plain'"
+                                [searchEnabled]="true"
+                                [searchMode]="contains"
+                                [selectByClick]="true"
+                                selectionMode="single"
+                                (onItemSelectionChanged)="categoryTreeView_itemSelectionChanged($event)"
+                        ></dx-tree-view>
+                    </div>
+                </dx-drop-down-box>
             </div>
         </div>
     </div>

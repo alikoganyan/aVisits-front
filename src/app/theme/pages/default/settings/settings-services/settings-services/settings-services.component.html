@@ -47,24 +47,45 @@
                     </div>
                 </div>
                 <div class="m-portlet__body">
-                    <app-filter-by-chain></app-filter-by-chain>
+                    <div class="m-widget5">
+                        <div class="m-widget5__item">
+                            <app-filter-by-chain></app-filter-by-chain>
 
-                    <!--begin: Services-->
-                    <div class="services">
-                        <dx-tree-view
-                                [items]="categories$ | async"
-                                [displayExpr]="'title'"
-                                [searchEnabled]="true"
-                                [searchMode]="contains"
+                        </div>
+                        <div class="m-widget5__item">
+                            <!--begin: Services-->
+                            <div class="services">
+                                <dx-tree-view
+                                        class="item"
+                                        [items]="categories$ | async"
+                                        [displayExpr]="'title'"
+                                        [parentIdExpr]="'parent_id'"
+                                        [dataStructure]="'plain'"
+                                        [selectByClick]="false"
+                                        [searchEnabled]="true"
+                                        [searchMode]="contains">
 
-                        ></dx-tree-view>
+                                    <div  *dxTemplate="let data of 'item'">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <span>
+                                                  {{ data.title }}
+                                                </span>
+                                            </div>
+                                            <div class="col-auto ml-auto">
+                                                <button type="button" class="btn-sm btn-secondary" (click)="openEditCategoryForm(data)">
+                                                    <i class="la la-edit"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <!--<div class="item" *ngFor="let category of categories$ | async">-->
-                            <!--{{ category.title }}-->
-                        <!--</div>-->
-
+                                </dx-tree-view>
+                            </div>
+                            <!--end: Services-->
+                        </div>
                     </div>
-                    <!--end: Services-->
+
                     <div class="note mt-3">
                         <i class="la la-info-circle"></i>
                         <span>Категории и услуги можно перетаскивать для изменения последовательности и вложенности.</span>

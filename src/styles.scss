@@ -42,22 +42,42 @@ body,
 }
 
 /* services */
+.services .dx-treeview .dx-treeview-item {
+  border-top: none;
+  border-left: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.services .dx-treeview .dx-treeview-node.dx-state-focused > .dx-treeview-item.dx-item {
+  background-color: #f5f5f5;
+}
+.services .dx-treeview .dx-treeview-node.dx-state-focused > .dx-treeview-item.dx-item * {
+  color: initial;
+}
+.services .dx-treeview .dx-treeview-toggle-item-visibility {
+  height: 39px;
+  border-top: none;
+  border-right: none;
+}
 .services .item-head {
   padding-left: 15px;
   margin-bottom: -1px;
-  border: 1px solid #ebedf2;
   cursor: move;
 }
-.services .btn {
-  border-width: 0 0 0 1px;
+.services .row > div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.services .btn-sm {
+  border-width: 0;
   border-radius: 0;
   cursor: pointer;
+  background: #fff;
 }
-.services .btn + .btn {
+.services .btn-sm + .btn-sm {
   margin: 0;
 }
 .services .btn-drag {
-  border-width: 0 1px 0 0;
   cursor: move;
 }
 .services .collapsing,

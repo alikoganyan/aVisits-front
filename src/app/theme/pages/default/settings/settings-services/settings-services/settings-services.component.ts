@@ -23,6 +23,7 @@ import {CreateServiceCategoryComponent} from "../service-category/create-service
 import {EditSalonServiceComponent} from "../salon-service/edit-salon-service/edit-salon-service.component";
 import * as positionActions from "../../../../../../position/actions/collection";
 import * as filterReducer from "../../../../../../reducers/filter";
+import {EditServiceCategoryComponent} from "../service-category/edit-service-category/edit-service-category.component";
 
 @Component({
   selector: 'app-settings-services',
@@ -38,6 +39,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
         )
     }
 
+    selectedChainId: number;
     subscribeToStore(): void {
         super.subscribeToStore();
 
@@ -45,6 +47,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
             .filter(chainId => !!chainId)
             .subscribe(
                 chainId => {
+                    this.selectedChainId = chainId;
                     this.store$.dispatch(categoryActions.collectionActions.LoadAll(chainId));
                     this.store$.dispatch(serviceActions.collectionActions.LoadAll(chainId));
                 }
@@ -67,7 +70,6 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
 
     filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
     categories$ = this.store$.select(fromCategory.selectAllServiceCategories);
-    categoriesTVDataSource$ = this.store$.select(fromCategory.selectServiceCategoriesDataSource);
 
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,
@@ -75,17 +77,17 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
         super(store$, modalService, activeModal);
     }
 
-
     /**
      * category
      */
     openCreateCategoryForm() {
-        let category = new ServiceCategoryModel();
+        let category = new ServiceCategoryModel({ chain_id: this.selectedChainId });
         this.openModalForm(CreateServiceCategoryComponent, category);
     }
 
     openEditCategoryForm(category: ServiceCategoryModel) {
-        this.openModalForm(CreateServiceCategoryComponent, category);
+        category.chain_id = this.selectedChainId;
+        this.openModalForm(EditServiceCategoryComponent, category);
     }
 
     /**

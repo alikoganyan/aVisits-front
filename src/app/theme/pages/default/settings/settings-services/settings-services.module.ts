@@ -11,7 +11,7 @@ import { SalonServiceEditFormComponent } from './salon-service/salon-service-edi
 import {SharedModule} from "../../../../../shared/shared.module";
 import {FormsModule} from "@angular/forms";
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
-import {DxTreeViewModule} from "devextreme-angular";
+import {DxDropDownBoxModule, DxTreeViewModule} from "devextreme-angular";
 
 const DIALOG_COMPONENTS = [
     CreateServiceCategoryComponent,
@@ -41,6 +41,7 @@ const serviceRoutes: Routes = [
         NgbModalModule.forRoot(),
 
         DxTreeViewModule,
+        DxDropDownBoxModule,
     ],
     declarations: [
         DIALOG_COMPONENTS,

@@ -1,6 +1,7 @@
 import * as fromRoot from './index';
 import * as fromCategory from '../../../../services-category/reducers/index';
 import {createSelector} from "@ngrx/store";
+import {ServiceCategoryModel} from "../../../../services-category/service-category.model";
 
 export const selectServiceCategoryState = createSelector(
     fromRoot.getRootState,
@@ -23,10 +24,27 @@ export const selectOperationComplete = createSelector(selectServiceCategoryEntit
 export const selectError = createSelector(selectServiceCategoryEntititesState, fromCategory.getError);
 export const selectLoading = createSelector(selectServiceCategoryEntititesState, fromCategory.getLoading);
 
+
+export const selectServiceCategoriesDataSource = createSelector(
+    selectAllServiceCategories,
+    (categories: ServiceCategoryModel[]) => categories.map(c => ({
+        id: c.id,
+        title: c.title,
+        parent_id: c.parent_id
+    }))
+);
+
+export const selectServiceCategoriesExtendedDataSource = createSelector(
+    selectServiceCategoriesDataSource,
+    (categories: any[]) => {
+        categories.unshift({id: -1, title: 'Нет', parent_id: null});
+        return categories;
+    }
+);
 /**
  * tree structure
  */
-export const selectServiceCategoriesDataSource = createSelector(
+export const selectServiceCategoriesTreeDataSource = createSelector(
     selectAllServiceCategories,
     selectServiceCategoryEntities,
     (categories, idMap) => {
@@ -52,4 +70,4 @@ export const selectServiceCategoriesDataSource = createSelector(
 
         return items;
     }
-)
+);
