@@ -29,7 +29,8 @@ export class ChainService {
     }
 
     updateChain(chain: Chain): Observable<any> {
-        return this.backend.put('chain', chain);
+        return this.backend.put('chain', chain)
+            .map(res => res.json().data.chain);
     }
 
     deleteChain(chain: Chain): Observable<any> {
