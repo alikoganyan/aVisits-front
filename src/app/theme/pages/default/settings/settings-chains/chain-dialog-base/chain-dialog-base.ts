@@ -26,6 +26,6 @@ export abstract class ChainDialogBase implements OnInit {
     }
 
     onDeleteChain(chain: any): void {
-        this.store.dispatch(chainActions.collectionActions.RemoveEntity(chain.id));
+        this.store.dispatch(chainActions.collectionActions.RemoveEntity(chain));
     }
 }

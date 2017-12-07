@@ -49,7 +49,8 @@ export class SalonService {
         let chainId = salon.chain_id;
         salon.chain_id = 0;
 
-        return this.backend.post(`${chainId}/salon`, salon);
+        return this.backend.post(`${chainId}/salon`, salon)
+            .map(res => res.json().data);
     }
 
     updateSalon(salon: Salon): Observable<any> {

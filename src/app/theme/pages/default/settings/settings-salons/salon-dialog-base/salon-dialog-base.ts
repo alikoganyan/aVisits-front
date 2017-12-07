@@ -24,6 +24,6 @@ export abstract class SalonDialogBase implements OnInit {
     }
 
     onDeleteSalon(salon: Salon) {
-        this.store.dispatch(salonActions.collectionActions.RemoveEntity(salon.id));
+        this.store.dispatch(salonActions.collectionActions.RemoveEntity(salon));
     }
 }
