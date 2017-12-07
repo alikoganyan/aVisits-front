@@ -52,10 +52,13 @@
                                     <div class="card-body">
                                         <dx-file-uploader
                                                 [multiple]="false"
-                                                (onValueChanged)="onFileChange($event)"
+                                                (onUploaded)="onImageUploaded($event)"
                                                 accept="image/*"
-                                                uploadMode="useForm"
+                                                uploadUrl="http://api.avisits.com/api/salon_img?token={{token$ | async }} "
+                                                uploadMode="instantly"
+                                                name="img"
                                                 selectButtonText="Выберите изображение"
+                                                labelText=""
                                         ></dx-file-uploader>
                                     </div>
                                 </div>

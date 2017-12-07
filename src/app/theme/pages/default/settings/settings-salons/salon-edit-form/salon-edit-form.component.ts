@@ -18,6 +18,8 @@ import * as fromChain from '../../../reducers/chain';
 import * as fromRoot from '../../../reducers';
 import * as salonActions from '../../../../../../salon/actions/collection';
 import {Store} from "@ngrx/store";
+import {ImageSrcPipe} from "../../../../../../shared/pipes/image-src.pipe";
+import * as fromAuth from "../../../../../../auth/reducers";
 
 @Component({
     selector: 'app-salon-edit-form',
@@ -46,6 +48,7 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     countryNames: any[];
     cities: any[];
 
+    token$ = this.store.select(fromAuth.getToken);
     imageSrc: string;
 
     constructor(
@@ -163,17 +166,11 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
         this.data.notify_about_appointments = newValue;
     }
 
-    onFileChange($event) {
-        let file:File = $event.value[0];
-        let fileReader = new FileReader();
+    onImageUploaded(e) {
+        let responseData = JSON.parse(e.request.response);
 
-        fileReader.onload = (fileLoaded) => {
-            let image = (<any>fileLoaded.target).result;
-            this.data.photo = image.split(',')[1];
-            this.imageSrc = image; //show preview
-        };
-
-        fileReader.readAsDataURL(file);
+        this.data.img = responseData.data['fileName'];
+        this.imageSrc = new ImageSrcPipe().transform(responseData.data['path']);
     }
 
     onClose() {

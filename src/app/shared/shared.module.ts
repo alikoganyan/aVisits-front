@@ -7,6 +7,7 @@ import { FilterByChainComponent } from './filter-by-chain/filter-by-chain.compon
 import {DxSelectBoxModule} from "devextreme-angular";
 import { DialogHeaderComponent } from './dialog-header/dialog-header.component';
 import { DialogFooterComponent } from './dialog-footer/dialog-footer.component';
+import { ImageSrcPipe } from './pipes/image-src.pipe';
 
 @NgModule({
     imports: [
@@ -18,12 +19,14 @@ import { DialogFooterComponent } from './dialog-footer/dialog-footer.component';
         DynamicComponent,
         FilterByChainComponent,
         DialogFooterComponent,
+        ImageSrcPipe,
     ],
     declarations: [
         DynamicComponent,
         FilterByChainComponent,
         DialogHeaderComponent,
         DialogFooterComponent,
+        ImageSrcPipe,
     ],
     providers: [
         ModalService

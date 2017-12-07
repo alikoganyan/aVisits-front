@@ -5,8 +5,10 @@ import { ChainPriceLevel } from "../../../../../../chain/chain-price-level.model
 import {EditFormBase} from "../../edit-form-base";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import * as fromRoot from "../../../reducers";
+import * as fromAuth from "../../../../../../auth/reducers/index";
 import * as chainActions from '../../../../../../chain/actions/collection';
-import {Store} from "@ngrx/store";
+import {createSelector, Store} from "@ngrx/store";
+import {ImageSrcPipe} from "../../../../../../shared/pipes/image-src.pipe";
 
 @Component({
     selector: 'app-chain-settings',
@@ -20,6 +22,7 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     protected get editTitle() { return 'Обновить сеть'; }
 
     imageSrc: string;
+    token$ = this.store.select(fromAuth.getToken);
 
     constructor(public activeModal: NgbActiveModal,
                 private store: Store<fromRoot.State>) {
@@ -29,7 +32,7 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     ngOnInit() {
         super.ngOnInit();
 
-        this.imageSrc = 'http://api.avisits.com/' +  this.data.img;
+        this.imageSrc = new ImageSrcPipe().transform(this.data.img);
     }
 
     canRemovePriceLevels(): boolean {
@@ -44,22 +47,16 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
         this.data.levels.push(new ChainPriceLevel());
     }
 
-    onFileChange($event) {
-        let file:File = $event.value[0];
-        let fileReader = new FileReader();
-
-        fileReader.onload = (fileLoaded) => {
-            let image = (<any>fileLoaded.target).result;
-            this.data.img = image.split(',')[1];;
-            this.imageSrc = image; //show preview
-        };
-
-        fileReader.readAsDataURL(file);
-    }
-
     onClose() {
         // TODO: check for changes in form
         this.activeModal.close();
         this.store.dispatch(chainActions.collectionActions.FinishOperation());
+    }
+
+    onImageUploaded(e) {
+        let responseData = JSON.parse(e.request.response);
+
+        this.data.img = responseData.data['fileName'];
+        this.imageSrc = new ImageSrcPipe().transform(responseData.data['path']);
     }
 }

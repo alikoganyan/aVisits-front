@@ -19,7 +19,6 @@ export abstract class SalonDialogBase implements OnInit {
     }
 
     onSaveSalon(salon: Salon) {
-        salon.img = '';
         this.store.dispatch(this.createSaveAction(salon));
     }
 
