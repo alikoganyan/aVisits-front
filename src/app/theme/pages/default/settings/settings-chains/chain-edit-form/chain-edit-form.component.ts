@@ -19,9 +19,17 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     protected get createTitle() { return 'Новая сеть'; }
     protected get editTitle() { return 'Обновить сеть'; }
 
+    imageSrc: string;
+
     constructor(public activeModal: NgbActiveModal,
                 private store: Store<fromRoot.State>) {
         super();
+    }
+
+    ngOnInit() {
+        super.ngOnInit();
+
+        this.imageSrc = 'http://api.avisits.com/' +  this.data.img;
     }
 
     canRemovePriceLevels(): boolean {
@@ -34,6 +42,19 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
 
     addPriceLevel(): void {
         this.data.levels.push(new ChainPriceLevel());
+    }
+
+    onFileChange($event) {
+        let file:File = $event.value[0];
+        let fileReader = new FileReader();
+
+        fileReader.onload = (fileLoaded) => {
+            let image = (<any>fileLoaded.target).result;
+            this.data.img = image.split(',')[1];;
+            this.imageSrc = image; //show preview
+        };
+
+        fileReader.readAsDataURL(file);
     }
 
     onClose() {

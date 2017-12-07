@@ -25,11 +25,14 @@ export class SalonService {
         return this.chainService
             .getChains()
             .map(chains => {
-                return chains.reduce((acc, item) => {
-                    return acc.concat(item.salons);
+                return chains.reduce((acc, chain) => {
+                    let salons = chain.salons.map(s => new Salon({
+                        ...s,
+                        chain_id: chain.id
+                    }));
+                    return acc.concat(salons);
                 }, []);
-            })
-            .map(salons => salons.map(salon => new Salon(salon)))
+            });
     }
 
     getSalonById(id): Observable<any> {

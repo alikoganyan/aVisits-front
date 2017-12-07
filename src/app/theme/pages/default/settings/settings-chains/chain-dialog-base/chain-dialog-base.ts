@@ -19,6 +19,9 @@ export abstract class ChainDialogBase implements OnInit {
     }
 
     onSaveChain(chain: Chain) {
+        if(!chain.img) {
+            delete chain.img;
+        }
         this.store.dispatch(this.createSaveAction(chain));
     }
 

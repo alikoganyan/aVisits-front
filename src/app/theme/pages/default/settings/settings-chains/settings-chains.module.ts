@@ -14,6 +14,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {ChainEffects} from "../../../../../chain/effects/chain.effects";
 import {ModalService} from "../../../../../shared/modal.service";
 import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import {DxFileUploaderModule} from "devextreme-angular";
 
 const chainRoutes: Routes = [
     {
@@ -35,6 +36,7 @@ const chainRoutes: Routes = [
         SharedModule,
         NgbModalModule.forRoot(),
 
+        DxFileUploaderModule,
         // StoreModule.forFeature('chains', reducers),
         // EffectsModule.forFeature([ChainEffects]),
     ],

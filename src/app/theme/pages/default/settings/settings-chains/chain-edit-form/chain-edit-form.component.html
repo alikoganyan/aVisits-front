@@ -27,10 +27,17 @@
                     <label class="col-sm-3 col-form-label">Фотография</label>
                     <div class="col-sm-9">
                         <div class="card">
-                            <img class="card-img-top" src="assets/app/media/img/products/product1.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="{{imageSrc}}"
+                                 alt="">
                             <div class="card-body">
-                                <button class="btn btn-danger btn-sm btn-block">Удалить</button>
-                                <button class="btn btn-primary btn-sm btn-block">Загрузить</button>
+                                <dx-file-uploader
+                                        [multiple]="false"
+                                        (onValueChanged)="onFileChange($event)"
+                                        accept="image/*"
+                                        uploadMode="useForm"
+                                        selectButtonText="Выберите изображение"
+                                        labelText=""
+                                ></dx-file-uploader>
                             </div>
                         </div>
                     </div>

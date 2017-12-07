@@ -6,7 +6,7 @@ export class Salon implements UniqueEntity {
     chain_id: number;
 
     title: string;
-    // image: string;
+    img: string;
 
     country: string;
     city: string;
@@ -24,7 +24,7 @@ export class Salon implements UniqueEntity {
         this.id = obj && obj.id || 0;
         this.chain_id = obj && obj.chain_id || 0;
         this.title = obj && obj.title || '';
-        // this.image = obj && obj.img || ''; //TODO: wait for backend to implement upload
+        this.img = obj && obj.img || '';
 
         this.country = obj && obj.country || '';
         this.city = obj && obj.city || '';

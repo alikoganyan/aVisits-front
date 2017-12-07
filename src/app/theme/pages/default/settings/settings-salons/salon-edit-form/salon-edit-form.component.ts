@@ -60,7 +60,7 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     ngOnInit() {
         super.ngOnInit();
 
-        this.imageSrc = 'assets/app/media/img/products/product1.jpg';
+        this.imageSrc = 'http://api.avisits.com/' + this.data.img;
 
         this.notificationTypes = this.salonService.notificationTypes;
         this.notificationTypesValue = this.data.notify_about_appointments;//.split(',');
@@ -169,7 +169,7 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
 
         fileReader.onload = (fileLoaded) => {
             let image = (<any>fileLoaded.target).result;
-            this.data.photo = image;
+            this.data.photo = image.split(',')[1];
             this.imageSrc = image; //show preview
         };
 
