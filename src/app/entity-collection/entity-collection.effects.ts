@@ -16,9 +16,12 @@ export abstract class EntityCollectionEffects<T extends UniqueEntity> {
         .ofType(this.collectionActions.actionTypes[CollectionActions.LOAD_ALL])
         .map((action: ActionBase<T>) => action.payload)
         .exhaustMap((args) => this.fetchEntities(args)
-            .map(response =>
-                this.collectionActions.LoadAllSuccess(response)
-            )
+            .map(response => {
+                if(!response.length)
+                    response = null; // adapter.addAll incorrectly processes empty arrays
+
+                return this.collectionActions.LoadAllSuccess(response)
+            })
             .catch(error =>
                 of(this.collectionActions.LoadAllFailure(error))
             )

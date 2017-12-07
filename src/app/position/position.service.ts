@@ -13,7 +13,7 @@ export class EmployeePositionService {
 
     getPositions(chain_id: number): Observable<any> {
         return this.backend.get(`${chain_id}/position`)
-            .map(response => response.json().data)
+            .map(response => response.json().data.positions)
     }
     
     createPosition(position: EmployeePosition): Observable<any> {
@@ -22,7 +22,8 @@ export class EmployeePositionService {
     }
 
     updatePosition(position: EmployeePosition): Observable<any> {
-        return this.backend.post(`${position.chain_id}/position/${position.id}`, position);
+        return this.backend.post(`${position.chain_id}/position/${position.id}`, position)
+            .map(res => res.json().data);
     }
 
     delete(position: EmployeePosition): Observable<any> {
