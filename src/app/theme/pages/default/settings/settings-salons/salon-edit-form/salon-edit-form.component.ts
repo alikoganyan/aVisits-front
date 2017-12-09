@@ -49,7 +49,6 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     cities: any[];
 
     token$ = this.store.select(fromAuth.getToken);
-    imageSrc: string;
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -63,10 +62,8 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     ngOnInit() {
         super.ngOnInit();
 
-        this.imageSrc = 'http://api.avisits.com/' + this.data.img;
-
         this.notificationTypes = this.salonService.notificationTypes;
-        this.notificationTypesValue = this.data.notify_about_appointments;//.split(',');
+        this.notificationTypesValue = this.data.notify_about_appointments;
 
         this.canDeleteSalon = !this.isCreateForm;
         this.zoom = this.isCreateForm ? 10 : 17;
@@ -169,8 +166,7 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     onImageUploaded(e) {
         let responseData = JSON.parse(e.request.response);
 
-        this.data.img = responseData.data['fileName'];
-        this.imageSrc = new ImageSrcPipe().transform(responseData.data['path']);
+        this.data.img = responseData.data;
     }
 
     onClose() {

@@ -21,7 +21,6 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     protected get createTitle() { return 'Новая сеть'; }
     protected get editTitle() { return 'Обновить сеть'; }
 
-    imageSrc: string;
     token$ = this.store.select(fromAuth.getToken);
 
     constructor(public activeModal: NgbActiveModal,
@@ -31,8 +30,6 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
 
     ngOnInit() {
         super.ngOnInit();
-
-        this.imageSrc = new ImageSrcPipe().transform(this.data.img);
     }
 
     canRemovePriceLevels(): boolean {
@@ -54,9 +51,8 @@ export class ChainEditFormComponent extends EditFormBase<Chain> {
     }
 
     onImageUploaded(e) {
-        let responseData = JSON.parse(e.request.response);
+        let response = JSON.parse(e.request.response);
 
-        this.data.img = responseData.data['fileName'];
-        this.imageSrc = new ImageSrcPipe().transform(responseData.data['path']);
+        this.data.img = response.data;
     }
 }

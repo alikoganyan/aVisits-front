@@ -6,7 +6,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class ImageSrcPipe implements PipeTransform {
 
     transform(value: any, args?: any): any {
-        return "http://api.avisits.com/" + value;
+        if(value) {
+            return `http://api.avisits.com/${value.path}`;
+        }
+        return '';
     }
 
 }
