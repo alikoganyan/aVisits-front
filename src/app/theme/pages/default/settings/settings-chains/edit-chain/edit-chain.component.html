@@ -1,6 +1,6 @@
 <app-chain-settings
         [isCreateForm]="false"
-        [data]="chain$ | async"
+        [currentEntity]="chain$ | async"
         [error]="error$ | async"
         [loading]="loading$ | async"
         (save)="onSaveChain($event)"

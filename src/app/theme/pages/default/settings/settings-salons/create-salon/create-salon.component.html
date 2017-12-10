@@ -1,5 +1,5 @@
 <app-salon-edit-form
-        [data]="salon$ | async"
+        [currentEntity]="salon$ | async"
         [error]="error$ | async"
         [isCreateForm]="true"
         (save)="onSaveSalon($event)"

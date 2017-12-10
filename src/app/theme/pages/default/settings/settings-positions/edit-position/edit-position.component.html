@@ -1,5 +1,5 @@
 <app-position-edit-form
-        [data]="position$ | async"
+        [currentEntity]="position$ | async"
         [error]="error$ | async"
         [loading]="loading$ | async"
         (save)="onSavePosition($event)"

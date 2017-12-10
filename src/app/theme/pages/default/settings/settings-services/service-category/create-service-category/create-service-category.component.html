@@ -1,7 +1,7 @@
 <app-service-category-edit-form
         [isCreateForm]="true"
         [loading]="loading$ | async"
-        [data]="category$ | async"
+        [currentEntity]="category$ | async"
         [error]="error$ | async"
         (save)="onSaveCategory($event)"
         (deleteRequested)="onDeleteCategory($event)"

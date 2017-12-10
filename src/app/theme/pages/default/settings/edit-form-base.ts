@@ -1,8 +1,9 @@
 import {EventEmitter, Input, OnInit, Output} from "@angular/core";
+import _ = require("lodash");
 
 export abstract class EditFormBase<T> implements OnInit {
     @Input() isCreateForm: boolean;
-    @Input() data: any;
+    @Input() currentEntity: any;
     @Input() error: any;
     @Input() loading: boolean;
     @Output() save = new EventEmitter<T>();
@@ -12,6 +13,7 @@ export abstract class EditFormBase<T> implements OnInit {
     //     inputs: ['isCreateForm', 'data'],
     //     outputs: ['save']
     // };
+    data: any;
 
     title: string;
     submitButtonText: string;
@@ -19,6 +21,7 @@ export abstract class EditFormBase<T> implements OnInit {
     protected abstract get editTitle()
 
     ngOnInit() {
+        this.data = _.cloneDeep(this.currentEntity);
         this.title = this.isCreateForm ? this.createTitle : this.editTitle;
         this.submitButtonText = this.isCreateForm ? 'Сохранить' : 'Обновить';
     }

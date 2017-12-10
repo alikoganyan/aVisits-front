@@ -39,7 +39,7 @@ export abstract class EntityCollectionReducer<T extends UniqueEntity, S extends 
                 case actionTypes[CollectionActions.SET_CURRENT_ENTITY]: {
                     return {
                         ...state,
-                        currentEntity: {...action.payload} // since we don't want to mutate an object in state
+                        currentEntity: action.payload
                     }
                 }
                 /**

@@ -6,6 +6,8 @@ import {RouterStateUrl} from "../shared/router.utils";
 import {ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer} from "@ngrx/store";
 import {localStorageSync} from "ngrx-store-localstorage";
 import * as filterReducer from "../filter/reducers/filter";
+import {storeFreeze} from "ngrx-store-freeze";
+import {environment} from "../../environments/environment";
 
 export interface State {
     routerReducer: fromRouter.RouterReducerState<RouterStateUrl>,
@@ -35,9 +37,16 @@ export function localStorageSyncFilterReducer(reducer: ActionReducer<any>): Acti
     })(reducer);
 }
 
+function getMetaReducers() {
+    let reducers: any = [localStorageSyncAuthReducer, localStorageSyncFilterReducer];
+    if(!environment.production) {
+        reducers.push(storeFreeze);
+    }
 
+    return reducers;
+}
 
-export const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncAuthReducer, localStorageSyncFilterReducer];
+export const metaReducers: Array<MetaReducer<any, any>> = getMetaReducers();
 
 // export const selectLayoutState = createFeatureSelector<fromLayout.State>('layout');
 //
