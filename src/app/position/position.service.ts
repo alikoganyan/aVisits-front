@@ -22,7 +22,7 @@ export class EmployeePositionService {
     }
 
     updatePosition(position: EmployeePosition): Observable<any> {
-        return this.backend.post(`${position.chain_id}/position/${position.id}`, position)
+        return this.backend.put(`${position.chain_id}/position/${position.id}`, position)
             .map(res => res.json().data);
     }
 
