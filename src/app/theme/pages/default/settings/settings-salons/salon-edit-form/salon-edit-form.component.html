@@ -165,28 +165,13 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <div class="row">
-                    <div class="col-auto">
-                        <button class="btn btn-success" type="submit">
-                            {{submitButtonText}}
-                        </button>
-                        <button type="button" class="btn btn-secondary" (click)="onClose()">
-                            Закрыть
-                        </button>
-                    </div>
-                    <div class="col-auto ml-auto">
-                        <button class="btn btn-danger-outline delete-salon-button" type="button"
-                                *ngIf="canDeleteSalon"
-                                (click)="onDelete()">
-                            <span class="m--hidden-mobile">Удалить</span>
-                            <span class="m--visible-mobile">
-                            <i class="la la-trash"></i>
-                        </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+    <app-dialog-footer
+            [loading]="loading"
+            [submitButtonText]="submitButtonText"
+            [showDeleteButton]="!isCreateForm"
+            (close)="onClose()"
+            (delete)="onDelete()"
+    ></app-dialog-footer>
 </form>
