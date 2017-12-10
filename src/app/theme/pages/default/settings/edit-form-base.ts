@@ -23,7 +23,7 @@ export abstract class EditFormBase<T> implements OnInit {
     ngOnInit() {
         this.data = _.cloneDeep(this.currentEntity);
         this.title = this.isCreateForm ? this.createTitle : this.editTitle;
-        this.submitButtonText = this.isCreateForm ? 'Сохранить' : 'Обновить';
+        this.submitButtonText = this.isCreateForm ? 'Добавить' : 'Сохранить';
     }
 
     onSubmit(): void {
