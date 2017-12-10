@@ -1,4 +1,9 @@
 <app-salon-service-edit-form
-
+        [isCreateForm]="true"
+        [loading]="loading$ | async"
+        [data]="service$ | async"
+        [error]="error$ | async"
+        (save)="onSaveService($event)"
+        (deleteRequested)="onDeleteService($event)"
 >
 </app-salon-service-edit-form>

@@ -18,7 +18,7 @@ export const {
     selectTotal: selectSalonServiceTotal
 } = fromService.salonServiceEntityReducer.getCollectionSelectors(selectSalonServiceState);
 
-export const selectCurrentServiceCategory = createSelector(selectSalonServiceEntititesState, fromService.getCurrentSalonService);
+export const selectCurrentService = createSelector(selectSalonServiceEntititesState, fromService.getCurrentSalonService);
 export const selectOperationComplete = createSelector(selectSalonServiceEntititesState, fromService.getOperationComplete);
 export const selectError = createSelector(selectSalonServiceEntititesState, fromService.getError);
 export const selectLoading = createSelector(selectSalonServiceEntititesState, fromService.getLoading);

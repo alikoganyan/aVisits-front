@@ -1,0 +1,21 @@
+<dx-drop-down-box
+        [value]="value"
+        [displayExpr]="'title'"
+        [valueExpr]="'id'"
+        [dataSource]="categories$ | async"
+        (onValueChanged)="dropDown_onValueChanged($event)"
+>
+    <div *dxTemplate="let data of 'content'">
+        <dx-tree-view
+                [items]="categories$ | async"
+                [displayExpr]="'title'"
+                [parentIdExpr]="'parent_id'"
+                [dataStructure]="'plain'"
+                [searchEnabled]="true"
+                [searchMode]="contains"
+                [selectByClick]="true"
+                selectionMode="single"
+                (onItemSelectionChanged)="categoryTreeView_itemSelectionChanged($event)"
+        ></dx-tree-view>
+    </div>
+</dx-drop-down-box>

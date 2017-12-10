@@ -7,7 +7,7 @@ export const selectServiceCategoryState = createSelector(
     fromRoot.getRootState,
     state => state.serviceCategories);
 
-export const selectServiceCategoryEntititesState = createSelector(
+export const selectServiceCategoryEntitiesState = createSelector(
     selectServiceCategoryState,
     fromCategory.getEntitiesState
 );
@@ -17,12 +17,12 @@ export const {
     selectEntities: selectServiceCategoryEntities,
     selectAll: selectAllServiceCategories,
     selectTotal: selectServiceCategoryTotal
-} = fromCategory.serviceCategoryEntityReducer.getCollectionSelectors(selectServiceCategoryEntititesState);
+} = fromCategory.serviceCategoryEntityReducer.getCollectionSelectors(selectServiceCategoryEntitiesState);
 
-export const selectCurrentServiceCategory = createSelector(selectServiceCategoryEntititesState, fromCategory.getCurrentServiceCategory);
-export const selectOperationComplete = createSelector(selectServiceCategoryEntititesState, fromCategory.getOperationComplete);
-export const selectError = createSelector(selectServiceCategoryEntititesState, fromCategory.getError);
-export const selectLoading = createSelector(selectServiceCategoryEntititesState, fromCategory.getLoading);
+export const selectCurrentServiceCategory = createSelector(selectServiceCategoryEntitiesState, fromCategory.getCurrentServiceCategory);
+export const selectOperationComplete = createSelector(selectServiceCategoryEntitiesState, fromCategory.getOperationComplete);
+export const selectError = createSelector(selectServiceCategoryEntitiesState, fromCategory.getError);
+export const selectLoading = createSelector(selectServiceCategoryEntitiesState, fromCategory.getLoading);
 
 
 export const selectServiceCategoriesDataSource = createSelector(

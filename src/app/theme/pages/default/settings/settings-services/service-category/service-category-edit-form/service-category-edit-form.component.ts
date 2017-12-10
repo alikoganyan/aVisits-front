@@ -20,8 +20,6 @@ export class ServiceCategoryEditFormComponent extends EditFormBase<ServiceCatego
     protected get createTitle() { return 'Добавление категории'; }
     protected get editTitle() { return 'Редактирование категории'; }
 
-    categories$ = this.store$.select(fromCategory.selectServiceCategoriesExtendedDataSource);
-
     parentIdSubject$ = new BehaviorSubject<any>(-1);
 
     constructor(public activeModal: NgbActiveModal,
@@ -46,10 +44,7 @@ export class ServiceCategoryEditFormComponent extends EditFormBase<ServiceCatego
         this.store$.dispatch(categoryActions.collectionActions.FinishOperation());
     }
 
-    categoryTreeView_itemSelectionChanged(e) {
-        let selectedId = e.itemData.id;
-
-        this.setParentId(selectedId);
+    onCategorySelected(selectedId) {
         this.data.parent_id = selectedId > 0 ? selectedId : null;
     }
 }

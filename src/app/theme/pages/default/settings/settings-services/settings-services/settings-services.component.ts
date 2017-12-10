@@ -94,7 +94,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
      * service
      */
     openCreateServiceForm() {
-        let service = new SalonServiceModel();
+        let service = new SalonServiceModel({ chain_id: this.selectedChainId });
         this.openModalForm(CreateSalonServiceComponent, service);
     }
 

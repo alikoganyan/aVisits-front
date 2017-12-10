@@ -10,11 +10,12 @@ export class SalonService_Service {
     }
 
     get(chainId: number): Observable<any> {
-        return this.backend.get(``);
+        return this.backend.get(`${chainId}/service`)
+            .map(res => res.json().data);
     }
 
     create(value: SalonServiceModel): Observable<any> {
-        return this.backend.post(``, value);
+        return this.backend.post(`${value.chain_id}/service`, value);
     }
 
     update(value: SalonServiceModel): Observable<any> {
@@ -23,5 +24,9 @@ export class SalonService_Service {
 
     delete(value: SalonServiceModel): Observable<any> {
         return this.backend.delete(``);
+    }
+
+    setNewPrices(newPrices: any): Observable<any> {
+        return this.backend.post(`${newPrices.chain_id}/service_price`, newPrices);
     }
 }

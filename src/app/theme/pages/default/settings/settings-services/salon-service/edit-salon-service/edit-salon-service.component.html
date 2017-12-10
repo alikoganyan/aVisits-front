@@ -1,3 +1,10 @@
-<p>
-  edit-salon-service works!
-</p>
+<app-salon-service-edit-form
+        [isCreateForm]="false"
+        [loading]="loading$ | async"
+        [data]="service$ | async"
+        [error]="error$ | async"
+        (save)="onSaveService($event)"
+        (deleteRequested)="onDeleteService($event)"
+        (clone)="onCloneService($event)"
+>
+</app-salon-service-edit-form>
