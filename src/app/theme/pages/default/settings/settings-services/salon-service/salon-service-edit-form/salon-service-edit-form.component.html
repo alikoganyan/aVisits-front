@@ -235,6 +235,9 @@
                 </button>
             </div>
             <div class="col-auto ml-auto">
+                <button type="button" class="btn btn-secondary" (click)="onClose()" [disabled]="loading">
+                    Закрыть
+                </button>
                 <button type="button" class="btn btn-outline-danger"
                         *ngIf="canDeleteSalon"
                         (click)="onDelete()">

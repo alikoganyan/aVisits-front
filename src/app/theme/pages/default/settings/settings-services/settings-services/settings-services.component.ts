@@ -86,8 +86,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
     }
 
     openEditCategoryForm(category: ServiceCategoryModel) {
-        category.chain_id = this.selectedChainId;
-        this.openModalForm(EditServiceCategoryComponent, category);
+        this.openModalForm(EditServiceCategoryComponent, new ServiceCategoryModel({...category, chain_id: this.selectedChainId}));
     }
 
     /**
