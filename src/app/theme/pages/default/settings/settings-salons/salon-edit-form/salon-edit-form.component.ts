@@ -154,11 +154,7 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     }
 
     notificationChanged($event): void {
-        let maxCount = 2;
         let newValue = $event.value;
-        if($event.value.length > maxCount) {
-            newValue = $event.value.slice(0, maxCount);
-        }
 
         this.data.notify_about_appointments = newValue;
     }

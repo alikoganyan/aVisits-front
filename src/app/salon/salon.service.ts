@@ -9,6 +9,7 @@ import { UserService } from "../auth/_services/user.service";
 import { Subject } from "rxjs/Subject";
 import { Subscription } from "rxjs/Subscription";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import _ = require("lodash");
 
 @Injectable()
 export class SalonService {
@@ -47,9 +48,10 @@ export class SalonService {
 
     createSalon(salon: Salon): Observable<any> {
         let chainId = salon.chain_id;
-        salon.chain_id = 0;
+        let data = _.cloneDeep(salon);
+        data.chain_id = 0;
 
-        return this.backend.post(`${chainId}/salon`, salon)
+        return this.backend.post(`${chainId}/salon`, data)
             .map(res => res.json().data);
     }
 

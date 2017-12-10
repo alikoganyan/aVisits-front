@@ -35,7 +35,7 @@ export class Salon implements UniqueEntity {
         this.longitude = obj && parseFloat(obj.longitude) || 37.6225599; //moscow, red square
         this.currentTime = obj && obj.currentTime || Date.now();
 
-        this.notify_about_appointments = obj && obj.notify_about_appointments || [];
+        this.notify_about_appointments = obj && obj.notify_about_appointments.filter(n => n) || [];
         this.schedule = obj && obj.schedule || this.createEmptySchedule();
     }
 
