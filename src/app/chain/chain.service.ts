@@ -5,6 +5,7 @@ import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/filter";
 import { BackendService } from "../backend/backend.service";
+import {Utils} from "../shared/utils";
 
 @Injectable()
 export class ChainService {
@@ -24,12 +25,14 @@ export class ChainService {
     }
 
     createChain(chain: Chain): Observable<Chain> {
+        let data = Utils.transformImgOnSave(chain);
         return this.backend.post('chain', chain)
             .map(res => res.json().data.chain);
     }
 
     updateChain(chain: Chain): Observable<any> {
-        return this.backend.put('chain', chain)
+        let data = Utils.transformImgOnSave(chain);
+        return this.backend.put('chain', data)
             .map(res => res.json().data.chain);
     }
 

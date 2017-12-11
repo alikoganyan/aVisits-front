@@ -162,7 +162,7 @@ export class SalonEditFormComponent extends EditFormBase<Salon> {
     onImageUploaded(e) {
         let responseData = JSON.parse(e.request.response);
 
-        this.data.img = responseData.data;
+        this.data.img = responseData.data.img;
     }
 
     onClose() {
