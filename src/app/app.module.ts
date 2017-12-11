@@ -12,9 +12,6 @@ import { AuthModule } from "./auth/auth.module";
 import { ChainService } from "./chain/chain.service";
 import { FormsModule } from "@angular/forms";
 import { AUTHENTICATION_PROVIDERS, AuthenticationService } from "./auth/_services/authentication.service";
-import { BackendService } from "./backend/backend.service";
-import { SalonService } from "./salon/salon.service";
-import { GeoNamesService } from "./shared/_services/geo-names.service";
 import { JsonpModule } from "@angular/http";
 import {UserService} from "./auth/_services/user.service";
 import {BackendBaseService} from "./backend/backend-base.service";
@@ -25,12 +22,16 @@ import {metaReducers, reducers} from "./reducers/index";
 import {environment} from "../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {CustomRouterStateSerializer} from "./shared/router.utils";
-// import {LayoutEffects} from "./shared/effects/layout.effects";
-import {ModalService} from "./shared/modal.service";
-import {NgbActiveModal, NgbModal, NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
-import {NgbModalStack} from "@ng-bootstrap/ng-bootstrap/modal/modal-stack";
-import {NgbModalBackdrop} from "@ng-bootstrap/ng-bootstrap/modal/modal-backdrop";
 import {DefaultPageModule} from "./theme/pages/default/default-page.module";
+import { DevExtremeModule } from 'devextreme-angular';
+import { locale, loadMessages } from 'devextreme/localization';
+import 'devextreme-intl';
+
+declare var require: any;
+
+let messagesRu = require("devextreme/localization/messages/ru.json");
+loadMessages(messagesRu);
+locale("ru");
 
 @NgModule({
     declarations: [
