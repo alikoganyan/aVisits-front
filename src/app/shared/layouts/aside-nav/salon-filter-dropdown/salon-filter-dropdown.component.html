@@ -1,0 +1,101 @@
+<!--begin: Salon-->
+<div class="select-salon">
+    <div class="m-dropdown m-dropdown--arrow" data-dropdown-toggle="click">
+        <a href="#" class="m-dropdown__toggle btn dropdown-toggle">
+            {{ selectedSalonTitle$ | async }}
+        </a>
+        <div class="m-dropdown__wrapper">
+            <span class="m-dropdown__arrow m-dropdown__arrow--left"></span>
+            <div class="m-dropdown__inner">
+                <div class="m-dropdown__body">
+                    <div class="m-dropdown__content">
+                        <ul class="m-nav">
+                            <li *ngFor="let item of filterDataSource$ | async">
+                                <span *ngIf="item.isChain" class="m-nav__section-text">
+                                    {{ item.title }}
+                                </span>
+                                <a *ngIf="!item.isChain" href="" class="m-nav__link" (click)="setFilter(item)">
+                                    <span class="m-nav__link-text">
+                                       {{ item.title }}
+                                    </span>
+                                </a>
+                            </li>
+
+                            {{filterDataSource$ | async | json}}
+
+                            <!--<li class="m-nav__section m-nav__section&#45;&#45;first">-->
+                              <!---->
+                            <!--</li>-->
+
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                                    <!--<span class="m-nav__link-text">-->
+                                      <!--Название салона 1-->
+                                    <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                            <!--<span class="m-nav__link-text">-->
+                              <!--Название салона 2-->
+                            <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                            <!--<span class="m-nav__link-text">-->
+                              <!--Название салона 3-->
+                            <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                            <!--<span class="m-nav__link-text">-->
+                              <!--Название салона 4-->
+                            <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="m-nav__separator m-nav__separator&#45;&#45;fit"></li>-->
+
+                            <!--<li class="m-nav__section m-nav__section&#45;&#45;first">-->
+                              <!--<span class="m-nav__section-text">-->
+                                <!--Название сети 2-->
+                              <!--</span>-->
+                            <!--</li>-->
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                            <!--<span class="m-nav__link-text">-->
+                              <!--Название салона 1-->
+                            <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                            <!--<span class="m-nav__link-text">-->
+                              <!--Название салона 2-->
+                            <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                            <!--<span class="m-nav__link-text">-->
+                              <!--Название салона 3-->
+                            <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="m-nav__item">-->
+                                <!--<a href="" class="m-nav__link">-->
+                            <!--<span class="m-nav__link-text">-->
+                              <!--Название салона 4-->
+                            <!--</span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end: Salon-->

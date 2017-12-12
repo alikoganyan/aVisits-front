@@ -1,40 +1,14 @@
-import * as fromRoot from './index';
-import * as fromFilter from './filter';
-import * as fromSalons from '../../../../salon/reducers';
+import * as fromSalonCollection from './salon-collection';
 import * as chainReducer from './chain';
 import {Salon} from "../../../../salon/salon.model";
 import {Chain} from "../../../../chain/chain.model";
 import {createSelector} from "@ngrx/store";
 import * as filterReducer from "../../../../reducers/filter";
 
-/**
- * Salons
- */
-export const selectSalonsRootState = createSelector(fromRoot.getRootState, state => state.salons);
-
-export const selectSalonEntitiesState = createSelector(selectSalonsRootState,
-    fromSalons.getEntitiesState);
-
-// export const selectSalonPageState = createSelector(selectSalonsRootState,
-//     fromSalons.getPageState);
-
-export const {
-    selectIds: selectSalonsIds,
-    selectEntities: selectSalonEntities,
-    selectAll: selectAllSalons,
-    selectTotal: selectSalonTotal
-} = fromSalons.salonEntityReducer.getCollectionSelectors(selectSalonEntitiesState);
-
-export const selectCurrentSalon = createSelector(selectSalonEntitiesState, fromSalons.getCurrentSalon);
-export const selectOperationSuccessful = createSelector(selectSalonEntitiesState, fromSalons.getOperationComplete);
-export const selectError = createSelector(selectSalonEntitiesState, fromSalons.getError);
-export const selectLoading = createSelector(selectSalonEntitiesState, fromSalons.getLoading);
-
-// export const selectFilterChainId = createSelector(selectSalonPageState, fromSalons.getFilterChainId);
 
 
 export const filterSalonsByChain = createSelector(
-    selectAllSalons,
+    fromSalonCollection.selectAllSalons,
     filterReducer.selectFilterChainId,
     (salons: Salon[], filterChainId) => salons.filter(s =>
         filterChainId ? s.chain_id === filterChainId : true

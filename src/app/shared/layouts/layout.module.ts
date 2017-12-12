@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { HrefPreventDefaultDirective } from '../_directives/href-prevent-default.directive';
 import { UnwrapTagDirective } from '../_directives/unwrap-tag.directive';
 import {NavTitleService} from "./header-nav/nav-title.service";
+import { SalonFilterDropdownComponent } from './aside-nav/salon-filter-dropdown/salon-filter-dropdown.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import {NavTitleService} from "./header-nav/nav-title.service";
         TooltipsComponent,
         HrefPreventDefaultDirective,
         UnwrapTagDirective,
+        SalonFilterDropdownComponent,
     ],
     exports: [
         LayoutComponent,
