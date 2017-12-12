@@ -13,6 +13,7 @@ import { HrefPreventDefaultDirective } from '../_directives/href-prevent-default
 import { UnwrapTagDirective } from '../_directives/unwrap-tag.directive';
 import {NavTitleService} from "./header-nav/nav-title.service";
 import { SalonFilterDropdownComponent } from './aside-nav/salon-filter-dropdown/salon-filter-dropdown.component';
+import {DxSelectBoxModule, DxTextBoxModule} from "devextreme-angular";
 
 @NgModule({
     declarations: [
@@ -45,6 +46,8 @@ import { SalonFilterDropdownComponent } from './aside-nav/salon-filter-dropdown/
     imports: [
         CommonModule,
         RouterModule,
+        DxSelectBoxModule,
+        DxTextBoxModule,
     ]
 })
 export class LayoutModule {

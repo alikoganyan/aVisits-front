@@ -8,7 +8,9 @@ export const selectFilterState = createFeatureSelector('filter');
 export const selectFilterChainId = createSelector(selectFilterState, filterReducer.getFilterChainId);
 export const selectFilterSalonId = createSelector(selectFilterState, filterReducer.getFilterSalonId);
 export const selectFilterSalon = createSelector(
-    fromSalonCollection.selectAllSalons,
+    fromSalonCollection.selectSalonEntities,
     selectFilterSalonId,
-    (salons, selectedId) => selectedId ? salons[selectedId] : null
+    (salons, selectedId) => {
+        return selectedId ? salons[selectedId] : null
+    }
 );
