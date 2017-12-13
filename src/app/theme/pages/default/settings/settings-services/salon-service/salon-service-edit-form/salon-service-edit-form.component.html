@@ -212,10 +212,13 @@
             <div class="tab-pane fade" id="nav-salons" role="tabpanel" aria-labelledby="nav-salons-tab">
                 <fieldset>
                     <legend>Укажите салоны в которых указывается услуга</legend>
-                    <label class="m-checkbox m-checkbox--brand d-block">
-                        <input type="checkbox" checked>
-                        Название салона
-                        <span></span>
+
+                    <label class="m-checkbox m-checkbox--brand d-block" *ngFor="let salon of salonsDataSource$ | async">
+                        <dx-check-box
+                                text="{{salon.title}}"
+                                (onValueChanged)="onSalonChecked($event, salon.id)"
+                                [value]="isSalonChecked(salon)"
+                        ></dx-check-box>
                     </label>
                 </fieldset>
             </div>

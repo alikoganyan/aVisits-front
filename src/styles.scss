@@ -54,6 +54,10 @@ body,
 .services .dx-treeview .dx-treeview-node.dx-state-focused > .dx-treeview-item.dx-item * {
   color: initial;
 }
+.services .category,
+.services .dx-treeview .dx-treeview-node.dx-state-focused > .dx-treeview-item.dx-item .category span {
+  color: #5867dd;
+}
 .services .dx-treeview .dx-treeview-toggle-item-visibility {
   height: 39px;
   border-top: none;
