@@ -9,6 +9,6 @@ export class Utils {
     }
 
     static getImageName(img: string): string {
-        return img.split('/').pop();
+        return img && img.split('/').pop();
     }
 }

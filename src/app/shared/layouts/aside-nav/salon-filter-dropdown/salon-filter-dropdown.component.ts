@@ -17,7 +17,6 @@ export class SalonFilterDropdownComponent implements OnInit {
     filterDataSource$ = this.store$.select(fromFilter.selectGlobalFilterDataSource);
     selectedChainId$ = this.store$.select(filterReducer.selectFilterChainId);
     selectedSalonTitle$ = this.store$.select(filterReducer.selectFilterSalon)
-        .do(console.log)
         .map(s => s ? s.title : 'Выберите салон');
 
     constructor(private store$: Store<fromRoot.State>) {
@@ -26,8 +25,7 @@ export class SalonFilterDropdownComponent implements OnInit {
     ngOnInit() {
     }
 
-    setFilter(salon: any) {
-        this.store$.dispatch(new filterActions.SetFilterChainId(salon.chain_id));
-        this.store$.dispatch(new filterActions.SetFilterSalonId(salon.id));
+    onValueChanged(e) {
+        this.store$.dispatch(new filterActions.SetFilterSalonId(e.value));
     }
 }

@@ -237,6 +237,11 @@ body,
   max-height: 450px;
   overflow: auto;
 }
+.select-salon .dx-texteditor {
+   background: none;
+   border: none;
+   border-radius: 0;
+}
 
 /* menu */
 .m-aside-menu .m-menu__nav {

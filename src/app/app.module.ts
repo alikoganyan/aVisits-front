@@ -26,6 +26,7 @@ import {DefaultPageModule} from "./theme/pages/default/default-page.module";
 import { DevExtremeModule } from 'devextreme-angular';
 import { locale, loadMessages } from 'devextreme/localization';
 import 'devextreme-intl';
+import {FilterEffects} from "./filter/effects/filter";
 
 declare var require: any;
 
@@ -51,7 +52,7 @@ locale("ru");
 
         StoreModule.forRoot(reducers, {metaReducers}),
         StoreRouterConnectingModule,
-        EffectsModule.forRoot([/*LayoutEffects*/]),
+        EffectsModule.forRoot([FilterEffects]),
         StoreDevtoolsModule.instrument(),
     ],
     providers: [

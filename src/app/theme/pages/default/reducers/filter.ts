@@ -15,16 +15,10 @@ export const selectFilterByChainDataSource = createSelector(
 export const selectGlobalFilterDataSource = createSelector(
     fromChain.selectAllChains,
     (chains: Chain[]) =>
-        _.flattenDeep(
-            chains.map(c => [
-                {
-                    id: c.id, title: c.title, chain_id: c.id, isChain: true,
-                },
-                c.salons.map(s => ({
-                    id: s.id, title: s.title, chain_id: s.chain_id, isChain: false
-                }))]
-            )
-        )
+        chains.map(c => ({
+            key: c.title,
+            items: c.salons
+        }))
 );
 
 export const selectFilterByChainExtendedDataSource = createSelector(

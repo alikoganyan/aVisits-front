@@ -37,7 +37,7 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
         this.operationComplete$
             .filter(next => next === true)
             .subscribe(
-                operationComplete => this.modal.close()
+                operationComplete => this.modal && this.modal.close()
             );
     }
 

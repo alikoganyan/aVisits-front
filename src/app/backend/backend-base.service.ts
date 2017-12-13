@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from "@angular/http";
 import {Observable} from "rxjs/Observable";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class BackendBaseService {
-    apiUrl = 'http://api.avisits.com/api/';
+    apiUrl = environment.production
+        ? 'http://api.avisits.com/api/'
+        : 'http://api.avisits.test/api/';
+
     headers = new Headers({ 'Content-Type': 'application/json' });
 
     constructor(private http: Http) {
