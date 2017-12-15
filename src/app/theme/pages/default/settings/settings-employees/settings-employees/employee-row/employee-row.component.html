@@ -1,0 +1,24 @@
+<div class="m-widget5__item">
+    <div class="row">
+        <div class="col-3 col-sm-2">
+            <img class="img-thumbnail" src="assets/app/media/img/users/300_4.jpg" alt="">
+        </div>
+        <div class="col-6 col-sm-8">
+            <h5>
+                <a class="m-link m--font-bolder" href="#">
+                    {{ employee.last_name }} {{ employee.first_name }} {{ employee.father_name }}
+                </a>
+            </h5>
+            <p>
+                {{ employee.public_position }}
+                <br>
+                {{ employee.phone }}
+            </p>
+        </div>
+        <div class="col-3 col-sm-2 m--align-right">
+            <button type="button" class="btn btn-success btn-sm">
+                <i class="la la-edit"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -59,7 +59,7 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
      * override methods
      */
     protected createEntityInstance(): Salon {
-        return new Salon({ chain_id: this.selectedChainId });
+        return new Salon({ chain_id: this.filterChainId });
     }
 
     loadEntities() {
@@ -68,19 +68,6 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
         this.store$.dispatch(chainActions.collectionActions.LoadAll());
     }
 
-    ngOnInit() {
-        super.ngOnInit();
-
-        this.filterChainId$.subscribe(
-            next => this.selectedChainId = next
-        );
-    }
-
-    /**
-     * own properties
-     */
-    filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
-    selectedChainId: number;
 
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,

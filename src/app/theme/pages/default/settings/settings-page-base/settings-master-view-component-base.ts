@@ -4,9 +4,15 @@ import {ModalConfig, ModalService} from "../../../../../shared/modal.service";
 import * as fromRoot from "../../reducers";
 import {NgbActiveModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {UniqueEntity} from "../../../../../entity-collection/unique-entity";
+import * as filterReducer from "../../../../../reducers/filter";
 
 export abstract class SettingsMasterViewComponentBase implements OnInit {
     protected operationComplete$: Store<boolean>;
+    filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
+    filterSalonId$ = this.store$.select(filterReducer.selectFilterSalonId);
+
+    protected filterChainId: number;
+    protected filterSalonId: number;
 
     protected modal: NgbModalRef;
 
@@ -39,6 +45,12 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
             .subscribe(
                 operationComplete => this.modal && this.modal.close()
             );
+
+        this.filterSalonId$
+            .subscribe(salonId => this.filterSalonId = salonId);
+
+        this.filterChainId$
+            .subscribe(chainId => this.filterChainId = chainId);
     }
 
     openModalForm(formComponent: any, entity: UniqueEntity): void {

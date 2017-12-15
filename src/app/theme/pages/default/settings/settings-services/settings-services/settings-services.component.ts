@@ -40,7 +40,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
         )
     }
 
-    selectedChainId: number;
+    filterChainId: number;
     subscribeToStore(): void {
         super.subscribeToStore();
 
@@ -48,7 +48,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
             .filter(chainId => !!chainId)
             .subscribe(
                 chainId => {
-                    this.selectedChainId = chainId;
+                    this.filterChainId = chainId;
                     this.store$.dispatch(categoryActions.collectionActions.LoadAll(chainId));
                     this.store$.dispatch(serviceActions.collectionActions.LoadAll(chainId));
                 }
@@ -84,24 +84,24 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
      * category
      */
     openCreateCategoryForm() {
-        let category = new ServiceCategoryModel({ chain_id: this.selectedChainId });
+        let category = new ServiceCategoryModel({ chain_id: this.filterChainId });
         this.openModalForm(CreateServiceCategoryComponent, category);
     }
 
     openEditCategoryForm(category: ServiceCategoryModel) {
-        this.openModalForm(EditServiceCategoryComponent, new ServiceCategoryModel({...category, chain_id: this.selectedChainId}));
+        this.openModalForm(EditServiceCategoryComponent, new ServiceCategoryModel({...category, chain_id: this.filterChainId}));
     }
 
     /**
      * service
      */
     openCreateServiceForm() {
-        let service = new SalonServiceModel({ chain_id: this.selectedChainId });
+        let service = new SalonServiceModel({ chain_id: this.filterChainId });
         this.openModalForm(CreateSalonServiceComponent, service);
     }
 
     openEditServiceForm(service: SalonServiceModel) {
-        this.openModalForm(EditSalonServiceComponent, new SalonServiceModel({...service, chain_id: this.selectedChainId}));
+        this.openModalForm(EditSalonServiceComponent, new SalonServiceModel({...service, chain_id: this.filterChainId}));
     }
 
 
