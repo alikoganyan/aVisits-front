@@ -36,7 +36,8 @@ export abstract class EntityCollectionReducer<T extends UniqueEntity, S extends 
                 /**
                  * Select id
                  */
-                case actionTypes[CollectionActions.SET_CURRENT_ENTITY]: {
+                case actionTypes[CollectionActions.SET_CURRENT_ENTITY]:
+                case actionTypes[CollectionActions.LOAD_ENTITY_SUCCESS]: {
                     return {
                         ...state,
                         currentEntity: action.payload

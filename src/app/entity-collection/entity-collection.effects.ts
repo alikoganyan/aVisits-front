@@ -11,6 +11,19 @@ export abstract class EntityCollectionEffects<T extends UniqueEntity> {
     abstract updateEntity(value: T): Observable<any>;
     abstract removeEntity(value: T): Observable<any>;
 
+    protected fetchSingleEntity(args?: any): Observable<any> {
+        return null;
+    }
+
+    loadSingleEntityEffect: Observable<Action> = this.actions$
+        .ofType(this.collectionActions.actionTypes[CollectionActions.LOAD_ENTITY])
+        .map((action: ActionBase<T>) => action.payload)
+        .exhaustMap((args) => this.fetchSingleEntity(args)
+            .map(response => this.collectionActions.LoadEntitySuccess(response))
+            .catch(error =>
+                of(this.collectionActions.LoadEntityFailure(error))
+            )
+        );
 
     loadEntitiesEffect$: Observable<Action> = this.actions$
         .ofType(this.collectionActions.actionTypes[CollectionActions.LOAD_ALL])

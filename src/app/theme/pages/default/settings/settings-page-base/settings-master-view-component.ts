@@ -16,6 +16,14 @@ export abstract class SettingsMasterViewComponent<T extends UniqueEntity> extend
     protected abstract get entitiesSelector(): MemoizedSelector<Object, any>;
 
     protected abstract createEntityInstance(): T;
+
+    protected getLoadEntitiesArgs(): any {
+        return this.filterChainId;
+    }
+
+    protected getFetchCurrentEntityAction(entity: UniqueEntity): Action {
+        return this.entityCollectionActions.LoadEntity(entity);
+    }
     /**
      * abstract properties
      */
@@ -38,7 +46,8 @@ export abstract class SettingsMasterViewComponent<T extends UniqueEntity> extend
     }
 
     loadEntities(): void {
-        this.store$.dispatch(this.entityCollectionActions.LoadAll());
+        let args = this.getLoadEntitiesArgs();
+        this.store$.dispatch(this.entityCollectionActions.LoadAll(args));
     }
 
     getSetCurrentEntityAction(entity: T): Action {
@@ -50,7 +59,7 @@ export abstract class SettingsMasterViewComponent<T extends UniqueEntity> extend
     }
 
     openEditForm(entity: T): void {
-        this.openModalForm(this.editEntityComponent, entity);
+        this.openModalForm(this.editEntityComponent, entity, true);
     }
 
 }

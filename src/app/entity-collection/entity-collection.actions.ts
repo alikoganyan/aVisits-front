@@ -4,6 +4,10 @@ import {UniqueEntity} from "./unique-entity";
 export enum CollectionActions {
     SET_CURRENT_ENTITY,
 
+    LOAD_ENTITY,
+    LOAD_ENTITY_SUCCESS,
+    LOAD_ENTITY_FAILURE,
+
     LOAD_ALL,
     LOAD_ALL_SUCCESS,
     LOAD_ALL_FAILURE,
@@ -30,6 +34,10 @@ export abstract class EntityCollectionActions<T extends UniqueEntity> {
 
     SetCurrentEntity = ActionFactory.create<T>(this.actionTypes[CollectionActions.SET_CURRENT_ENTITY]);
 
+    LoadEntity         = ActionFactory.create<number>  (this.actionTypes[CollectionActions.LOAD_ENTITY]);
+    LoadEntitySuccess  = ActionFactory.create<T[]>     (this.actionTypes[CollectionActions.LOAD_ENTITY_SUCCESS]);
+    LoadEntityFailure  = ActionFactory.create<any>     (this.actionTypes[CollectionActions.LOAD_ENTITY_FAILURE]);
+
     LoadAll         = ActionFactory.create<number>  (this.actionTypes[CollectionActions.LOAD_ALL]);
     LoadAllSuccess  = ActionFactory.create<T[]>     (this.actionTypes[CollectionActions.LOAD_ALL_SUCCESS]);
     LoadAllFailure  = ActionFactory.create<any>     (this.actionTypes[CollectionActions.LOAD_ALL_FAILURE]);
@@ -55,6 +63,10 @@ export abstract class EntityCollectionActions<T extends UniqueEntity> {
         let map: ActionTypeMap = {};
 
         map[CollectionActions.SET_CURRENT_ENTITY]   = `${identifier} Set Current Entity`;
+
+        map[CollectionActions.LOAD_ENTITY]             = `${identifier} Load Entity`;
+        map[CollectionActions.LOAD_ENTITY_SUCCESS]     = `${identifier} Load Entity Success`;
+        map[CollectionActions.LOAD_ENTITY_FAILURE]     = `${identifier} Load Entity Failure`;
 
         map[CollectionActions.LOAD_ALL]             = `${identifier} Load All`;
         map[CollectionActions.LOAD_ALL_SUCCESS]     = `${identifier} Load All Success`;

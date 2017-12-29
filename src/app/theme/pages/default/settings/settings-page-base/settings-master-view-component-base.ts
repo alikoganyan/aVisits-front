@@ -24,15 +24,19 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
 
     abstract getSetCurrentEntityAction(entity: UniqueEntity): Action;
 
+    protected getFetchCurrentEntityAction(entity: UniqueEntity): Action { return null; }
+
+    protected get shouldFetchEntityForEdit(): boolean { return false; }
+
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,
                 protected activeModal: NgbActiveModal,) {
     }
 
     ngOnInit() {
-        this.loadEntities();
         this.initializeSelectors();
         this.subscribeToStore();
+        this.loadEntities();
     }
 
     protected initializeSelectors(): void {
@@ -53,8 +57,8 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
             .subscribe(chainId => this.filterChainId = chainId);
     }
 
-    openModalForm(formComponent: any, entity: UniqueEntity): void {
-        this.setCurrentEntity(entity);
+    openModalForm(formComponent: any, entity: UniqueEntity, forEdit: boolean = false): void {
+        this.setCurrentEntity(entity, forEdit);
 
         this.modal = this.modalService.open(
             new ModalConfig(formComponent, {
@@ -63,8 +67,12 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
         );
     }
 
-    setCurrentEntity(entity: UniqueEntity): void {
+    setCurrentEntity(entity: UniqueEntity, forEdit: boolean): void {
         let action = this.getSetCurrentEntityAction(entity);
         this.store$.dispatch(action);
+
+        if(forEdit && this.shouldFetchEntityForEdit) {
+            this.store$.dispatch(this.getFetchCurrentEntityAction(entity));
+        }
     }
 }

@@ -32,6 +32,10 @@ export class SalonCollectionEffects extends EntityCollectionEffects<Salon> {
         return this.salonService.delete(value);
     }
 
+    fetchSingleEntity(args?: any): Observable<any> {
+        return this.salonService.getSalonById(args);
+    }
+
 
     @Effect()
     loadSalons$ = this.loadEntitiesEffect$;
@@ -44,6 +48,9 @@ export class SalonCollectionEffects extends EntityCollectionEffects<Salon> {
 
     @Effect()
     removeSalon$ = this.removeEntityEffect$;
+
+    @Effect()
+    loadSingleSalon$ = this.loadSingleEntityEffect;
 
 
     constructor(

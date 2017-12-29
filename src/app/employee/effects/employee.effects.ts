@@ -8,6 +8,7 @@ import {EmployeeCollectionActions} from "../actions/collection";
 
 @Injectable()
 export class EmployeeEffects extends EntityCollectionEffects<Employee>{
+
     fetchEntities(args?: any): Observable<any> {
         return this.employeeService.getAllByChain(<number>args);
     }
@@ -24,6 +25,10 @@ export class EmployeeEffects extends EntityCollectionEffects<Employee>{
         return this.employeeService.delete(value);
     }
 
+    fetchSingleEntity(args?: any): Observable<any> {
+        return this.employeeService.getById(args);
+    }
+
     @Effect()
     loadEmployees$ = this.loadEntitiesEffect$;
 
@@ -36,6 +41,8 @@ export class EmployeeEffects extends EntityCollectionEffects<Employee>{
     @Effect()
     deleteEmployee$ = this.removeEntityEffect$;
 
+    @Effect()
+    loadSingleEmployee$ = this.loadSingleEntityEffect;
 
 
     constructor(

@@ -55,6 +55,10 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
         return EditSalonComponent;
     }
 
+    protected get shouldFetchEntityForEdit(): boolean {
+        return true;
+    }
+
     /**
      * override methods
      */
