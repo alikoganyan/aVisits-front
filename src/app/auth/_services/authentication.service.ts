@@ -60,7 +60,8 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         // localStorage.removeItem(this.authDataKey);
-        // localStorage.removeItem(this.tokenKey);
+        localStorage.removeItem('auth');
+        localStorage.removeItem('filter');
     }
 }
 
