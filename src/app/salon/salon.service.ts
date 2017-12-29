@@ -37,8 +37,8 @@ export class SalonService {
             });
     }
 
-    getSalonById(id): Observable<any> {
-        return this.backend.get(`${this.currentChainId}/salon/${id}`)
+    getSalonById(args): Observable<any> {
+        return this.backend.get(`${args.chain_id}/salon/${args.id}`)
             .map(res => res.json().data)
             .map(data => new Salon(data));
     }
