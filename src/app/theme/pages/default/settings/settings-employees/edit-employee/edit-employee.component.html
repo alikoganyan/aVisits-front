@@ -1,3 +1,7 @@
-<p>
-  edit-employee works!
-</p>
+<app-employee-edit-form
+        [currentEntity]="employee$ | async"
+        [error]="error$ | async"
+        [loading]="loading$ | async"
+        (save)="onSaveEmployee($event)"
+        (deleteRequested)="onDeleteEmployee($event)"
+></app-employee-edit-form>

@@ -8,6 +8,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../../../../../shared/shared.module";
 import { EmployeeRowComponent } from './settings-employees/employee-row/employee-row.component';
+import {DxDateBoxModule, DxSelectBoxModule} from "devextreme-angular";
 
 
 const employeeRoutes: Routes = [
@@ -30,6 +31,9 @@ const employeeRoutes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
+
+        DxSelectBoxModule,
+        DxDateBoxModule,
     ],
     declarations: [
         SettingsEmployeesComponent,

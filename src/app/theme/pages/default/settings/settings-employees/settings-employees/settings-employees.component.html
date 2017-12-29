@@ -50,7 +50,11 @@
                             </div>
                         </div>
 
-                        <app-employee-row></app-employee-row>
+                        <app-employee-row
+                                *ngFor="let employee of entities$ | async"
+                                [employee]="employee"
+                                (editEmployeeRequested)="openEditForm($event)"
+                        ></app-employee-row>
                     </div>
                 </div>
             </div>
