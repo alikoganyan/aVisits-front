@@ -59,14 +59,14 @@ export class SalonServiceEditFormComponent extends EditFormBase<SalonServiceMode
 
     onSalonChecked(e, salonId) {
         if(e.value) {
-            this.data.salons.push(salonId);
+            this.data.salonIds.push(salonId);
         }
         else {
-            _.remove(this.data.salons, s => s === salonId);
+            _.remove(this.data.salonIds, s => s === salonId);
         }
     }
 
     isSalonChecked(salon) {
-        return _.some(this.data.salons, s => s === salon.id);
+        return _.some(this.data.salonIds, s => s === salon.id);
     }
 }

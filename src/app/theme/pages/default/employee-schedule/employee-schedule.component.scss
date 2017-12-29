@@ -1,0 +1,84 @@
+app-employee-schedule {
+  overflow: hidden;
+  margin-bottom: 60px;
+  flex: 1;
+}
+
+/* table-grid */
+.table-grid {
+  display: flex;
+}
+.table-grid-sidebar {
+  flex: 0 0 150px;
+}
+.table-grid-container {
+  flex: 0 0 calc(100% - 150px);
+  overflow: auto;
+}
+.table-grid-container::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.table-grid-container::-webkit-scrollbar-track {
+  background: #ebedf2;
+}
+.table-grid-container::-webkit-scrollbar-thumb {
+  background: #575962;
+}
+
+/* tables */
+.table-auto {
+  width: auto;
+}
+/* schedule */
+.table-schedule-sidebar,
+.table-schedule-container {
+  margin: 0;
+}
+.table-schedule-container {
+  overflow: hidden;
+}
+.table-schedule-container tbody tr:hover {
+  background: rgba(0,0,0,.2);
+}
+.table-schedule-container th,
+.table-schedule-container td {
+  white-space: nowrap;
+  text-align: center;
+}
+.table-schedule-container thead:nth-child(2) th:first-child {
+  text-align: left;
+}
+.table-schedule-container tbody td {
+  position: relative;
+  font-size: 12px;
+  vertical-align: middle;
+  cursor: pointer;
+  z-index: 2;
+}
+.table-schedule-container tbody td.bg-yellow {
+  background: #f1e692;
+}
+.table-schedule-container tbody td.bg-red {
+  background: #e69a9a;
+}
+.table-schedule-container tbody td:hover::after {
+  content: "";
+  position: absolute;
+  background: rgba(0,0,0,.1);
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.table-schedule-container thead th.bg-cell {
+  background: #d9dce2;
+}
+.table-schedule-sidebar thead:nth-child(1) th {
+  height: 52px;
+}
+.table-schedule-sidebar td {
+  font-weight: 700;
+}

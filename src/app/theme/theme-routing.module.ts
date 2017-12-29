@@ -15,6 +15,11 @@ const routes: Routes = [
                 loadChildren: ".\/pages\/default\/index\/index.module#IndexModule"
             },
             {
+                path: "schedule",
+                component: DefaultComponent,
+                loadChildren: ".\/pages\/default\/employee-schedule\/employee-schedule.module#EmployeeScheduleModule"
+            },
+            {
                 path: "settings",
                 component: DefaultComponent,
                 loadChildren: ".\/pages\/default\/settings\/settings.module#SettingsModule"
