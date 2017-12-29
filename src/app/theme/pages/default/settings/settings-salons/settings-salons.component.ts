@@ -5,6 +5,7 @@ import {EditSalonComponent} from "./edit-salon/edit-salon.component";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ModalConfig, ModalService} from "../../../../../shared/modal.service";
 import * as fromSalon from '../../reducers/salon';
+import * as fromSalonCollection from '../../reducers/salon-collection';
 import * as fromFilter from '../../reducers/filter';
 import * as fromRoot from '../../reducers';
 import * as salonActions from '../../../../../salon/actions/collection';
@@ -31,7 +32,7 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
      * override properties
      */
     protected get operationCompleteSelector(): MemoizedSelector<Object, boolean> {
-        return fromSalon.selectOperationSuccessful;
+        return fromSalonCollection.selectOperationSuccessful;
     }
 
     protected get entitiesSelector(): MemoizedSelector<Object, any> {
@@ -54,11 +55,15 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
         return EditSalonComponent;
     }
 
+    protected get shouldFetchEntityForEdit(): boolean {
+        return true;
+    }
+
     /**
      * override methods
      */
     protected createEntityInstance(): Salon {
-        return new Salon({ chain_id: this.selectedChainId });
+        return new Salon({ chain_id: this.filterChainId });
     }
 
     loadEntities() {
@@ -67,19 +72,6 @@ export class SettingsSalonsComponent extends SettingsMasterViewComponent<Salon> 
         this.store$.dispatch(chainActions.collectionActions.LoadAll());
     }
 
-    ngOnInit() {
-        super.ngOnInit();
-
-        this.filterChainId$.subscribe(
-            next => this.selectedChainId = next
-        );
-    }
-
-    /**
-     * own properties
-     */
-    filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
-    selectedChainId: number;
 
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,

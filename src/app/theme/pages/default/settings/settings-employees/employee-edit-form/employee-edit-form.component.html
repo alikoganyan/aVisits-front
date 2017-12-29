@@ -1,0 +1,689 @@
+<form class="modal-content" (ngSubmit)="onSubmit()" #f="ngForm">
+
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+            {{ title }}
+        </h5>
+        <button type="button" class="close" (click)="onClose()" aria-label="Close">
+              <span aria-hidden="true">
+                ×
+              </span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <nav class="nav nav-tabs" role="tablist">
+            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-data" role="tab">Данные</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#nav-salons" role="tab">Салоны</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#nav-services" role="tab">Услуги</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#nav-time" role="tab">График работы</a>
+        </nav>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="nav-data" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Фамилия</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <input type="text" class="form-control" name="last_name" [(ngModel)]="data.last_name" placeholder="Введите фамилию">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Имя</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <input type="text" class="form-control" name="first_name" [(ngModel)]="data.first_name" placeholder="Введите имя">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Отчество</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <input type="text" class="form-control" name="father_name" [(ngModel)]="data.father_name" placeholder="Введите отчество">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Должность</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <dx-select-box
+                                        class="form-control m-bootstrap-select m_selectpicker"
+                                        [value]="data.position_id"
+                                        [dataSource]="positionsDataSource$ | async"
+                                        valueExpr="id"
+                                        displayExpr="title"
+                                        placeholder="Выберите должность"
+                                        (onValueChanged)="onPositionChanged($event.value)"
+                                ></dx-select-box>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Специализация <span class="info ml-2"
+                                                                                                data-toggle="m-tooltip"
+                                                                                                data-placement="top"
+                                                                                                data-original-title="Отображается клиентам и в журнале записи. Если пусто выводится должность."><i
+                                    class="la la-info-circle"></i></span></label>
+                            <div class="col-lg-7 col-sm-8">
+                                <input type="text" class="form-control" name="public_position" [(ngModel)]="data.public_position" placeholder="Введите специализацию">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Номер телефона</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <input type="text" class="form-control" name="phone" [(ngModel)]="data.phone" placeholder="Введите номер телефона">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">E-mail</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <input type="text" class="form-control" name="email" [(ngModel)]="data.email" placeholder="Введите e-mail">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Примечание</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <textarea class="form-control" name="comment" [(ngModel)]="data.comment" placeholder="Введите примечание" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Профиль доступа</label>
+                            <div class="col-lg-7 col-sm-8">
+                                <select class="form-control m-bootstrap-select m_selectpicker"
+                                        title="Выберете профиль доступа">
+                                    <option>
+                                        Профиль 1
+                                    </option>
+                                    <option>
+                                        Профиль 2
+                                    </option>
+                                    <option>
+                                        Профиль 3
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Фотография</label>
+                            <div class="col-lg-7 col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="assets/app/media/img/users/300_4.jpg"
+                                         alt="Card image cap">
+                                    <div class="card-body">
+                                        <button class="btn btn-danger btn-sm btn-block">Удалить</button>
+                                        <button class="btn btn-primary btn-sm btn-block">Загрузить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-lg-5 col-sm-4 col-form-label">Дата приема на&nbsp;работу</label>
+                            <div class="col-lg-7 col-sm-4">
+                                <div class="input-group date" >
+                                    <dx-date-box [value]="data.employment_date"></dx-date-box>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <div class="col-lg-5 col-sm-4 col-form-label">
+                                <label class="m-checkbox m-checkbox--brand m-0">
+                                    <input type="checkbox" name="fired" [(ngModel)]="data.dismissed">
+                                    Уволен
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="col-lg-7 col-sm-4">
+                                <div class="input-group date">
+                                    <dx-date-box [value]="data.date_dismissed"></dx-date-box>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="m-checkbox m-checkbox--brand m-0">
+                                <input type="checkbox" name="displayed_in_records" [(ngModel)]="data.displayed_in_records">
+                                Отображается в журнале записи
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="m-checkbox m-checkbox--brand m-0">
+                                <input type="checkbox" name="available_for_online_recording" [(ngModel)]="data.available_for_online_recording">
+                                Доступен для онлайн-записи
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-salons" role="tabpanel">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="m-widget5">
+
+                            <div class="m-widget5__item" *ngFor="let salon of employeeSalons$ | async">
+                                <div class="row align-items-center">
+                                    <div class="col-9 col-sm-9">
+                                        <h5 class="m-0">{{ salon.title }}</h5>
+                                    </div>
+                                    <div class="col-3 col-sm-3 m--align-right">
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="detachEmployeeFromSalon(salon)">
+                                            <i class="la la-remove"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label class="col-lg-4 col-sm-12 col-form-label">Добавить сотрудника в&nbsp;салон</label>
+                </div>
+                <div class="form-group row mb-4">
+                    <div class="col-lg-4 col-sm-6">
+                        <dx-select-box
+                                [dataSource]="attachableSalons$ | async"
+                                class="form-control m-bootstrap-select m_selectpicker"
+                                [value]="data.position_id"
+                                valueExpr="id"
+                                displayExpr="title"
+                                placeholder="Выберите салон"
+                                (onValueChanged)="onAttachSalonChanged($event.value)"
+                        ></dx-select-box>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <dx-select-box
+                                [dataSource]="positionsDataSource$ | async"
+                                class="form-control m-bootstrap-select m_selectpicker"
+                                [value]="data.position_id"
+                                valueExpr="id"
+                                displayExpr="title"
+                                placeholder="Выберите должность"
+                                (onValueChanged)="onAttachPositionChanged($event.value)"
+                        ></dx-select-box>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-4">
+                        <button class="btn btn-outline-success" type="button" (click)="attachEmployeeToSalon()">Добавить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-services" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header" role="tab">
+                        <div class="row">
+                            <div class="col-9 col-sm-10">
+                                <h5 class="mb-0">
+                                    <a class="card-toggle collapsed" data-toggle="collapse" href="#cat1"
+                                       aria-expanded="true" aria-controls="cat1">
+                                        <i class="la la-angle-down"></i>
+                                        Категория услуг 1
+                                    </a>
+                                </h5>
+                                <div class="row align-items-center">
+                                    <div class="col-lg-5">Выбрано услуг: 2 из 3</div>
+                                    <div class="col-lg-7">
+                                        <div class="row">
+                                            <label class="col-lg-4 col-form-label">Уровень цен:</label>
+                                            <div class="col-lg-8">
+                                                <select class="form-control m-bootstrap-select m_selectpicker"
+                                                        title="Выберете уровень цен">
+                                                    <option>
+                                                        Уровень 1
+                                                    </option>
+                                                    <option>
+                                                        Уровень 2
+                                                    </option>
+                                                    <option>
+                                                        Уровень 3
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 col-sm-2 m--align-right">
+                                <button class="btn btn-danger btn-sm">
+                                    <i class="la la-remove"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cat1" class="collapse" role="tabpanel" aria-labelledby="cat1">
+                        <div class="card-body">
+                            <table class="table table-sm table-card">
+                                <thead class="thead-main">
+                                <tr>
+                                    <th>Услуга</th>
+                                    <th>Продолжительность</th>
+                                </tr>
+                                </thead>
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Стрижка</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Стрижка мужская
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Длинное название услуги которое может указать пользователь
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Стрижка</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Стрижка мужская
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Стрижка женская
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header" role="tab">
+                        <div class="row">
+                            <div class="col-9 col-sm-10">
+                                <h5 class="mb-0">
+                                    <a class="card-toggle collapsed" data-toggle="collapse" href="#cat2"
+                                       aria-expanded="true" aria-controls="cat2">
+                                        <i class="la la-angle-down"></i>
+                                        Категория услуг 2
+                                    </a>
+                                </h5>
+                                <div class="row align-items-center">
+                                    <div class="col-lg-5">Выбрано услуг: 2 из 3</div>
+                                    <div class="col-lg-7">
+                                        <div class="row">
+                                            <label class="col-lg-4 col-form-label">Уровень цен:</label>
+                                            <div class="col-lg-8">
+                                                <select class="form-control m-bootstrap-select m_selectpicker"
+                                                        title="Выберете уровень цен">
+                                                    <option>
+                                                        Уровень 1
+                                                    </option>
+                                                    <option>
+                                                        Уровень 2
+                                                    </option>
+                                                    <option>
+                                                        Уровень 3
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 col-sm-2 m--align-right">
+                                <button class="btn btn-danger btn-sm">
+                                    <i class="la la-remove"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cat2" class="collapse" role="tabpanel" aria-labelledby="cat2">
+                        <div class="card-body">
+                            <table class="table table-sm table-card">
+                                <thead class="thead-main">
+                                <tr>
+                                    <th>Услуга</th>
+                                    <th>Продолжительность</th>
+                                </tr>
+                                </thead>
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Стрижка</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Стрижка мужская
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Длинное название услуги которое может указать пользователь
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Стрижка</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Стрижка мужская
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="m-checkbox m-checkbox--brand m-0">
+                                            <input type="checkbox">
+                                            Стрижка женская
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="0:30">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Добавить категорию</label>
+                    <div class="col-lg-6">
+                        <select class="form-control m-bootstrap-select m_selectpicker" data-live-search="true"
+                                title="Выберете категорию">
+                            <option>
+                                Категория корневого уровня 1
+                            </option>
+                            <option>
+                                Категория корневого уровня 2
+                            </option>
+                            <option>
+                                Категория корневого уровня 3
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <button class="btn btn-primary">Добавить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-time" role="tabpanel">
+                <div class="form-group row">
+                    <label class="col-auto col-form-label">Салон:</label>
+                    <div class="col-lg-6">
+                        <select class="form-control m-bootstrap-select m_selectpicker" data-live-search="true"
+                                title="Выберете салон">
+                            <option>
+                                Салон 1
+                            </option>
+                            <option>
+                                Салон 2
+                            </option>
+                            <option>
+                                Салон 3
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4">с 02.01.2017: По сменам, 2 раб. / 1 вых. (начало - 14:30; 17:00 - конец)</div>
+                <fieldset>
+                    <legend>Установка нового графика</legend>
+                    <nav class="nav nav-tabs" role="tablist">
+                        <a class="nav-item nav-link active" data-toggle="tab" href="#time-shift" role="tab">По
+                            сменам</a>
+                        <a class="nav-item nav-link" data-toggle="tab" href="#time-weeks" role="tab">По дням недели</a>
+                        <a class="nav-item nav-link" data-toggle="tab" href="#time-manually" role="tab">Вручную</a>
+                    </nav>
+                    <div class="note mb-4"><i class="la la-info-circle"></i>Для того чтобы установить интервал рабочего
+                        времени равным началу или концу рабочего дня салона оставьте поле пустым
+                    </div>
+                    <div class="tab-content tab-time">
+                        <div class="tab-pane fade show active" id="time-shift" role="tabpanel">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Рабочых дней</span>
+                                    <input type="text" class="form-control" value="2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="10:00">
+                                    <span class="input-group-addon">-</span>
+                                    <input type="text" class="form-control" value="20:00">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-primary">
+                              <i class="la la-plus"></i>
+                            </button>
+                          </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="10:00">
+                                    <span class="input-group-addon">-</span>
+                                    <input type="text" class="form-control" value="20:00">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-primary">
+                              <i class="la la-plus"></i>
+                            </button>
+                            <button class="btn btn-danger">
+                              <i class="la la-minus"></i>
+                            </button>
+                          </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Выходных дней</span>
+                                    <input type="text" class="form-control" value="2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="time-weeks" role="tabpanel">
+                            <div class="form-group">
+                                <div class="input-group">
+                          <span class="input-group-addon">
+                            <label class="m-checkbox m-checkbox--brand">
+                              <input type="checkbox" checked>
+                              <span></span>
+                            </label>
+                          </span>
+                                    <span class="input-group-addon" style="width: 42px">Пн</span>
+                                    <input type="text" class="form-control" value="10:00">
+                                    <span class="input-group-addon">-</span>
+                                    <input type="text" class="form-control" value="20:00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group" style="margin-left: 81px">
+                                    <input type="text" class="form-control" value="10:00">
+                                    <span class="input-group-addon">-</span>
+                                    <input type="text" class="form-control" value="20:00">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-primary">
+                              <i class="la la-plus"></i>
+                            </button>
+                            <button class="btn btn-danger">
+                              <i class="la la-minus"></i>
+                            </button>
+                          </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                          <span class="input-group-addon">
+                            <label class="m-checkbox m-checkbox--brand">
+                              <input type="checkbox">
+                              <span></span>
+                            </label>
+                          </span>
+                                    <span class="input-group-addon" style="width: 42px">Вт</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group" style="margin-left: 39px">
+                                    <span class="input-group-addon" style="width: 42px">Ср</span>
+                                    <input type="text" class="form-control" value="10:00">
+                                    <span class="input-group-addon">-</span>
+                                    <input type="text" class="form-control" value="20:00">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-primary">
+                              <i class="la la-plus"></i>
+                            </button>
+                          </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                          <span class="input-group-addon">
+                            <label class="m-checkbox m-checkbox--brand">
+                              <input type="checkbox">
+                              <span></span>
+                            </label>
+                          </span>
+                                    <span class="input-group-addon" style="width: 42px">Чт</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                          <span class="input-group-addon">
+                            <label class="m-checkbox m-checkbox--brand">
+                              <input type="checkbox">
+                              <span></span>
+                            </label>
+                          </span>
+                                    <span class="input-group-addon" style="width: 42px">Пт</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                          <span class="input-group-addon">
+                            <label class="m-checkbox m-checkbox--brand">
+                              <input type="checkbox">
+                              <span></span>
+                            </label>
+                          </span>
+                                    <span class="input-group-addon" style="width: 42px">Сб</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                          <span class="input-group-addon">
+                            <label class="m-checkbox m-checkbox--brand">
+                              <input type="checkbox">
+                              <span></span>
+                            </label>
+                          </span>
+                                    <span class="input-group-addon" style="width: 42px">Вс</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="time-manually" role="tabpanel"></div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Применить изменения с</label>
+                        <div class="col-lg-4">
+                            <div class="input-group date" id="datepicker-2">
+                                <input type="text" class="form-control m-input" value="05/20/2017" readonly/>
+                                <span class="input-group-addon">
+                          <i class="la la-calendar-check-o"></i>
+                        </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-primary">Установить</button>
+                        </div>
+                    </div>
+                    <div class="collapse-item">
+                        <a class="collapsed" data-toggle="collapse" href="#history">
+                            <span>История графиков работы:</span>
+                            <i class="la la-angle-down"></i>
+                        </a>
+                        <div id="history" class="collapse" role="tabpanel">
+                            <table class="table table-sm table-auto mt-3">
+                                <tbody>
+                                <tr>
+                                    <td><span class="mr-4">с 02.09.2016:</span></td>
+                                    <td>По сменам, 2 раб. / 3 вых. (10:00 - 20:30)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="mr-4">с 02.09.2016:</span></td>
+                                    <td>По сменам, 2 раб. / 3 вых. (10:00 - 20:30)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="mr-4">с 02.09.2016:</span></td>
+                                    <td>По сменам, 2 раб. / 3 вых. (10:00 - 20:30)</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <app-dialog-footer
+            [showDeleteButton]="!isCreateForm"
+            [submitButtonText]="submitButtonText"
+            [loading]="loading"
+            (delete)="onDelete()"
+            (close)="onClose()"
+    ></app-dialog-footer>
+</form>

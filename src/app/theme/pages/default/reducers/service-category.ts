@@ -30,7 +30,8 @@ export const selectServiceCategoriesDataSource = createSelector(
     (categories: ServiceCategoryModel[]) => categories.map(c => ({
         id: c.id,
         title: c.title,
-        parent_id: c.parent_id
+        parent_id: c.parent_id,
+        entity: c
     }))
 );
 
@@ -39,35 +40,5 @@ export const selectServiceCategoriesExtendedDataSource = createSelector(
     (categories: any[]) => {
         categories.unshift({id: -1, title: 'Нет', parent_id: null});
         return categories;
-    }
-);
-/**
- * tree structure
- */
-export const selectServiceCategoriesTreeDataSource = createSelector(
-    selectAllServiceCategories,
-    selectServiceCategoryEntities,
-    (categories, idMap) => {
-
-        let items = [];
-        (<Array<any>>categories).forEach(category => {
-            if(!category.items) {
-                category.items = [];
-            }
-
-            if(category.parent_id) {
-                let parent = idMap[category.parent_id];
-                if(!parent.items) {
-                    parent.items = [];
-                }
-
-                parent.items.push(category);
-            }
-            else {
-                items.push(category)
-            }
-        });
-
-        return items;
     }
 );

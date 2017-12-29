@@ -11,19 +11,21 @@ export class SalonService_Service {
 
     get(chainId: number): Observable<any> {
         return this.backend.get(`${chainId}/service`)
-            .map(res => res.json().data);
+            .map(res => res.json().data.services);
     }
 
     create(value: SalonServiceModel): Observable<any> {
-        return this.backend.post(`${value.chain_id}/service`, value);
+        return this.backend.post(`${value.chain_id}/service`, value)
+            .map(res => res.json().data.service);
     }
 
     update(value: SalonServiceModel): Observable<any> {
-        return this.backend.put(``, value);
+        return this.backend.put(`${value.chain_id}/service/${value.id}`, value)
+            .map(res => res.json().data.service);
     }
 
     delete(value: SalonServiceModel): Observable<any> {
-        return this.backend.delete(``);
+        return this.backend.delete(`${value.chain_id}/service/${value.id}`);
     }
 
     setNewPrices(newPrices: any): Observable<any> {

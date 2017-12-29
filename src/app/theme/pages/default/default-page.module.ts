@@ -15,6 +15,7 @@ import {SalonEffects} from "../../../salon/effects/salon.effects";
 import * as fromChain from "../../../chain/actions/collection";
 import * as fromSalon from "../../../salon/actions/collection";
 import * as fromPosition from "../../../position/actions/collection";
+import * as fromEmployee from "../../../employee/actions/collection";
 import * as fromServiceCategory from "../../../services-category/actions/collection";
 import * as fromSalonService from "../../../salon-service/actions/collection";
 import {PositionEffects} from "../../../position/effects/position.effects";
@@ -23,6 +24,8 @@ import {ServiceCategoryService} from "../../../services-category/service-categor
 import {SalonService_Service} from "../../../salon-service/salon-service.service";
 import {ServiceCategoryCollectionEffects} from "../../../services-category/effects/collection.effects";
 import {SalonServiceCollectionEffects} from "../../../salon-service/effects/collection.effects";
+import {EmployeeEffects} from "../../../employee/effects/employee.effects";
+import {EmployeeService} from "../../../employee/employee.service";
 
 @NgModule({
     imports: [
@@ -34,6 +37,7 @@ import {SalonServiceCollectionEffects} from "../../../salon-service/effects/coll
             SalonCollectionEffects,
             SalonEffects,
             PositionEffects,
+            EmployeeEffects,
             ServiceCategoryCollectionEffects,
             SalonServiceCollectionEffects
         ])
@@ -42,6 +46,7 @@ import {SalonServiceCollectionEffects} from "../../../salon-service/effects/coll
     providers: [
         SalonService,
         EmployeePositionService,
+        EmployeeService,
         GeoNamesService,
         BackendService,
         ServiceCategoryService,
@@ -55,6 +60,7 @@ import {SalonServiceCollectionEffects} from "../../../salon-service/effects/coll
         { provide: fromChain.ChainCollectionActions, useValue: fromChain.collectionActions },
         { provide: fromSalon.SalonCollectionActions, useValue: fromSalon.collectionActions },
         { provide: fromPosition.PositionCollectionActions, useValue: fromPosition.collectionActions },
+        { provide: fromEmployee.EmployeeCollectionActions, useValue: fromEmployee.collectionActions },
         { provide: fromServiceCategory.ServiceCategoryCollectionActions, useValue: fromServiceCategory.collectionActions },
         { provide: fromSalonService.SalonServiceCollectionActions, useValue: fromSalonService.collectionActions },
     ]

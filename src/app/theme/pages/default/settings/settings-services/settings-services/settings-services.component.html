@@ -49,10 +49,6 @@
                 <div class="m-portlet__body">
                     <div class="m-widget5">
                         <div class="m-widget5__item">
-                            <app-filter-by-chain></app-filter-by-chain>
-
-                        </div>
-                        <div class="m-widget5__item">
                             <!--begin: Services-->
                             <div class="services">
                                 <dx-tree-view
@@ -67,13 +63,14 @@
 
                                     <div  *dxTemplate="let data of 'item'">
                                         <div class="row align-items-center">
-                                            <div class="col">
+                                            <div class="col" [ngClass]="{'category': !data.isService}">
                                                 <span>
                                                   {{ data.title }}
                                                 </span>
                                             </div>
                                             <div class="col-auto ml-auto">
-                                                <button type="button" class="btn-sm btn-secondary" (click)="openEditCategoryForm(data)">
+                                                <button type="button" class="btn-sm btn-secondary"
+                                                        (click)="data.isService ? openEditServiceForm(data.entity) : openEditCategoryForm(data.entity)">
                                                     <i class="la la-edit"></i>
                                                 </button>
                                             </div>
@@ -82,6 +79,7 @@
 
                                 </dx-tree-view>
                             </div>
+
                             <!--end: Services-->
                         </div>
                     </div>

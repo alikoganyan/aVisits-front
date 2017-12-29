@@ -37,16 +37,9 @@ export function localStorageSyncFilterReducer(reducer: ActionReducer<any>): Acti
     })(reducer);
 }
 
-function getMetaReducers() {
-    let reducers: any = [localStorageSyncAuthReducer, localStorageSyncFilterReducer];
-    if(!environment.production) {
-        reducers.push(storeFreeze);
-    }
-
-    return reducers;
-}
-
-export const metaReducers: Array<MetaReducer<any, any>> = getMetaReducers();
+export const metaReducers: Array<MetaReducer<any, any>> = environment.production
+    ? [localStorageSyncAuthReducer, localStorageSyncFilterReducer]
+    : [localStorageSyncAuthReducer, localStorageSyncFilterReducer, storeFreeze];
 
 // export const selectLayoutState = createFeatureSelector<fromLayout.State>('layout');
 //

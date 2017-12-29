@@ -54,6 +54,10 @@ body,
 .services .dx-treeview .dx-treeview-node.dx-state-focused > .dx-treeview-item.dx-item * {
   color: initial;
 }
+.services .category,
+.services .dx-treeview .dx-treeview-node.dx-state-focused > .dx-treeview-item.dx-item .category span {
+  color: #5867dd;
+}
 .services .dx-treeview .dx-treeview-toggle-item-visibility {
   height: 39px;
   border-top: none;
@@ -146,6 +150,16 @@ body,
 }
 
 /* responsive */
+@media (min-width: 1200px) {
+  .m-portlet-filters .m-portlet__head .m-portlet__head-tools {
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .m-portlet-filters .m-portlet__body {
+    display: none;
+  }
+}
 @media (max-width: 992px) {
   .m-body .m-wrapper {
     min-height: calc(100vh - 60px);
@@ -159,6 +173,15 @@ body,
   }
   .m-portlet .m-portlet__body {
     padding: 10px;
+  }
+  .select-salon .m-dropdown__wrapper {
+    width: 100%;
+  }
+  .table-schedule-sidebar thead:nth-child(1) th {
+    height: 46px;
+  }
+  .m-portlet-filters .m-portlet__head .m-portlet__head-tools {
+    display: table-cell;
   }
 }
 @media (min-width: 993px) {
@@ -185,6 +208,56 @@ body,
   .modal .modal-content .modal-footer {
     padding: 10px;
   }
+  .card-header,
+  .card-body {
+    padding: 10px;
+  }
+  /* tab time */
+  .tab-time .form-control {
+    max-width: 70px;
+  }
+  .tab-time .input-group-btn .btn {
+    padding: 10px;
+  }
+  .table-grid-sidebar {
+    flex: 0 0 90px;
+  }
+  .table-grid-container {
+    flex: 0 0 calc(100% - 90px);
+  }
+}
+
+/* select salon */
+.select-salon {
+  padding: 20px 30px 0;
+}
+.select-salon .m-dropdown__toggle {
+  display: block;
+  padding: 0;
+  color: white;
+  text-align: left;
+}
+.select-salon .m-dropdown__body {
+  max-height: 450px;
+  overflow: auto;
+}
+.select-salon .dx-texteditor {
+   background: none;
+   border: none;
+   border-radius: 0;
+}
+
+/* menu */
+.m-aside-menu .m-menu__nav {
+  padding-top: 20px;
+}
+.m-menu__link.d-block {
+  height: auto!important;
+  padding: 10px 10px 10px 65px!important;
+}
+
+.m-stack.m-stack--general {
+  table-layout: initial;
 }
 
 //modal animation

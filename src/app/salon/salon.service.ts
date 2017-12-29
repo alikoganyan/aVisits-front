@@ -10,6 +10,7 @@ import { Subject } from "rxjs/Subject";
 import { Subscription } from "rxjs/Subscription";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import _ = require("lodash");
+import {Utils} from "../shared/utils";
 
 @Injectable()
 export class SalonService {
@@ -36,8 +37,8 @@ export class SalonService {
             });
     }
 
-    getSalonById(id): Observable<any> {
-        return this.backend.get(`${this.currentChainId}/salon/${id}`)
+    getSalonById(args): Observable<any> {
+        return this.backend.get(`${args.chain_id}/salon/${args.id}`)
             .map(res => res.json().data)
             .map(data => new Salon(data));
     }
@@ -48,7 +49,7 @@ export class SalonService {
 
     createSalon(salon: Salon): Observable<any> {
         let chainId = salon.chain_id;
-        let data = _.cloneDeep(salon);
+        let data = Utils.transformImgOnSave(salon);
         data.chain_id = 0;
 
         return this.backend.post(`${chainId}/salon`, data)
@@ -56,7 +57,11 @@ export class SalonService {
     }
 
     updateSalon(salon: Salon): Observable<any> {
-        return this.backend.put(`${salon.chain_id}/salon`, salon);
+        let chainId = salon.chain_id;
+        let data = Utils.transformImgOnSave(salon);
+        data.chain_id = 0;
+
+        return this.backend.post(`${chainId}/salon`, data);
     }
 
     delete(salon: Salon): Observable<any> {

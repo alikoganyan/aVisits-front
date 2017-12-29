@@ -23,6 +23,11 @@ const settingsRoutes: Routes = [
                 data: { title: 'Должности' }
             },
             {
+                path: 'employees',
+                loadChildren: './settings-employees/settings-employees.module#SettingsEmployeesModule',
+                data: { title: 'Сотрудники' }
+            },
+            {
                 path: 'services',
                 loadChildren: './settings-services/settings-services.module#SettingsServicesModule',
                 data: { title: 'Услуги' }

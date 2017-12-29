@@ -12,6 +12,7 @@ export class SalonServiceModel implements UniqueEntity {
     available_for_online_recording: boolean;
     only_for_online_recording: boolean;
 
+    salonIds: Array<any>;
 
     constructor(obj?: any) {
         obj = obj || {};
@@ -20,10 +21,11 @@ export class SalonServiceModel implements UniqueEntity {
         this.id = obj.id || null;
         this.title = obj.title || '';
         this.description = obj.description || 'description';
-        this.service_category_id = obj.service_category_id || '';
+        this.service_category_id = obj.service_category_id || null;
         this.duration = obj.duration || '';
         this.price = obj.price || '';
         this.available_for_online_recording = obj.available_for_online_recording || false;
         this.only_for_online_recording = obj.only_for_online_recording || false;
+        this.salonIds = obj.salonIds || [];
     }
 }

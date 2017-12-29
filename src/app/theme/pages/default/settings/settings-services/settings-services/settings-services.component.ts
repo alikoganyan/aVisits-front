@@ -11,6 +11,7 @@ import * as fromService from "../../../reducers/salon-service";
 import * as fromFilter from '../../../reducers/filter';
 
 import * as chainActions from '../../../../../../chain/actions/collection';
+import * as salonActions from '../../../../../../salon/actions/collection';
 import * as serviceActions from '../../../../../../salon-service/actions/collection';
 import * as categoryActions from '../../../../../../services-category/actions/collection';
 import * as filterActions from '../../../../../../filter/actions/filter';
@@ -39,7 +40,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
         )
     }
 
-    selectedChainId: number;
+    filterChainId: number;
     subscribeToStore(): void {
         super.subscribeToStore();
 
@@ -47,7 +48,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
             .filter(chainId => !!chainId)
             .subscribe(
                 chainId => {
-                    this.selectedChainId = chainId;
+                    this.filterChainId = chainId;
                     this.store$.dispatch(categoryActions.collectionActions.LoadAll(chainId));
                     this.store$.dispatch(serviceActions.collectionActions.LoadAll(chainId));
                 }
@@ -56,6 +57,7 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
 
     loadEntities(): void {
         this.store$.dispatch(chainActions.collectionActions.LoadAll());
+        this.store$.dispatch(salonActions.collectionActions.LoadAll());
     }
 
     getModalSize(entity?: UniqueEntity): string {
@@ -69,7 +71,8 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
     }
 
     filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
-    categories$ = this.store$.select(fromCategory.selectAllServiceCategories);
+    categories$ = this.store$.select(fromService.selectServicesTreeViewDataSource);
+
 
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,
@@ -81,24 +84,24 @@ export class SettingsServicesComponent extends SettingsMasterViewComponentBase {
      * category
      */
     openCreateCategoryForm() {
-        let category = new ServiceCategoryModel({ chain_id: this.selectedChainId });
+        let category = new ServiceCategoryModel({ chain_id: this.filterChainId });
         this.openModalForm(CreateServiceCategoryComponent, category);
     }
 
     openEditCategoryForm(category: ServiceCategoryModel) {
-        this.openModalForm(EditServiceCategoryComponent, new ServiceCategoryModel({...category, chain_id: this.selectedChainId}));
+        this.openModalForm(EditServiceCategoryComponent, new ServiceCategoryModel({...category, chain_id: this.filterChainId}));
     }
 
     /**
      * service
      */
     openCreateServiceForm() {
-        let service = new SalonServiceModel({ chain_id: this.selectedChainId });
+        let service = new SalonServiceModel({ chain_id: this.filterChainId });
         this.openModalForm(CreateSalonServiceComponent, service);
     }
 
     openEditServiceForm(service: SalonServiceModel) {
-        this.openModalForm(EditSalonServiceComponent, service);
+        this.openModalForm(EditSalonServiceComponent, new SalonServiceModel({...service, chain_id: this.filterChainId}));
     }
 
 

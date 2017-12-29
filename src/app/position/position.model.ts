@@ -13,7 +13,7 @@ export class EmployeePosition implements UniqueEntity {
             this.title = obj.title || '';
             this.description = obj.description || '';
 
-            this.chain_id = obj.chain_id || 66;
+            this.chain_id = obj.chain_id || null;
         }
     }
 }

@@ -4,6 +4,7 @@ import * as fromSalons from '../../../../salon/reducers/index';
 import * as fromPositions from '../../../../position/reducers/position';
 import * as fromServiceCategories from '../../../../services-category/reducers/index';
 import * as fromSalonServices from '../../../../salon-service/reducers/index';
+import * as fromEmployees from '../../../../employee/reducers/employee';
 
 import {ActionReducerMap, combineReducers, createFeatureSelector, createSelector} from "@ngrx/store";
 import {InjectionToken} from "@angular/core";
@@ -14,6 +15,7 @@ export interface State extends fromRoot.State {
     positions: fromPositions.State,
     serviceCategories: fromServiceCategories.State,
     salonServices: fromSalonServices.State,
+    employees: fromEmployees.State,
 }
 
 export function getReducers() {
@@ -23,6 +25,7 @@ export function getReducers() {
         positions: fromPositions.reducers,
         serviceCategories: fromServiceCategories.reducers,
         salonServices: fromSalonServices.reducers,
+        employees: fromEmployees.reducers,
     }
 }
 

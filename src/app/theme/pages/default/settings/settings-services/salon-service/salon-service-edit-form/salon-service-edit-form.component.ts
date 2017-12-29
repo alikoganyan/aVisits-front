@@ -6,6 +6,8 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import * as fromRoot from "../../../../reducers";
 import * as serviceCollectionActions from "../../../../../../../salon-service/actions/collection";
 import * as serviceActions from "../../../../../../../salon-service/actions/service";
+import * as fromSalon from "../../../../reducers/salon";
+import _ = require("lodash");
 
 @Component({
     selector: 'app-salon-service-edit-form',
@@ -19,6 +21,8 @@ export class SalonServiceEditFormComponent extends EditFormBase<SalonServiceMode
     @Output() clone = new EventEmitter<any>();
 
     newPrices: any = {};
+
+    salonsDataSource$ = this.store.select(fromSalon.filterSalonsByChain);
 
     constructor(public activeModal: NgbActiveModal,
                 private store: Store<fromRoot.State>) {
@@ -50,6 +54,19 @@ export class SalonServiceEditFormComponent extends EditFormBase<SalonServiceMode
     }
 
     onCategoryChanged(categoryId) {
-        this.data.service_category_id = categoryId;
+        this.data.service_category_id = categoryId || null;
+    }
+
+    onSalonChecked(e, salonId) {
+        if(e.value) {
+            this.data.salonIds.push(salonId);
+        }
+        else {
+            _.remove(this.data.salonIds, s => s === salonId);
+        }
+    }
+
+    isSalonChecked(salon) {
+        return _.some(this.data.salonIds, s => s === salon.id);
     }
 }

@@ -1,0 +1,27 @@
+<!--begin: Salon-->
+<div class="select-salon">
+    <dx-select-box
+            [items]="filterDataSource$ | async"
+            [valueExpr]="'id'"
+            [displayExpr]="'title'"
+            [grouped]="true"
+
+            (onValueChanged)="onValueChanged($event)"
+
+            fieldTemplate="field"
+    >
+        <div *dxTemplate="let data of 'field'">
+            <dx-text-box
+                    [visible]="false"
+            ></dx-text-box>
+            <a href="#" class="m-dropdown__toggle btn dropdown-toggle">
+                {{ selectedSalonTitle$ | async }}
+            </a>
+        </div>
+
+        <div *dxTemplate="let data of 'dropDownButton'">
+        </div>
+    </dx-select-box>
+
+</div>
+<!--end: Salon-->

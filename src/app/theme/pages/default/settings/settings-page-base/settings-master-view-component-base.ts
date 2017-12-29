@@ -4,9 +4,15 @@ import {ModalConfig, ModalService} from "../../../../../shared/modal.service";
 import * as fromRoot from "../../reducers";
 import {NgbActiveModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {UniqueEntity} from "../../../../../entity-collection/unique-entity";
+import * as filterReducer from "../../../../../reducers/filter";
 
 export abstract class SettingsMasterViewComponentBase implements OnInit {
     protected operationComplete$: Store<boolean>;
+    filterChainId$ = this.store$.select(filterReducer.selectFilterChainId);
+    filterSalonId$ = this.store$.select(filterReducer.selectFilterSalonId);
+
+    protected filterChainId: number;
+    protected filterSalonId: number;
 
     protected modal: NgbModalRef;
 
@@ -18,15 +24,19 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
 
     abstract getSetCurrentEntityAction(entity: UniqueEntity): Action;
 
+    protected getFetchCurrentEntityAction(entity: UniqueEntity): Action { return null; }
+
+    protected get shouldFetchEntityForEdit(): boolean { return false; }
+
     constructor(protected store$: Store<fromRoot.State>,
                 protected modalService: ModalService,
                 protected activeModal: NgbActiveModal,) {
     }
 
     ngOnInit() {
-        this.loadEntities();
         this.initializeSelectors();
         this.subscribeToStore();
+        this.loadEntities();
     }
 
     protected initializeSelectors(): void {
@@ -37,12 +47,18 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
         this.operationComplete$
             .filter(next => next === true)
             .subscribe(
-                operationComplete => this.modal.close()
+                operationComplete => this.modal && this.modal.close()
             );
+
+        this.filterSalonId$
+            .subscribe(salonId => this.filterSalonId = salonId);
+
+        this.filterChainId$
+            .subscribe(chainId => this.filterChainId = chainId);
     }
 
-    openModalForm(formComponent: any, entity: UniqueEntity): void {
-        this.setCurrentEntity(entity);
+    openModalForm(formComponent: any, entity: UniqueEntity, forEdit: boolean = false): void {
+        this.setCurrentEntity(entity, forEdit);
 
         this.modal = this.modalService.open(
             new ModalConfig(formComponent, {
@@ -51,8 +67,12 @@ export abstract class SettingsMasterViewComponentBase implements OnInit {
         );
     }
 
-    setCurrentEntity(entity: UniqueEntity): void {
+    setCurrentEntity(entity: UniqueEntity, forEdit: boolean): void {
         let action = this.getSetCurrentEntityAction(entity);
         this.store$.dispatch(action);
+
+        if(forEdit && this.shouldFetchEntityForEdit) {
+            this.store$.dispatch(this.getFetchCurrentEntityAction(entity));
+        }
     }
 }

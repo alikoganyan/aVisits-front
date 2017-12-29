@@ -58,12 +58,6 @@ export class SettingsPositionsComponent extends SettingsMasterViewComponent<Empl
         return new EmployeePosition();
     }
 
-    loadEntities() {
-        // super.loadEntities();
-
-
-    }
-
     subscribeToStore() {
         super.subscribeToStore();
 
